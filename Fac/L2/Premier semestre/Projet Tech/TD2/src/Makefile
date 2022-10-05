@@ -6,6 +6,7 @@ LDLIBS= -lgame
 ALL : game_text
 
 game_text : game_text.o libgame.a
+	$(CC) $(LDFLAGS) $< -o $@ $(LDLIBS)
 
 game_text.o : game_text.c game.h game_aux.h
 
