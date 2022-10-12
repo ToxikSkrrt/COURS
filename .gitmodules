@@ -1,3 +1,6 @@
 [submodule "Fac/L2/Premier semestre/Projet Tech/TD3/test"]
 	path = Fac/L2/Premier semestre/Projet Tech/TD3/test
 	url = git@gitlab.emi.u-bordeaux.fr:thmoreau/test.git
+[submodule "Fac/L2/Premier semestre/Projet Tech/takuzu-02e"]
+	path = Fac/L2/Premier semestre/Projet Tech/takuzu-02e
+	url = git@gitlab.emi.u-bordeaux.fr:pt2/teams/tm02/takuzu-02e.git
