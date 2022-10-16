@@ -151,3 +151,184 @@ Slist supprimer_dernier(Slist L)
     return L;
 }
 ```
+
+7.
+```c
+Slist supprimer_occurences(Slist L, int x)
+{
+    
+}
+```
+
+8.
+```c
+void afficher_liste(Slist L)
+{
+    
+}
+```
+
+9.
+```c
+Slist inverser_liste(Slist L)
+{
+    
+}
+```
+
+10.
+```c
+Slist concatener_listes(Slist L1, Slist L2)
+{
+    
+}
+```
+
+11.
+```c
+Slist fusionner_listes(Slist L1, Slist L2)
+{
+    if (estVide(L2))
+    {
+        return L1;
+    }
+    if (estVide(L1))
+    {
+        return L2;
+    }
+    Slist Aux2 = L2;
+    if (valeur(L2) < valeur(L1))
+    {
+        L1 = insererEnTete(L1, valeur(L2));
+        Aux2 = suivant(Aux2);
+    }
+    
+    // le premier de L1 le plus petit (pitié j'en peux plus)
+
+    Slist Aux1 = L1;
+
+    while (!estVide(Aux2))
+    {
+        if (estVide(Aux1) || valeur(Aux2) < valeur(suivant(Aux1)))
+        {
+            L1 = insererApres(L1, Aux1, valeur(Aux2));
+            Aux2 = suivant(Aux2);
+        }
+        Aux1 = suivant(Aux1);
+    }
+    return L1;
+}
+```
+
+## Primitive Mystère
+
+C'est la fonction insererApres().
+
+# TD 3
+
+## Exercice 1
+
+```c
+int pgcd(int a, int b)
+{
+    if (a == 1 || b == 1)
+    {
+        return 1;
+    }
+    if (a == b)
+    {
+        return a;
+    }
+    if (a > b)
+    {
+        return pgcd(a - b, b);
+    }
+    if (b > a)
+    {
+        return pgcd(a, b - a);
+    }
+}
+```
+
+ptet faux en fait
+
+## Exercice 2
+
+Oui.
+
+## Exercice 3
+
+PTDR.
+
+## Activités du TD
+
+1.
+```c
+bool appartientR(Slist L, int x)
+{
+    if (estVide(L))
+    {
+        return false;
+    }
+    if (valeur(L) == x)
+    {
+        return true;
+    }
+    return appartientR(suivant(L), x);
+}
+```
+
+2.
+
+En recursif terminal
+```c
+int rangR(Slist L, int x, int rg)
+{
+    if (estVide(L))
+    {
+        return -1;
+    }
+    if (valeur(L) == x)
+    {
+        return rg;
+    }
+    return rangR(suivant(L), x, rg + 1)
+}
+
+int rang(Slist L, int x)
+{
+    return rangR(L, x, 0);
+}
+```
+
+5.
+```c
+Slist ajouter_en_queueR(Slist L, int x)
+{
+    if (estVide(L))
+    {
+        return insererEnTete(L, x):
+    }
+    if (estVide(suivant(L)))
+    {
+        return insererApres(L, L, x);
+    }
+    return ajouter_en_queueR(suivant(L), x);
+}
+```
+
+6.
+```c
+Slist supprimer_dernier(Slist L)
+{
+    if (estVide(L))
+    [
+        return L;
+    ]
+    if (estVide(suivant(L)))
+    {
+        return supprimerEnTete(L, L, x);
+    }
+    return supprimer_dernierR(suivant(L));
+}
+```
