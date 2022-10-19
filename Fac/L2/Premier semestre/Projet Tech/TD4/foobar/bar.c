@@ -1,8 +1,9 @@
 // bar.c
 
 #include "bar.h"
+#include <math.h>
 
 double bar(double x)
 {
-    return x * x;
+    return sqrt(x);
 }

@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/mnt/c/Users/thoma/Documents/COURS/Fac/L2/Premier semestre/Projet Tech/TD4/foobar/bar.c
+bar.h
+/mnt/c/Users/thoma/Documents/COURS/Fac/L2/Premier semestre/Projet Tech/TD4/foobar/bar.h
+math.h
+-
+
+/mnt/c/Users/thoma/Documents/COURS/Fac/L2/Premier semestre/Projet Tech/TD4/foobar/bar.h
+
+/mnt/c/Users/thoma/Documents/COURS/Fac/L2/Premier semestre/Projet Tech/TD4/foobar/foo.c
+

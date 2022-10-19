@@ -1,0 +1,4 @@
+/mnt/c/Users/thoma/Documents/COURS/Fac/L2/Premier semestre/Projet Tech/TD4/foobar/build/CMakeFiles/edit_cache.dir
+/mnt/c/Users/thoma/Documents/COURS/Fac/L2/Premier semestre/Projet Tech/TD4/foobar/build/CMakeFiles/fb.dir
+/mnt/c/Users/thoma/Documents/COURS/Fac/L2/Premier semestre/Projet Tech/TD4/foobar/build/CMakeFiles/rebuild_cache.dir
+/mnt/c/Users/thoma/Documents/COURS/Fac/L2/Premier semestre/Projet Tech/TD4/foobar/build/CMakeFiles/foobar.dir
