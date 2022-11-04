@@ -20,7 +20,9 @@ while True:
                 l.remove(s)
                 s.close()
                 break
-            s.sendall(data)
+            for stest in l:
+                if stest != sServ and stest != s:
+                    stest.sendall(data)
             print(data)
         else:
             s2, addr = s.accept()

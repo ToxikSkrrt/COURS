@@ -332,3 +332,152 @@ Slist supprimer_dernier(Slist L)
     return supprimer_dernierR(suivant(L));
 }
 ```
+
+# TD 4
+
+## Activités du TD
+
+### Exercice 1
+
+Oui
+
+### Exercice 2
+
+1.
+```c
+void print_reverse(DList L);
+```
+
+2.
+```c
+DList copy_reverse_list(DList L);
+```
+
+3.
+```c
+DList copy_list(DList L);
+```
+
+4.
+```c
+DList swap(DList L, DList p1, DList p2)
+{
+    if (!estVide(L) && !estVide(p1) && !estVide(p2))
+    {
+        insererApres(L, p1, valeur(p2));
+        insererApres(L, p2, valeur(p1));
+        supprimerAvant(L, suivant(p1));
+        supprimerAvant(L, suivant(p2));
+        
+        return L
+    }
+    fprintf(stderr, "ERROR\n");
+    exit(EXIT_FAILURE);
+}
+```
+
+Version primitive :
+```c
+DList p_p1 = precedent(p1);
+DList n_p1 = suivant(p1);
+DList p_p2 = precedent(p2);
+DList n_p2 = suivant(p2);
+
+p1->previous = p_p2;
+n_p1->previous = p2;
+p2->previous = p_p1;
+n_p2->previous = p1;
+
+p_p1->next = p2;
+p1->next = n_p2;
+p_p2->next = p1;
+p2->next = n_p1;
+```
+
+Alternative :
+```c
+aux = p1->data;
+p1->data = p2->data;
+p2->data = aux;
+```
+
+5.
+```c
+DList bubble_sort(DList L);
+```
+
+# TD 5
+
+(Pile = LIFO ; File = FIFO)
+
+## Exercice 1
+
+Renvoie "BaB".
+
+## Exercice 2
+
+1.
+```c
+pile_int P2 = creerPile();
+pile_int Aux = creerPile();
+
+while (!pileVide(P1))
+{
+    if (valeurPile(P1) % 2 == 0)
+        P2 = empiler(P2, valeur(P1));
+    else
+        Aux = empiler(Aux, valeur(P1));
+    P1 = depiler(P1);
+}
+while (!pileVide(Aux))
+    P2 = empiler(P2, valeur(Aux))
+    Aux = depiler(Aux);
+
+detruirePile(Aux);
+return P2;
+```
+
+2.
+```c
+pile_int P2 = creerPile();
+pile_int Aux = creerPile();
+
+while(!pileVide(P1))
+{
+    Aux = empiler(Aux, valeur(P1));
+    P1 = depiler(P1);
+}
+while(!pileVide(Aux))
+{
+    P1 = empiler(P1, valeur(Aux));
+    if (valeur(Aux) % 2 == 0)
+        P2 = empiler(P2, valeur(Aux));
+    Aux = depiler(Aux;)
+}
+
+detruirePile(Aux);
+return P2;
+```
+
+## Exerice 3
+
+Renvoie "CabB"
+
+## Exercice 4
+
+F -> 123
+P -> 
+FS -> 321
+v -> 1
+
+La fonction renvoie l'inverse de la file en paramètre.
+La file n'est pas modifiée à la fin.
+Sa complexité est linéaire.
+On ne peut pas l'améliorer.
+
+## Exercice 5
+
+Il faut utiliser une pile.
+
+## Exercice 6
+
