@@ -78,9 +78,6 @@ def NbPointsFixes(s):
 # la partie optionnelle)                   #
 ############################################
 
-def val(s, i):
-    return s[i - 1]
-
 #### Exercice 2.1: permutations
 
 ## 2.1.1: cycles de longueur 2
@@ -90,20 +87,16 @@ def val(s, i):
 # si s(i)>i et s(s(i))=i
 # Attention au décalage entre indices et valeurs
 def Nb2Cycles(s):
-    count = 0
-    for i in range(1, len(s) + 1):
-        if val(s, i) < i and val(s, val(s, i)) == i:
-            count += 1
-    return count
+    return None
 
 ### Code pour compter les 2-cycles dans toutes les permutations
 ### de longueur n
-for n in range(2,10):
-    L = ToutesPermutations(n)
-    cpt = 0
-    for s in L:
-        cpt += Nb2Cycles(s)
-    print("Longueur %d: %d permutations, %d 2-cycles"%(n,len(L),cpt))
+# for n in range(2,10):
+#     L = ToutesPermutations(n)
+#     cpt = 0
+#     for s in L:
+#         cpt += Nb2Cycles(s)
+#     print("Longueur %d: %d permutations, %d 2-cycles"%(n,len(L),cpt))
 
 ## 2.1.2: cycles de longueur autre
 
@@ -111,10 +104,7 @@ for n in range(2,10):
 # s(i), c'est s[i-1] à cause du décalage des indices
 # Idée: itérer la fonction représentée par s, jusqu'à revenir en i
 def LongueurCycle(s,i):
-    count = 0
-    while val(s, i) != i:
-        count +=1
-    return count
+    return None
 
 # La liste retournée donne, pour chaque entier de 1 à n (les longueurs
 # possibles de cycles), le nombre de permutations de taille n où 1 est
@@ -156,23 +146,11 @@ def TotalPics(n):
 #                                                                   #
 #####################################################################
 
-print("\nExercice 2.1: permutations")
+print("Exercice 2.1: permutations")
 print("Question 2.1.1: comptage des cycles de longueur 2")
 
 ##
 ##
-
-s1 = (2, 1, 4, 3)
-res = Nb2Cycles(s1)
-print(f'\nRes pour {s1} -> {res}')
-
-s2 = (2, 1)
-res = Nb2Cycles(s2)
-print(f'\nRes pour {s2} -> {res}')
-
-s3 = (1, 2, 4, 3)
-res = Nb2Cycles(s3)
-print(f'\nRes pour {s3} -> {res}')
 
 ## Formule proposée pour le nombre toal de cycles de longueur 2 dans
 ## l'ensemble des permutations de taille n:

@@ -28,39 +28,18 @@ def TousDifferents(L):
 
 # Codage de n comme séquence binaire de longueur k
 def EntierVersBinaire(k,n):
-    if not(n > 0 and n < 2 ** k - 1):
-        return None
-    codeB = k * [0]
-    for i in range(k):
-        index = 2 ** (k - 1 - i)
-        if n >= index:
-            codeB[i] = 1
-            n -= index
-    return tuple(codeB)
+    return None
 
 # Décodage: à partir de la séquence binaire, retrouver n
 # NOTE: on n'a pas besoin de calculs de puissances
 def BinaireVersEntier(t):
-    res = 0
-    for i in range(len(t)):
-        if t[i] == 1:
-            res = res * 2 + 1
-        else:
-            res *= 2
-    return res
+    return None
 
 # Liste de toutes les séquences binaires de longueur k
 # Algorithme suggéré: prendre les entiers entre 0 et 2**k -1
 # et les convertir en séquences binaires
 def ToutesSequencesBinaires(k):
-    list = []
-    count = 1
-    res = 0
-    while res != None:
-        res = entVersBin(k, count)
-        list += res
-        count += 1
-    return list
+    return None
 
 # Nombre maximum de 1 consécutifs dans un tuple t
 def NbConsecutifs(t):
@@ -194,14 +173,6 @@ def NbDerangements(n):
 
 print("Exercice 1: séquences binaires")
 #...
-entVersBin = EntierVersBinaire(4, 13)
-print(f'Q1 : 13 -> {entVersBin}')
-
-binVersENt = BinaireVersEntier((1, 1, 0, 1))
-print(f'Q2 : (1, 1, 0, 1) -> {binVersENt}')
-
-tsb = ToutesSequencesBinaires(4)
-print(f'Q3 : Pour k = 4 -> {tsb}')
 
 print("\n\nExercice 2: parties d'un ensemble")
 #...
