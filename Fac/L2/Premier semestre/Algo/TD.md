@@ -470,10 +470,10 @@ P ->
 FS -> 321
 v -> 1
 
-La fonction renvoie l'inverse de la file en paramètre.
-La file n'est pas modifiée à la fin.
-Sa complexité est linéaire.
-On ne peut pas l'améliorer.
+La fonction renvoie l'inverse de la file en paramètre.  
+La file n'est pas modifiée à la fin.  
+Sa complexité est linéaire.  
+On ne peut pas l'améliorer.  
 
 ## Exercice 5
 
@@ -481,3 +481,65 @@ Il faut utiliser une pile.
 
 ## Exercice 6
 
+Il faut utiliser une file et une pile.
+
+## Exercice 7
+
+Oui
+
+## Exercice 8
+
+x y + z + = (x + y) + z  
+x y z + + = x + (y + z)
+
+## Exercice 8.1
+
+```c
+char evaluation(char op1, char op2, char op) {
+    char *end1;
+    char *end2;
+    if (op == "+") {
+        return strtol(op1, end1, 10) + strtol(op2, end2, 10);
+    }
+    else if (op == "-") {
+        return strtol(op1, end1, 10) - strtol(op2, end2, 10);
+    }
+    else if (op == "*") {
+        return strtol(op1, end1, 10) * strtol(op2, end2, 10);
+    }
+    else if (op == "/") {
+        return strtol(op1, end1, 10) / strtol(op2, end2, 10);
+    }
+}
+
+int evaluationEAP(char *t, int n) {
+    pile_int = creerPile();
+    int op1, op2;
+    for (int i = 0; i < n; i++) {
+        if (estNombre(t[i])) {
+            p = empiler(p, t[i]);
+        }
+        op2 = valeurPile(p);
+        p = depiler(p);
+        op1 = valeurPile(p);
+        p = depiler(p);
+        p = empiler(p, evaluation(op1, op2, t[i]));
+    }
+    int res = valeurPile(p);
+    if (pileVide(p))
+        return res;
+    fprintf(stderr, "ERROR\n");
+    exit(EXIT_FAILURE);
+}
+```
+## Exercice 8.2
+
+```c
+char *eacp2eap(char *src) {
+    
+}
+
+char *eau2eap(char *src) {
+
+}
+```
