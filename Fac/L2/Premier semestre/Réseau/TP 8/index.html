@@ -10,11 +10,12 @@
     <title>Les MMORPG (ou Meuporgs)</title>
     <link rel="shortcut icon" href="media/Logo.ico" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="mystyle.css">
+    <script type="text/javascript" src="myscript.js"></script>
 </head>
 
 <body>
     <header>
-        <h1>LES MMORPG</h1>
+        <h1 onclick="func1()">LES MMORPG</h1>
         <h3>(ou Meuporgs)</h3>
     </header>
     <section id="MENU">
@@ -26,51 +27,59 @@
             </ol>
         </nav>
     </section>
-    <section id="LISTEMMORPG">
-        <p><strong><em>Les MMORPG les plus populaires</em></strong></p>
-        <ul>
-            <li><a href="https://worldofwarcraft.com/fr-fr/">World of Warcraft</a> <em>(Objectivement le meilleur)</em>
-            </li>
-            <img src="media/WoW.png">
-            <li><a href="https://fr.finalfantasyxiv.com/">Final Fantasy XIV</a></li>
-            <img src="media/FFXIV.png">
-            <li><a href="https://www.elderscrollsonline.com/fr/home">The Elder Scrolls Online</a></li>
-            <img src="media/TESO.png">
-            <li><a href="https://www.naeu.playblackdesert.com/fr-FR/main/index">Black Desert Online</a></li>
-            <img src="media/BDO.png">
-            <li><a href="https://www.guildwars2.com/fr/">Guild Wars 2</a></li>
-            <img src="media/GW2.png">
-        </ul>
-    </section>
-    <section id="AVISWOW">
-        <p><strong><em>Les points forts et points faibles de World of Warcraft (car c'est le seul et unique vrai Meuporg
-                    je veux rien savoir...</em></strong></p>
-        <table>
-            <thead>
-                <tr>
-                    <th colspan="2">World of Warcraft</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th>Points forts</th>
-                    <th>Points faibles</th>
-                </tr>
-                <tr>
-                    <td>Meilleur jeu du monde</td>
-                    <td>On mange de l'eau pour pouvoir payer l'abonnement</td>
-                </tr>
-                <tr>
-                    <td>Connaissez-vous la classe Voleur ?</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>LES DRAGONS !</td>
-                    <td></td>
-                </tr>
-            </tbody>
-        </table>
-    </section>
+    <div id="SECTIONS">
+        <div class="column">
+            <section id="LISTEMMORPG">
+                <p><strong><em>Les MMORPG les plus populaires</em></strong></p>
+                <ul>
+                    <li><a href="https://worldofwarcraft.com/fr-fr/">World of Warcraft</a> <em>(Objectivement le
+                            meilleur)</em>
+                    </li>
+                    <img id="imgwow" src="media/WoW.png" onmousemove="func2()">
+                    <li><a href="https://fr.finalfantasyxiv.com/">Final Fantasy XIV</a></li>
+                    <img src="media/FFXIV.png">
+                    <li><a href="https://www.elderscrollsonline.com/fr/home">The Elder Scrolls Online</a></li>
+                    <img src="media/TESO.png">
+                    <li><a href="https://www.naeu.playblackdesert.com/fr-FR/main/index">Black Desert Online</a></li>
+                    <img src="media/BDO.png">
+                    <li><a href="https://www.guildwars2.com/fr/">Guild Wars 2</a></li>
+                    <img src="media/GW2.png">
+                </ul>
+            </section>
+        </div>
+        <div class="column">
+            <section id="AVISWOW">
+                <p><strong><em>Les points forts et points faibles de World of Warcraft (car c'est le seul et unique vrai
+                            Meuporg
+                            je veux rien savoir...)</em></strong></p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th colspan="2">World of Warcraft</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>Points forts</th>
+                            <th>Points faibles</th>
+                        </tr>
+                        <tr>
+                            <td>Meilleur jeu du monde</td>
+                            <td>On mange de l'eau pour pouvoir payer l'abonnement</td>
+                        </tr>
+                        <tr>
+                            <td>Connaissez-vous la classe Voleur ?</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>LES DRAGONS !</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </div>
+    </div>
     <footer>
         <em>Psssst... On vous a déjà dis que World of Warcraft est un jeu incroyable ?</em>
     </footer>

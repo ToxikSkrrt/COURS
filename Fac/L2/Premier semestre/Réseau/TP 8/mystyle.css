@@ -1,0 +1,59 @@
+* {
+    box-sizing: border-box;
+}
+
+img {
+    size: 10%;
+}
+
+body {
+    background-image: url("media/Background.jpg");
+    background-color: black;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: gold;
+}
+
+header {
+    text-align: center;
+    font-size: 40px;
+    margin: auto;
+    background-color: rgba(106, 0, 255, 0.411);
+}
+
+h1:hover {
+    color: cyan;
+}
+
+a:any-link {
+    color: red;
+}
+
+.SECTIONS::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.column {
+    flex: 50%;
+    float: left;
+    padding: 10px;
+}
+
+img {
+    width: 30%;
+    margin-bottom: 100px;
+}
+
+table {
+    text-align: center;
+    border: 10px;
+}
+
+@media (max-width: 600px) {
+    .column {
+        width: 100%;
+    }
+}
