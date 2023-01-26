@@ -1,0 +1,28 @@
+==2942== 24 bytes in 1 blocks are indirectly lost in loss record 1 of 4
+==2942==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2942==    by 0x111382: queue_new (queue.c:30)
+==2942==    by 0x110FDE: game_new_empty_ext (game_ext.c:31)
+==2942==    by 0x10CCE5: test_game_new_empty_ext (game_test_pdinghin.c:85)
+==2942==    by 0x10E4DA: main (game_test_pdinghin.c:308)
+==2942== 
+==2942== 24 bytes in 1 blocks are indirectly lost in loss record 2 of 4
+==2942==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2942==    by 0x111382: queue_new (queue.c:30)
+==2942==    by 0x111002: game_new_empty_ext (game_ext.c:32)
+==2942==    by 0x10CCE5: test_game_new_empty_ext (game_test_pdinghin.c:85)
+==2942==    by 0x10E4DA: main (game_test_pdinghin.c:308)
+==2942== 
+==2942== 96 bytes in 1 blocks are indirectly lost in loss record 3 of 4
+==2942==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2942==    by 0x10E726: my_calloc (game.c:20)
+==2942==    by 0x110FBA: game_new_empty_ext (game_ext.c:30)
+==2942==    by 0x10CCE5: test_game_new_empty_ext (game_test_pdinghin.c:85)
+==2942==    by 0x10E4DA: main (game_test_pdinghin.c:308)
+==2942== 
+==2942== 184 (40 direct, 144 indirect) bytes in 1 blocks are definitely lost in loss record 4 of 4
+==2942==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2942==    by 0x10E68E: my_malloc (game.c:11)
+==2942==    by 0x110F65: game_new_empty_ext (game_ext.c:25)
+==2942==    by 0x10CCE5: test_game_new_empty_ext (game_test_pdinghin.c:85)
+==2942==    by 0x10E4DA: main (game_test_pdinghin.c:308)
+==2942== 

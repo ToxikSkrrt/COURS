@@ -1,0 +1,15 @@
+==2947== 12 bytes in 1 blocks are definitely lost in loss record 1 of 2
+==2947==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2947==    by 0x10E68E: my_malloc (game.c:11)
+==2947==    by 0x10FF26: game_play_move (game.c:279)
+==2947==    by 0x10C81B: test_game_redo (game_test_pdinghin.c:41)
+==2947==    by 0x10E61B: main (game_test_pdinghin.c:316)
+==2947== 
+==2947== 12 bytes in 1 blocks are definitely lost in loss record 2 of 2
+==2947==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2947==    by 0x10E68E: my_malloc (game.c:11)
+==2947==    by 0x10FF26: game_play_move (game.c:279)
+==2947==    by 0x11121A: game_undo (game_ext.c:59)
+==2947==    by 0x10C866: test_game_redo (game_test_pdinghin.c:43)
+==2947==    by 0x10E61B: main (game_test_pdinghin.c:316)
+==2947== 

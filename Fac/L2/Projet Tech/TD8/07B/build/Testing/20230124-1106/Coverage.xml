@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Site BuildName="Linux-cc"
+	BuildStamp="20230124-1106-Experimental"
+	Name="LAPTOP-FER055GC"
+	Generator="ctest-3.16.3"
+	CompilerName=""
+	CompilerVersion=""
+	OSName="Linux"
+	Hostname="LAPTOP-FER055GC"
+	OSRelease="5.15.79.1-microsoft-standard-WSL2"
+	OSVersion="#1 SMP Wed Nov 23 01:01:46 UTC 2022"
+	OSPlatform="x86_64"
+	Is64Bits="1"
+	VendorString="GenuineIntel"
+	VendorID="Intel Corporation"
+	FamilyID="6"
+	ModelID="140"
+	ProcessorCacheSize="8192"
+	NumberOfLogicalCPU="8"
+	NumberOfPhysicalCPU="4"
+	TotalVirtualMemory="1024"
+	TotalPhysicalMemory="3815"
+	LogicalProcessorsPerPhysical="2"
+	ProcessorClockFrequency="2419.21"
+	>
+	<Coverage>
+		<StartDateTime>Jan 24 12:07 CET</StartDateTime>
+		<StartTime>1674558451</StartTime>
+		<File Name="game.c" FullPath="./game.c" Covered="true">
+			<LOCTested>186</LOCTested>
+			<LOCUnTested>9</LOCUnTested>
+			<PercentCoverage>95.38</PercentCoverage>
+			<CoverageMetric>0.96</CoverageMetric>
+		</File>
+		<File Name="game_aux.c" FullPath="./game_aux.c" Covered="true">
+			<LOCTested>67</LOCTested>
+			<LOCUnTested>0</LOCUnTested>
+			<PercentCoverage>100.00</PercentCoverage>
+			<CoverageMetric>1.00</CoverageMetric>
+		</File>
+		<File Name="game_ext.c" FullPath="./game_ext.c" Covered="true">
+			<LOCTested>39</LOCTested>
+			<LOCUnTested>1</LOCUnTested>
+			<PercentCoverage>97.50</PercentCoverage>
+			<CoverageMetric>0.98</CoverageMetric>
+		</File>
+		<File Name="game_test_ecallet.c" FullPath="./game_test_ecallet.c" Covered="true">
+			<LOCTested>302</LOCTested>
+			<LOCUnTested>45</LOCUnTested>
+			<PercentCoverage>87.03</PercentCoverage>
+			<CoverageMetric>0.87</CoverageMetric>
+		</File>
+		<File Name="game_test_ninteyineza.c" FullPath="./game_test_ninteyineza.c" Covered="true">
+			<LOCTested>118</LOCTested>
+			<LOCUnTested>58</LOCUnTested>
+			<PercentCoverage>67.05</PercentCoverage>
+			<CoverageMetric>0.69</CoverageMetric>
+		</File>
+		<File Name="game_test_pdinghin.c" FullPath="./game_test_pdinghin.c" Covered="true">
+			<LOCTested>174</LOCTested>
+			<LOCUnTested>46</LOCUnTested>
+			<PercentCoverage>79.09</PercentCoverage>
+			<CoverageMetric>0.80</CoverageMetric>
+		</File>
+		<File Name="game_text.c" FullPath="./game_text.c" Covered="true">
+			<LOCTested>60</LOCTested>
+			<LOCUnTested>2</LOCUnTested>
+			<PercentCoverage>96.77</PercentCoverage>
+			<CoverageMetric>0.97</CoverageMetric>
+		</File>
+		<File Name="queue.c" FullPath="./queue.c" Covered="true">
+			<LOCTested>48</LOCTested>
+			<LOCUnTested>49</LOCUnTested>
+			<PercentCoverage>49.48</PercentCoverage>
+			<CoverageMetric>0.54</CoverageMetric>
+		</File>
+		<LOCTested>994</LOCTested>
+		<LOCUntested>210</LOCUntested>
+		<LOC>1204</LOC>
+		<PercentCoverage>82.56</PercentCoverage>
+		<EndDateTime>Jan 24 12:07 CET</EndDateTime>
+		<EndTime>1674558472</EndTime>
+		<ElapsedMinutes>0</ElapsedMinutes>
+	</Coverage>
+</Site>

@@ -1,0 +1,329 @@
+        -:    0:Source:/mnt/c/Users/thoma/Documents/COURS/Fac/L2/Projet Tech/TD8/07B/game_test_ninteyineza.c
+        -:    0:Graph:/mnt/c/Users/thoma/Documents/COURS/Fac/L2/Projet Tech/TD8/07B/build/CMakeFiles/game_test_ninteyineza.dir/game_test_ninteyineza.c.gcno
+        -:    0:Data:/mnt/c/Users/thoma/Documents/COURS/Fac/L2/Projet Tech/TD8/07B/build/CMakeFiles/game_test_ninteyineza.dir/game_test_ninteyineza.c.gcda
+        -:    0:Runs:18
+        -:    1:#define __USE_GNU
+        -:    2:#include <stdbool.h>
+        -:    3:#include <stdio.h>
+        -:    4:#include <stdlib.h>
+        -:    5:#include <string.h>
+        -:    6:
+        -:    7:#include "game.h"
+        -:    8:#include "game_aux.h"
+        -:    9:#include "game_ext.h"
+        -:   10:#include "game_struct.h"
+        -:   11:
+        -:   12:/* ********** ASSERT ********** */
+        -:   13:#define assert(expr)                                                          \
+        -:   14:  do {                                                                        \
+        -:   15:    if ((expr) == 0) {                                                        \
+        -:   16:      fprintf(stderr, "[%s:%d] Assertion '%s' failed!\n", __FILE__, __LINE__, \
+        -:   17:              #expr);                                                         \
+        -:   18:      abort();                                                                \
+        -:   19:    }                                                                         \
+        -:   20:  } while (0)
+        -:   21:
+        -:   22:square mesSquares[] = {S_EMPTY, S_ONE,   S_EMPTY, S_ONE,   S_ZERO,  S_EMPTY,
+        -:   23:                       S_ONE,   S_EMPTY, S_ONE,   S_ZERO,  S_ONE,   S_EMPTY,
+        -:   24:                       S_EMPTY, S_EMPTY, S_ONE,   S_EMPTY, S_EMPTY, S_ZERO,
+        -:   25:                       S_ONE,   S_ZERO,  S_ZERO,  S_ONE,   S_EMPTY, S_EMPTY};
+        -:   26:
+        -:   27:square mesSquares1[] = {
+        -:   28:    S_EMPTY, S_EMPTY, S_EMPTY, S_ONE,   S_ZERO,          S_EMPTY,
+        -:   29:    S_ONE,   S_EMPTY, S_ONE,   S_ZERO,  S_EMPTY,         S_EMPTY,
+        -:   30:    S_EMPTY, S_ONE,   S_EMPTY, S_ONE,   S_IMMUTABLE_ONE, S_IMMUTABLE_ZERO,
+        -:   31:    S_EMPTY, S_EMPTY, S_EMPTY, S_EMPTY, S_ONE,           S_ONE,
+        -:   32:    S_EMPTY, S_EMPTY, S_EMPTY, S_ONE,   S_ZERO,          S_ZERO,
+        -:   33:    S_ONE,   S_ZERO,  S_ONE,   S_ONE,   S_IMMUTABLE_ONE, S_EMPTY,
+        -:   34:};
+        -:   35:
+        2:   36:int test_dummy() { return 0; }
+        -:   37:
+    #####:   38:int test_game_print(void) {
+    #####:   39:  game g = game_default();
+    #####:   40:  game_print(g);
+    #####:   41:  game_delete(g);
+    #####:   42:  return EXIT_SUCCESS;
+        -:   43:}
+        -:   44:
+        2:   45:int test_game_default() {
+        2:   46:  game test = game_default();
+        -:   47:
+        2:   48:  square testsquares[6][6] = {
+        -:   49:      {S_EMPTY, S_IMMUTABLE_ONE, S_IMMUTABLE_ZERO, S_EMPTY, S_EMPTY, S_EMPTY},
+        -:   50:      {S_EMPTY, S_EMPTY, S_EMPTY, S_EMPTY, S_EMPTY, S_EMPTY},
+        -:   51:      {S_EMPTY, S_IMMUTABLE_ZERO, S_EMPTY, S_EMPTY, S_IMMUTABLE_ZERO, S_EMPTY},
+        -:   52:      {S_EMPTY, S_IMMUTABLE_ZERO, S_IMMUTABLE_ONE, S_EMPTY, S_EMPTY, S_EMPTY},
+        -:   53:      {S_EMPTY, S_EMPTY, S_IMMUTABLE_ONE, S_EMPTY, S_EMPTY, S_IMMUTABLE_ZERO},
+        -:   54:      {S_EMPTY, S_EMPTY, S_EMPTY, S_EMPTY, S_EMPTY, S_IMMUTABLE_ZERO}};
+        -:   55:
+       14:   56:  for (int i = 0; i < DEFAULT_SIZE; ++i) {
+       84:   57:    for (int j = 0; j < DEFAULT_SIZE; ++j) {
+       72:   58:      if (game_get_square(test, i, j) != testsquares[i][j]) {
+    #####:   59:        game_delete(test);
+    #####:   60:        return 1;
+        -:   61:      }
+        -:   62:    }
+        -:   63:  }
+        2:   64:  game_delete(test);
+        2:   65:  return 0;
+        -:   66:}
+        -:   67:
+        2:   68:int test_game_default_solution(void) {
+        2:   69:  game test = game_default_solution();
+        2:   70:  game_print(test);
+        2:   71:  square testsquares1[6][6] = {
+        -:   72:      {S_ZERO, S_IMMUTABLE_ONE, S_IMMUTABLE_ZERO, S_ONE, S_ZERO, S_ONE},
+        -:   73:      {S_ZERO, S_ONE, S_ONE, S_ZERO, S_ONE, S_ZERO},
+        -:   74:      {S_ONE, S_IMMUTABLE_ZERO, S_ZERO, S_ONE, S_IMMUTABLE_ZERO, S_ONE},
+        -:   75:      {S_ONE, S_IMMUTABLE_ZERO, S_IMMUTABLE_ONE, S_ZERO, S_ZERO, S_ONE},
+        -:   76:      {S_ZERO, S_ONE, S_IMMUTABLE_ONE, S_ZERO, S_ONE, S_IMMUTABLE_ZERO},
+        -:   77:      {S_ONE, S_ZERO, S_ZERO, S_ONE, S_ONE, S_IMMUTABLE_ZERO}};
+        -:   78:
+       14:   79:  for (int i = 0; i < DEFAULT_SIZE; ++i) {
+       84:   80:    for (int j = 0; j < DEFAULT_SIZE; ++j) {
+       72:   81:      if (game_get_square(test, i, j) != testsquares1[i][j]) {
+    #####:   82:        game_delete(test);
+    #####:   83:        return 1;
+        -:   84:      }
+        -:   85:    }
+        -:   86:  }
+        2:   87:  game_delete(test);
+        2:   88:  return 0;
+        -:   89:}
+        -:   90:
+        2:   91:int test_game_is_over() {
+        -:   92:  // avec default game
+        2:   93:  game g0 = game_default();
+        2:   94:  bool test0 = game_is_over(g0) == false;
+        2:   95:  game_delete(g0);
+        -:   96:
+        -:   97:  // avec game default solution
+        2:   98:  game g1 = game_default_solution();
+        2:   99:  bool test1 = (game_is_over(g1) == true);
+        2:  100:  game g2 = game_default_solution();
+        2:  101:  bool test2 = game_equal(g1, g2);
+        -:  102:
+        2:  103:  game_delete(g1);
+        2:  104:  game_delete(g2);
+        -:  105:
+        -:  106:  // avec game new empty
+        2:  107:  game g3 = game_new_empty();
+        2:  108:  game_play_move(g3, 0, 0, S_ZERO);
+        2:  109:  game_play_move(g3, 0, 1, S_ZERO);
+        2:  110:  game_play_move(g3, 0, 2, S_ZERO);
+        2:  111:  bool test3 = (game_is_over(g3) == false);
+        2:  112:  game_play_move(g3, 0, 0, S_ONE);
+        2:  113:  game_play_move(g3, 1, 0, S_ONE);
+        2:  114:  game_play_move(g3, 2, 0, S_ONE);
+        2:  115:  bool test4 = (game_is_over(g3) == false);
+        2:  116:  game_delete(g3);
+        -:  117:
+        2:  118:  if (test0 && test1 && test2 && test3 && test4) return 0;
+        -:  119:  // if(game_is_wrapping(g3) && game_is_unique(g3)) return 0;
+        -:  120:
+    #####:  121:  return 1;
+        -:  122:}
+        -:  123:
+        2:  124:int test_game_play_move() {
+        2:  125:  game test = game_new_empty();
+       14:  126:  for (int i = 0; i < DEFAULT_SIZE; ++i) {
+       12:  127:    game_play_move(test, 0, i, S_ONE);
+       12:  128:    if (game_get_square(test, 0, i) != S_ONE) {
+    #####:  129:      game_delete(test);
+    #####:  130:      return 1;
+        -:  131:    }
+       12:  132:    game_play_move(test, 1, i, S_ZERO);
+       12:  133:    if (game_get_square(test, 1, i) != S_ZERO) {
+    #####:  134:      game_delete(test);
+    #####:  135:      return 1;
+        -:  136:    }
+       12:  137:    game_play_move(test, 2, i, S_EMPTY);
+       12:  138:    if (game_get_square(test, 2, i) != S_EMPTY) {
+    #####:  139:      game_delete(test);
+    #####:  140:      return 1;
+        -:  141:    }
+       12:  142:    game_play_move(test, i, 1, S_ONE);
+       12:  143:    if (game_get_square(test, i, 1) != S_ONE) {
+    #####:  144:      game_delete(test);
+    #####:  145:      return 1;
+        -:  146:    }
+       12:  147:    game_play_move(test, i, 2, S_ZERO);
+       12:  148:    if (game_get_square(test, i, 2) != S_ZERO) {
+    #####:  149:      game_delete(test);
+    #####:  150:      return 1;
+        -:  151:    }
+       12:  152:    game_play_move(test, i, 3, S_EMPTY);
+       12:  153:    if (game_get_square(test, i, 3) != S_EMPTY) {
+    #####:  154:      game_delete(test);
+    #####:  155:      return 1;
+        -:  156:    }
+        -:  157:  }
+        2:  158:  game_delete(test);
+        2:  159:  return 0;
+        -:  160:}
+        -:  161:
+        2:  162:int test_game_restart() {
+        2:  163:  square defaultSquares[6][6] = {
+        -:  164:      {S_EMPTY, S_ONE, S_ZERO, S_EMPTY, S_EMPTY, S_EMPTY},
+        -:  165:      {S_EMPTY, S_EMPTY, S_EMPTY, S_EMPTY, S_EMPTY, S_EMPTY},
+        -:  166:      {S_EMPTY, S_ZERO, S_EMPTY, S_EMPTY, S_ZERO, S_EMPTY},
+        -:  167:      {S_EMPTY, S_ZERO, S_ONE, S_EMPTY, S_EMPTY, S_EMPTY},
+        -:  168:      {S_EMPTY, S_EMPTY, S_ONE, S_EMPTY, S_EMPTY, S_ZERO},
+        -:  169:      {S_EMPTY, S_EMPTY, S_EMPTY, S_EMPTY, S_EMPTY, S_ZERO}};
+        -:  170:
+        2:  171:  game g = game_default_solution();
+        2:  172:  game_restart(g);
+       2*:  173:  for (uint i = 0; i < DEFAULT_SIZE; i++) {
+        4:  174:    for (uint j = 0; j < DEFAULT_SIZE; j++) {
+        4:  175:      if (game_get_square(g, i, j) != defaultSquares[i][j]) {
+        2:  176:        return 1;
+        -:  177:      }
+        -:  178:    }
+        -:  179:  }
+    #####:  180:  game_delete(g);
+        -:  181:
+    #####:  182:  game g1 = game_new(mesSquares1);
+    #####:  183:  game_restart(g1);
+    #####:  184:  for (uint i = 0; i < DEFAULT_SIZE; i++) {
+    #####:  185:    for (uint j = 0; j < DEFAULT_SIZE; j++) {
+    #####:  186:      if (game_get_square(g1, i, j) != defaultSquares[i][j]) {
+    #####:  187:        return 1;
+        -:  188:      }
+        -:  189:    }
+        -:  190:  }
+    #####:  191:  game_delete(g1);
+    #####:  192:  game g2 = game_new_empty_ext(4, 4, false, true);
+    #####:  193:  game_restart(g2);
+    #####:  194:  for (uint i = 0; i < DEFAULT_SIZE; i++) {
+    #####:  195:    for (uint j = 0; j < DEFAULT_SIZE; j++) {
+    #####:  196:      if (game_get_square(g2, i, j) != defaultSquares[i][j]) {
+    #####:  197:        return 1;
+        -:  198:      }
+        -:  199:    }
+        -:  200:  }
+    #####:  201:  game_delete(g2);
+    #####:  202:  game g3 = game_copy(g2);
+    #####:  203:  game_play_move(g2, 0, 0, S_ZERO);
+    #####:  204:  game_undo(g2);
+    #####:  205:  game_restart(g2);
+    #####:  206:  game_redo(g2);
+    #####:  207:  if (game_equal(g2, g3) == false) {
+    #####:  208:    game_delete(g2);
+    #####:  209:    game_delete(g3);
+    #####:  210:    return 1;
+        -:  211:  }
+    #####:  212:  game_delete(g2);
+    #####:  213:  game_delete(g3);
+        -:  214:
+    #####:  215:  return 0;
+        -:  216:}
+        -:  217:
+        2:  218:int test_game_equal_ext(void) {
+        2:  219:  game g1 = game_new_ext(4, 6, mesSquares, false, false);
+        2:  220:  game g2 = game_new_ext(4, 6, mesSquares, false, false);
+        2:  221:  game g3 = game_new_ext(4, 6, mesSquares, true, true);
+        2:  222:  game g4 = game_new_ext(6, 4, mesSquares, true, true);
+        -:  223:
+        2:  224:  bool test1 = (game_equal(g1, g2) == true);
+        2:  225:  bool test2 = (game_equal(g1, g3) == false);
+        2:  226:  bool test3 = (game_equal(g3, g4) == false);
+        -:  227:  /*
+        -:  228:    game_set_square(g2, 2, 5, S_ZERO);
+        -:  229:    bool test3 = (game_equal(g1, g2) == false);
+        -:  230:  */
+        2:  231:  game_delete(g1);
+        2:  232:  game_delete(g2);
+        2:  233:  game_delete(g3);
+        2:  234:  game_delete(g4);
+        -:  235:
+        2:  236:  if ((test1 && test2) && test3) return 0;
+    #####:  237:  return 1;
+        -:  238:}
+        -:  239:
+        2:  240:int test_game_is_over_unique() {
+        2:  241:  square test[32] = {S_ZERO, S_ZERO, S_ONE,  S_ONE, S_ZERO, S_ONE,  S_ONE,
+        -:  242:                     S_ZERO, S_ZERO, S_ZERO, S_ONE, S_ONE,  S_ZERO, S_ONE,
+        -:  243:                     S_ONE,  S_ZERO, S_ONE,  S_ONE, S_ZERO, S_ZERO, S_ONE,
+        -:  244:                     S_ZERO, S_ZERO, S_ONE,  S_ONE, S_ONE,  S_ZERO, S_ZERO,
+        -:  245:                     S_ONE,  S_ZERO, S_ZERO, S_ONE};
+        2:  246:  game g = game_new_ext(4, 8, test, false, true);
+        2:  247:  if (game_is_over(g) == true) {
+    #####:  248:    game_delete(g);
+    #####:  249:    return 1;
+        -:  250:  }
+        2:  251:  game_delete(g);
+        2:  252:  return 0;
+        -:  253:}
+        -:  254:
+        2:  255:int test_game_is_over_wrapping() {
+        2:  256:  game g0 = game_new_ext(6, 4, mesSquares, true, true);
+        2:  257:  bool test0 = (game_is_wrapping(g0) == true);
+        2:  258:  game_play_move(g0, 1, 1, S_ONE);
+        2:  259:  game_play_move(g0, 2, 0, S_ONE);
+        2:  260:  game_play_move(g0, 3, 2, S_ONE);
+        2:  261:  bool test1 = (game_is_wrapping(g0) == true);
+        2:  262:  bool test2 = (game_is_wrapping(g0) == true);
+        2:  263:  game_delete(g0);
+       2*:  264:  if (test0 != true || test1 != true || test2 != true) return 1;
+        -:  265:
+        2:  266:  return 0;
+        -:  267:}
+        -:  268:
+        -:  269:/* ********** USAGE ********** */
+        -:  270:
+    #####:  271:void usage(int argc, char *argv[]) {
+    #####:  272:  fprintf(stderr, "Usage: %s <testname> [<...>]\n", argv[0]);
+    #####:  273:  exit(EXIT_FAILURE);
+        -:  274:}
+        -:  275:
+        -:  276:/* ********** MAIN ROUTINE ********** */
+        -:  277:
+       18:  278:int main(int argc, char *argv[]) {
+      18*:  279:  if (argc == 1) usage(argc, argv);
+        -:  280:
+        -:  281:  // start test
+       18:  282:  fprintf(stderr, "=> Start test \"%s\"\n", argv[1]);
+       18:  283:  int ok = 1;
+        -:  284:
+       18:  285:  if (strcmp("dummy", argv[1]) == 0) {
+        2:  286:    ok = test_dummy();
+        -:  287:  }
+        -:  288:
+       16:  289:  else if (strcmp("game_print", argv[1]) == 0) {
+    #####:  290:    ok = test_game_print();
+        -:  291:  }
+        -:  292:
+       16:  293:  else if (strcmp("game_default", argv[1]) == 0) {
+        2:  294:    ok = test_game_default();
+       14:  295:  } else if (strcmp("game_default_solution", argv[1]) == 0) {
+        2:  296:    ok = test_game_default_solution();
+        -:  297:  }
+        -:  298:
+       12:  299:  else if (strcmp("game_is_over", argv[1]) == 0) {
+        2:  300:    ok = test_game_is_over();
+       10:  301:  } else if (strcmp("game_is_over_unique", argv[1]) == 0) {
+        2:  302:    ok = test_game_is_over_unique();
+        8:  303:  } else if (strcmp("game_is_over_wrapping", argv[1]) == 0) {
+        2:  304:    ok = test_game_is_over_wrapping();
+        -:  305:  }
+        -:  306:
+        6:  307:  else if (strcmp("game_restart", argv[1]) == 0) {
+        2:  308:    ok = test_game_restart();
+        4:  309:  } else if (strcmp("game_play_move", argv[1]) == 0) {
+        2:  310:    ok = test_game_play_move();
+        -:  311:  }
+        -:  312:
+        2:  313:  else if (strcmp("game_equal_ext", argv[1]) == 0) {
+        2:  314:    ok = test_game_equal_ext();
+        -:  315:  }
+        -:  316:
+        -:  317:  else {
+    #####:  318:    fprintf(stderr, "Test \"%s\" finished: FAILURE\n", argv[1]);
+    #####:  319:    return EXIT_FAILURE;
+        -:  320:  }
+        -:  321:
+       18:  322:  return ok;
+        -:  323:
+        -:  324:  return EXIT_SUCCESS;
+        -:  325:}

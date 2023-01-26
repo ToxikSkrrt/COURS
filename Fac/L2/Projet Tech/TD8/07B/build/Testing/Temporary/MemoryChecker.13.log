@@ -1,0 +1,37 @@
+==2930== 12 bytes in 1 blocks are definitely lost in loss record 1 of 5
+==2930==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2930==    by 0x1104B2: my_malloc (game.c:11)
+==2930==    by 0x111D4A: game_play_move (game.c:279)
+==2930==    by 0x10F1C4: test_undo (game_test_ecallet.c:311)
+==2930==    by 0x110316: main (game_test_ecallet.c:459)
+==2930== 
+==2930== 12 bytes in 1 blocks are definitely lost in loss record 2 of 5
+==2930==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2930==    by 0x1104B2: my_malloc (game.c:11)
+==2930==    by 0x111D4A: game_play_move (game.c:279)
+==2930==    by 0x10F20F: test_undo (game_test_ecallet.c:313)
+==2930==    by 0x110316: main (game_test_ecallet.c:459)
+==2930== 
+==2930== 12 bytes in 1 blocks are definitely lost in loss record 3 of 5
+==2930==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2930==    by 0x1104B2: my_malloc (game.c:11)
+==2930==    by 0x111D4A: game_play_move (game.c:279)
+==2930==    by 0x10F23C: test_undo (game_test_ecallet.c:314)
+==2930==    by 0x110316: main (game_test_ecallet.c:459)
+==2930== 
+==2930== 12 bytes in 1 blocks are definitely lost in loss record 4 of 5
+==2930==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2930==    by 0x1104B2: my_malloc (game.c:11)
+==2930==    by 0x111D4A: game_play_move (game.c:279)
+==2930==    by 0x11303E: game_undo (game_ext.c:59)
+==2930==    by 0x10F278: test_undo (game_test_ecallet.c:316)
+==2930==    by 0x110316: main (game_test_ecallet.c:459)
+==2930== 
+==2930== 12 bytes in 1 blocks are definitely lost in loss record 5 of 5
+==2930==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2930==    by 0x1104B2: my_malloc (game.c:11)
+==2930==    by 0x111D4A: game_play_move (game.c:279)
+==2930==    by 0x113144: game_redo (game_ext.c:67)
+==2930==    by 0x10F296: test_undo (game_test_ecallet.c:317)
+==2930==    by 0x110316: main (game_test_ecallet.c:459)
+==2930== 

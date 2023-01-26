@@ -1,0 +1,91 @@
+        -:    0:Source:/mnt/c/Users/thoma/Documents/COURS/Fac/L2/Projet Tech/TD8/07B/game_aux.c
+        -:    0:Graph:/mnt/c/Users/thoma/Documents/COURS/Fac/L2/Projet Tech/TD8/07B/build/CMakeFiles/game.dir/game_aux.c.gcno
+        -:    0:Data:/mnt/c/Users/thoma/Documents/COURS/Fac/L2/Projet Tech/TD8/07B/build/CMakeFiles/game.dir/game_aux.c.gcda
+        -:    0:Runs:238
+        -:    1:#include <stdbool.h>
+        -:    2:#include <stdio.h>
+        -:    3:#include <stdlib.h>
+        -:    4:
+        -:    5:#include "game_struct.h"
+        -:    6:
+        -:    7:// if choice == true : print le meme charactère c, sinon print i (donc 1,2,3,...
+        -:    8:// etc)
+      174:    9:void print_in_range(int range, char *c, bool choice) {
+     1218:   10:  for (int i = 0; i < range; i++) {
+     1044:   11:    if (choice) {
+      696:   12:      printf("%s", c);
+        -:   13:    } else {
+      348:   14:      printf("%d", i);
+        -:   15:    }
+        -:   16:  }
+      174:   17:  printf("\n");
+      174:   18:}
+        -:   19:
+       58:   20:void game_print(cgame g) {
+       58:   21:  int nb_cols = game_nb_cols(g);
+       58:   22:  int nb_rows = game_nb_rows(g);
+       58:   23:  char *tab[5] = {" ", "w", "b", "W", "B"};
+       58:   24:  printf("   ");
+       58:   25:  print_in_range(nb_cols, "$", false);
+       58:   26:  printf("   ");
+       58:   27:  print_in_range(nb_cols, "-", true);
+      614:   28:  for (int cpt_line = 0; cpt_line < nb_rows; cpt_line++) {
+      556:   29:    printf("%d |", cpt_line);
+     3892:   30:    for (int cpt_col = 0; cpt_col < nb_cols; cpt_col++) {
+     3336:   31:      square s = game_get_square(g, cpt_line, cpt_col);
+     3336:   32:      printf("%s", tab[s]);
+        -:   33:    }
+      556:   34:    printf("|\n");
+        -:   35:  }
+       58:   36:  printf("   ");
+       58:   37:  print_in_range(g->nb_cols, "-", true);
+       58:   38:}
+        -:   39:
+       78:   40:game game_default(void) {
+       78:   41:  game g = game_new_empty_ext(6, 6, false, false);
+       78:   42:  int B[3] = {1, 20, 26};
+       78:   43:  int W[6] = {2, 13, 16, 19, 29, 35};
+       78:   44:  square black = S_IMMUTABLE_ONE;
+       78:   45:  square white = S_IMMUTABLE_ZERO;
+      312:   46:  for (int i = 0; i < 3; i++) {
+      234:   47:    game_set_square(g, B[i] / 6, B[i] % 6, black);
+        -:   48:  }
+      546:   49:  for (int i = 0; i < 6; i++) {
+      468:   50:    game_set_square(g, W[i] / 6, W[i] % 6, white);
+        -:   51:  }
+       78:   52:  return g;
+        -:   53:}
+        -:   54:
+       24:   55:game game_default_solution(void) {
+       24:   56:  game g = game_default();
+       24:   57:  square b = S_ONE;
+       24:   58:  square w = S_ZERO;
+       24:   59:  game_play_move(g, 0, 0, w);
+       24:   60:  game_play_move(g, 0, 3, b);
+       24:   61:  game_play_move(g, 0, 4, w);
+       24:   62:  game_play_move(g, 0, 5, b);
+       24:   63:  game_play_move(g, 1, 0, w);
+       24:   64:  game_play_move(g, 1, 1, b);
+       24:   65:  game_play_move(g, 1, 2, b);
+       24:   66:  game_play_move(g, 1, 3, w);
+       24:   67:  game_play_move(g, 1, 4, b);
+       24:   68:  game_play_move(g, 1, 5, w);
+       24:   69:  game_play_move(g, 2, 0, b);
+       24:   70:  game_play_move(g, 2, 2, w);
+       24:   71:  game_play_move(g, 2, 3, b);
+       24:   72:  game_play_move(g, 2, 5, b);
+       24:   73:  game_play_move(g, 3, 0, b);
+       24:   74:  game_play_move(g, 3, 3, w);
+       24:   75:  game_play_move(g, 3, 4, w);
+       24:   76:  game_play_move(g, 3, 5, b);
+       24:   77:  game_play_move(g, 4, 0, w);
+       24:   78:  game_play_move(g, 4, 1, b);
+       24:   79:  game_play_move(g, 4, 3, w);
+       24:   80:  game_play_move(g, 4, 4, b);
+       24:   81:  game_play_move(g, 5, 0, b);
+       24:   82:  game_play_move(g, 5, 1, w);
+       24:   83:  game_play_move(g, 5, 2, w);
+       24:   84:  game_play_move(g, 5, 3, b);
+       24:   85:  game_play_move(g, 5, 4, b);
+       24:   86:  return g;
+        -:   87:}

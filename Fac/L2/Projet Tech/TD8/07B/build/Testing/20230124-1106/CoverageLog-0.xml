@@ -1,0 +1,1929 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Site BuildName="Linux-cc"
+	BuildStamp="20230124-1106-Experimental"
+	Name="LAPTOP-FER055GC"
+	Generator="ctest-3.16.3"
+	CompilerName=""
+	CompilerVersion=""
+	OSName="Linux"
+	Hostname="LAPTOP-FER055GC"
+	OSRelease="5.15.79.1-microsoft-standard-WSL2"
+	OSVersion="#1 SMP Wed Nov 23 01:01:46 UTC 2022"
+	OSPlatform="x86_64"
+	Is64Bits="1"
+	VendorString="GenuineIntel"
+	VendorID="Intel Corporation"
+	FamilyID="6"
+	ModelID="140"
+	ProcessorCacheSize="8192"
+	NumberOfLogicalCPU="8"
+	NumberOfPhysicalCPU="4"
+	TotalVirtualMemory="1024"
+	TotalPhysicalMemory="3815"
+	LogicalProcessorsPerPhysical="2"
+	ProcessorClockFrequency="2419.21"
+	>
+	<CoverageLog>
+		<StartDateTime>Jan 24 12:07 CET</StartDateTime>
+		<StartTime>1674558472</StartTime>
+		<File Name="game.c" FullPath="./game.c">
+			<Report>
+				<Line Number="0" Count="-1">#include &lt;assert.h&gt;</Line>
+				<Line Number="1" Count="-1">#include &lt;stdbool.h&gt;</Line>
+				<Line Number="2" Count="-1">#include &lt;stddef.h&gt;</Line>
+				<Line Number="3" Count="-1">#include &lt;stdio.h&gt;</Line>
+				<Line Number="4" Count="-1">#include &lt;stdlib.h&gt;</Line>
+				<Line Number="5" Count="-1">#include &lt;string.h&gt;</Line>
+				<Line Number="6" Count="-1"></Line>
+				<Line Number="7" Count="-1">#include "game_struct.h"</Line>
+				<Line Number="8" Count="-1"></Line>
+				<Line Number="9" Count="1912">void *my_malloc(size_t x) {</Line>
+				<Line Number="10" Count="1912">  void *y = malloc(x);</Line>
+				<Line Number="11" Count="1912">  if (y == NULL) {</Line>
+				<Line Number="12" Count="0">    fprintf(stderr, "not enough memory!\n");</Line>
+				<Line Number="13" Count="0">    exit(EXIT_FAILURE);</Line>
+				<Line Number="14" Count="-1">  }</Line>
+				<Line Number="15" Count="1912">  return (y);</Line>
+				<Line Number="16" Count="-1">}</Line>
+				<Line Number="17" Count="-1"></Line>
+				<Line Number="18" Count="351">void *my_calloc(size_t nmemb, size_t size) {</Line>
+				<Line Number="19" Count="351">  void *ptr = calloc(nmemb, size);</Line>
+				<Line Number="20" Count="351">  if (ptr == NULL) {</Line>
+				<Line Number="21" Count="0">    fprintf(stderr, "not enough memory!\n");</Line>
+				<Line Number="22" Count="0">    exit(EXIT_FAILURE);</Line>
+				<Line Number="23" Count="-1">  }</Line>
+				<Line Number="24" Count="351">  return ptr;</Line>
+				<Line Number="25" Count="-1">}</Line>
+				<Line Number="26" Count="-1"></Line>
+				<Line Number="27" Count="144995">void check_parameters(cgame g, uint i, uint j) {</Line>
+				<Line Number="28" Count="144995">  if ((g == NULL) || (i &gt;= g-&gt;nb_rows) || (j &gt;= g-&gt;nb_cols)) {</Line>
+				<Line Number="29" Count="0">    printf(</Line>
+				<Line Number="30" Count="-1">        "erreur dans les parametres, exit du programme\nVérifiez que g est non "</Line>
+				<Line Number="31" Count="-1">        "null, ou alors que les coordonées sont valides\n");</Line>
+				<Line Number="32" Count="0">    exit(-1);</Line>
+				<Line Number="33" Count="-1">  }</Line>
+				<Line Number="34" Count="144995">}</Line>
+				<Line Number="35" Count="-1"></Line>
+				<Line Number="36" Count="18">game game_new(square *squares) {</Line>
+				<Line Number="37" Count="18">  return game_new_ext(DEFAULT_SIZE, DEFAULT_SIZE, squares, false, false);</Line>
+				<Line Number="38" Count="-1">}</Line>
+				<Line Number="39" Count="-1"></Line>
+				<Line Number="40" Count="60">game game_new_empty(void) {</Line>
+				<Line Number="41" Count="60">  return game_new_empty_ext(DEFAULT_SIZE, DEFAULT_SIZE, false, false);</Line>
+				<Line Number="42" Count="-1">  ;</Line>
+				<Line Number="43" Count="-1">}</Line>
+				<Line Number="44" Count="-1"></Line>
+				<Line Number="45" Count="18">game game_copy(cgame g) {</Line>
+				<Line Number="46" Count="18">  check_parameters(g, 0, 0);</Line>
+				<Line Number="47" Count="18">  game g1 = game_new_ext(game_nb_rows(g), game_nb_cols(g), g-&gt;tab,</Line>
+				<Line Number="48" Count="18">                         game_is_wrapping(g), game_is_unique(g));</Line>
+				<Line Number="49" Count="18">  return g1;</Line>
+				<Line Number="50" Count="-1">}</Line>
+				<Line Number="51" Count="-1"></Line>
+				<Line Number="52" Count="66">bool game_equal(cgame g1, cgame g2) {</Line>
+				<Line Number="53" Count="66">  check_parameters(g1, 0, 0);</Line>
+				<Line Number="54" Count="66">  check_parameters(g2, 0, 0);</Line>
+				<Line Number="55" Count="126">  if (game_nb_rows(g1) != game_nb_rows(g2) ||</Line>
+				<Line Number="56" Count="60">      game_nb_cols(g1) != game_nb_cols(g2))</Line>
+				<Line Number="57" Count="6">    return false;</Line>
+				<Line Number="58" Count="252">  for (int i = 0; i &lt; game_nb_rows(g1); i++) {</Line>
+				<Line Number="59" Count="1218">    for (int j = 0; j &lt; game_nb_cols(g1); j++) {</Line>
+				<Line Number="60" Count="1026">      if (game_get_square(g1, i, j) != game_get_square(g2, i, j)) {</Line>
+				<Line Number="61" Count="18">        return false;</Line>
+				<Line Number="62" Count="-1">      }</Line>
+				<Line Number="63" Count="-1">    }</Line>
+				<Line Number="64" Count="-1">  }</Line>
+				<Line Number="65" Count="78">  if (game_is_wrapping(g1) != game_is_wrapping(g2) ||</Line>
+				<Line Number="66" Count="36">      game_is_unique(g1) != game_is_unique(g2))</Line>
+				<Line Number="67" Count="6">    return false;</Line>
+				<Line Number="68" Count="36">  return true;</Line>
+				<Line Number="69" Count="-1">}</Line>
+				<Line Number="70" Count="-1"></Line>
+				<Line Number="71" Count="333">void game_delete(game g) {</Line>
+				<Line Number="72" Count="333">  if (g != NULL) {</Line>
+				<Line Number="73" Count="333">    queue_free_full(g-&gt;q_redo, free);</Line>
+				<Line Number="74" Count="333">    queue_free_full(g-&gt;q_undo, free);</Line>
+				<Line Number="75" Count="333">    free(g-&gt;tab);</Line>
+				<Line Number="76" Count="333">    free(g);</Line>
+				<Line Number="77" Count="-1">  }</Line>
+				<Line Number="78" Count="333">}</Line>
+				<Line Number="79" Count="-1"></Line>
+				<Line Number="80" Count="2720">void game_set_square(game g, uint i, uint j, square s) {</Line>
+				<Line Number="81" Count="2720">  check_parameters(g, 0, 0);</Line>
+				<Line Number="82" Count="2720">  assert(i &lt; game_nb_rows(g));</Line>
+				<Line Number="83" Count="2720">  assert(j &lt; game_nb_cols(g));</Line>
+				<Line Number="84" Count="2720">  g-&gt;tab[i * game_nb_cols(g) + j] = s;</Line>
+				<Line Number="85" Count="2720">}</Line>
+				<Line Number="86" Count="-1"></Line>
+				<Line Number="87" Count="23493">square game_get_square(cgame g, uint i, uint j) {</Line>
+				<Line Number="88" Count="23493">  check_parameters(g, 0, 0);</Line>
+				<Line Number="89" Count="23493">  assert(i &lt; game_nb_rows(g));</Line>
+				<Line Number="90" Count="23493">  assert(j &lt; game_nb_cols(g));</Line>
+				<Line Number="91" Count="23493">  return g-&gt;tab[i * game_nb_cols(g) + j];</Line>
+				<Line Number="92" Count="-1">}</Line>
+				<Line Number="93" Count="-1"></Line>
+				<Line Number="94" Count="7410">int game_get_number(cgame g, uint i, uint j) {</Line>
+				<Line Number="95" Count="7410">  check_parameters(g, i, j);</Line>
+				<Line Number="96" Count="7410">  square res = game_get_square(g, i, j);</Line>
+				<Line Number="97" Count="7410">  switch (res) {</Line>
+				<Line Number="98" Count="3538">    case S_IMMUTABLE_ZERO:</Line>
+				<Line Number="99" Count="-1">    case S_ZERO:</Line>
+				<Line Number="100" Count="3538">      return 0;</Line>
+				<Line Number="101" Count="-1"></Line>
+				<Line Number="102" Count="3365">    case S_IMMUTABLE_ONE:</Line>
+				<Line Number="103" Count="-1">    case S_ONE:</Line>
+				<Line Number="104" Count="3365">      return 1;</Line>
+				<Line Number="105" Count="-1"></Line>
+				<Line Number="106" Count="507">    default:</Line>
+				<Line Number="107" Count="507">      return -1;</Line>
+				<Line Number="108" Count="-1">  }</Line>
+				<Line Number="109" Count="-1">}</Line>
+				<Line Number="110" Count="-1"></Line>
+				<Line Number="111" Count="3742">int game_get_next_square(cgame g, uint i, uint j, direction dir, uint dist) {</Line>
+				<Line Number="112" Count="3742">  check_parameters(g, i, j);</Line>
+				<Line Number="113" Count="3742">  if (dist &gt; 2) {</Line>
+				<Line Number="114" Count="0">    fprintf(stderr, "Unvalid parameter\n");</Line>
+				<Line Number="115" Count="0">    exit(EXIT_FAILURE);</Line>
+				<Line Number="116" Count="-1">  }</Line>
+				<Line Number="117" Count="3742">  int nb_rows = game_nb_rows(g);</Line>
+				<Line Number="118" Count="3742">  int nb_cols = game_nb_cols(g);</Line>
+				<Line Number="119" Count="3742">  switch (dir) {</Line>
+				<Line Number="120" Count="1232">    case UP:</Line>
+				<Line Number="121" Count="1232">      if (!game_is_wrapping(g) &amp;&amp; (int)(i - dist) &lt; 0) {</Line>
+				<Line Number="122" Count="282">        return -1;</Line>
+				<Line Number="123" Count="-1">      }</Line>
+				<Line Number="124" Count="950">      return game_get_square(g, (nb_rows + i - dist) % nb_rows, j);</Line>
+				<Line Number="125" Count="-1"></Line>
+				<Line Number="126" Count="814">    case DOWN:</Line>
+				<Line Number="127" Count="814">      if (!game_is_wrapping(g) &amp;&amp; (i + dist) &gt;= nb_rows) {</Line>
+				<Line Number="128" Count="120">        return -1;</Line>
+				<Line Number="129" Count="-1">      }</Line>
+				<Line Number="130" Count="694">      return game_get_square(g, (i + dist) % nb_rows, j);</Line>
+				<Line Number="131" Count="-1"></Line>
+				<Line Number="132" Count="1036">    case LEFT:</Line>
+				<Line Number="133" Count="1036">      if (!game_is_wrapping(g) &amp;&amp; (int)(j - dist) &lt; 0) {</Line>
+				<Line Number="134" Count="204">        return -1;</Line>
+				<Line Number="135" Count="-1">      }</Line>
+				<Line Number="136" Count="832">      return game_get_square(g, i, (nb_cols + j - dist) % nb_cols);</Line>
+				<Line Number="137" Count="-1"></Line>
+				<Line Number="138" Count="660">    default:</Line>
+				<Line Number="139" Count="660">      if (!game_is_wrapping(g) &amp;&amp; (j + dist) &gt;= nb_cols) {</Line>
+				<Line Number="140" Count="90">        return -1;</Line>
+				<Line Number="141" Count="-1">      }</Line>
+				<Line Number="142" Count="570">      return game_get_square(g, i, (j + dist) % nb_cols);</Line>
+				<Line Number="143" Count="-1">  }</Line>
+				<Line Number="144" Count="-1">}</Line>
+				<Line Number="145" Count="-1"></Line>
+				<Line Number="146" Count="3628">int game_get_next_number(cgame g, uint i, uint j, direction dir, uint dist) {</Line>
+				<Line Number="147" Count="3628">  check_parameters(g, i, j);</Line>
+				<Line Number="148" Count="3628">  square res = game_get_next_square(g, i, j, dir, dist);</Line>
+				<Line Number="149" Count="3628">  switch (res) {</Line>
+				<Line Number="150" Count="1366">    case S_IMMUTABLE_ZERO:</Line>
+				<Line Number="151" Count="-1">    case S_ZERO:</Line>
+				<Line Number="152" Count="1366">      return 0;</Line>
+				<Line Number="153" Count="-1"></Line>
+				<Line Number="154" Count="1181">    case S_IMMUTABLE_ONE:</Line>
+				<Line Number="155" Count="-1">    case S_ONE:</Line>
+				<Line Number="156" Count="1181">      return 1;</Line>
+				<Line Number="157" Count="-1"></Line>
+				<Line Number="158" Count="1081">    default:</Line>
+				<Line Number="159" Count="1081">      return -1;</Line>
+				<Line Number="160" Count="-1">  }</Line>
+				<Line Number="161" Count="-1">}</Line>
+				<Line Number="162" Count="-1"></Line>
+				<Line Number="163" Count="30">bool game_is_empty(cgame g, uint i, uint j) {</Line>
+				<Line Number="164" Count="30">  check_parameters(g, i, j);</Line>
+				<Line Number="165" Count="30">  if (game_get_square(g, i, j) == S_EMPTY) {</Line>
+				<Line Number="166" Count="6">    return true;</Line>
+				<Line Number="167" Count="-1">  }</Line>
+				<Line Number="168" Count="24">  return false;</Line>
+				<Line Number="169" Count="-1">}</Line>
+				<Line Number="170" Count="-1"></Line>
+				<Line Number="171" Count="1922">bool game_is_immutable(cgame g, uint i, uint j) {</Line>
+				<Line Number="172" Count="1922">  check_parameters(g, i, j);</Line>
+				<Line Number="173" Count="3808">  if (game_get_square(g, i, j) == S_IMMUTABLE_ONE ||</Line>
+				<Line Number="174" Count="1886">      game_get_square(g, i, j) == S_IMMUTABLE_ZERO) {</Line>
+				<Line Number="175" Count="84">    return true;</Line>
+				<Line Number="176" Count="-1">  }</Line>
+				<Line Number="177" Count="1838">  return false;</Line>
+				<Line Number="178" Count="-1">}</Line>
+				<Line Number="179" Count="-1"></Line>
+				<Line Number="180" Count="567">int game_has_error(cgame g, uint i, uint j) {</Line>
+				<Line Number="181" Count="567">  check_parameters(g, i, j);</Line>
+				<Line Number="182" Count="-1"></Line>
+				<Line Number="183" Count="567">  direction dir[4] = {UP, DOWN, LEFT, RIGHT};</Line>
+				<Line Number="184" Count="567">  int tmp = game_get_number(g, i, j);</Line>
+				<Line Number="185" Count="567">  int nb_rows = game_nb_rows(g);</Line>
+				<Line Number="186" Count="567">  int nb_cols = game_nb_cols(g);</Line>
+				<Line Number="187" Count="567">  if (tmp == -1) {</Line>
+				<Line Number="188" Count="47">    return 0;</Line>
+				<Line Number="189" Count="-1">  }</Line>
+				<Line Number="190" Count="-1"></Line>
+				<Line Number="191" Count="-1">  // vérfication qu'il n'y ait pas plus de 2 w/W ou b/B côte à côte</Line>
+				<Line Number="192" Count="2290">  for (int k = 0; k &lt; 4; k++) {</Line>
+				<Line Number="193" Count="2396">    if (tmp == game_get_next_number(g, i, j, dir[k], 1) &amp;&amp;</Line>
+				<Line Number="194" Count="510">        (tmp == game_get_next_number(g, i, j, dir[k], 2))) {</Line>
+				<Line Number="195" Count="92">      return -1;</Line>
+				<Line Number="196" Count="1794">    } else if (k == 0 || k == 2) {</Line>
+				<Line Number="197" Count="1136">      if ((tmp == game_get_next_number(g, i, j, dir[k], 1)) &amp;&amp;</Line>
+				<Line Number="198" Count="200">          (tmp == game_get_next_number(g, i, j, dir[k + 1], 1))) {</Line>
+				<Line Number="199" Count="24">        return -1;</Line>
+				<Line Number="200" Count="-1">      }</Line>
+				<Line Number="201" Count="-1">    }</Line>
+				<Line Number="202" Count="-1">  }</Line>
+				<Line Number="203" Count="-1"></Line>
+				<Line Number="204" Count="-1">  // Partie verification S_ZERO ou S_ONE &lt; nb_cols/2 ou nb_rows/2</Line>
+				<Line Number="205" Count="404">  int cpt = 0;</Line>
+				<Line Number="206" Count="2596">  for (int x = 0; x &lt; nb_rows; x++) {</Line>
+				<Line Number="207" Count="2192">    if (game_get_number(g, x, j) == tmp) {</Line>
+				<Line Number="208" Count="1010">      cpt++;</Line>
+				<Line Number="209" Count="-1">    }</Line>
+				<Line Number="210" Count="-1">  }</Line>
+				<Line Number="211" Count="404">  if (cpt &gt; (nb_rows / 2)) {</Line>
+				<Line Number="212" Count="12">    return -1;</Line>
+				<Line Number="213" Count="-1">  }</Line>
+				<Line Number="214" Count="392">  cpt = 0;</Line>
+				<Line Number="215" Count="2504">  for (int y = 0; y &lt; nb_cols; y++) {</Line>
+				<Line Number="216" Count="2112">    if (game_get_number(g, i, y) == tmp) {</Line>
+				<Line Number="217" Count="1032">      cpt++;</Line>
+				<Line Number="218" Count="-1">    }</Line>
+				<Line Number="219" Count="-1">  }</Line>
+				<Line Number="220" Count="392">  if (cpt &gt; (nb_cols / 2)) {</Line>
+				<Line Number="221" Count="12">    return -1;</Line>
+				<Line Number="222" Count="-1">  }</Line>
+				<Line Number="223" Count="-1"></Line>
+				<Line Number="224" Count="-1">  // Partie vérification unique</Line>
+				<Line Number="225" Count="380">  if (game_is_unique(g) == true) {</Line>
+				<Line Number="226" Count="-1">    ////////////////////////////////////////////// comparaison des lignes</Line>
+				<Line Number="227" Count="126">    int cpt_same_squares = 0;  // compteur des cases qui sont égales</Line>
+				<Line Number="228" Count="552">    for (int x = 0; x &lt; nb_rows; x++) {</Line>
+				<Line Number="229" Count="450">      if (x != i) {</Line>
+				<Line Number="230" Count="576">        for (int y = 0; y &lt; nb_cols; y++) {</Line>
+				<Line Number="231" Count="552">          if (game_get_number(g, i, y) == game_get_number(g, x, y)) {</Line>
+				<Line Number="232" Count="246">            cpt_same_squares++;</Line>
+				<Line Number="233" Count="-1">          } else {</Line>
+				<Line Number="234" Count="306">            cpt_same_squares = 0;</Line>
+				<Line Number="235" Count="306">            break;</Line>
+				<Line Number="236" Count="-1">          }</Line>
+				<Line Number="237" Count="-1">        }</Line>
+				<Line Number="238" Count="-1">      }</Line>
+				<Line Number="239" Count="450">      if (cpt_same_squares == nb_cols) {</Line>
+				<Line Number="240" Count="24">        return -1;</Line>
+				<Line Number="241" Count="-1">      }</Line>
+				<Line Number="242" Count="-1">    }</Line>
+				<Line Number="243" Count="-1">    ////////////////////////////////////////////// comparaison des colonnes</Line>
+				<Line Number="244" Count="510">    for (int x = 0; x &lt; nb_cols; x++) {</Line>
+				<Line Number="245" Count="408">      if (x != j) {</Line>
+				<Line Number="246" Count="408">        for (int y = 0; y &lt; nb_rows; y++) {</Line>
+				<Line Number="247" Count="408">          if (game_get_number(g, y, j) == game_get_number(g, y, x)) {</Line>
+				<Line Number="248" Count="102">            cpt_same_squares++;</Line>
+				<Line Number="249" Count="-1">          } else {</Line>
+				<Line Number="250" Count="306">            cpt_same_squares = 0;</Line>
+				<Line Number="251" Count="306">            break;</Line>
+				<Line Number="252" Count="-1">          }</Line>
+				<Line Number="253" Count="-1">        }</Line>
+				<Line Number="254" Count="-1">      }</Line>
+				<Line Number="255" Count="408">      if (cpt_same_squares == nb_rows) {</Line>
+				<Line Number="256" Count="0">        return -1;</Line>
+				<Line Number="257" Count="-1">      }</Line>
+				<Line Number="258" Count="-1">    }</Line>
+				<Line Number="259" Count="-1">  }</Line>
+				<Line Number="260" Count="356">  return 0;</Line>
+				<Line Number="261" Count="-1">}</Line>
+				<Line Number="262" Count="-1"></Line>
+				<Line Number="263" Count="1622">bool game_check_move(cgame g, uint i, uint j, square s) {</Line>
+				<Line Number="264" Count="1622">  check_parameters(g, 0, 0);</Line>
+				<Line Number="265" Count="1622">  if (i &lt; 0 || i &gt;= game_nb_rows(g) || j &lt; 0 || j &gt;= game_nb_cols(g)) {</Line>
+				<Line Number="266" Count="6">    return false;</Line>
+				<Line Number="267" Count="-1">  }</Line>
+				<Line Number="268" Count="1616">  if (game_is_immutable(g, i, j) == true || s == S_IMMUTABLE_ONE ||</Line>
+				<Line Number="269" Count="-1">      s == S_IMMUTABLE_ZERO) {</Line>
+				<Line Number="270" Count="24">    return false;</Line>
+				<Line Number="271" Count="-1">  }</Line>
+				<Line Number="272" Count="1592">  return true;</Line>
+				<Line Number="273" Count="-1">}</Line>
+				<Line Number="274" Count="-1"></Line>
+				<Line Number="275" Count="1561">void game_play_move(game g, uint i, uint j, square s) {</Line>
+				<Line Number="276" Count="1561">  check_parameters(g, i, j);</Line>
+				<Line Number="277" Count="1561">  if (game_check_move(g, i, j, s)) {</Line>
+				<Line Number="278" Count="1561">    struct move *m = my_malloc(sizeof(*m));</Line>
+				<Line Number="279" Count="1561">    m-&gt;row = i;</Line>
+				<Line Number="280" Count="1561">    m-&gt;col = j;</Line>
+				<Line Number="281" Count="1561">    m-&gt;square_prev = game_get_square(g, i, j);</Line>
+				<Line Number="282" Count="1561">    game_set_square(g, i, j, s);</Line>
+				<Line Number="283" Count="1561">    queue_push_head(g-&gt;q_undo, m);</Line>
+				<Line Number="284" Count="-1">  }</Line>
+				<Line Number="285" Count="1561">}</Line>
+				<Line Number="286" Count="-1"></Line>
+				<Line Number="287" Count="97">bool game_is_over(cgame g) {</Line>
+				<Line Number="288" Count="97">  check_parameters(g, 0, 0);</Line>
+				<Line Number="289" Count="157">  for (int i = 0; i &lt; game_nb_rows(g); i++) {</Line>
+				<Line Number="290" Count="471">    for (int j = 0; j &lt; game_nb_cols(g); j++) {</Line>
+				<Line Number="291" Count="411">      if (game_has_error(g, i, j) != 0 || game_get_number(g, i, j) == -1) {</Line>
+				<Line Number="292" Count="85">        return false;</Line>
+				<Line Number="293" Count="-1">      }</Line>
+				<Line Number="294" Count="-1">    }</Line>
+				<Line Number="295" Count="-1">  }</Line>
+				<Line Number="296" Count="12">  return true;</Line>
+				<Line Number="297" Count="-1">}</Line>
+				<Line Number="298" Count="-1"></Line>
+				<Line Number="299" Count="7">void game_restart(game g) {</Line>
+				<Line Number="300" Count="7">  check_parameters(g, 0, 0);</Line>
+				<Line Number="301" Count="53">  for (int i = 0; i &lt; game_nb_rows(g); i++) {</Line>
+				<Line Number="302" Count="322">    for (int j = 0; j &lt; game_nb_cols(g); j++) {</Line>
+				<Line Number="303" Count="276">      if (!game_is_immutable(g, i, j) &amp;&amp; game_get_number(g, i, j) != -1) {</Line>
+				<Line Number="304" Count="169">        game_set_square(g, i, j, S_EMPTY);</Line>
+				<Line Number="305" Count="-1">      }</Line>
+				<Line Number="306" Count="-1">    }</Line>
+				<Line Number="307" Count="-1">  }</Line>
+				<Line Number="308" Count="7">  queue_clear_full(g-&gt;q_redo, free);</Line>
+				<Line Number="309" Count="7">  queue_clear_full(g-&gt;q_undo, free);</Line>
+				<Line Number="310" Count="7">}</Line>
+			</Report>
+		</File>
+		<File Name="game_aux.c" FullPath="./game_aux.c">
+			<Report>
+				<Line Number="0" Count="-1">#include &lt;stdbool.h&gt;</Line>
+				<Line Number="1" Count="-1">#include &lt;stdio.h&gt;</Line>
+				<Line Number="2" Count="-1">#include &lt;stdlib.h&gt;</Line>
+				<Line Number="3" Count="-1"></Line>
+				<Line Number="4" Count="-1">#include "game_struct.h"</Line>
+				<Line Number="5" Count="-1"></Line>
+				<Line Number="6" Count="-1">// if choice == true : print le meme charactère c, sinon print i (donc 1,2,3,...</Line>
+				<Line Number="7" Count="-1">// etc)</Line>
+				<Line Number="8" Count="174">void print_in_range(int range, char *c, bool choice) {</Line>
+				<Line Number="9" Count="1218">  for (int i = 0; i &lt; range; i++) {</Line>
+				<Line Number="10" Count="1044">    if (choice) {</Line>
+				<Line Number="11" Count="696">      printf("%s", c);</Line>
+				<Line Number="12" Count="-1">    } else {</Line>
+				<Line Number="13" Count="348">      printf("%d", i);</Line>
+				<Line Number="14" Count="-1">    }</Line>
+				<Line Number="15" Count="-1">  }</Line>
+				<Line Number="16" Count="174">  printf("\n");</Line>
+				<Line Number="17" Count="174">}</Line>
+				<Line Number="18" Count="-1"></Line>
+				<Line Number="19" Count="58">void game_print(cgame g) {</Line>
+				<Line Number="20" Count="58">  int nb_cols = game_nb_cols(g);</Line>
+				<Line Number="21" Count="58">  int nb_rows = game_nb_rows(g);</Line>
+				<Line Number="22" Count="58">  char *tab[5] = {" ", "w", "b", "W", "B"};</Line>
+				<Line Number="23" Count="58">  printf("   ");</Line>
+				<Line Number="24" Count="58">  print_in_range(nb_cols, "$", false);</Line>
+				<Line Number="25" Count="58">  printf("   ");</Line>
+				<Line Number="26" Count="58">  print_in_range(nb_cols, "-", true);</Line>
+				<Line Number="27" Count="614">  for (int cpt_line = 0; cpt_line &lt; nb_rows; cpt_line++) {</Line>
+				<Line Number="28" Count="556">    printf("%d |", cpt_line);</Line>
+				<Line Number="29" Count="3892">    for (int cpt_col = 0; cpt_col &lt; nb_cols; cpt_col++) {</Line>
+				<Line Number="30" Count="3336">      square s = game_get_square(g, cpt_line, cpt_col);</Line>
+				<Line Number="31" Count="3336">      printf("%s", tab[s]);</Line>
+				<Line Number="32" Count="-1">    }</Line>
+				<Line Number="33" Count="556">    printf("|\n");</Line>
+				<Line Number="34" Count="-1">  }</Line>
+				<Line Number="35" Count="58">  printf("   ");</Line>
+				<Line Number="36" Count="58">  print_in_range(g-&gt;nb_cols, "-", true);</Line>
+				<Line Number="37" Count="58">}</Line>
+				<Line Number="38" Count="-1"></Line>
+				<Line Number="39" Count="78">game game_default(void) {</Line>
+				<Line Number="40" Count="78">  game g = game_new_empty_ext(6, 6, false, false);</Line>
+				<Line Number="41" Count="78">  int B[3] = {1, 20, 26};</Line>
+				<Line Number="42" Count="78">  int W[6] = {2, 13, 16, 19, 29, 35};</Line>
+				<Line Number="43" Count="78">  square black = S_IMMUTABLE_ONE;</Line>
+				<Line Number="44" Count="78">  square white = S_IMMUTABLE_ZERO;</Line>
+				<Line Number="45" Count="312">  for (int i = 0; i &lt; 3; i++) {</Line>
+				<Line Number="46" Count="234">    game_set_square(g, B[i] / 6, B[i] % 6, black);</Line>
+				<Line Number="47" Count="-1">  }</Line>
+				<Line Number="48" Count="546">  for (int i = 0; i &lt; 6; i++) {</Line>
+				<Line Number="49" Count="468">    game_set_square(g, W[i] / 6, W[i] % 6, white);</Line>
+				<Line Number="50" Count="-1">  }</Line>
+				<Line Number="51" Count="78">  return g;</Line>
+				<Line Number="52" Count="-1">}</Line>
+				<Line Number="53" Count="-1"></Line>
+				<Line Number="54" Count="24">game game_default_solution(void) {</Line>
+				<Line Number="55" Count="24">  game g = game_default();</Line>
+				<Line Number="56" Count="24">  square b = S_ONE;</Line>
+				<Line Number="57" Count="24">  square w = S_ZERO;</Line>
+				<Line Number="58" Count="24">  game_play_move(g, 0, 0, w);</Line>
+				<Line Number="59" Count="24">  game_play_move(g, 0, 3, b);</Line>
+				<Line Number="60" Count="24">  game_play_move(g, 0, 4, w);</Line>
+				<Line Number="61" Count="24">  game_play_move(g, 0, 5, b);</Line>
+				<Line Number="62" Count="24">  game_play_move(g, 1, 0, w);</Line>
+				<Line Number="63" Count="24">  game_play_move(g, 1, 1, b);</Line>
+				<Line Number="64" Count="24">  game_play_move(g, 1, 2, b);</Line>
+				<Line Number="65" Count="24">  game_play_move(g, 1, 3, w);</Line>
+				<Line Number="66" Count="24">  game_play_move(g, 1, 4, b);</Line>
+				<Line Number="67" Count="24">  game_play_move(g, 1, 5, w);</Line>
+				<Line Number="68" Count="24">  game_play_move(g, 2, 0, b);</Line>
+				<Line Number="69" Count="24">  game_play_move(g, 2, 2, w);</Line>
+				<Line Number="70" Count="24">  game_play_move(g, 2, 3, b);</Line>
+				<Line Number="71" Count="24">  game_play_move(g, 2, 5, b);</Line>
+				<Line Number="72" Count="24">  game_play_move(g, 3, 0, b);</Line>
+				<Line Number="73" Count="24">  game_play_move(g, 3, 3, w);</Line>
+				<Line Number="74" Count="24">  game_play_move(g, 3, 4, w);</Line>
+				<Line Number="75" Count="24">  game_play_move(g, 3, 5, b);</Line>
+				<Line Number="76" Count="24">  game_play_move(g, 4, 0, w);</Line>
+				<Line Number="77" Count="24">  game_play_move(g, 4, 1, b);</Line>
+				<Line Number="78" Count="24">  game_play_move(g, 4, 3, w);</Line>
+				<Line Number="79" Count="24">  game_play_move(g, 4, 4, b);</Line>
+				<Line Number="80" Count="24">  game_play_move(g, 5, 0, b);</Line>
+				<Line Number="81" Count="24">  game_play_move(g, 5, 1, w);</Line>
+				<Line Number="82" Count="24">  game_play_move(g, 5, 2, w);</Line>
+				<Line Number="83" Count="24">  game_play_move(g, 5, 3, b);</Line>
+				<Line Number="84" Count="24">  game_play_move(g, 5, 4, b);</Line>
+				<Line Number="85" Count="24">  return g;</Line>
+				<Line Number="86" Count="-1">}</Line>
+			</Report>
+		</File>
+		<File Name="game_ext.c" FullPath="./game_ext.c">
+			<Report>
+				<Line Number="0" Count="-1">#include &lt;assert.h&gt;</Line>
+				<Line Number="1" Count="-1">#include &lt;stdbool.h&gt;</Line>
+				<Line Number="2" Count="-1">#include &lt;stdio.h&gt;</Line>
+				<Line Number="3" Count="-1">#include &lt;stdlib.h&gt;</Line>
+				<Line Number="4" Count="-1">#include &lt;string.h&gt;</Line>
+				<Line Number="5" Count="-1"></Line>
+				<Line Number="6" Count="-1">#include "game.h"</Line>
+				<Line Number="7" Count="-1">#include "game_struct.h"</Line>
+				<Line Number="8" Count="-1"></Line>
+				<Line Number="9" Count="-1">#define TAILLE_MAX 10</Line>
+				<Line Number="10" Count="-1"></Line>
+				<Line Number="11" Count="90">game game_new_ext(uint nb_rows, uint nb_cols, square* squares, bool wrapping,</Line>
+				<Line Number="12" Count="-1">                  bool unique) {</Line>
+				<Line Number="13" Count="90">  game g = game_new_empty_ext(nb_rows, nb_cols, wrapping, unique);</Line>
+				<Line Number="14" Count="90">  assert(g);</Line>
+				<Line Number="15" Count="90">  memcpy(g-&gt;tab, squares, nb_rows * nb_cols * sizeof(square));</Line>
+				<Line Number="16" Count="90">  return g;</Line>
+				<Line Number="17" Count="-1">}</Line>
+				<Line Number="18" Count="-1"></Line>
+				<Line Number="19" Count="351">game game_new_empty_ext(uint nb_rows, uint nb_cols, bool wrapping,</Line>
+				<Line Number="20" Count="-1">                        bool unique) {</Line>
+				<Line Number="21" Count="351">  if (nb_rows % 2 != 0 || nb_cols % 2 != 0 || nb_cols &gt; TAILLE_MAX  || nb_rows &gt; TAILLE_MAX ) {</Line>
+				<Line Number="22" Count="0">    return NULL;</Line>
+				<Line Number="23" Count="-1">  }</Line>
+				<Line Number="24" Count="351">  game g = my_malloc(sizeof(*g));</Line>
+				<Line Number="25" Count="351">  g-&gt;nb_rows = nb_rows;</Line>
+				<Line Number="26" Count="351">  g-&gt;nb_cols = nb_cols;</Line>
+				<Line Number="27" Count="351">  g-&gt;wrapping = wrapping;</Line>
+				<Line Number="28" Count="351">  g-&gt;unique = unique;</Line>
+				<Line Number="29" Count="351">  g-&gt;tab = my_calloc(nb_cols * nb_rows, sizeof(square));</Line>
+				<Line Number="30" Count="351">  g-&gt;q_undo = queue_new();</Line>
+				<Line Number="31" Count="351">  g-&gt;q_redo = queue_new();</Line>
+				<Line Number="32" Count="351">  return g;</Line>
+				<Line Number="33" Count="-1">}</Line>
+				<Line Number="34" Count="-1"></Line>
+				<Line Number="35" Count="3898">bool game_is_wrapping(cgame g) {</Line>
+				<Line Number="36" Count="3898">  check_parameters(g, 0, 0);</Line>
+				<Line Number="37" Count="3898">  return g-&gt;wrapping;</Line>
+				<Line Number="38" Count="-1">}</Line>
+				<Line Number="39" Count="-1"></Line>
+				<Line Number="40" Count="506">bool game_is_unique(cgame g) {</Line>
+				<Line Number="41" Count="506">  check_parameters(g, 0, 0);</Line>
+				<Line Number="42" Count="506">  return g-&gt;unique;</Line>
+				<Line Number="43" Count="-1">}</Line>
+				<Line Number="44" Count="-1"></Line>
+				<Line Number="45" Count="60762">uint game_nb_cols(cgame g) {</Line>
+				<Line Number="46" Count="60762">  check_parameters(g, 0, 0);</Line>
+				<Line Number="47" Count="60762">  return g-&gt;nb_cols;</Line>
+				<Line Number="48" Count="-1">}</Line>
+				<Line Number="49" Count="-1"></Line>
+				<Line Number="50" Count="32880">uint game_nb_rows(cgame g) {</Line>
+				<Line Number="51" Count="32880">  check_parameters(g, 0, 0);</Line>
+				<Line Number="52" Count="32880">  return g-&gt;nb_rows;</Line>
+				<Line Number="53" Count="-1">}</Line>
+				<Line Number="54" Count="-1"></Line>
+				<Line Number="55" Count="47">void game_undo(game g) {</Line>
+				<Line Number="56" Count="47">  if (!queue_is_empty(g-&gt;q_undo)) {</Line>
+				<Line Number="57" Count="41">    struct move* m = queue_pop_head(g-&gt;q_undo);</Line>
+				<Line Number="58" Count="41">    game_play_move(g, m-&gt;row, m-&gt;col, m-&gt;square_prev);</Line>
+				<Line Number="59" Count="41">    queue_push_head(g-&gt;q_redo, queue_pop_head(g-&gt;q_undo));</Line>
+				<Line Number="60" Count="-1">  }</Line>
+				<Line Number="61" Count="47">}</Line>
+				<Line Number="62" Count="-1"></Line>
+				<Line Number="63" Count="19">void game_redo(game g) {</Line>
+				<Line Number="64" Count="19">  if (!queue_is_empty(g-&gt;q_redo)) {</Line>
+				<Line Number="65" Count="19">    struct move* m = queue_pop_head(g-&gt;q_redo);</Line>
+				<Line Number="66" Count="19">    game_play_move(g, m-&gt;row, m-&gt;col, m-&gt;square_prev);</Line>
+				<Line Number="67" Count="-1">  }</Line>
+				<Line Number="68" Count="19">}</Line>
+			</Report>
+		</File>
+		<File Name="game_test_ecallet.c" FullPath="./game_test_ecallet.c">
+			<Report>
+				<Line Number="0" Count="-1">#include &lt;stdbool.h&gt;</Line>
+				<Line Number="1" Count="-1">#include &lt;stdio.h&gt;</Line>
+				<Line Number="2" Count="-1">#include &lt;stdlib.h&gt;</Line>
+				<Line Number="3" Count="-1">#include &lt;string.h&gt;</Line>
+				<Line Number="4" Count="-1"></Line>
+				<Line Number="5" Count="-1">#include "game.h"</Line>
+				<Line Number="6" Count="-1">#include "game_aux.h"</Line>
+				<Line Number="7" Count="-1">#include "game_struct.h"</Line>
+				<Line Number="8" Count="-1"></Line>
+				<Line Number="9" Count="-1">/* ********** ASSERT ********** */</Line>
+				<Line Number="10" Count="-1">#define ASSERT(expr)                                                          \</Line>
+				<Line Number="11" Count="-1">  do {                                                                        \</Line>
+				<Line Number="12" Count="-1">    if ((expr) == 0) {                                                        \</Line>
+				<Line Number="13" Count="-1">      fprintf(stderr, "[%s:%d] Assertion '%s' failed!\n", __FILE__, __LINE__, \</Line>
+				<Line Number="14" Count="-1">              #expr);                                                         \</Line>
+				<Line Number="15" Count="-1">      abort();                                                                \</Line>
+				<Line Number="16" Count="-1">    }                                                                         \</Line>
+				<Line Number="17" Count="-1">  } while (0)</Line>
+				<Line Number="18" Count="-1"></Line>
+				<Line Number="19" Count="-1">/* Create a test game 3x3 with wanted parameters */</Line>
+				<Line Number="20" Count="48">game set_game_test(bool wrapping, bool unique) {</Line>
+				<Line Number="21" Count="48">  game g = game_new_empty_ext(4, 4, wrapping, unique);</Line>
+				<Line Number="22" Count="48">  game_set_square(g, 0, 0, S_IMMUTABLE_ZERO);</Line>
+				<Line Number="23" Count="48">  game_set_square(g, 0, 3, S_IMMUTABLE_ONE);</Line>
+				<Line Number="24" Count="48">  game_set_square(g, 3, 0, S_ZERO);</Line>
+				<Line Number="25" Count="48">  game_set_square(g, 3, 3, S_ONE);</Line>
+				<Line Number="26" Count="48">  return (g);</Line>
+				<Line Number="27" Count="-1">}</Line>
+				<Line Number="28" Count="-1">/* *** TEST DUMMY *** */</Line>
+				<Line Number="29" Count="6">int test_dummy() { return 0; }</Line>
+				<Line Number="30" Count="-1"></Line>
+				<Line Number="31" Count="-1">/* *** TEST GET NUMBER *** */</Line>
+				<Line Number="32" Count="6">int test_get_number() {</Line>
+				<Line Number="33" Count="6">  game g = game_default();</Line>
+				<Line Number="34" Count="6">  square s = S_ZERO;</Line>
+				<Line Number="35" Count="6">  game_play_move(g, 0, 0, s);</Line>
+				<Line Number="36" Count="6">  s = S_ONE;</Line>
+				<Line Number="37" Count="6">  game_play_move(g, 0, 3, s);</Line>
+				<Line Number="38" Count="12">  if (game_get_number(g, 0, 0) != 0 || game_get_number(g, 0, 1) != 1 ||</Line>
+				<Line Number="39" Count="18">      game_get_number(g, 0, 2) != 0 || game_get_number(g, 0, 3) != 1 ||</Line>
+				<Line Number="40" Count="6">      game_get_number(g, 0, 4) != -1) {</Line>
+				<Line Number="41" Count="0">    game_delete(g);</Line>
+				<Line Number="42" Count="0">    return 1;</Line>
+				<Line Number="43" Count="-1">  } else {</Line>
+				<Line Number="44" Count="6">    game_delete(g);</Line>
+				<Line Number="45" Count="6">    return 0;</Line>
+				<Line Number="46" Count="-1">  }</Line>
+				<Line Number="47" Count="-1">}</Line>
+				<Line Number="48" Count="-1"></Line>
+				<Line Number="49" Count="-1">/* *** TEST GET NEXT SQUARE *** */</Line>
+				<Line Number="50" Count="6">int test_get_next_square() {</Line>
+				<Line Number="51" Count="6">  game g = set_game_test(false, false);</Line>
+				<Line Number="52" Count="12">  if (game_get_next_square(g, 0, 0, RIGHT, 0) != S_IMMUTABLE_ZERO ||</Line>
+				<Line Number="53" Count="12">      game_get_next_square(g, 0, 2, LEFT, 0) != S_EMPTY ||</Line>
+				<Line Number="54" Count="12">      game_get_next_square(g, 2, 3, UP, 2) != S_IMMUTABLE_ONE ||</Line>
+				<Line Number="55" Count="12">      game_get_next_square(g, 3, 0, DOWN, 2) != -1 ||</Line>
+				<Line Number="56" Count="12">      game_get_next_square(g, 0, 2, UP, 1) != -1 ||</Line>
+				<Line Number="57" Count="12">      game_get_next_square(g, 3, 0, LEFT, 2) != -1 ||</Line>
+				<Line Number="58" Count="6">      game_get_next_square(g, 3, 3, RIGHT, 1) != -1) {</Line>
+				<Line Number="59" Count="0">    game_delete(g);</Line>
+				<Line Number="60" Count="0">    return -1;</Line>
+				<Line Number="61" Count="-1">  }</Line>
+				<Line Number="62" Count="6">  game_delete(g);</Line>
+				<Line Number="63" Count="6">  return 0;</Line>
+				<Line Number="64" Count="-1">}</Line>
+				<Line Number="65" Count="-1"></Line>
+				<Line Number="66" Count="-1">/* *** TEST GET NEXT SQUARE *** */</Line>
+				<Line Number="67" Count="6">int test_get_next_square_wrapping() {</Line>
+				<Line Number="68" Count="6">  game g = set_game_test(true, false);</Line>
+				<Line Number="69" Count="12">  if (game_get_next_square(g, 0, 0, RIGHT, 0) != S_IMMUTABLE_ZERO ||</Line>
+				<Line Number="70" Count="12">      game_get_next_square(g, 0, 2, LEFT, 0) != S_EMPTY ||</Line>
+				<Line Number="71" Count="12">      game_get_next_square(g, 2, 3, UP, 2) != S_IMMUTABLE_ONE ||</Line>
+				<Line Number="72" Count="12">      game_get_next_square(g, 3, 0, DOWN, 2) != S_EMPTY ||</Line>
+				<Line Number="73" Count="12">      game_get_next_square(g, 3, 0, DOWN, 1) != S_IMMUTABLE_ZERO ||</Line>
+				<Line Number="74" Count="12">      game_get_next_square(g, 0, 0, UP, 1) != S_ZERO ||</Line>
+				<Line Number="75" Count="12">      game_get_next_square(g, 0, 2, UP, 1) != S_EMPTY ||</Line>
+				<Line Number="76" Count="12">      game_get_next_square(g, 0, 3, UP, 1) != S_ONE ||</Line>
+				<Line Number="77" Count="12">      game_get_next_square(g, 0, 0, LEFT, 1) != S_IMMUTABLE_ONE ||</Line>
+				<Line Number="78" Count="12">      game_get_next_square(g, 1, 0, LEFT, 1) != S_EMPTY ||</Line>
+				<Line Number="79" Count="12">      game_get_next_square(g, 1, 3, RIGHT, 1) != S_EMPTY ||</Line>
+				<Line Number="80" Count="6">      game_get_next_square(g, 3, 3, RIGHT, 1) != S_ZERO) {</Line>
+				<Line Number="81" Count="0">    game_delete(g);</Line>
+				<Line Number="82" Count="0">    return 1;</Line>
+				<Line Number="83" Count="-1">  }</Line>
+				<Line Number="84" Count="6">  game_delete(g);</Line>
+				<Line Number="85" Count="6">  return 0;</Line>
+				<Line Number="86" Count="-1">}</Line>
+				<Line Number="87" Count="-1"></Line>
+				<Line Number="88" Count="-1">/* *** TEST CHECK MOVE *** */</Line>
+				<Line Number="89" Count="6">int test_check_move() {</Line>
+				<Line Number="90" Count="6">  game g = game_default();</Line>
+				<Line Number="91" Count="-1"></Line>
+				<Line Number="92" Count="6">  if (game_check_move(g, 7, 8, S_ONE) != false ||</Line>
+				<Line Number="93" Count="6">      game_check_move(g, 0, 0, S_ZERO) != true ||</Line>
+				<Line Number="94" Count="6">      game_check_move(g, 0, 0, S_ONE) != true ||</Line>
+				<Line Number="95" Count="12">      game_check_move(g, 0, 0, S_EMPTY) != true ||</Line>
+				<Line Number="96" Count="12">      game_check_move(g, 0, 1, S_ONE) != false ||</Line>
+				<Line Number="97" Count="12">      game_check_move(g, 0, 2, S_ZERO) != false ||</Line>
+				<Line Number="98" Count="12">      game_check_move(g, 0, 0, S_IMMUTABLE_ONE) != false ||</Line>
+				<Line Number="99" Count="6">      game_check_move(g, 0, 1, S_IMMUTABLE_ZERO) != false) {</Line>
+				<Line Number="100" Count="0">    game_delete(g);</Line>
+				<Line Number="101" Count="0">    return 1;</Line>
+				<Line Number="102" Count="-1">  } else {</Line>
+				<Line Number="103" Count="6">    game_delete(g);</Line>
+				<Line Number="104" Count="6">    return 0;</Line>
+				<Line Number="105" Count="-1">  }</Line>
+				<Line Number="106" Count="-1">}</Line>
+				<Line Number="107" Count="-1"></Line>
+				<Line Number="108" Count="-1">/* *** TEST GET NEXT NUMBER *** */</Line>
+				<Line Number="109" Count="6">int test_get_next_number() {</Line>
+				<Line Number="110" Count="6">  game g = set_game_test(false, false);</Line>
+				<Line Number="111" Count="12">  if (game_get_next_number(g, 0, 0, RIGHT, 0) != 0 ||</Line>
+				<Line Number="112" Count="12">      game_get_next_number(g, 0, 2, LEFT, 0) != -1 ||</Line>
+				<Line Number="113" Count="12">      game_get_next_number(g, 2, 3, UP, 2) != 1 ||</Line>
+				<Line Number="114" Count="12">      game_get_next_number(g, 3, 0, DOWN, 2) != -1 ||</Line>
+				<Line Number="115" Count="6">      game_get_next_number(g, 0, 2, UP, 1) != -1) {</Line>
+				<Line Number="116" Count="0">    game_delete(g);</Line>
+				<Line Number="117" Count="0">    return 1;</Line>
+				<Line Number="118" Count="-1">  }</Line>
+				<Line Number="119" Count="6">  game_delete(g);</Line>
+				<Line Number="120" Count="6">  return 0;</Line>
+				<Line Number="121" Count="-1">}</Line>
+				<Line Number="122" Count="-1"></Line>
+				<Line Number="123" Count="-1">/* *** TEST GET NEXT NUMBER WRAPPING *** */</Line>
+				<Line Number="124" Count="6">int test_get_next_number_wrapping() {</Line>
+				<Line Number="125" Count="6">  game g = set_game_test(true, false);</Line>
+				<Line Number="126" Count="12">  if (game_get_next_number(g, 0, 0, RIGHT, 0) != 0 ||</Line>
+				<Line Number="127" Count="12">      game_get_next_number(g, 0, 2, LEFT, 0) != -1 ||</Line>
+				<Line Number="128" Count="12">      game_get_next_number(g, 2, 3, UP, 2) != 1 ||</Line>
+				<Line Number="129" Count="12">      game_get_next_number(g, 3, 0, DOWN, 2) != -1 ||</Line>
+				<Line Number="130" Count="12">      game_get_next_number(g, 3, 0, DOWN, 1) != 0 ||</Line>
+				<Line Number="131" Count="12">      game_get_next_number(g, 0, 2, UP, 1) != -1 ||</Line>
+				<Line Number="132" Count="12">      game_get_next_number(g, 0, 3, UP, 1) != 1 ||</Line>
+				<Line Number="133" Count="12">      game_get_next_number(g, 0, 0, LEFT, 1) != 1 ||</Line>
+				<Line Number="134" Count="12">      game_get_next_number(g, 1, 0, LEFT, 1) != -1 ||</Line>
+				<Line Number="135" Count="12">      game_get_next_number(g, 1, 3, RIGHT, 1) != -1 ||</Line>
+				<Line Number="136" Count="6">      game_get_next_number(g, 3, 3, RIGHT, 1) != 0) {</Line>
+				<Line Number="137" Count="0">    game_delete(g);</Line>
+				<Line Number="138" Count="0">    return 1;</Line>
+				<Line Number="139" Count="-1">  }</Line>
+				<Line Number="140" Count="6">  game_delete(g);</Line>
+				<Line Number="141" Count="6">  return 0;</Line>
+				<Line Number="142" Count="-1">}</Line>
+				<Line Number="143" Count="-1"></Line>
+				<Line Number="144" Count="-1">/* *** TEST IS EMPTY *** */</Line>
+				<Line Number="145" Count="6">int test_is_empty() {</Line>
+				<Line Number="146" Count="6">  game g = game_default();</Line>
+				<Line Number="147" Count="6">  square s = S_ZERO;</Line>
+				<Line Number="148" Count="6">  game_play_move(g, 0, 0, s);</Line>
+				<Line Number="149" Count="6">  s = S_ONE;</Line>
+				<Line Number="150" Count="6">  game_play_move(g, 0, 3, s);</Line>
+				<Line Number="151" Count="12">  if (game_is_empty(g, 0, 0) != false || game_is_empty(g, 0, 1) != false ||</Line>
+				<Line Number="152" Count="12">      game_is_empty(g, 0, 2) != false || game_is_empty(g, 0, 3) != false ||</Line>
+				<Line Number="153" Count="6">      game_is_empty(g, 0, 4) != true) {</Line>
+				<Line Number="154" Count="0">    game_delete(g);</Line>
+				<Line Number="155" Count="0">    return 1;</Line>
+				<Line Number="156" Count="-1">  } else {</Line>
+				<Line Number="157" Count="6">    game_delete(g);</Line>
+				<Line Number="158" Count="6">    return 0;</Line>
+				<Line Number="159" Count="-1">  }</Line>
+				<Line Number="160" Count="-1">}</Line>
+				<Line Number="161" Count="-1"></Line>
+				<Line Number="162" Count="-1">/* *** TEST IS IMMUTABLE *** */</Line>
+				<Line Number="163" Count="6">int test_is_immutable() {</Line>
+				<Line Number="164" Count="6">  game g = game_default();</Line>
+				<Line Number="165" Count="6">  square s = S_ZERO;</Line>
+				<Line Number="166" Count="6">  game_play_move(g, 0, 0, s);</Line>
+				<Line Number="167" Count="6">  s = S_ONE;</Line>
+				<Line Number="168" Count="6">  game_play_move(g, 0, 3, s);</Line>
+				<Line Number="169" Count="6">  if (game_is_immutable(g, 0, 0) != false ||</Line>
+				<Line Number="170" Count="6">      game_is_immutable(g, 0, 1) != true ||</Line>
+				<Line Number="171" Count="12">      game_is_immutable(g, 0, 2) != true ||</Line>
+				<Line Number="172" Count="12">      game_is_immutable(g, 0, 3) != false ||</Line>
+				<Line Number="173" Count="6">      game_is_immutable(g, 0, 4) != false) {</Line>
+				<Line Number="174" Count="0">    game_delete(g);</Line>
+				<Line Number="175" Count="0">    return 1;</Line>
+				<Line Number="176" Count="-1">  } else {</Line>
+				<Line Number="177" Count="6">    game_delete(g);</Line>
+				<Line Number="178" Count="6">    return 0;</Line>
+				<Line Number="179" Count="-1">  }</Line>
+				<Line Number="180" Count="-1">}</Line>
+				<Line Number="181" Count="-1"></Line>
+				<Line Number="182" Count="-1">/* *** TEST HAS ERROR *** */</Line>
+				<Line Number="183" Count="6">int test_has_error() {</Line>
+				<Line Number="184" Count="6">  game g = game_default();</Line>
+				<Line Number="185" Count="6">  game_play_move(g, 1, 1, S_ZERO);</Line>
+				<Line Number="186" Count="6">  game_play_move(g, 5, 2, S_ONE);</Line>
+				<Line Number="187" Count="6">  game_play_move(g, 0, 3, S_ZERO);</Line>
+				<Line Number="188" Count="6">  game_play_move(g, 0, 4, S_ZERO);</Line>
+				<Line Number="189" Count="12">  if (game_has_error(g, 0, 0) != 0 || game_has_error(g, 0, 1) != 0 ||</Line>
+				<Line Number="190" Count="18">      game_has_error(g, 1, 1) == 0 || game_has_error(g, 5, 2) == 0 ||</Line>
+				<Line Number="191" Count="12">      game_has_error(g, 0, 3) == 0 || game_has_error(g, 0, 4) == 0) {</Line>
+				<Line Number="192" Count="0">    game_delete(g);</Line>
+				<Line Number="193" Count="0">    return 1;</Line>
+				<Line Number="194" Count="-1">  }</Line>
+				<Line Number="195" Count="6">  game_delete(g);</Line>
+				<Line Number="196" Count="6">  square test[32] = {S_ZERO, S_ZERO, S_ONE,  S_ONE, S_ZERO, S_ONE,  S_ONE,</Line>
+				<Line Number="197" Count="-1">                     S_ZERO, S_ZERO, S_ZERO, S_ONE, S_ONE,  S_ZERO, S_ONE,</Line>
+				<Line Number="198" Count="-1">                     S_ONE,  S_ZERO, S_ONE,  S_ONE, S_ZERO, S_ZERO, S_ONE,</Line>
+				<Line Number="199" Count="-1">                     S_ZERO, S_ZERO, S_ONE,  S_ONE, S_ONE,  S_ZERO, S_ZERO,</Line>
+				<Line Number="200" Count="-1">                     S_ONE,  S_ZERO, S_ZERO, S_ONE};</Line>
+				<Line Number="201" Count="6">  game g2 = game_new_ext(4, 8, test, false, true);</Line>
+				<Line Number="202" Count="6">  if (game_has_error(g2, 1, 0) == false) {</Line>
+				<Line Number="203" Count="0">    game_delete(g2);</Line>
+				<Line Number="204" Count="0">    return 1;</Line>
+				<Line Number="205" Count="-1">  }</Line>
+				<Line Number="206" Count="6">  game_delete(g2);</Line>
+				<Line Number="207" Count="6">  return 0;</Line>
+				<Line Number="208" Count="-1">}</Line>
+				<Line Number="209" Count="-1"></Line>
+				<Line Number="210" Count="-1">/* *** TEST HAS ERROR WRAPPING*** */</Line>
+				<Line Number="211" Count="6">int test_has_error_wrapping() {</Line>
+				<Line Number="212" Count="6">  game g = set_game_test(true, false);</Line>
+				<Line Number="213" Count="6">  game_play_move(g, 1, 0, S_ZERO);  // W   w B</Line>
+				<Line Number="214" Count="6">  game_play_move(g, 1, 3, S_ZERO);  // w</Line>
+				<Line Number="215" Count="6">  game_play_move(g, 0, 2, S_ZERO);  //       b</Line>
+				<Line Number="216" Count="6">  game_play_move(g, 3, 2, S_ZERO);  // w b w b</Line>
+				<Line Number="217" Count="6">  game_play_move(g, 2, 3, S_ONE);</Line>
+				<Line Number="218" Count="6">  game_play_move(g, 3, 1, S_ONE);</Line>
+				<Line Number="219" Count="12">  if (game_has_error(g, 0, 0) != -1 || game_has_error(g, 1, 0) != -1 ||</Line>
+				<Line Number="220" Count="18">      game_has_error(g, 3, 0) != -1 || game_has_error(g, 2, 3) != -1 ||</Line>
+				<Line Number="221" Count="18">      game_has_error(g, 3, 3) != -1 || game_has_error(g, 0, 2) != 0 ||</Line>
+				<Line Number="222" Count="12">      game_has_error(g, 3, 1) != 0 || game_has_error(g, 3, 2) != 0) {</Line>
+				<Line Number="223" Count="0">    game_delete(g);</Line>
+				<Line Number="224" Count="0">    return 1;</Line>
+				<Line Number="225" Count="-1">  }                                 // W   w B</Line>
+				<Line Number="226" Count="6">  game_play_move(g, 1, 1, S_ZERO);  // w w   w</Line>
+				<Line Number="227" Count="6">  game_play_move(g, 1, 3, S_ZERO);  //       b</Line>
+				<Line Number="228" Count="-1">                                    // b b w b</Line>
+				<Line Number="229" Count="12">  if (game_has_error(g, 1, 0) != -1 || game_has_error(g, 1, 1) != -1 ||</Line>
+				<Line Number="230" Count="18">      game_has_error(g, 1, 3) != -1 || game_has_error(g, 3, 0) != -1 ||</Line>
+				<Line Number="231" Count="6">      game_has_error(g, 3, 3) != -1) {</Line>
+				<Line Number="232" Count="0">    game_delete(g);</Line>
+				<Line Number="233" Count="0">    return 1;</Line>
+				<Line Number="234" Count="-1">  }</Line>
+				<Line Number="235" Count="-1"></Line>
+				<Line Number="236" Count="6">  game_delete(g);</Line>
+				<Line Number="237" Count="6">  return 0;</Line>
+				<Line Number="238" Count="-1">}</Line>
+				<Line Number="239" Count="-1"></Line>
+				<Line Number="240" Count="-1">/* *** TEST HAS ERROR UNIQUE*** */</Line>
+				<Line Number="241" Count="6">int test_has_error_unique() {</Line>
+				<Line Number="242" Count="6">  game g = game_new_empty_ext(6, 6, false, true);</Line>
+				<Line Number="243" Count="6">  game_play_move(g, 0, 0, S_ZERO);</Line>
+				<Line Number="244" Count="6">  game_play_move(g, 0, 1, S_ZERO);</Line>
+				<Line Number="245" Count="6">  game_play_move(g, 0, 3, S_ZERO);</Line>
+				<Line Number="246" Count="6">  game_play_move(g, 0, 4, S_ZERO);</Line>
+				<Line Number="247" Count="6">  game_play_move(g, 0, 2, S_ONE);</Line>
+				<Line Number="248" Count="6">  game_play_move(g, 1, 2, S_ONE);</Line>
+				<Line Number="249" Count="6">  game_play_move(g, 3, 2, S_ONE);</Line>
+				<Line Number="250" Count="6">  game_play_move(g, 4, 2, S_ONE);</Line>
+				<Line Number="251" Count="12">  if (game_has_error(g, 0, 0) != -1 || game_has_error(g, 0, 1) != -1 ||</Line>
+				<Line Number="252" Count="12">      game_has_error(g, 0, 2) != -1 || game_has_error(g, 3, 2) != -1) {</Line>
+				<Line Number="253" Count="0">    game_delete(g);</Line>
+				<Line Number="254" Count="0">    return 1;</Line>
+				<Line Number="255" Count="-1">  }</Line>
+				<Line Number="256" Count="6">  game_delete(g);</Line>
+				<Line Number="257" Count="6">  game g_diff_lines = game_new_empty_ext(4, 4, false, true);</Line>
+				<Line Number="258" Count="6">  game_play_move(g_diff_lines, 0, 0, S_ZERO);</Line>
+				<Line Number="259" Count="6">  game_play_move(g_diff_lines, 0, 2, S_ZERO);</Line>
+				<Line Number="260" Count="6">  game_play_move(g_diff_lines, 1, 0, S_ZERO);</Line>
+				<Line Number="261" Count="6">  game_play_move(g_diff_lines, 1, 1, S_ZERO);</Line>
+				<Line Number="262" Count="6">  game_play_move(g_diff_lines, 2, 1, S_ZERO);</Line>
+				<Line Number="263" Count="6">  game_play_move(g_diff_lines, 2, 3, S_ZERO);</Line>
+				<Line Number="264" Count="6">  game_play_move(g_diff_lines, 3, 2, S_ZERO);</Line>
+				<Line Number="265" Count="6">  game_play_move(g_diff_lines, 3, 3, S_ZERO);</Line>
+				<Line Number="266" Count="6">  game_play_move(g_diff_lines, 0, 1, S_ONE);</Line>
+				<Line Number="267" Count="6">  game_play_move(g_diff_lines, 0, 3, S_ONE);</Line>
+				<Line Number="268" Count="6">  game_play_move(g_diff_lines, 1, 2, S_ONE);</Line>
+				<Line Number="269" Count="6">  game_play_move(g_diff_lines, 1, 3, S_ONE);</Line>
+				<Line Number="270" Count="6">  game_play_move(g_diff_lines, 2, 0, S_ONE);</Line>
+				<Line Number="271" Count="6">  game_play_move(g_diff_lines, 2, 2, S_ONE);</Line>
+				<Line Number="272" Count="6">  game_play_move(g_diff_lines, 3, 0, S_ONE);</Line>
+				<Line Number="273" Count="6">  game_play_move(g_diff_lines, 3, 1, S_ONE);</Line>
+				<Line Number="274" Count="6">  if (game_has_error(g, 0, 0) != 0) {</Line>
+				<Line Number="275" Count="0">    game_delete(g_diff_lines);</Line>
+				<Line Number="276" Count="0">    return -1;</Line>
+				<Line Number="277" Count="-1">  }</Line>
+				<Line Number="278" Count="6">  game_delete(g_diff_lines);</Line>
+				<Line Number="279" Count="6">  game g_same_lines = game_new_empty_ext(4, 4, true, true);</Line>
+				<Line Number="280" Count="6">  game_play_move(g_same_lines, 0, 1, S_ZERO);</Line>
+				<Line Number="281" Count="6">  game_play_move(g_same_lines, 0, 3, S_ZERO);</Line>
+				<Line Number="282" Count="6">  game_play_move(g_same_lines, 1, 1, S_ZERO);</Line>
+				<Line Number="283" Count="6">  game_play_move(g_same_lines, 1, 3, S_ZERO);</Line>
+				<Line Number="284" Count="6">  game_play_move(g_same_lines, 2, 0, S_ZERO);</Line>
+				<Line Number="285" Count="6">  game_play_move(g_same_lines, 2, 2, S_ZERO);</Line>
+				<Line Number="286" Count="6">  game_play_move(g_same_lines, 3, 0, S_ZERO);</Line>
+				<Line Number="287" Count="6">  game_play_move(g_same_lines, 3, 2, S_ZERO);</Line>
+				<Line Number="288" Count="6">  game_play_move(g_same_lines, 0, 0, S_ONE);</Line>
+				<Line Number="289" Count="6">  game_play_move(g_same_lines, 0, 2, S_ONE);</Line>
+				<Line Number="290" Count="6">  game_play_move(g_same_lines, 1, 0, S_ONE);</Line>
+				<Line Number="291" Count="6">  game_play_move(g_same_lines, 1, 2, S_ONE);</Line>
+				<Line Number="292" Count="6">  game_play_move(g_same_lines, 2, 1, S_ONE);</Line>
+				<Line Number="293" Count="6">  game_play_move(g_same_lines, 2, 3, S_ONE);</Line>
+				<Line Number="294" Count="6">  game_play_move(g_same_lines, 3, 1, S_ONE);</Line>
+				<Line Number="295" Count="6">  game_play_move(g_same_lines, 3, 3, S_ONE);</Line>
+				<Line Number="296" Count="6">  if (game_has_error(g, 0, 0) != -1) {</Line>
+				<Line Number="297" Count="0">    game_delete(g_same_lines);</Line>
+				<Line Number="298" Count="0">    return -1;</Line>
+				<Line Number="299" Count="-1">  }</Line>
+				<Line Number="300" Count="-1"></Line>
+				<Line Number="301" Count="6">  game_delete(g_same_lines);</Line>
+				<Line Number="302" Count="6">  return 0;</Line>
+				<Line Number="303" Count="-1">}</Line>
+				<Line Number="304" Count="-1"></Line>
+				<Line Number="305" Count="-1">/* *** TEST UNDO *** */</Line>
+				<Line Number="306" Count="6">int test_undo() {</Line>
+				<Line Number="307" Count="6">  game g = set_game_test(false, false);</Line>
+				<Line Number="308" Count="6">  game g2 = set_game_test(false, false);</Line>
+				<Line Number="309" Count="6">  game g3 = set_game_test(false, false);</Line>
+				<Line Number="310" Count="6">  game_play_move(g2, 0, 1, S_ONE);</Line>
+				<Line Number="311" Count="6">  game_undo(g2);</Line>
+				<Line Number="312" Count="6">  game_play_move(g2, 1, 1, S_ZERO);</Line>
+				<Line Number="313" Count="6">  game_play_move(g2, 2, 1, S_ONE);</Line>
+				<Line Number="314" Count="6">  game_undo(g2);</Line>
+				<Line Number="315" Count="6">  game_undo(g2);</Line>
+				<Line Number="316" Count="6">  game_redo(g2);</Line>
+				<Line Number="317" Count="6">  game_undo(g2);</Line>
+				<Line Number="318" Count="6">  game_undo(g);</Line>
+				<Line Number="319" Count="6">  if (game_equal(g, g2) == false || game_equal(g, g3) == false) {</Line>
+				<Line Number="320" Count="0">    game_delete(g);</Line>
+				<Line Number="321" Count="0">    game_delete(g2);</Line>
+				<Line Number="322" Count="0">    game_delete(g3);</Line>
+				<Line Number="323" Count="0">    return 1;</Line>
+				<Line Number="324" Count="-1">  } else {</Line>
+				<Line Number="325" Count="6">    game_delete(g);</Line>
+				<Line Number="326" Count="6">    game_delete(g2);</Line>
+				<Line Number="327" Count="6">    game_delete(g3);</Line>
+				<Line Number="328" Count="6">    return 0;</Line>
+				<Line Number="329" Count="-1">  }</Line>
+				<Line Number="330" Count="-1">}</Line>
+				<Line Number="331" Count="-1"></Line>
+				<Line Number="332" Count="-1">/* *** TEST GAME_NEW_EXT COMME MOODLE *** */</Line>
+				<Line Number="333" Count="6">int test_game_new_ext_moodle() {</Line>
+				<Line Number="334" Count="6">  square squares[8] = {S_EMPTY, S_IMMUTABLE_ONE,  S_IMMUTABLE_ZERO, S_ONE,</Line>
+				<Line Number="335" Count="-1">                       S_ZERO,  S_IMMUTABLE_ZERO, S_EMPTY,          S_ONE};</Line>
+				<Line Number="336" Count="6">  int nb_rows = 4;</Line>
+				<Line Number="337" Count="6">  int nb_cols = 2;</Line>
+				<Line Number="338" Count="6">  game g = game_new_ext(4, 2, squares, true, true);</Line>
+				<Line Number="339" Count="6">  if (game_is_unique(g) != true || game_is_wrapping(g) != true ||</Line>
+				<Line Number="340" Count="6">      game_nb_rows(g) != nb_rows || game_nb_cols(g) != nb_cols) {</Line>
+				<Line Number="341" Count="0">    game_delete(g);</Line>
+				<Line Number="342" Count="0">    return 1;</Line>
+				<Line Number="343" Count="-1">  }</Line>
+				<Line Number="344" Count="30">  for (int i = 0; i &lt; nb_rows; i++) {</Line>
+				<Line Number="345" Count="72">    for (int j = 0; j &lt; nb_cols; j++) {</Line>
+				<Line Number="346" Count="48">      if (game_get_square(g, i, j) != squares[i * nb_cols + j]) {</Line>
+				<Line Number="347" Count="0">        game_delete(g);</Line>
+				<Line Number="348" Count="0">        return 1;</Line>
+				<Line Number="349" Count="-1">      }</Line>
+				<Line Number="350" Count="-1">    }</Line>
+				<Line Number="351" Count="-1">  }</Line>
+				<Line Number="352" Count="6">  game_delete(g);</Line>
+				<Line Number="353" Count="6">  return 0;</Line>
+				<Line Number="354" Count="-1">}</Line>
+				<Line Number="355" Count="-1"></Line>
+				<Line Number="356" Count="-1">/* *** TEST IS OVER UNIQUE *** */</Line>
+				<Line Number="357" Count="6">int test_is_over_unique() {</Line>
+				<Line Number="358" Count="6">  game g_diff_lines = game_new_empty_ext(4, 4, false, true);</Line>
+				<Line Number="359" Count="6">  game_play_move(g_diff_lines, 0, 0, S_ZERO);</Line>
+				<Line Number="360" Count="6">  game_play_move(g_diff_lines, 0, 2, S_ZERO);</Line>
+				<Line Number="361" Count="6">  game_play_move(g_diff_lines, 1, 0, S_ZERO);</Line>
+				<Line Number="362" Count="6">  game_play_move(g_diff_lines, 1, 1, S_ZERO);</Line>
+				<Line Number="363" Count="6">  game_play_move(g_diff_lines, 2, 1, S_ZERO);</Line>
+				<Line Number="364" Count="6">  game_play_move(g_diff_lines, 2, 3, S_ZERO);</Line>
+				<Line Number="365" Count="6">  game_play_move(g_diff_lines, 3, 2, S_ZERO);</Line>
+				<Line Number="366" Count="6">  game_play_move(g_diff_lines, 3, 3, S_ZERO);</Line>
+				<Line Number="367" Count="6">  game_play_move(g_diff_lines, 0, 1, S_ONE);</Line>
+				<Line Number="368" Count="6">  game_play_move(g_diff_lines, 0, 3, S_ONE);</Line>
+				<Line Number="369" Count="6">  game_play_move(g_diff_lines, 1, 2, S_ONE);</Line>
+				<Line Number="370" Count="6">  game_play_move(g_diff_lines, 1, 3, S_ONE);</Line>
+				<Line Number="371" Count="6">  game_play_move(g_diff_lines, 2, 0, S_ONE);</Line>
+				<Line Number="372" Count="6">  game_play_move(g_diff_lines, 2, 2, S_ONE);</Line>
+				<Line Number="373" Count="6">  game_play_move(g_diff_lines, 3, 0, S_ONE);</Line>
+				<Line Number="374" Count="6">  game_play_move(g_diff_lines, 3, 1, S_ONE);</Line>
+				<Line Number="375" Count="6">  if (game_is_over(g_diff_lines) == false) {</Line>
+				<Line Number="376" Count="0">    game_delete(g_diff_lines);</Line>
+				<Line Number="377" Count="0">    return 1;</Line>
+				<Line Number="378" Count="-1">  }</Line>
+				<Line Number="379" Count="6">  game g_same_lines = game_new_empty_ext(4, 4, true, true);</Line>
+				<Line Number="380" Count="6">  game_play_move(g_same_lines, 0, 1, S_ZERO);</Line>
+				<Line Number="381" Count="6">  game_play_move(g_same_lines, 0, 3, S_ZERO);</Line>
+				<Line Number="382" Count="6">  game_play_move(g_same_lines, 1, 1, S_ZERO);</Line>
+				<Line Number="383" Count="6">  game_play_move(g_same_lines, 1, 3, S_ZERO);</Line>
+				<Line Number="384" Count="6">  game_play_move(g_same_lines, 2, 0, S_ZERO);</Line>
+				<Line Number="385" Count="6">  game_play_move(g_same_lines, 2, 2, S_ZERO);</Line>
+				<Line Number="386" Count="6">  game_play_move(g_same_lines, 3, 0, S_ZERO);</Line>
+				<Line Number="387" Count="6">  game_play_move(g_same_lines, 3, 2, S_ZERO);</Line>
+				<Line Number="388" Count="6">  game_play_move(g_same_lines, 0, 0, S_ONE);</Line>
+				<Line Number="389" Count="6">  game_play_move(g_same_lines, 0, 2, S_ONE);</Line>
+				<Line Number="390" Count="6">  game_play_move(g_same_lines, 1, 0, S_ONE);</Line>
+				<Line Number="391" Count="6">  game_play_move(g_same_lines, 1, 2, S_ONE);</Line>
+				<Line Number="392" Count="6">  game_play_move(g_same_lines, 2, 1, S_ONE);</Line>
+				<Line Number="393" Count="6">  game_play_move(g_same_lines, 2, 3, S_ONE);</Line>
+				<Line Number="394" Count="6">  game_play_move(g_same_lines, 3, 1, S_ONE);</Line>
+				<Line Number="395" Count="6">  game_play_move(g_same_lines, 3, 3, S_ONE);</Line>
+				<Line Number="396" Count="6">  if (game_is_over(g_same_lines)) {</Line>
+				<Line Number="397" Count="0">    game_delete(g_diff_lines);</Line>
+				<Line Number="398" Count="0">    game_delete(g_same_lines);</Line>
+				<Line Number="399" Count="0">    return 1;</Line>
+				<Line Number="400" Count="-1">  }</Line>
+				<Line Number="401" Count="6">  game_delete(g_diff_lines);</Line>
+				<Line Number="402" Count="6">  game_delete(g_same_lines);</Line>
+				<Line Number="403" Count="6">  return 0;</Line>
+				<Line Number="404" Count="-1">}</Line>
+				<Line Number="405" Count="-1"></Line>
+				<Line Number="406" Count="-1">/* ********** USAGE ********** */</Line>
+				<Line Number="407" Count="-1"></Line>
+				<Line Number="408" Count="1">void usage(int argc, char *argv[]) {</Line>
+				<Line Number="409" Count="1">  fprintf(stderr, "Usage: %s &lt;testname&gt; [&lt;...&gt;]\n", argv[0]);</Line>
+				<Line Number="410" Count="1">  exit(EXIT_FAILURE);</Line>
+				<Line Number="411" Count="-1">}</Line>
+				<Line Number="412" Count="-1"></Line>
+				<Line Number="413" Count="-1">/* ********** MAIN ROUTINE ********** */</Line>
+				<Line Number="414" Count="-1"></Line>
+				<Line Number="415" Count="91">int main(int argc, char *argv[]) {</Line>
+				<Line Number="416" Count="91">  if (argc == 1) usage(argc, argv);</Line>
+				<Line Number="417" Count="-1"></Line>
+				<Line Number="418" Count="-1">  // start test</Line>
+				<Line Number="419" Count="90">  fprintf(stderr, "=&gt; Start test \"%s\"\n", argv[1]);</Line>
+				<Line Number="420" Count="90">  int ok = 1;</Line>
+				<Line Number="421" Count="90">  if (strcmp("dummy", argv[1]) == 0) {</Line>
+				<Line Number="422" Count="6">    ok = test_dummy();</Line>
+				<Line Number="423" Count="-1">  }</Line>
+				<Line Number="424" Count="90">  if (strcmp("get_number", argv[1]) == 0) {</Line>
+				<Line Number="425" Count="6">    ok = test_get_number();</Line>
+				<Line Number="426" Count="-1">  }</Line>
+				<Line Number="427" Count="90">  if (strcmp("get_next_square", argv[1]) == 0) {</Line>
+				<Line Number="428" Count="6">    ok = test_get_next_square();</Line>
+				<Line Number="429" Count="-1">  }</Line>
+				<Line Number="430" Count="90">  if (strcmp("get_next_square_wrapping", argv[1]) == 0) {</Line>
+				<Line Number="431" Count="6">    ok = test_get_next_square_wrapping();</Line>
+				<Line Number="432" Count="-1">  }</Line>
+				<Line Number="433" Count="90">  if (strcmp("check_move", argv[1]) == 0) {</Line>
+				<Line Number="434" Count="6">    ok = test_check_move();</Line>
+				<Line Number="435" Count="-1">  }</Line>
+				<Line Number="436" Count="90">  if (strcmp("get_next_number", argv[1]) == 0) {</Line>
+				<Line Number="437" Count="6">    ok = test_get_next_number();</Line>
+				<Line Number="438" Count="-1">  }</Line>
+				<Line Number="439" Count="90">  if (strcmp("get_next_number_wrapping", argv[1]) == 0) {</Line>
+				<Line Number="440" Count="6">    ok = test_get_next_number_wrapping();</Line>
+				<Line Number="441" Count="-1">  }</Line>
+				<Line Number="442" Count="90">  if (strcmp("is_empty", argv[1]) == 0) {</Line>
+				<Line Number="443" Count="6">    ok = test_is_empty();</Line>
+				<Line Number="444" Count="-1">  }</Line>
+				<Line Number="445" Count="90">  if (strcmp("is_immutable", argv[1]) == 0) {</Line>
+				<Line Number="446" Count="6">    ok = test_is_immutable();</Line>
+				<Line Number="447" Count="-1">  }</Line>
+				<Line Number="448" Count="90">  if (strcmp("has_error", argv[1]) == 0) {</Line>
+				<Line Number="449" Count="6">    ok = test_has_error();</Line>
+				<Line Number="450" Count="-1">  }</Line>
+				<Line Number="451" Count="90">  if (strcmp("has_error_wrapping", argv[1]) == 0) {</Line>
+				<Line Number="452" Count="6">    ok = test_has_error_wrapping();</Line>
+				<Line Number="453" Count="-1">  }</Line>
+				<Line Number="454" Count="90">  if (strcmp("has_error_unique", argv[1]) == 0) {</Line>
+				<Line Number="455" Count="6">    ok = test_has_error_unique();</Line>
+				<Line Number="456" Count="-1">  }</Line>
+				<Line Number="457" Count="90">  if (strcmp("undo", argv[1]) == 0) {</Line>
+				<Line Number="458" Count="6">    ok = test_undo();</Line>
+				<Line Number="459" Count="-1">  }</Line>
+				<Line Number="460" Count="90">  if (strcmp("game_new_ext_moodle", argv[1]) == 0) {</Line>
+				<Line Number="461" Count="6">    ok = test_game_new_ext_moodle();</Line>
+				<Line Number="462" Count="-1">  }</Line>
+				<Line Number="463" Count="90">  if (strcmp("is_over_unique", argv[1]) == 0) {</Line>
+				<Line Number="464" Count="6">    ok = test_is_over_unique();</Line>
+				<Line Number="465" Count="-1">  }</Line>
+				<Line Number="466" Count="-1"></Line>
+				<Line Number="467" Count="90">  if (ok == 0) {</Line>
+				<Line Number="468" Count="90">    fprintf(stderr, "Test \"%s\" finished: SUCCESS\n", argv[1]);</Line>
+				<Line Number="469" Count="90">    return EXIT_SUCCESS;</Line>
+				<Line Number="470" Count="-1">  }</Line>
+				<Line Number="471" Count="-1"></Line>
+				<Line Number="472" Count="-1">  else {</Line>
+				<Line Number="473" Count="0">    fprintf(stderr, "Test \"%s\" finished: FAILURE\n", argv[1]);</Line>
+				<Line Number="474" Count="0">    return EXIT_FAILURE;</Line>
+				<Line Number="475" Count="-1">  }</Line>
+				<Line Number="476" Count="-1">}</Line>
+			</Report>
+		</File>
+		<File Name="game_test_ninteyineza.c" FullPath="./game_test_ninteyineza.c">
+			<Report>
+				<Line Number="0" Count="-1">#define __USE_GNU</Line>
+				<Line Number="1" Count="-1">#include &lt;stdbool.h&gt;</Line>
+				<Line Number="2" Count="-1">#include &lt;stdio.h&gt;</Line>
+				<Line Number="3" Count="-1">#include &lt;stdlib.h&gt;</Line>
+				<Line Number="4" Count="-1">#include &lt;string.h&gt;</Line>
+				<Line Number="5" Count="-1"></Line>
+				<Line Number="6" Count="-1">#include "game.h"</Line>
+				<Line Number="7" Count="-1">#include "game_aux.h"</Line>
+				<Line Number="8" Count="-1">#include "game_ext.h"</Line>
+				<Line Number="9" Count="-1">#include "game_struct.h"</Line>
+				<Line Number="10" Count="-1"></Line>
+				<Line Number="11" Count="-1">/* ********** ASSERT ********** */</Line>
+				<Line Number="12" Count="-1">#define assert(expr)                                                          \</Line>
+				<Line Number="13" Count="-1">  do {                                                                        \</Line>
+				<Line Number="14" Count="-1">    if ((expr) == 0) {                                                        \</Line>
+				<Line Number="15" Count="-1">      fprintf(stderr, "[%s:%d] Assertion '%s' failed!\n", __FILE__, __LINE__, \</Line>
+				<Line Number="16" Count="-1">              #expr);                                                         \</Line>
+				<Line Number="17" Count="-1">      abort();                                                                \</Line>
+				<Line Number="18" Count="-1">    }                                                                         \</Line>
+				<Line Number="19" Count="-1">  } while (0)</Line>
+				<Line Number="20" Count="-1"></Line>
+				<Line Number="21" Count="-1">square mesSquares[] = {S_EMPTY, S_ONE,   S_EMPTY, S_ONE,   S_ZERO,  S_EMPTY,</Line>
+				<Line Number="22" Count="-1">                       S_ONE,   S_EMPTY, S_ONE,   S_ZERO,  S_ONE,   S_EMPTY,</Line>
+				<Line Number="23" Count="-1">                       S_EMPTY, S_EMPTY, S_ONE,   S_EMPTY, S_EMPTY, S_ZERO,</Line>
+				<Line Number="24" Count="-1">                       S_ONE,   S_ZERO,  S_ZERO,  S_ONE,   S_EMPTY, S_EMPTY};</Line>
+				<Line Number="25" Count="-1"></Line>
+				<Line Number="26" Count="-1">square mesSquares1[] = {</Line>
+				<Line Number="27" Count="-1">    S_EMPTY, S_EMPTY, S_EMPTY, S_ONE,   S_ZERO,          S_EMPTY,</Line>
+				<Line Number="28" Count="-1">    S_ONE,   S_EMPTY, S_ONE,   S_ZERO,  S_EMPTY,         S_EMPTY,</Line>
+				<Line Number="29" Count="-1">    S_EMPTY, S_ONE,   S_EMPTY, S_ONE,   S_IMMUTABLE_ONE, S_IMMUTABLE_ZERO,</Line>
+				<Line Number="30" Count="-1">    S_EMPTY, S_EMPTY, S_EMPTY, S_EMPTY, S_ONE,           S_ONE,</Line>
+				<Line Number="31" Count="-1">    S_EMPTY, S_EMPTY, S_EMPTY, S_ONE,   S_ZERO,          S_ZERO,</Line>
+				<Line Number="32" Count="-1">    S_ONE,   S_ZERO,  S_ONE,   S_ONE,   S_IMMUTABLE_ONE, S_EMPTY,</Line>
+				<Line Number="33" Count="-1">};</Line>
+				<Line Number="34" Count="-1"></Line>
+				<Line Number="35" Count="2">int test_dummy() { return 0; }</Line>
+				<Line Number="36" Count="-1"></Line>
+				<Line Number="37" Count="0">int test_game_print(void) {</Line>
+				<Line Number="38" Count="0">  game g = game_default();</Line>
+				<Line Number="39" Count="0">  game_print(g);</Line>
+				<Line Number="40" Count="0">  game_delete(g);</Line>
+				<Line Number="41" Count="0">  return EXIT_SUCCESS;</Line>
+				<Line Number="42" Count="-1">}</Line>
+				<Line Number="43" Count="-1"></Line>
+				<Line Number="44" Count="2">int test_game_default() {</Line>
+				<Line Number="45" Count="2">  game test = game_default();</Line>
+				<Line Number="46" Count="-1"></Line>
+				<Line Number="47" Count="2">  square testsquares[6][6] = {</Line>
+				<Line Number="48" Count="-1">      {S_EMPTY, S_IMMUTABLE_ONE, S_IMMUTABLE_ZERO, S_EMPTY, S_EMPTY, S_EMPTY},</Line>
+				<Line Number="49" Count="-1">      {S_EMPTY, S_EMPTY, S_EMPTY, S_EMPTY, S_EMPTY, S_EMPTY},</Line>
+				<Line Number="50" Count="-1">      {S_EMPTY, S_IMMUTABLE_ZERO, S_EMPTY, S_EMPTY, S_IMMUTABLE_ZERO, S_EMPTY},</Line>
+				<Line Number="51" Count="-1">      {S_EMPTY, S_IMMUTABLE_ZERO, S_IMMUTABLE_ONE, S_EMPTY, S_EMPTY, S_EMPTY},</Line>
+				<Line Number="52" Count="-1">      {S_EMPTY, S_EMPTY, S_IMMUTABLE_ONE, S_EMPTY, S_EMPTY, S_IMMUTABLE_ZERO},</Line>
+				<Line Number="53" Count="-1">      {S_EMPTY, S_EMPTY, S_EMPTY, S_EMPTY, S_EMPTY, S_IMMUTABLE_ZERO}};</Line>
+				<Line Number="54" Count="-1"></Line>
+				<Line Number="55" Count="14">  for (int i = 0; i &lt; DEFAULT_SIZE; ++i) {</Line>
+				<Line Number="56" Count="84">    for (int j = 0; j &lt; DEFAULT_SIZE; ++j) {</Line>
+				<Line Number="57" Count="72">      if (game_get_square(test, i, j) != testsquares[i][j]) {</Line>
+				<Line Number="58" Count="0">        game_delete(test);</Line>
+				<Line Number="59" Count="0">        return 1;</Line>
+				<Line Number="60" Count="-1">      }</Line>
+				<Line Number="61" Count="-1">    }</Line>
+				<Line Number="62" Count="-1">  }</Line>
+				<Line Number="63" Count="2">  game_delete(test);</Line>
+				<Line Number="64" Count="2">  return 0;</Line>
+				<Line Number="65" Count="-1">}</Line>
+				<Line Number="66" Count="-1"></Line>
+				<Line Number="67" Count="2">int test_game_default_solution(void) {</Line>
+				<Line Number="68" Count="2">  game test = game_default_solution();</Line>
+				<Line Number="69" Count="2">  game_print(test);</Line>
+				<Line Number="70" Count="2">  square testsquares1[6][6] = {</Line>
+				<Line Number="71" Count="-1">      {S_ZERO, S_IMMUTABLE_ONE, S_IMMUTABLE_ZERO, S_ONE, S_ZERO, S_ONE},</Line>
+				<Line Number="72" Count="-1">      {S_ZERO, S_ONE, S_ONE, S_ZERO, S_ONE, S_ZERO},</Line>
+				<Line Number="73" Count="-1">      {S_ONE, S_IMMUTABLE_ZERO, S_ZERO, S_ONE, S_IMMUTABLE_ZERO, S_ONE},</Line>
+				<Line Number="74" Count="-1">      {S_ONE, S_IMMUTABLE_ZERO, S_IMMUTABLE_ONE, S_ZERO, S_ZERO, S_ONE},</Line>
+				<Line Number="75" Count="-1">      {S_ZERO, S_ONE, S_IMMUTABLE_ONE, S_ZERO, S_ONE, S_IMMUTABLE_ZERO},</Line>
+				<Line Number="76" Count="-1">      {S_ONE, S_ZERO, S_ZERO, S_ONE, S_ONE, S_IMMUTABLE_ZERO}};</Line>
+				<Line Number="77" Count="-1"></Line>
+				<Line Number="78" Count="14">  for (int i = 0; i &lt; DEFAULT_SIZE; ++i) {</Line>
+				<Line Number="79" Count="84">    for (int j = 0; j &lt; DEFAULT_SIZE; ++j) {</Line>
+				<Line Number="80" Count="72">      if (game_get_square(test, i, j) != testsquares1[i][j]) {</Line>
+				<Line Number="81" Count="0">        game_delete(test);</Line>
+				<Line Number="82" Count="0">        return 1;</Line>
+				<Line Number="83" Count="-1">      }</Line>
+				<Line Number="84" Count="-1">    }</Line>
+				<Line Number="85" Count="-1">  }</Line>
+				<Line Number="86" Count="2">  game_delete(test);</Line>
+				<Line Number="87" Count="2">  return 0;</Line>
+				<Line Number="88" Count="-1">}</Line>
+				<Line Number="89" Count="-1"></Line>
+				<Line Number="90" Count="2">int test_game_is_over() {</Line>
+				<Line Number="91" Count="-1">  // avec default game</Line>
+				<Line Number="92" Count="2">  game g0 = game_default();</Line>
+				<Line Number="93" Count="2">  bool test0 = game_is_over(g0) == false;</Line>
+				<Line Number="94" Count="2">  game_delete(g0);</Line>
+				<Line Number="95" Count="-1"></Line>
+				<Line Number="96" Count="-1">  // avec game default solution</Line>
+				<Line Number="97" Count="2">  game g1 = game_default_solution();</Line>
+				<Line Number="98" Count="2">  bool test1 = (game_is_over(g1) == true);</Line>
+				<Line Number="99" Count="2">  game g2 = game_default_solution();</Line>
+				<Line Number="100" Count="2">  bool test2 = game_equal(g1, g2);</Line>
+				<Line Number="101" Count="-1"></Line>
+				<Line Number="102" Count="2">  game_delete(g1);</Line>
+				<Line Number="103" Count="2">  game_delete(g2);</Line>
+				<Line Number="104" Count="-1"></Line>
+				<Line Number="105" Count="-1">  // avec game new empty</Line>
+				<Line Number="106" Count="2">  game g3 = game_new_empty();</Line>
+				<Line Number="107" Count="2">  game_play_move(g3, 0, 0, S_ZERO);</Line>
+				<Line Number="108" Count="2">  game_play_move(g3, 0, 1, S_ZERO);</Line>
+				<Line Number="109" Count="2">  game_play_move(g3, 0, 2, S_ZERO);</Line>
+				<Line Number="110" Count="2">  bool test3 = (game_is_over(g3) == false);</Line>
+				<Line Number="111" Count="2">  game_play_move(g3, 0, 0, S_ONE);</Line>
+				<Line Number="112" Count="2">  game_play_move(g3, 1, 0, S_ONE);</Line>
+				<Line Number="113" Count="2">  game_play_move(g3, 2, 0, S_ONE);</Line>
+				<Line Number="114" Count="2">  bool test4 = (game_is_over(g3) == false);</Line>
+				<Line Number="115" Count="2">  game_delete(g3);</Line>
+				<Line Number="116" Count="-1"></Line>
+				<Line Number="117" Count="2">  if (test0 &amp;&amp; test1 &amp;&amp; test2 &amp;&amp; test3 &amp;&amp; test4) return 0;</Line>
+				<Line Number="118" Count="-1">  // if(game_is_wrapping(g3) &amp;&amp; game_is_unique(g3)) return 0;</Line>
+				<Line Number="119" Count="-1"></Line>
+				<Line Number="120" Count="0">  return 1;</Line>
+				<Line Number="121" Count="-1">}</Line>
+				<Line Number="122" Count="-1"></Line>
+				<Line Number="123" Count="2">int test_game_play_move() {</Line>
+				<Line Number="124" Count="2">  game test = game_new_empty();</Line>
+				<Line Number="125" Count="14">  for (int i = 0; i &lt; DEFAULT_SIZE; ++i) {</Line>
+				<Line Number="126" Count="12">    game_play_move(test, 0, i, S_ONE);</Line>
+				<Line Number="127" Count="12">    if (game_get_square(test, 0, i) != S_ONE) {</Line>
+				<Line Number="128" Count="0">      game_delete(test);</Line>
+				<Line Number="129" Count="0">      return 1;</Line>
+				<Line Number="130" Count="-1">    }</Line>
+				<Line Number="131" Count="12">    game_play_move(test, 1, i, S_ZERO);</Line>
+				<Line Number="132" Count="12">    if (game_get_square(test, 1, i) != S_ZERO) {</Line>
+				<Line Number="133" Count="0">      game_delete(test);</Line>
+				<Line Number="134" Count="0">      return 1;</Line>
+				<Line Number="135" Count="-1">    }</Line>
+				<Line Number="136" Count="12">    game_play_move(test, 2, i, S_EMPTY);</Line>
+				<Line Number="137" Count="12">    if (game_get_square(test, 2, i) != S_EMPTY) {</Line>
+				<Line Number="138" Count="0">      game_delete(test);</Line>
+				<Line Number="139" Count="0">      return 1;</Line>
+				<Line Number="140" Count="-1">    }</Line>
+				<Line Number="141" Count="12">    game_play_move(test, i, 1, S_ONE);</Line>
+				<Line Number="142" Count="12">    if (game_get_square(test, i, 1) != S_ONE) {</Line>
+				<Line Number="143" Count="0">      game_delete(test);</Line>
+				<Line Number="144" Count="0">      return 1;</Line>
+				<Line Number="145" Count="-1">    }</Line>
+				<Line Number="146" Count="12">    game_play_move(test, i, 2, S_ZERO);</Line>
+				<Line Number="147" Count="12">    if (game_get_square(test, i, 2) != S_ZERO) {</Line>
+				<Line Number="148" Count="0">      game_delete(test);</Line>
+				<Line Number="149" Count="0">      return 1;</Line>
+				<Line Number="150" Count="-1">    }</Line>
+				<Line Number="151" Count="12">    game_play_move(test, i, 3, S_EMPTY);</Line>
+				<Line Number="152" Count="12">    if (game_get_square(test, i, 3) != S_EMPTY) {</Line>
+				<Line Number="153" Count="0">      game_delete(test);</Line>
+				<Line Number="154" Count="0">      return 1;</Line>
+				<Line Number="155" Count="-1">    }</Line>
+				<Line Number="156" Count="-1">  }</Line>
+				<Line Number="157" Count="2">  game_delete(test);</Line>
+				<Line Number="158" Count="2">  return 0;</Line>
+				<Line Number="159" Count="-1">}</Line>
+				<Line Number="160" Count="-1"></Line>
+				<Line Number="161" Count="2">int test_game_restart() {</Line>
+				<Line Number="162" Count="2">  square defaultSquares[6][6] = {</Line>
+				<Line Number="163" Count="-1">      {S_EMPTY, S_ONE, S_ZERO, S_EMPTY, S_EMPTY, S_EMPTY},</Line>
+				<Line Number="164" Count="-1">      {S_EMPTY, S_EMPTY, S_EMPTY, S_EMPTY, S_EMPTY, S_EMPTY},</Line>
+				<Line Number="165" Count="-1">      {S_EMPTY, S_ZERO, S_EMPTY, S_EMPTY, S_ZERO, S_EMPTY},</Line>
+				<Line Number="166" Count="-1">      {S_EMPTY, S_ZERO, S_ONE, S_EMPTY, S_EMPTY, S_EMPTY},</Line>
+				<Line Number="167" Count="-1">      {S_EMPTY, S_EMPTY, S_ONE, S_EMPTY, S_EMPTY, S_ZERO},</Line>
+				<Line Number="168" Count="-1">      {S_EMPTY, S_EMPTY, S_EMPTY, S_EMPTY, S_EMPTY, S_ZERO}};</Line>
+				<Line Number="169" Count="-1"></Line>
+				<Line Number="170" Count="2">  game g = game_default_solution();</Line>
+				<Line Number="171" Count="2">  game_restart(g);</Line>
+				<Line Number="172" Count="2">  for (uint i = 0; i &lt; DEFAULT_SIZE; i++) {</Line>
+				<Line Number="173" Count="4">    for (uint j = 0; j &lt; DEFAULT_SIZE; j++) {</Line>
+				<Line Number="174" Count="4">      if (game_get_square(g, i, j) != defaultSquares[i][j]) {</Line>
+				<Line Number="175" Count="2">        return 1;</Line>
+				<Line Number="176" Count="-1">      }</Line>
+				<Line Number="177" Count="-1">    }</Line>
+				<Line Number="178" Count="-1">  }</Line>
+				<Line Number="179" Count="0">  game_delete(g);</Line>
+				<Line Number="180" Count="-1"></Line>
+				<Line Number="181" Count="0">  game g1 = game_new(mesSquares1);</Line>
+				<Line Number="182" Count="0">  game_restart(g1);</Line>
+				<Line Number="183" Count="0">  for (uint i = 0; i &lt; DEFAULT_SIZE; i++) {</Line>
+				<Line Number="184" Count="0">    for (uint j = 0; j &lt; DEFAULT_SIZE; j++) {</Line>
+				<Line Number="185" Count="0">      if (game_get_square(g1, i, j) != defaultSquares[i][j]) {</Line>
+				<Line Number="186" Count="0">        return 1;</Line>
+				<Line Number="187" Count="-1">      }</Line>
+				<Line Number="188" Count="-1">    }</Line>
+				<Line Number="189" Count="-1">  }</Line>
+				<Line Number="190" Count="0">  game_delete(g1);</Line>
+				<Line Number="191" Count="0">  game g2 = game_new_empty_ext(4, 4, false, true);</Line>
+				<Line Number="192" Count="0">  game_restart(g2);</Line>
+				<Line Number="193" Count="0">  for (uint i = 0; i &lt; DEFAULT_SIZE; i++) {</Line>
+				<Line Number="194" Count="0">    for (uint j = 0; j &lt; DEFAULT_SIZE; j++) {</Line>
+				<Line Number="195" Count="0">      if (game_get_square(g2, i, j) != defaultSquares[i][j]) {</Line>
+				<Line Number="196" Count="0">        return 1;</Line>
+				<Line Number="197" Count="-1">      }</Line>
+				<Line Number="198" Count="-1">    }</Line>
+				<Line Number="199" Count="-1">  }</Line>
+				<Line Number="200" Count="0">  game_delete(g2);</Line>
+				<Line Number="201" Count="0">  game g3 = game_copy(g2);</Line>
+				<Line Number="202" Count="0">  game_play_move(g2, 0, 0, S_ZERO);</Line>
+				<Line Number="203" Count="0">  game_undo(g2);</Line>
+				<Line Number="204" Count="0">  game_restart(g2);</Line>
+				<Line Number="205" Count="0">  game_redo(g2);</Line>
+				<Line Number="206" Count="0">  if (game_equal(g2, g3) == false) {</Line>
+				<Line Number="207" Count="0">    game_delete(g2);</Line>
+				<Line Number="208" Count="0">    game_delete(g3);</Line>
+				<Line Number="209" Count="0">    return 1;</Line>
+				<Line Number="210" Count="-1">  }</Line>
+				<Line Number="211" Count="0">  game_delete(g2);</Line>
+				<Line Number="212" Count="0">  game_delete(g3);</Line>
+				<Line Number="213" Count="-1"></Line>
+				<Line Number="214" Count="0">  return 0;</Line>
+				<Line Number="215" Count="-1">}</Line>
+				<Line Number="216" Count="-1"></Line>
+				<Line Number="217" Count="2">int test_game_equal_ext(void) {</Line>
+				<Line Number="218" Count="2">  game g1 = game_new_ext(4, 6, mesSquares, false, false);</Line>
+				<Line Number="219" Count="2">  game g2 = game_new_ext(4, 6, mesSquares, false, false);</Line>
+				<Line Number="220" Count="2">  game g3 = game_new_ext(4, 6, mesSquares, true, true);</Line>
+				<Line Number="221" Count="2">  game g4 = game_new_ext(6, 4, mesSquares, true, true);</Line>
+				<Line Number="222" Count="-1"></Line>
+				<Line Number="223" Count="2">  bool test1 = (game_equal(g1, g2) == true);</Line>
+				<Line Number="224" Count="2">  bool test2 = (game_equal(g1, g3) == false);</Line>
+				<Line Number="225" Count="2">  bool test3 = (game_equal(g3, g4) == false);</Line>
+				<Line Number="226" Count="-1">  /*</Line>
+				<Line Number="227" Count="-1">    game_set_square(g2, 2, 5, S_ZERO);</Line>
+				<Line Number="228" Count="-1">    bool test3 = (game_equal(g1, g2) == false);</Line>
+				<Line Number="229" Count="-1">  */</Line>
+				<Line Number="230" Count="2">  game_delete(g1);</Line>
+				<Line Number="231" Count="2">  game_delete(g2);</Line>
+				<Line Number="232" Count="2">  game_delete(g3);</Line>
+				<Line Number="233" Count="2">  game_delete(g4);</Line>
+				<Line Number="234" Count="-1"></Line>
+				<Line Number="235" Count="2">  if ((test1 &amp;&amp; test2) &amp;&amp; test3) return 0;</Line>
+				<Line Number="236" Count="0">  return 1;</Line>
+				<Line Number="237" Count="-1">}</Line>
+				<Line Number="238" Count="-1"></Line>
+				<Line Number="239" Count="2">int test_game_is_over_unique() {</Line>
+				<Line Number="240" Count="2">  square test[32] = {S_ZERO, S_ZERO, S_ONE,  S_ONE, S_ZERO, S_ONE,  S_ONE,</Line>
+				<Line Number="241" Count="-1">                     S_ZERO, S_ZERO, S_ZERO, S_ONE, S_ONE,  S_ZERO, S_ONE,</Line>
+				<Line Number="242" Count="-1">                     S_ONE,  S_ZERO, S_ONE,  S_ONE, S_ZERO, S_ZERO, S_ONE,</Line>
+				<Line Number="243" Count="-1">                     S_ZERO, S_ZERO, S_ONE,  S_ONE, S_ONE,  S_ZERO, S_ZERO,</Line>
+				<Line Number="244" Count="-1">                     S_ONE,  S_ZERO, S_ZERO, S_ONE};</Line>
+				<Line Number="245" Count="2">  game g = game_new_ext(4, 8, test, false, true);</Line>
+				<Line Number="246" Count="2">  if (game_is_over(g) == true) {</Line>
+				<Line Number="247" Count="0">    game_delete(g);</Line>
+				<Line Number="248" Count="0">    return 1;</Line>
+				<Line Number="249" Count="-1">  }</Line>
+				<Line Number="250" Count="2">  game_delete(g);</Line>
+				<Line Number="251" Count="2">  return 0;</Line>
+				<Line Number="252" Count="-1">}</Line>
+				<Line Number="253" Count="-1"></Line>
+				<Line Number="254" Count="2">int test_game_is_over_wrapping() {</Line>
+				<Line Number="255" Count="2">  game g0 = game_new_ext(6, 4, mesSquares, true, true);</Line>
+				<Line Number="256" Count="2">  bool test0 = (game_is_wrapping(g0) == true);</Line>
+				<Line Number="257" Count="2">  game_play_move(g0, 1, 1, S_ONE);</Line>
+				<Line Number="258" Count="2">  game_play_move(g0, 2, 0, S_ONE);</Line>
+				<Line Number="259" Count="2">  game_play_move(g0, 3, 2, S_ONE);</Line>
+				<Line Number="260" Count="2">  bool test1 = (game_is_wrapping(g0) == true);</Line>
+				<Line Number="261" Count="2">  bool test2 = (game_is_wrapping(g0) == true);</Line>
+				<Line Number="262" Count="2">  game_delete(g0);</Line>
+				<Line Number="263" Count="2">  if (test0 != true || test1 != true || test2 != true) return 1;</Line>
+				<Line Number="264" Count="-1"></Line>
+				<Line Number="265" Count="2">  return 0;</Line>
+				<Line Number="266" Count="-1">}</Line>
+				<Line Number="267" Count="-1"></Line>
+				<Line Number="268" Count="-1">/* ********** USAGE ********** */</Line>
+				<Line Number="269" Count="-1"></Line>
+				<Line Number="270" Count="0">void usage(int argc, char *argv[]) {</Line>
+				<Line Number="271" Count="0">  fprintf(stderr, "Usage: %s &lt;testname&gt; [&lt;...&gt;]\n", argv[0]);</Line>
+				<Line Number="272" Count="0">  exit(EXIT_FAILURE);</Line>
+				<Line Number="273" Count="-1">}</Line>
+				<Line Number="274" Count="-1"></Line>
+				<Line Number="275" Count="-1">/* ********** MAIN ROUTINE ********** */</Line>
+				<Line Number="276" Count="-1"></Line>
+				<Line Number="277" Count="18">int main(int argc, char *argv[]) {</Line>
+				<Line Number="278" Count="18">  if (argc == 1) usage(argc, argv);</Line>
+				<Line Number="279" Count="-1"></Line>
+				<Line Number="280" Count="-1">  // start test</Line>
+				<Line Number="281" Count="18">  fprintf(stderr, "=&gt; Start test \"%s\"\n", argv[1]);</Line>
+				<Line Number="282" Count="18">  int ok = 1;</Line>
+				<Line Number="283" Count="-1"></Line>
+				<Line Number="284" Count="18">  if (strcmp("dummy", argv[1]) == 0) {</Line>
+				<Line Number="285" Count="2">    ok = test_dummy();</Line>
+				<Line Number="286" Count="-1">  }</Line>
+				<Line Number="287" Count="-1"></Line>
+				<Line Number="288" Count="16">  else if (strcmp("game_print", argv[1]) == 0) {</Line>
+				<Line Number="289" Count="0">    ok = test_game_print();</Line>
+				<Line Number="290" Count="-1">  }</Line>
+				<Line Number="291" Count="-1"></Line>
+				<Line Number="292" Count="16">  else if (strcmp("game_default", argv[1]) == 0) {</Line>
+				<Line Number="293" Count="2">    ok = test_game_default();</Line>
+				<Line Number="294" Count="14">  } else if (strcmp("game_default_solution", argv[1]) == 0) {</Line>
+				<Line Number="295" Count="2">    ok = test_game_default_solution();</Line>
+				<Line Number="296" Count="-1">  }</Line>
+				<Line Number="297" Count="-1"></Line>
+				<Line Number="298" Count="12">  else if (strcmp("game_is_over", argv[1]) == 0) {</Line>
+				<Line Number="299" Count="2">    ok = test_game_is_over();</Line>
+				<Line Number="300" Count="10">  } else if (strcmp("game_is_over_unique", argv[1]) == 0) {</Line>
+				<Line Number="301" Count="2">    ok = test_game_is_over_unique();</Line>
+				<Line Number="302" Count="8">  } else if (strcmp("game_is_over_wrapping", argv[1]) == 0) {</Line>
+				<Line Number="303" Count="2">    ok = test_game_is_over_wrapping();</Line>
+				<Line Number="304" Count="-1">  }</Line>
+				<Line Number="305" Count="-1"></Line>
+				<Line Number="306" Count="6">  else if (strcmp("game_restart", argv[1]) == 0) {</Line>
+				<Line Number="307" Count="2">    ok = test_game_restart();</Line>
+				<Line Number="308" Count="4">  } else if (strcmp("game_play_move", argv[1]) == 0) {</Line>
+				<Line Number="309" Count="2">    ok = test_game_play_move();</Line>
+				<Line Number="310" Count="-1">  }</Line>
+				<Line Number="311" Count="-1"></Line>
+				<Line Number="312" Count="2">  else if (strcmp("game_equal_ext", argv[1]) == 0) {</Line>
+				<Line Number="313" Count="2">    ok = test_game_equal_ext();</Line>
+				<Line Number="314" Count="-1">  }</Line>
+				<Line Number="315" Count="-1"></Line>
+				<Line Number="316" Count="-1">  else {</Line>
+				<Line Number="317" Count="0">    fprintf(stderr, "Test \"%s\" finished: FAILURE\n", argv[1]);</Line>
+				<Line Number="318" Count="0">    return EXIT_FAILURE;</Line>
+				<Line Number="319" Count="-1">  }</Line>
+				<Line Number="320" Count="-1"></Line>
+				<Line Number="321" Count="18">  return ok;</Line>
+				<Line Number="322" Count="-1"></Line>
+				<Line Number="323" Count="-1">  return EXIT_SUCCESS;</Line>
+				<Line Number="324" Count="-1">}</Line>
+			</Report>
+		</File>
+		<File Name="game_test_pdinghin.c" FullPath="./game_test_pdinghin.c">
+			<Report>
+				<Line Number="0" Count="-1">#include &lt;assert.h&gt;</Line>
+				<Line Number="1" Count="-1">#include &lt;stdbool.h&gt;</Line>
+				<Line Number="2" Count="-1">#include &lt;stdio.h&gt;</Line>
+				<Line Number="3" Count="-1">#include &lt;stdlib.h&gt;</Line>
+				<Line Number="4" Count="-1">#include &lt;string.h&gt;</Line>
+				<Line Number="5" Count="-1"></Line>
+				<Line Number="6" Count="-1">#include "game_struct.h"</Line>
+				<Line Number="7" Count="-1"></Line>
+				<Line Number="8" Count="-1">/*tester les entrées seulement sur game_check_move*/</Line>
+				<Line Number="9" Count="0">void usage(int argc, char *argv[]) {</Line>
+				<Line Number="10" Count="0">  fprintf(stderr, "Usage: %s &lt;testname&gt; [&lt;...&gt;]\n", argv[0]);</Line>
+				<Line Number="11" Count="0">  exit(EXIT_FAILURE);</Line>
+				<Line Number="12" Count="-1">}</Line>
+				<Line Number="13" Count="-1"></Line>
+				<Line Number="14" Count="-1">/*Test function game_new*/</Line>
+				<Line Number="15" Count="6">int test_game_new() {</Line>
+				<Line Number="16" Count="6">  int size = DEFAULT_SIZE * DEFAULT_SIZE;</Line>
+				<Line Number="17" Count="6">  square *squares = (square *)malloc(size * sizeof(square));</Line>
+				<Line Number="18" Count="222">  for (int i = 0; i &lt; size; i++) {</Line>
+				<Line Number="19" Count="216">    squares[i] = S_ONE;</Line>
+				<Line Number="20" Count="-1">  }</Line>
+				<Line Number="21" Count="6">  game g = game_new(squares);</Line>
+				<Line Number="22" Count="6">  free(squares);</Line>
+				<Line Number="23" Count="6">  if (g == NULL) {</Line>
+				<Line Number="24" Count="0">    return 1;</Line>
+				<Line Number="25" Count="-1">  }</Line>
+				<Line Number="26" Count="42">  for (int i = 0; i &lt; DEFAULT_SIZE; i++) {</Line>
+				<Line Number="27" Count="252">    for (int j = 0; j &lt; DEFAULT_SIZE; j++) {</Line>
+				<Line Number="28" Count="216">      if (game_get_square(g, i, j) != S_ONE) {</Line>
+				<Line Number="29" Count="0">        game_delete(g);</Line>
+				<Line Number="30" Count="0">        return 1;</Line>
+				<Line Number="31" Count="-1">      }</Line>
+				<Line Number="32" Count="-1">    }</Line>
+				<Line Number="33" Count="-1">  }</Line>
+				<Line Number="34" Count="6">  return 0;</Line>
+				<Line Number="35" Count="-1">}</Line>
+				<Line Number="36" Count="-1"></Line>
+				<Line Number="37" Count="6">int test_game_redo() {</Line>
+				<Line Number="38" Count="6">  game g = game_new_empty_ext(4, 4, false, true);</Line>
+				<Line Number="39" Count="6">  game g2 = game_copy(g);</Line>
+				<Line Number="40" Count="6">  game_play_move(g, 0, 0, S_ZERO);</Line>
+				<Line Number="41" Count="6">  game_play_move(g2, 0, 0, S_ZERO);</Line>
+				<Line Number="42" Count="6">  game_undo(g);</Line>
+				<Line Number="43" Count="6">  game_redo(g);</Line>
+				<Line Number="44" Count="6">  if (game_equal(g, g2) == false) {</Line>
+				<Line Number="45" Count="0">    game_delete(g);</Line>
+				<Line Number="46" Count="0">    game_delete(g2);</Line>
+				<Line Number="47" Count="0">    return 1;</Line>
+				<Line Number="48" Count="-1">  }</Line>
+				<Line Number="49" Count="6">  game_delete(g);</Line>
+				<Line Number="50" Count="6">  game_delete(g2);</Line>
+				<Line Number="51" Count="6">  return 0;</Line>
+				<Line Number="52" Count="-1">}</Line>
+				<Line Number="53" Count="-1"></Line>
+				<Line Number="54" Count="-1">/*Test function game_new_ext*/</Line>
+				<Line Number="55" Count="6">int test_game_new_ext() {</Line>
+				<Line Number="56" Count="6">  square squares[24] = {</Line>
+				<Line Number="57" Count="-1">      S_ONE, S_EMPTY, S_EMPTY, S_EMPTY, S_EMPTY, S_EMPTY, S_ZERO, S_EMPTY,</Line>
+				<Line Number="58" Count="-1">      S_ONE, S_EMPTY, S_EMPTY, S_EMPTY, S_EMPTY, S_EMPTY, S_ZERO, S_EMPTY,</Line>
+				<Line Number="59" Count="-1">      S_ONE, S_EMPTY, S_EMPTY, S_EMPTY, S_EMPTY, S_EMPTY, S_ZERO, S_EMPTY,</Line>
+				<Line Number="60" Count="-1">  };</Line>
+				<Line Number="61" Count="6">  int nb_rows = 4;</Line>
+				<Line Number="62" Count="6">  int nb_cols = 6;</Line>
+				<Line Number="63" Count="6">  game g = game_new_ext(nb_rows, nb_cols, squares, true, true);</Line>
+				<Line Number="64" Count="-1"></Line>
+				<Line Number="65" Count="6">  if (game_is_wrapping(g) != true || game_is_unique(g) != true ||</Line>
+				<Line Number="66" Count="6">      game_nb_rows(g) != nb_rows || game_nb_cols(g) != nb_cols) {</Line>
+				<Line Number="67" Count="0">    game_delete(g);</Line>
+				<Line Number="68" Count="0">    return 1;</Line>
+				<Line Number="69" Count="-1">  }</Line>
+				<Line Number="70" Count="30">  for (int i = 0; i &lt; 4; i++) {</Line>
+				<Line Number="71" Count="168">    for (int j = 0; j &lt; 6; j++) {</Line>
+				<Line Number="72" Count="144">      if (game_get_square(g, i, j) != squares[i * 6 + j]) {</Line>
+				<Line Number="73" Count="0">        game_delete(g);</Line>
+				<Line Number="74" Count="0">        return 1;</Line>
+				<Line Number="75" Count="-1">      }</Line>
+				<Line Number="76" Count="-1">    }</Line>
+				<Line Number="77" Count="-1">  }</Line>
+				<Line Number="78" Count="6">  game_delete(g);</Line>
+				<Line Number="79" Count="6">  return 0;</Line>
+				<Line Number="80" Count="-1">}</Line>
+				<Line Number="81" Count="-1"></Line>
+				<Line Number="82" Count="-1">/*Test function game_new_empty_ext*/</Line>
+				<Line Number="83" Count="6">int test_game_new_empty_ext() {</Line>
+				<Line Number="84" Count="6">  game g = game_new_empty_ext(6, 4, true, true);</Line>
+				<Line Number="85" Count="6">  if (game_nb_rows(g) != 6 || game_nb_cols(g) != 4 ||</Line>
+				<Line Number="86" Count="6">      game_is_wrapping(g) != true || game_is_unique(g) != true) {</Line>
+				<Line Number="87" Count="0">    game_delete(g);</Line>
+				<Line Number="88" Count="0">    return 1;</Line>
+				<Line Number="89" Count="-1">  }</Line>
+				<Line Number="90" Count="-1"></Line>
+				<Line Number="91" Count="42">  for (int i = 0; i &lt; 6; i++) {</Line>
+				<Line Number="92" Count="180">    for (int j = 0; j &lt; 4; j++) {</Line>
+				<Line Number="93" Count="144">      if (game_get_square(g, i, j) != S_EMPTY) {</Line>
+				<Line Number="94" Count="0">        game_delete(g);</Line>
+				<Line Number="95" Count="0">        return 1;</Line>
+				<Line Number="96" Count="-1">      }</Line>
+				<Line Number="97" Count="-1">    }</Line>
+				<Line Number="98" Count="-1">  }</Line>
+				<Line Number="99" Count="6">  return 0;</Line>
+				<Line Number="100" Count="-1">}</Line>
+				<Line Number="101" Count="-1"></Line>
+				<Line Number="102" Count="-1">/*Test function game_new Empty*/</Line>
+				<Line Number="103" Count="6">int test_game_new_empty() {</Line>
+				<Line Number="104" Count="6">  game g = game_new_empty();</Line>
+				<Line Number="105" Count="42">  for (int i = 0; i &lt; DEFAULT_SIZE; i++) {</Line>
+				<Line Number="106" Count="252">    for (int j = 0; j &lt; DEFAULT_SIZE; j++) {</Line>
+				<Line Number="107" Count="216">      if (game_get_square(g, i, j) != S_EMPTY) {</Line>
+				<Line Number="108" Count="0">        game_delete(g);</Line>
+				<Line Number="109" Count="0">        return 1;</Line>
+				<Line Number="110" Count="-1">      }</Line>
+				<Line Number="111" Count="-1">    }</Line>
+				<Line Number="112" Count="-1">  }</Line>
+				<Line Number="113" Count="6">  game_delete(g);</Line>
+				<Line Number="114" Count="6">  return 0;</Line>
+				<Line Number="115" Count="-1">}</Line>
+				<Line Number="116" Count="-1"></Line>
+				<Line Number="117" Count="-1">/*Test function game_is_wrapping*/</Line>
+				<Line Number="118" Count="6">int test_game_is_wrapping() {</Line>
+				<Line Number="119" Count="6">  game g = game_new_empty();</Line>
+				<Line Number="120" Count="6">  game g2 = game_new_empty_ext(6, 6, true, true);</Line>
+				<Line Number="121" Count="6">  if (game_is_wrapping(g) != false || game_is_wrapping(g2) != true) {</Line>
+				<Line Number="122" Count="0">    game_delete(g);</Line>
+				<Line Number="123" Count="0">    game_delete(g2);</Line>
+				<Line Number="124" Count="0">    return 1;</Line>
+				<Line Number="125" Count="-1">  }</Line>
+				<Line Number="126" Count="6">  game_delete(g);</Line>
+				<Line Number="127" Count="6">  game_delete(g2);</Line>
+				<Line Number="128" Count="6">  return 0;</Line>
+				<Line Number="129" Count="-1">}</Line>
+				<Line Number="130" Count="-1"></Line>
+				<Line Number="131" Count="-1">/*Test function game_is_unique*/</Line>
+				<Line Number="132" Count="6">int test_game_is_unique() {</Line>
+				<Line Number="133" Count="6">  game g = game_new_empty();</Line>
+				<Line Number="134" Count="6">  game g2 = game_new_empty_ext(6, 6, true, true);</Line>
+				<Line Number="135" Count="6">  if (game_is_unique(g) != false || game_is_unique(g2) != true) {</Line>
+				<Line Number="136" Count="0">    game_delete(g);</Line>
+				<Line Number="137" Count="0">    game_delete(g2);</Line>
+				<Line Number="138" Count="0">    return 1;</Line>
+				<Line Number="139" Count="-1">  }</Line>
+				<Line Number="140" Count="6">  game_delete(g);</Line>
+				<Line Number="141" Count="6">  game_delete(g2);</Line>
+				<Line Number="142" Count="6">  return 0;</Line>
+				<Line Number="143" Count="-1">}</Line>
+				<Line Number="144" Count="-1"></Line>
+				<Line Number="145" Count="6">int test_game_nb_cols() {</Line>
+				<Line Number="146" Count="6">  game g = game_new_empty();</Line>
+				<Line Number="147" Count="6">  game g2 = game_new_empty_ext(8, 10, true, true);</Line>
+				<Line Number="148" Count="6">  if (game_nb_cols(g) != 6 || game_nb_cols(g2) != 10) {</Line>
+				<Line Number="149" Count="0">    game_delete(g);</Line>
+				<Line Number="150" Count="0">    game_delete(g2);</Line>
+				<Line Number="151" Count="0">    return 1;</Line>
+				<Line Number="152" Count="-1">  }</Line>
+				<Line Number="153" Count="6">  game_delete(g);</Line>
+				<Line Number="154" Count="6">  game_delete(g2);</Line>
+				<Line Number="155" Count="6">  return 0;</Line>
+				<Line Number="156" Count="-1">}</Line>
+				<Line Number="157" Count="-1"></Line>
+				<Line Number="158" Count="6">int test_game_nb_rows() {</Line>
+				<Line Number="159" Count="6">  game g = game_new_empty();</Line>
+				<Line Number="160" Count="6">  game g2 = game_new_empty_ext(8, 10, true, true);</Line>
+				<Line Number="161" Count="6">  if (game_nb_rows(g) != 6 || game_nb_rows(g2) != 8) {</Line>
+				<Line Number="162" Count="0">    game_delete(g);</Line>
+				<Line Number="163" Count="0">    game_delete(g2);</Line>
+				<Line Number="164" Count="0">    return 1;</Line>
+				<Line Number="165" Count="-1">  }</Line>
+				<Line Number="166" Count="6">  game_delete(g);</Line>
+				<Line Number="167" Count="6">  game_delete(g2);</Line>
+				<Line Number="168" Count="6">  return 0;</Line>
+				<Line Number="169" Count="-1">}</Line>
+				<Line Number="170" Count="-1"></Line>
+				<Line Number="171" Count="-1">/*Test function game_copy*/</Line>
+				<Line Number="172" Count="6">int test_game_copy() {</Line>
+				<Line Number="173" Count="6">  game g1 = game_default();</Line>
+				<Line Number="174" Count="6">  game g2 = game_copy(g1);</Line>
+				<Line Number="175" Count="42">  for (int i = 0; i &lt; DEFAULT_SIZE; i++) {</Line>
+				<Line Number="176" Count="252">    for (int j = 0; j &lt; DEFAULT_SIZE; j++) {</Line>
+				<Line Number="177" Count="216">      if (game_get_square(g1, i, j) != game_get_square(g2, i, j)) {</Line>
+				<Line Number="178" Count="0">        game_delete(g1);</Line>
+				<Line Number="179" Count="0">        game_delete(g2);</Line>
+				<Line Number="180" Count="0">        return 1;</Line>
+				<Line Number="181" Count="-1">      }</Line>
+				<Line Number="182" Count="-1">    }</Line>
+				<Line Number="183" Count="-1">  }</Line>
+				<Line Number="184" Count="6">  game_delete(g1);</Line>
+				<Line Number="185" Count="6">  game_delete(g2);</Line>
+				<Line Number="186" Count="6">  game g3 = game_new_empty_ext(4, 6, true, true);</Line>
+				<Line Number="187" Count="6">  game g4 = game_copy(g3);</Line>
+				<Line Number="188" Count="12">  if (game_is_wrapping(g4) != true || game_is_unique(g4) != true ||</Line>
+				<Line Number="189" Count="12">      game_nb_rows(g4) != 4 || game_nb_cols(g4) != 6) {</Line>
+				<Line Number="190" Count="0">    return 1;</Line>
+				<Line Number="191" Count="-1">  }</Line>
+				<Line Number="192" Count="30">  for (int i = 0; i &lt; game_nb_rows(g3); i++) {</Line>
+				<Line Number="193" Count="168">    for (int j = 0; j &lt; game_nb_cols(g3); j++) {</Line>
+				<Line Number="194" Count="144">      if (game_get_square(g3, i, j) != game_get_square(g4, i, j)) {</Line>
+				<Line Number="195" Count="0">        return 1;</Line>
+				<Line Number="196" Count="-1">      }</Line>
+				<Line Number="197" Count="-1">    }</Line>
+				<Line Number="198" Count="-1">  }</Line>
+				<Line Number="199" Count="6">  game_delete(g3);</Line>
+				<Line Number="200" Count="6">  game_delete(g4);</Line>
+				<Line Number="201" Count="6">  return 0;</Line>
+				<Line Number="202" Count="-1">}</Line>
+				<Line Number="203" Count="-1"></Line>
+				<Line Number="204" Count="-1">/*Test function game_equal*/</Line>
+				<Line Number="205" Count="6">int test_game_equal() {</Line>
+				<Line Number="206" Count="6">  game g1 = game_new_empty();</Line>
+				<Line Number="207" Count="-1">  square *squares =</Line>
+				<Line Number="208" Count="6">      (square *)malloc((DEFAULT_SIZE * DEFAULT_SIZE) * sizeof(square));</Line>
+				<Line Number="209" Count="-1">  square *squares2 =</Line>
+				<Line Number="210" Count="6">      (square *)malloc((DEFAULT_SIZE * DEFAULT_SIZE) * sizeof(square));</Line>
+				<Line Number="211" Count="222">  for (int i = 0; i &lt; (DEFAULT_SIZE * DEFAULT_SIZE); i++) {</Line>
+				<Line Number="212" Count="216">    squares[i] = S_IMMUTABLE_ONE;</Line>
+				<Line Number="213" Count="216">    squares2[i] = S_ONE;</Line>
+				<Line Number="214" Count="-1">  }</Line>
+				<Line Number="215" Count="6">  game g3 = game_new(squares2);</Line>
+				<Line Number="216" Count="6">  game g2 = game_new(squares);</Line>
+				<Line Number="217" Count="6">  free(squares);</Line>
+				<Line Number="218" Count="6">  free(squares2);</Line>
+				<Line Number="219" Count="12">  if (game_equal(g1, g2) == true || game_equal(g2, g3) == true ||</Line>
+				<Line Number="220" Count="12">      game_equal(g1, g3) == true || game_equal(g1, g1) != true) {</Line>
+				<Line Number="221" Count="0">    game_delete(g1);</Line>
+				<Line Number="222" Count="0">    game_delete(g2);</Line>
+				<Line Number="223" Count="0">    game_delete(g3);</Line>
+				<Line Number="224" Count="0">    return 1;</Line>
+				<Line Number="225" Count="-1">  }</Line>
+				<Line Number="226" Count="6">  game_delete(g1);</Line>
+				<Line Number="227" Count="6">  game_delete(g2);</Line>
+				<Line Number="228" Count="6">  game_delete(g3);</Line>
+				<Line Number="229" Count="6">  return 0;</Line>
+				<Line Number="230" Count="-1">}</Line>
+				<Line Number="231" Count="-1"></Line>
+				<Line Number="232" Count="-1">/*Test function game_delete*/</Line>
+				<Line Number="233" Count="6">int test_game_delete() {</Line>
+				<Line Number="234" Count="6">  game g = game_default();</Line>
+				<Line Number="235" Count="6">  assert(g);</Line>
+				<Line Number="236" Count="6">  game_delete(g);</Line>
+				<Line Number="237" Count="6">  assert(g != NULL);</Line>
+				<Line Number="238" Count="6">  return 0;</Line>
+				<Line Number="239" Count="-1">}</Line>
+				<Line Number="240" Count="-1"></Line>
+				<Line Number="241" Count="-1">/*Test function game_set_square*/</Line>
+				<Line Number="242" Count="6">int test_game_set_square() {</Line>
+				<Line Number="243" Count="6">  game g = game_new_empty();</Line>
+				<Line Number="244" Count="42">  for (int i = 0; i &lt; DEFAULT_SIZE; i++) {</Line>
+				<Line Number="245" Count="36">    game_set_square(g, i, 0, S_IMMUTABLE_ONE);</Line>
+				<Line Number="246" Count="36">    game_set_square(g, i, 1, S_ONE);</Line>
+				<Line Number="247" Count="72">    if (game_get_square(g, i, 0) != S_IMMUTABLE_ONE ||</Line>
+				<Line Number="248" Count="36">        game_get_square(g, i, 1) != S_ONE) {</Line>
+				<Line Number="249" Count="0">      game_delete(g);</Line>
+				<Line Number="250" Count="0">      return 1;</Line>
+				<Line Number="251" Count="-1">    }</Line>
+				<Line Number="252" Count="-1">  }</Line>
+				<Line Number="253" Count="-1"></Line>
+				<Line Number="254" Count="6">  game_delete(g);</Line>
+				<Line Number="255" Count="6">  return 0;</Line>
+				<Line Number="256" Count="-1">}</Line>
+				<Line Number="257" Count="-1"></Line>
+				<Line Number="258" Count="-1">/*Test function game_get_square*/</Line>
+				<Line Number="259" Count="6">int test_game_get_square() {</Line>
+				<Line Number="260" Count="6">  game g = game_new_empty();</Line>
+				<Line Number="261" Count="6">  game_set_square(g, 0, 1, S_ONE);</Line>
+				<Line Number="262" Count="6">  game_set_square(g, 0, 2, S_IMMUTABLE_ONE);</Line>
+				<Line Number="263" Count="6">  game_set_square(g, 1, 0, S_ZERO);</Line>
+				<Line Number="264" Count="6">  game_set_square(g, 1, 1, S_IMMUTABLE_ZERO);</Line>
+				<Line Number="265" Count="12">  if (game_get_square(g, 0, 0) != S_EMPTY ||</Line>
+				<Line Number="266" Count="12">      game_get_square(g, 0, 1) != S_ONE ||</Line>
+				<Line Number="267" Count="12">      game_get_square(g, 0, 2) != S_IMMUTABLE_ONE ||</Line>
+				<Line Number="268" Count="12">      game_get_square(g, 1, 0) != S_ZERO ||</Line>
+				<Line Number="269" Count="6">      game_get_square(g, 1, 1) != S_IMMUTABLE_ZERO) {</Line>
+				<Line Number="270" Count="0">    game_delete(g);</Line>
+				<Line Number="271" Count="0">    return 1;</Line>
+				<Line Number="272" Count="-1">  }</Line>
+				<Line Number="273" Count="6">  game_delete(g);</Line>
+				<Line Number="274" Count="6">  return 0;</Line>
+				<Line Number="275" Count="-1">}</Line>
+				<Line Number="276" Count="-1"></Line>
+				<Line Number="277" Count="-1">/*Test Dummy*/</Line>
+				<Line Number="278" Count="6">int test_dummy() { return EXIT_SUCCESS; }</Line>
+				<Line Number="279" Count="-1"></Line>
+				<Line Number="280" Count="-1">/*Main function*/</Line>
+				<Line Number="281" Count="90">int main(int argc, char *argv[]) {</Line>
+				<Line Number="282" Count="90">  if (argc == 1) {</Line>
+				<Line Number="283" Count="0">    usage(argc, argv);</Line>
+				<Line Number="284" Count="-1">  }</Line>
+				<Line Number="285" Count="-1"></Line>
+				<Line Number="286" Count="90">  if (strcmp("dummy", argv[1]) == 0) {</Line>
+				<Line Number="287" Count="6">    return test_dummy();</Line>
+				<Line Number="288" Count="84">  } else if (strcmp("new_game_empty", argv[1]) == 0) {</Line>
+				<Line Number="289" Count="6">    return test_game_new_empty();</Line>
+				<Line Number="290" Count="78">  } else if (strcmp("game_delete", argv[1]) == 0) {</Line>
+				<Line Number="291" Count="6">    return test_game_delete();</Line>
+				<Line Number="292" Count="72">  } else if (strcmp("game_equal", argv[1]) == 0) {</Line>
+				<Line Number="293" Count="6">    return test_game_equal();</Line>
+				<Line Number="294" Count="66">  } else if (strcmp("game_copy", argv[1]) == 0) {</Line>
+				<Line Number="295" Count="6">    return test_game_copy();</Line>
+				<Line Number="296" Count="60">  } else if (strcmp("game_set_square", argv[1]) == 0) {</Line>
+				<Line Number="297" Count="6">    return test_game_set_square();</Line>
+				<Line Number="298" Count="54">  } else if (strcmp("game_get_square", argv[1]) == 0) {</Line>
+				<Line Number="299" Count="6">    return test_game_get_square();</Line>
+				<Line Number="300" Count="48">  } else if (strcmp("game_new", argv[1]) == 0) {</Line>
+				<Line Number="301" Count="6">    return test_game_new();</Line>
+				<Line Number="302" Count="42">  } else if (strcmp("game_is_wrapping", argv[1]) == 0) {</Line>
+				<Line Number="303" Count="6">    return test_game_is_wrapping();</Line>
+				<Line Number="304" Count="36">  } else if (strcmp("game_is_unique", argv[1]) == 0) {</Line>
+				<Line Number="305" Count="6">    return test_game_is_unique();</Line>
+				<Line Number="306" Count="30">  } else if (strcmp("game_new_empty_ext", argv[1]) == 0) {</Line>
+				<Line Number="307" Count="6">    return test_game_new_empty_ext();</Line>
+				<Line Number="308" Count="24">  } else if (strcmp("game_new_ext", argv[1]) == 0) {</Line>
+				<Line Number="309" Count="6">    return test_game_new_ext();</Line>
+				<Line Number="310" Count="18">  } else if (strcmp("game_nb_rows", argv[1]) == 0) {</Line>
+				<Line Number="311" Count="6">    return test_game_nb_rows();</Line>
+				<Line Number="312" Count="12">  } else if (strcmp("game_nb_cols", argv[1]) == 0) {</Line>
+				<Line Number="313" Count="6">    return test_game_nb_cols();</Line>
+				<Line Number="314" Count="6">  } else if (strcmp("game_redo", argv[1]) == 0) {</Line>
+				<Line Number="315" Count="6">    return test_game_redo();</Line>
+				<Line Number="316" Count="-1">  } else {</Line>
+				<Line Number="317" Count="0">    exit(EXIT_FAILURE);</Line>
+				<Line Number="318" Count="-1">  }</Line>
+				<Line Number="319" Count="-1">}</Line>
+			</Report>
+		</File>
+		<File Name="game_text.c" FullPath="./game_text.c">
+			<Report>
+				<Line Number="0" Count="-1">#include &lt;stdio.h&gt;</Line>
+				<Line Number="1" Count="-1">#include &lt;stdlib.h&gt;</Line>
+				<Line Number="2" Count="-1"></Line>
+				<Line Number="3" Count="-1">#include "game_aux.h"</Line>
+				<Line Number="4" Count="-1">#include "game_ext.h"</Line>
+				<Line Number="5" Count="-1">#include "game_struct.h"</Line>
+				<Line Number="6" Count="-1">#include "queue.h"</Line>
+				<Line Number="7" Count="-1"></Line>
+				<Line Number="8" Count="3">int main(void) {</Line>
+				<Line Number="9" Count="3">  game g = game_new_empty_ext(10, 6, true, false);</Line>
+				<Line Number="10" Count="-1">  char c;</Line>
+				<Line Number="11" Count="3">  bool quit = false;</Line>
+				<Line Number="12" Count="52">  while (game_is_over(g) == 0) {  // game is running</Line>
+				<Line Number="13" Count="52">    if (quit) {</Line>
+				<Line Number="14" Count="3">      break;</Line>
+				<Line Number="15" Count="-1">    }  // vérification que le joueur n'as pas quitté la partie</Line>
+				<Line Number="16" Count="49">    game_print(g);</Line>
+				<Line Number="17" Count="-1">    unsigned int i, j;</Line>
+				<Line Number="18" Count="49">    printf("*** votre coup ? ***\n");</Line>
+				<Line Number="19" Count="49">    scanf(" %c", &amp;c);</Line>
+				<Line Number="20" Count="49">    switch (c) {</Line>
+				<Line Number="21" Count="5">      case 'h':</Line>
+				<Line Number="22" Count="5">        printf("*******************\n");</Line>
+				<Line Number="23" Count="5">        printf("*** page d'aide ***\n");</Line>
+				<Line Number="24" Count="5">        printf("*******************\n");</Line>
+				<Line Number="25" Count="5">        break;</Line>
+				<Line Number="26" Count="-1"></Line>
+				<Line Number="27" Count="1">      case 'r':</Line>
+				<Line Number="28" Count="1">        printf("|| réinitialisation de la grille ||\n");</Line>
+				<Line Number="29" Count="1">        game_restart(g);</Line>
+				<Line Number="30" Count="1">        break;</Line>
+				<Line Number="31" Count="-1"></Line>
+				<Line Number="32" Count="3">      case 'q':</Line>
+				<Line Number="33" Count="3">        printf("|| Vous venez de quitter la partie ||\n");</Line>
+				<Line Number="34" Count="3">        quit = true;  // variable indiquant que le joueur quitte la partie</Line>
+				<Line Number="35" Count="3">        break;</Line>
+				<Line Number="36" Count="-1"></Line>
+				<Line Number="37" Count="13">      case 'z':</Line>
+				<Line Number="38" Count="13">        if (queue_is_empty(g-&gt;q_undo)) /*verif juste pour afficher le texte*/ {</Line>
+				<Line Number="39" Count="2">          printf("|| Vous n'avez pas de coup à annuler ||\n");</Line>
+				<Line Number="40" Count="-1">        } else {</Line>
+				<Line Number="41" Count="11">          game_undo(g);</Line>
+				<Line Number="42" Count="-1">        }</Line>
+				<Line Number="43" Count="13">        break;</Line>
+				<Line Number="44" Count="-1"></Line>
+				<Line Number="45" Count="9">      case 'y':</Line>
+				<Line Number="46" Count="9">        if (queue_is_empty(g-&gt;q_redo)) /*verif juste pour afficher le texte*/ {</Line>
+				<Line Number="47" Count="2">          printf("|| Vous n'avez pas de coup annulé à rejouer ||\n");</Line>
+				<Line Number="48" Count="-1">        } else {</Line>
+				<Line Number="49" Count="7">          game_redo(g);</Line>
+				<Line Number="50" Count="-1">        }</Line>
+				<Line Number="51" Count="9">        break;</Line>
+				<Line Number="52" Count="-1"></Line>
+				<Line Number="53" Count="13">      case 'w':</Line>
+				<Line Number="54" Count="-1">      case 'b':</Line>
+				<Line Number="55" Count="-1">      case 'e':</Line>
+				<Line Number="56" Count="-1"></Line>
+				<Line Number="57" Count="13">        printf("|| Veuillez rentrer la ligne de votre coup ||\n");</Line>
+				<Line Number="58" Count="13">        scanf(" %d", &amp;i);</Line>
+				<Line Number="59" Count="-1"></Line>
+				<Line Number="60" Count="13">        printf("|| Veuillez rentrer la colonne de votre coup ||\n");</Line>
+				<Line Number="61" Count="13">        scanf(" %d", &amp;j);</Line>
+				<Line Number="62" Count="-1">        square s;</Line>
+				<Line Number="63" Count="13">        switch (c) {</Line>
+				<Line Number="64" Count="10">          case 'w':</Line>
+				<Line Number="65" Count="10">            s = S_ZERO;</Line>
+				<Line Number="66" Count="10">            break;</Line>
+				<Line Number="67" Count="-1"></Line>
+				<Line Number="68" Count="2">          case 'b':</Line>
+				<Line Number="69" Count="2">            s = S_ONE;</Line>
+				<Line Number="70" Count="2">            break;</Line>
+				<Line Number="71" Count="-1"></Line>
+				<Line Number="72" Count="1">          case 'e':</Line>
+				<Line Number="73" Count="1">            s = S_EMPTY;</Line>
+				<Line Number="74" Count="1">            break;</Line>
+				<Line Number="75" Count="-1">        }</Line>
+				<Line Number="76" Count="-1"></Line>
+				<Line Number="77" Count="13">        if (game_check_move(g, i, j, s) == false) {</Line>
+				<Line Number="78" Count="0">          printf(</Line>
+				<Line Number="79" Count="-1">              "|| Vous ne pouvez pas jouer votre coup en position %d / %d  "</Line>
+				<Line Number="80" Count="-1">              "||\n",</Line>
+				<Line Number="81" Count="-1">              i, j);</Line>
+				<Line Number="82" Count="-1">        } else {</Line>
+				<Line Number="83" Count="13">          game_play_move(g, i, j, s);</Line>
+				<Line Number="84" Count="13">          queue_clear_full(g-&gt;q_redo, free);</Line>
+				<Line Number="85" Count="-1">        }</Line>
+				<Line Number="86" Count="13">        break;</Line>
+				<Line Number="87" Count="-1"></Line>
+				<Line Number="88" Count="5">      default:</Line>
+				<Line Number="89" Count="5">        printf("|| Vous n'avez pas rentré une instruction valide ||\n");</Line>
+				<Line Number="90" Count="5">        break;</Line>
+				<Line Number="91" Count="-1">    }</Line>
+				<Line Number="92" Count="-1">  }</Line>
+				<Line Number="93" Count="-1"></Line>
+				<Line Number="94" Count="3">  if (game_is_over(g) == 0) {</Line>
+				<Line Number="95" Count="3">    printf("shame\n");</Line>
+				<Line Number="96" Count="-1">  } else {</Line>
+				<Line Number="97" Count="0">    printf("congratulation\n");</Line>
+				<Line Number="98" Count="-1">  }</Line>
+				<Line Number="99" Count="3">  game_print(g);</Line>
+				<Line Number="100" Count="3">  game_delete(g);</Line>
+				<Line Number="101" Count="-1">  // end of the programm to keep</Line>
+				<Line Number="102" Count="3">  return (EXIT_SUCCESS);</Line>
+				<Line Number="103" Count="-1">}</Line>
+			</Report>
+		</File>
+		<File Name="queue.c" FullPath="./queue.c">
+			<Report>
+				<Line Number="0" Count="-1">#include "queue.h"</Line>
+				<Line Number="1" Count="-1"></Line>
+				<Line Number="2" Count="-1">#include &lt;assert.h&gt;</Line>
+				<Line Number="3" Count="-1">#include &lt;stdbool.h&gt;</Line>
+				<Line Number="4" Count="-1">#include &lt;stdlib.h&gt;</Line>
+				<Line Number="5" Count="-1"></Line>
+				<Line Number="6" Count="-1">/* *********************************************************** */</Line>
+				<Line Number="7" Count="-1"></Line>
+				<Line Number="8" Count="-1">struct queue_s {</Line>
+				<Line Number="9" Count="-1">  struct element_s *head;</Line>
+				<Line Number="10" Count="-1">  struct element_s *tail;</Line>
+				<Line Number="11" Count="-1">  unsigned int length;</Line>
+				<Line Number="12" Count="-1">};</Line>
+				<Line Number="13" Count="-1"></Line>
+				<Line Number="14" Count="-1">/* *********************************************************** */</Line>
+				<Line Number="15" Count="-1"></Line>
+				<Line Number="16" Count="-1">struct element_s {</Line>
+				<Line Number="17" Count="-1">  void *data;</Line>
+				<Line Number="18" Count="-1">  struct element_s *next;</Line>
+				<Line Number="19" Count="-1">  struct element_s *prev;</Line>
+				<Line Number="20" Count="-1">};</Line>
+				<Line Number="21" Count="-1"></Line>
+				<Line Number="22" Count="-1">/* *********************************************************** */</Line>
+				<Line Number="23" Count="-1"></Line>
+				<Line Number="24" Count="-1">typedef struct element_s element_t;</Line>
+				<Line Number="25" Count="-1"></Line>
+				<Line Number="26" Count="-1">/* *********************************************************** */</Line>
+				<Line Number="27" Count="-1"></Line>
+				<Line Number="28" Count="702">queue *queue_new() {</Line>
+				<Line Number="29" Count="702">  queue *q = malloc(sizeof(queue));</Line>
+				<Line Number="30" Count="702">  assert(q);</Line>
+				<Line Number="31" Count="702">  q-&gt;length = 0;</Line>
+				<Line Number="32" Count="702">  q-&gt;tail = q-&gt;head = NULL;</Line>
+				<Line Number="33" Count="702">  return q;</Line>
+				<Line Number="34" Count="-1">}</Line>
+				<Line Number="35" Count="-1"></Line>
+				<Line Number="36" Count="-1">/* *********************************************************** */</Line>
+				<Line Number="37" Count="-1"></Line>
+				<Line Number="38" Count="1602">void queue_push_head(queue *q, void *data) {</Line>
+				<Line Number="39" Count="1602">  assert(q);</Line>
+				<Line Number="40" Count="1602">  element_t *e = malloc(sizeof(element_t));</Line>
+				<Line Number="41" Count="1602">  assert(e);</Line>
+				<Line Number="42" Count="1602">  e-&gt;data = data;</Line>
+				<Line Number="43" Count="1602">  e-&gt;prev = NULL;</Line>
+				<Line Number="44" Count="1602">  e-&gt;next = q-&gt;head;</Line>
+				<Line Number="45" Count="1602">  if (q-&gt;head) q-&gt;head-&gt;prev = e;</Line>
+				<Line Number="46" Count="1602">  q-&gt;head = e;</Line>
+				<Line Number="47" Count="1602">  if (!q-&gt;tail) q-&gt;tail = e;</Line>
+				<Line Number="48" Count="1602">  q-&gt;length++;</Line>
+				<Line Number="49" Count="1602">}</Line>
+				<Line Number="50" Count="-1"></Line>
+				<Line Number="51" Count="-1">/* *********************************************************** */</Line>
+				<Line Number="52" Count="-1"></Line>
+				<Line Number="53" Count="0">void queue_push_tail(queue *q, void *data) {</Line>
+				<Line Number="54" Count="0">  assert(q);</Line>
+				<Line Number="55" Count="0">  element_t *e = malloc(sizeof(element_t));</Line>
+				<Line Number="56" Count="0">  assert(e);</Line>
+				<Line Number="57" Count="0">  e-&gt;data = data;</Line>
+				<Line Number="58" Count="0">  e-&gt;prev = q-&gt;tail;</Line>
+				<Line Number="59" Count="0">  e-&gt;next = NULL;</Line>
+				<Line Number="60" Count="0">  if (q-&gt;tail) q-&gt;tail-&gt;next = e;</Line>
+				<Line Number="61" Count="0">  q-&gt;tail = e;</Line>
+				<Line Number="62" Count="0">  if (!q-&gt;head) q-&gt;head = e;</Line>
+				<Line Number="63" Count="0">  q-&gt;length++;</Line>
+				<Line Number="64" Count="0">}</Line>
+				<Line Number="65" Count="-1"></Line>
+				<Line Number="66" Count="-1">/* *********************************************************** */</Line>
+				<Line Number="67" Count="-1"></Line>
+				<Line Number="68" Count="101">void *queue_pop_head(queue *q) {</Line>
+				<Line Number="69" Count="101">  assert(q);</Line>
+				<Line Number="70" Count="101">  assert(q-&gt;length &gt; 0);</Line>
+				<Line Number="71" Count="101">  if (!q-&gt;head) return NULL;</Line>
+				<Line Number="72" Count="101">  void *data = q-&gt;head-&gt;data;</Line>
+				<Line Number="73" Count="101">  element_t *next = q-&gt;head-&gt;next;</Line>
+				<Line Number="74" Count="101">  if (next) next-&gt;prev = NULL;</Line>
+				<Line Number="75" Count="101">  free(q-&gt;head);</Line>
+				<Line Number="76" Count="101">  q-&gt;head = next;</Line>
+				<Line Number="77" Count="101">  q-&gt;length--;</Line>
+				<Line Number="78" Count="101">  if (!q-&gt;head) q-&gt;tail = NULL;  // empty list</Line>
+				<Line Number="79" Count="101">  return data;</Line>
+				<Line Number="80" Count="-1">}</Line>
+				<Line Number="81" Count="-1"></Line>
+				<Line Number="82" Count="-1">/* *********************************************************** */</Line>
+				<Line Number="83" Count="-1"></Line>
+				<Line Number="84" Count="0">void *queue_pop_tail(queue *q) {</Line>
+				<Line Number="85" Count="0">  assert(q);</Line>
+				<Line Number="86" Count="0">  assert(q-&gt;length &gt; 0);</Line>
+				<Line Number="87" Count="0">  if (!q-&gt;tail) return NULL;</Line>
+				<Line Number="88" Count="0">  void *data = q-&gt;tail-&gt;data;</Line>
+				<Line Number="89" Count="0">  element_t *prev = q-&gt;tail-&gt;prev;</Line>
+				<Line Number="90" Count="0">  if (prev) prev-&gt;next = NULL;</Line>
+				<Line Number="91" Count="0">  free(q-&gt;tail);</Line>
+				<Line Number="92" Count="0">  q-&gt;tail = prev;</Line>
+				<Line Number="93" Count="0">  q-&gt;length--;</Line>
+				<Line Number="94" Count="0">  if (!q-&gt;tail) q-&gt;head = NULL;  // empty list</Line>
+				<Line Number="95" Count="0">  return data;</Line>
+				<Line Number="96" Count="-1">}</Line>
+				<Line Number="97" Count="-1"></Line>
+				<Line Number="98" Count="-1">/* *********************************************************** */</Line>
+				<Line Number="99" Count="-1"></Line>
+				<Line Number="100" Count="0">int queue_length(const queue *q) {</Line>
+				<Line Number="101" Count="0">  assert(q);</Line>
+				<Line Number="102" Count="0">  return q-&gt;length;</Line>
+				<Line Number="103" Count="-1">}</Line>
+				<Line Number="104" Count="-1"></Line>
+				<Line Number="105" Count="-1">/* *********************************************************** */</Line>
+				<Line Number="106" Count="-1"></Line>
+				<Line Number="107" Count="88">bool queue_is_empty(const queue *q) {</Line>
+				<Line Number="108" Count="88">  assert(q);</Line>
+				<Line Number="109" Count="88">  return (q-&gt;length == 0);</Line>
+				<Line Number="110" Count="-1">}</Line>
+				<Line Number="111" Count="-1"></Line>
+				<Line Number="112" Count="-1">/* *********************************************************** */</Line>
+				<Line Number="113" Count="-1"></Line>
+				<Line Number="114" Count="0">void *queue_peek_head(queue *q) {</Line>
+				<Line Number="115" Count="0">  assert(q);</Line>
+				<Line Number="116" Count="0">  assert(q-&gt;head);</Line>
+				<Line Number="117" Count="0">  return q-&gt;head-&gt;data;</Line>
+				<Line Number="118" Count="-1">}</Line>
+				<Line Number="119" Count="-1"></Line>
+				<Line Number="120" Count="-1">/* *********************************************************** */</Line>
+				<Line Number="121" Count="-1"></Line>
+				<Line Number="122" Count="0">void *queue_peek_tail(queue *q) {</Line>
+				<Line Number="123" Count="0">  assert(q);</Line>
+				<Line Number="124" Count="0">  assert(q-&gt;tail);</Line>
+				<Line Number="125" Count="0">  return q-&gt;tail-&gt;data;</Line>
+				<Line Number="126" Count="-1">}</Line>
+				<Line Number="127" Count="-1"></Line>
+				<Line Number="128" Count="-1">/* *********************************************************** */</Line>
+				<Line Number="129" Count="-1"></Line>
+				<Line Number="130" Count="0">void queue_clear(queue *q) {</Line>
+				<Line Number="131" Count="0">  assert(q);</Line>
+				<Line Number="132" Count="0">  element_t *e = q-&gt;head;</Line>
+				<Line Number="133" Count="0">  while (e) {</Line>
+				<Line Number="134" Count="0">    element_t *tmp = e;</Line>
+				<Line Number="135" Count="0">    e = e-&gt;next;</Line>
+				<Line Number="136" Count="0">    free(tmp);</Line>
+				<Line Number="137" Count="-1">  }</Line>
+				<Line Number="138" Count="0">  q-&gt;head = q-&gt;tail = NULL;</Line>
+				<Line Number="139" Count="0">  q-&gt;length = 0;</Line>
+				<Line Number="140" Count="0">}</Line>
+				<Line Number="141" Count="-1"></Line>
+				<Line Number="142" Count="-1">/* *********************************************************** */</Line>
+				<Line Number="143" Count="-1"></Line>
+				<Line Number="144" Count="693">void queue_clear_full(queue *q, void (*destroy)(void *)) {</Line>
+				<Line Number="145" Count="693">  assert(q);</Line>
+				<Line Number="146" Count="693">  element_t *e = q-&gt;head;</Line>
+				<Line Number="147" Count="2194">  while (e) {</Line>
+				<Line Number="148" Count="1501">    element_t *tmp = e;</Line>
+				<Line Number="149" Count="1501">    if (destroy) destroy(e-&gt;data);</Line>
+				<Line Number="150" Count="1501">    e = e-&gt;next;</Line>
+				<Line Number="151" Count="1501">    free(tmp);</Line>
+				<Line Number="152" Count="-1">  }</Line>
+				<Line Number="153" Count="693">  q-&gt;head = q-&gt;tail = NULL;</Line>
+				<Line Number="154" Count="693">  q-&gt;length = 0;</Line>
+				<Line Number="155" Count="693">}</Line>
+				<Line Number="156" Count="-1"></Line>
+				<Line Number="157" Count="-1">/* *********************************************************** */</Line>
+				<Line Number="158" Count="-1"></Line>
+				<Line Number="159" Count="0">void queue_free(queue *q) {</Line>
+				<Line Number="160" Count="0">  queue_clear(q);</Line>
+				<Line Number="161" Count="0">  free(q);</Line>
+				<Line Number="162" Count="0">}</Line>
+				<Line Number="163" Count="-1"></Line>
+				<Line Number="164" Count="-1">/* *********************************************************** */</Line>
+				<Line Number="165" Count="-1"></Line>
+				<Line Number="166" Count="666">void queue_free_full(queue *q, void (*destroy)(void *)) {</Line>
+				<Line Number="167" Count="666">  queue_clear_full(q, destroy);</Line>
+				<Line Number="168" Count="666">  free(q);</Line>
+				<Line Number="169" Count="666">}</Line>
+				<Line Number="170" Count="-1"></Line>
+				<Line Number="171" Count="-1">/* *********************************************************** */</Line>
+			</Report>
+		</File>
+		<EndDateTime>Jan 24 12:07 CET</EndDateTime>
+		<EndTime>1674558472</EndTime>
+	</CoverageLog>
+</Site>

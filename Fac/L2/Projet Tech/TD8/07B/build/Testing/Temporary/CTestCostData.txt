@@ -1,0 +1,42 @@
+test_ecallet_dummy 7 0.0957746
+test_ecallet_get_number 7 0.0849648
+test_ecallet_get_next_square 7 0.0825957
+test_ecallet_get_next_square_wrapping 7 0.0827798
+test_ecallet_check_move 7 0.0862991
+test_ecallet_get_next_number 7 0.0788288
+test_ecallet_get_next_number_wrapping 7 0.0827342
+test_ecallet_is_empty 7 0.0868647
+test_ecallet_is_immutable 7 0.101754
+test_ecallet_has_error 7 0.092966
+test_ecallet_has_error_wrapping 7 0.0882108
+test_ecallet_has_error_unique 6 0
+test_ecallet_undo 7 0.0892532
+test_ecallet_game_new_ext_moodle 7 0.0895879
+test_ecallet_is_over_unique 7 0.0900095
+test_pdinghin_dummy 7 0.081165
+test_pdinghin_new_game_empty 7 0.0806387
+test_pdinghin_game_delete 7 0.0845756
+test_pdinghin_game_equal 7 0.0880604
+test_pdinghin_game_copy 7 0.0865244
+test_pdinghin_game_set_square 7 0.0832808
+test_pdinghin_game_get_square 7 0.0816002
+test_pdinghin_game_new 7 0.0839323
+test_pdinghin_game_new_ext 7 0.0754705
+test_pdinghin_game_new_empty_ext 7 0.085353
+test_pdinghin_game_is_wrapping 7 0.0761608
+test_pdinghin_game_is_unique 7 0.0773422
+test_pdinghin_game_nb_rows 7 0.0816052
+test_pdinghin_game_nb_cols 7 0.0807233
+test_pdinghin_game_redo 7 0.080103
+test_ninteyineza_dummy 7 0.0888532
+test_ninteyineza_game_default 7 0.0837749
+test_ninteyineza_game_default_solution 7 0.0877152
+test_ninteyineza_game_is_over 7 0.0887514
+test_ninteyineza_game_is_over_unique 7 0.0857243
+test_ninteyineza_game_is_over_wrapping 7 0.0839023
+test_ninteyineza_game_restart 0 0
+test_ninteyineza_game_play_move 7 0.0919416
+test_ninteyineza_game_equal_ext 7 0.0852659
+---
+test_ecallet_has_error_unique
+test_ninteyineza_game_restart

@@ -1,0 +1,1927 @@
+==2929== Invalid read of size 4
+==2929==    at 0x1105EF: check_parameters (game.c:29)
+==2929==    by 0x11155E: game_has_error (game.c:182)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a044 is 4 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 4
+==2929==    at 0x11060D: check_parameters (game.c:29)
+==2929==    by 0x11155E: game_has_error (game.c:182)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a048 is 8 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 4
+==2929==    at 0x1105EF: check_parameters (game.c:29)
+==2929==    by 0x110E5E: game_get_number (game.c:96)
+==2929==    by 0x1115A0: game_has_error (game.c:185)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a044 is 4 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 4
+==2929==    at 0x11060D: check_parameters (game.c:29)
+==2929==    by 0x110E5E: game_get_number (game.c:96)
+==2929==    by 0x1115A0: game_has_error (game.c:185)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a048 is 8 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 4
+==2929==    at 0x1105EF: check_parameters (game.c:29)
+==2929==    by 0x110D25: game_get_square (game.c:89)
+==2929==    by 0x110E84: game_get_number (game.c:97)
+==2929==    by 0x1115A0: game_has_error (game.c:185)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a044 is 4 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 4
+==2929==    at 0x11060D: check_parameters (game.c:29)
+==2929==    by 0x110D25: game_get_square (game.c:89)
+==2929==    by 0x110E84: game_get_number (game.c:97)
+==2929==    by 0x1115A0: game_has_error (game.c:185)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a048 is 8 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 4
+==2929==    at 0x1105EF: check_parameters (game.c:29)
+==2929==    by 0x112F78: game_nb_rows (game_ext.c:52)
+==2929==    by 0x110D43: game_get_square (game.c:90)
+==2929==    by 0x110E84: game_get_number (game.c:97)
+==2929==    by 0x1115A0: game_has_error (game.c:185)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a044 is 4 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 4
+==2929==    at 0x11060D: check_parameters (game.c:29)
+==2929==    by 0x112F78: game_nb_rows (game_ext.c:52)
+==2929==    by 0x110D43: game_get_square (game.c:90)
+==2929==    by 0x110E84: game_get_number (game.c:97)
+==2929==    by 0x1115A0: game_has_error (game.c:185)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a048 is 8 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 4
+==2929==    at 0x112F8F: game_nb_rows (game_ext.c:53)
+==2929==    by 0x110D43: game_get_square (game.c:90)
+==2929==    by 0x110E84: game_get_number (game.c:97)
+==2929==    by 0x1115A0: game_has_error (game.c:185)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a044 is 4 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 4
+==2929==    at 0x1105EF: check_parameters (game.c:29)
+==2929==    by 0x112F25: game_nb_cols (game_ext.c:47)
+==2929==    by 0x110D97: game_get_square (game.c:91)
+==2929==    by 0x110E84: game_get_number (game.c:97)
+==2929==    by 0x1115A0: game_has_error (game.c:185)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a044 is 4 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 4
+==2929==    at 0x11060D: check_parameters (game.c:29)
+==2929==    by 0x112F25: game_nb_cols (game_ext.c:47)
+==2929==    by 0x110D97: game_get_square (game.c:91)
+==2929==    by 0x110E84: game_get_number (game.c:97)
+==2929==    by 0x1115A0: game_has_error (game.c:185)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a048 is 8 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 4
+==2929==    at 0x112F3C: game_nb_cols (game_ext.c:48)
+==2929==    by 0x110D97: game_get_square (game.c:91)
+==2929==    by 0x110E84: game_get_number (game.c:97)
+==2929==    by 0x1115A0: game_has_error (game.c:185)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a048 is 8 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 8
+==2929==    at 0x110DE4: game_get_square (game.c:92)
+==2929==    by 0x110E84: game_get_number (game.c:97)
+==2929==    by 0x1115A0: game_has_error (game.c:185)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a050 is 16 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 4
+==2929==    at 0x1105EF: check_parameters (game.c:29)
+==2929==    by 0x112F25: game_nb_cols (game_ext.c:47)
+==2929==    by 0x110DF3: game_get_square (game.c:92)
+==2929==    by 0x110E84: game_get_number (game.c:97)
+==2929==    by 0x1115A0: game_has_error (game.c:185)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a044 is 4 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 4
+==2929==    at 0x11060D: check_parameters (game.c:29)
+==2929==    by 0x112F25: game_nb_cols (game_ext.c:47)
+==2929==    by 0x110DF3: game_get_square (game.c:92)
+==2929==    by 0x110E84: game_get_number (game.c:97)
+==2929==    by 0x1115A0: game_has_error (game.c:185)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a048 is 8 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 4
+==2929==    at 0x112F3C: game_nb_cols (game_ext.c:48)
+==2929==    by 0x110DF3: game_get_square (game.c:92)
+==2929==    by 0x110E84: game_get_number (game.c:97)
+==2929==    by 0x1115A0: game_has_error (game.c:185)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a048 is 8 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 4
+==2929==    at 0x110E1A: game_get_square (game.c:92)
+==2929==    by 0x110E84: game_get_number (game.c:97)
+==2929==    by 0x1115A0: game_has_error (game.c:185)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a0b0 is 0 bytes inside a block of size 144 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B81: game_delete (game.c:76)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x11054A: my_calloc (game.c:20)
+==2929==    by 0x112DDE: game_new_empty_ext (game_ext.c:30)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 4
+==2929==    at 0x1105EF: check_parameters (game.c:29)
+==2929==    by 0x112F78: game_nb_rows (game_ext.c:52)
+==2929==    by 0x1115C1: game_has_error (game.c:186)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a044 is 4 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 4
+==2929==    at 0x11060D: check_parameters (game.c:29)
+==2929==    by 0x112F78: game_nb_rows (game_ext.c:52)
+==2929==    by 0x1115C1: game_has_error (game.c:186)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a048 is 8 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 4
+==2929==    at 0x112F8F: game_nb_rows (game_ext.c:53)
+==2929==    by 0x1115C1: game_has_error (game.c:186)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a044 is 4 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 4
+==2929==    at 0x1105EF: check_parameters (game.c:29)
+==2929==    by 0x112F25: game_nb_cols (game_ext.c:47)
+==2929==    by 0x1115E2: game_has_error (game.c:187)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a044 is 4 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 4
+==2929==    at 0x11060D: check_parameters (game.c:29)
+==2929==    by 0x112F25: game_nb_cols (game_ext.c:47)
+==2929==    by 0x1115E2: game_has_error (game.c:187)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a048 is 8 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 4
+==2929==    at 0x112F3C: game_nb_cols (game_ext.c:48)
+==2929==    by 0x1115E2: game_has_error (game.c:187)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a048 is 8 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 4
+==2929==    at 0x1105EF: check_parameters (game.c:29)
+==2929==    by 0x1112FF: game_get_next_number (game.c:148)
+==2929==    by 0x111658: game_has_error (game.c:194)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a044 is 4 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 4
+==2929==    at 0x11060D: check_parameters (game.c:29)
+==2929==    by 0x1112FF: game_get_next_number (game.c:148)
+==2929==    by 0x111658: game_has_error (game.c:194)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a048 is 8 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 4
+==2929==    at 0x1105EF: check_parameters (game.c:29)
+==2929==    by 0x110F3B: game_get_next_square (game.c:113)
+==2929==    by 0x11132C: game_get_next_number (game.c:149)
+==2929==    by 0x111658: game_has_error (game.c:194)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a044 is 4 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 4
+==2929==    at 0x11060D: check_parameters (game.c:29)
+==2929==    by 0x110F3B: game_get_next_square (game.c:113)
+==2929==    by 0x11132C: game_get_next_number (game.c:149)
+==2929==    by 0x111658: game_has_error (game.c:194)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a048 is 8 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 4
+==2929==    at 0x1105EF: check_parameters (game.c:29)
+==2929==    by 0x112F78: game_nb_rows (game_ext.c:52)
+==2929==    by 0x110FAD: game_get_next_square (game.c:118)
+==2929==    by 0x11132C: game_get_next_number (game.c:149)
+==2929==    by 0x111658: game_has_error (game.c:194)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a044 is 4 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 4
+==2929==    at 0x11060D: check_parameters (game.c:29)
+==2929==    by 0x112F78: game_nb_rows (game_ext.c:52)
+==2929==    by 0x110FAD: game_get_next_square (game.c:118)
+==2929==    by 0x11132C: game_get_next_number (game.c:149)
+==2929==    by 0x111658: game_has_error (game.c:194)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a048 is 8 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 4
+==2929==    at 0x112F8F: game_nb_rows (game_ext.c:53)
+==2929==    by 0x110FAD: game_get_next_square (game.c:118)
+==2929==    by 0x11132C: game_get_next_number (game.c:149)
+==2929==    by 0x111658: game_has_error (game.c:194)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a044 is 4 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 4
+==2929==    at 0x1105EF: check_parameters (game.c:29)
+==2929==    by 0x112F25: game_nb_cols (game_ext.c:47)
+==2929==    by 0x110FCE: game_get_next_square (game.c:119)
+==2929==    by 0x11132C: game_get_next_number (game.c:149)
+==2929==    by 0x111658: game_has_error (game.c:194)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a044 is 4 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 4
+==2929==    at 0x11060D: check_parameters (game.c:29)
+==2929==    by 0x112F25: game_nb_cols (game_ext.c:47)
+==2929==    by 0x110FCE: game_get_next_square (game.c:119)
+==2929==    by 0x11132C: game_get_next_number (game.c:149)
+==2929==    by 0x111658: game_has_error (game.c:194)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a048 is 8 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 4
+==2929==    at 0x112F3C: game_nb_cols (game_ext.c:48)
+==2929==    by 0x110FCE: game_get_next_square (game.c:119)
+==2929==    by 0x11132C: game_get_next_number (game.c:149)
+==2929==    by 0x111658: game_has_error (game.c:194)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a048 is 8 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 4
+==2929==    at 0x1105EF: check_parameters (game.c:29)
+==2929==    by 0x112E7E: game_is_wrapping (game_ext.c:37)
+==2929==    by 0x111018: game_get_next_square (game.c:122)
+==2929==    by 0x11132C: game_get_next_number (game.c:149)
+==2929==    by 0x111658: game_has_error (game.c:194)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a044 is 4 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 4
+==2929==    at 0x11060D: check_parameters (game.c:29)
+==2929==    by 0x112E7E: game_is_wrapping (game_ext.c:37)
+==2929==    by 0x111018: game_get_next_square (game.c:122)
+==2929==    by 0x11132C: game_get_next_number (game.c:149)
+==2929==    by 0x111658: game_has_error (game.c:194)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a048 is 8 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 1
+==2929==    at 0x112E95: game_is_wrapping (game_ext.c:38)
+==2929==    by 0x111018: game_get_next_square (game.c:122)
+==2929==    by 0x11132C: game_get_next_number (game.c:149)
+==2929==    by 0x111658: game_has_error (game.c:194)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a041 is 1 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 4
+==2929==    at 0x1105EF: check_parameters (game.c:29)
+==2929==    by 0x1112FF: game_get_next_number (game.c:148)
+==2929==    by 0x111718: game_has_error (game.c:198)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a044 is 4 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 4
+==2929==    at 0x11060D: check_parameters (game.c:29)
+==2929==    by 0x1112FF: game_get_next_number (game.c:148)
+==2929==    by 0x111718: game_has_error (game.c:198)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a048 is 8 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 4
+==2929==    at 0x1105EF: check_parameters (game.c:29)
+==2929==    by 0x110F3B: game_get_next_square (game.c:113)
+==2929==    by 0x11132C: game_get_next_number (game.c:149)
+==2929==    by 0x111718: game_has_error (game.c:198)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a044 is 4 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 4
+==2929==    at 0x11060D: check_parameters (game.c:29)
+==2929==    by 0x110F3B: game_get_next_square (game.c:113)
+==2929==    by 0x11132C: game_get_next_number (game.c:149)
+==2929==    by 0x111718: game_has_error (game.c:198)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a048 is 8 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 4
+==2929==    at 0x112F8F: game_nb_rows (game_ext.c:53)
+==2929==    by 0x110FAD: game_get_next_square (game.c:118)
+==2929==    by 0x11132C: game_get_next_number (game.c:149)
+==2929==    by 0x111718: game_has_error (game.c:198)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a044 is 4 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 4
+==2929==    at 0x112F3C: game_nb_cols (game_ext.c:48)
+==2929==    by 0x110FCE: game_get_next_square (game.c:119)
+==2929==    by 0x11132C: game_get_next_number (game.c:149)
+==2929==    by 0x111718: game_has_error (game.c:198)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a048 is 8 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 1
+==2929==    at 0x112E95: game_is_wrapping (game_ext.c:38)
+==2929==    by 0x111018: game_get_next_square (game.c:122)
+==2929==    by 0x11132C: game_get_next_number (game.c:149)
+==2929==    by 0x111718: game_has_error (game.c:198)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a041 is 1 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 4
+==2929==    at 0x1105EF: check_parameters (game.c:29)
+==2929==    by 0x112E7E: game_is_wrapping (game_ext.c:37)
+==2929==    by 0x1110CA: game_get_next_square (game.c:128)
+==2929==    by 0x11132C: game_get_next_number (game.c:149)
+==2929==    by 0x111658: game_has_error (game.c:194)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a044 is 4 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 4
+==2929==    at 0x11060D: check_parameters (game.c:29)
+==2929==    by 0x112E7E: game_is_wrapping (game_ext.c:37)
+==2929==    by 0x1110CA: game_get_next_square (game.c:128)
+==2929==    by 0x11132C: game_get_next_number (game.c:149)
+==2929==    by 0x111658: game_has_error (game.c:194)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a048 is 8 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 1
+==2929==    at 0x112E95: game_is_wrapping (game_ext.c:38)
+==2929==    by 0x1110CA: game_get_next_square (game.c:128)
+==2929==    by 0x11132C: game_get_next_number (game.c:149)
+==2929==    by 0x111658: game_has_error (game.c:194)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a041 is 1 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 4
+==2929==    at 0x1105EF: check_parameters (game.c:29)
+==2929==    by 0x110D25: game_get_square (game.c:89)
+==2929==    by 0x111149: game_get_next_square (game.c:131)
+==2929==    by 0x11132C: game_get_next_number (game.c:149)
+==2929==    by 0x111658: game_has_error (game.c:194)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a044 is 4 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 4
+==2929==    at 0x11060D: check_parameters (game.c:29)
+==2929==    by 0x110D25: game_get_square (game.c:89)
+==2929==    by 0x111149: game_get_next_square (game.c:131)
+==2929==    by 0x11132C: game_get_next_number (game.c:149)
+==2929==    by 0x111658: game_has_error (game.c:194)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a048 is 8 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 4
+==2929==    at 0x1105EF: check_parameters (game.c:29)
+==2929==    by 0x112F78: game_nb_rows (game_ext.c:52)
+==2929==    by 0x110D43: game_get_square (game.c:90)
+==2929==    by 0x111149: game_get_next_square (game.c:131)
+==2929==    by 0x11132C: game_get_next_number (game.c:149)
+==2929==    by 0x111658: game_has_error (game.c:194)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a044 is 4 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 4
+==2929==    at 0x11060D: check_parameters (game.c:29)
+==2929==    by 0x112F78: game_nb_rows (game_ext.c:52)
+==2929==    by 0x110D43: game_get_square (game.c:90)
+==2929==    by 0x111149: game_get_next_square (game.c:131)
+==2929==    by 0x11132C: game_get_next_number (game.c:149)
+==2929==    by 0x111658: game_has_error (game.c:194)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a048 is 8 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 4
+==2929==    at 0x112F8F: game_nb_rows (game_ext.c:53)
+==2929==    by 0x110D43: game_get_square (game.c:90)
+==2929==    by 0x111149: game_get_next_square (game.c:131)
+==2929==    by 0x11132C: game_get_next_number (game.c:149)
+==2929==    by 0x111658: game_has_error (game.c:194)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a044 is 4 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 4
+==2929==    at 0x1105EF: check_parameters (game.c:29)
+==2929==    by 0x112F25: game_nb_cols (game_ext.c:47)
+==2929==    by 0x110D97: game_get_square (game.c:91)
+==2929==    by 0x111149: game_get_next_square (game.c:131)
+==2929==    by 0x11132C: game_get_next_number (game.c:149)
+==2929==    by 0x111658: game_has_error (game.c:194)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a044 is 4 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 4
+==2929==    at 0x11060D: check_parameters (game.c:29)
+==2929==    by 0x112F25: game_nb_cols (game_ext.c:47)
+==2929==    by 0x110D97: game_get_square (game.c:91)
+==2929==    by 0x111149: game_get_next_square (game.c:131)
+==2929==    by 0x11132C: game_get_next_number (game.c:149)
+==2929==    by 0x111658: game_has_error (game.c:194)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a048 is 8 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 4
+==2929==    at 0x112F3C: game_nb_cols (game_ext.c:48)
+==2929==    by 0x110D97: game_get_square (game.c:91)
+==2929==    by 0x111149: game_get_next_square (game.c:131)
+==2929==    by 0x11132C: game_get_next_number (game.c:149)
+==2929==    by 0x111658: game_has_error (game.c:194)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a048 is 8 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 8
+==2929==    at 0x110DE4: game_get_square (game.c:92)
+==2929==    by 0x111149: game_get_next_square (game.c:131)
+==2929==    by 0x11132C: game_get_next_number (game.c:149)
+==2929==    by 0x111658: game_has_error (game.c:194)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a050 is 16 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 4
+==2929==    at 0x1105EF: check_parameters (game.c:29)
+==2929==    by 0x112F25: game_nb_cols (game_ext.c:47)
+==2929==    by 0x110DF3: game_get_square (game.c:92)
+==2929==    by 0x111149: game_get_next_square (game.c:131)
+==2929==    by 0x11132C: game_get_next_number (game.c:149)
+==2929==    by 0x111658: game_has_error (game.c:194)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a044 is 4 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 4
+==2929==    at 0x11060D: check_parameters (game.c:29)
+==2929==    by 0x112F25: game_nb_cols (game_ext.c:47)
+==2929==    by 0x110DF3: game_get_square (game.c:92)
+==2929==    by 0x111149: game_get_next_square (game.c:131)
+==2929==    by 0x11132C: game_get_next_number (game.c:149)
+==2929==    by 0x111658: game_has_error (game.c:194)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a048 is 8 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 4
+==2929==    at 0x112F3C: game_nb_cols (game_ext.c:48)
+==2929==    by 0x110DF3: game_get_square (game.c:92)
+==2929==    by 0x111149: game_get_next_square (game.c:131)
+==2929==    by 0x11132C: game_get_next_number (game.c:149)
+==2929==    by 0x111658: game_has_error (game.c:194)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a048 is 8 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 4
+==2929==    at 0x110E1A: game_get_square (game.c:92)
+==2929==    by 0x111149: game_get_next_square (game.c:131)
+==2929==    by 0x11132C: game_get_next_number (game.c:149)
+==2929==    by 0x111658: game_has_error (game.c:194)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a0c8 is 24 bytes inside a block of size 144 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B81: game_delete (game.c:76)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x11054A: my_calloc (game.c:20)
+==2929==    by 0x112DDE: game_new_empty_ext (game_ext.c:30)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 4
+==2929==    at 0x1105EF: check_parameters (game.c:29)
+==2929==    by 0x112E7E: game_is_wrapping (game_ext.c:37)
+==2929==    by 0x11117E: game_get_next_square (game.c:134)
+==2929==    by 0x11132C: game_get_next_number (game.c:149)
+==2929==    by 0x111658: game_has_error (game.c:194)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a044 is 4 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 4
+==2929==    at 0x11060D: check_parameters (game.c:29)
+==2929==    by 0x112E7E: game_is_wrapping (game_ext.c:37)
+==2929==    by 0x11117E: game_get_next_square (game.c:134)
+==2929==    by 0x11132C: game_get_next_number (game.c:149)
+==2929==    by 0x111658: game_has_error (game.c:194)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a048 is 8 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 1
+==2929==    at 0x112E95: game_is_wrapping (game_ext.c:38)
+==2929==    by 0x11117E: game_get_next_square (game.c:134)
+==2929==    by 0x11132C: game_get_next_number (game.c:149)
+==2929==    by 0x111658: game_has_error (game.c:194)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a041 is 1 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 1
+==2929==    at 0x112E95: game_is_wrapping (game_ext.c:38)
+==2929==    by 0x11117E: game_get_next_square (game.c:134)
+==2929==    by 0x11132C: game_get_next_number (game.c:149)
+==2929==    by 0x111718: game_has_error (game.c:198)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a041 is 1 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 4
+==2929==    at 0x1105EF: check_parameters (game.c:29)
+==2929==    by 0x112E7E: game_is_wrapping (game_ext.c:37)
+==2929==    by 0x11122E: game_get_next_square (game.c:140)
+==2929==    by 0x11132C: game_get_next_number (game.c:149)
+==2929==    by 0x111658: game_has_error (game.c:194)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a044 is 4 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 4
+==2929==    at 0x11060D: check_parameters (game.c:29)
+==2929==    by 0x112E7E: game_is_wrapping (game_ext.c:37)
+==2929==    by 0x11122E: game_get_next_square (game.c:140)
+==2929==    by 0x11132C: game_get_next_number (game.c:149)
+==2929==    by 0x111658: game_has_error (game.c:194)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a048 is 8 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 1
+==2929==    at 0x112E95: game_is_wrapping (game_ext.c:38)
+==2929==    by 0x11122E: game_get_next_square (game.c:140)
+==2929==    by 0x11132C: game_get_next_number (game.c:149)
+==2929==    by 0x111658: game_has_error (game.c:194)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a041 is 1 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 4
+==2929==    at 0x1105EF: check_parameters (game.c:29)
+==2929==    by 0x110D25: game_get_square (game.c:89)
+==2929==    by 0x1112A8: game_get_next_square (game.c:143)
+==2929==    by 0x11132C: game_get_next_number (game.c:149)
+==2929==    by 0x111658: game_has_error (game.c:194)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a044 is 4 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 4
+==2929==    at 0x11060D: check_parameters (game.c:29)
+==2929==    by 0x110D25: game_get_square (game.c:89)
+==2929==    by 0x1112A8: game_get_next_square (game.c:143)
+==2929==    by 0x11132C: game_get_next_number (game.c:149)
+==2929==    by 0x111658: game_has_error (game.c:194)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a048 is 8 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 4
+==2929==    at 0x1105EF: check_parameters (game.c:29)
+==2929==    by 0x112F78: game_nb_rows (game_ext.c:52)
+==2929==    by 0x110D43: game_get_square (game.c:90)
+==2929==    by 0x1112A8: game_get_next_square (game.c:143)
+==2929==    by 0x11132C: game_get_next_number (game.c:149)
+==2929==    by 0x111658: game_has_error (game.c:194)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a044 is 4 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 4
+==2929==    at 0x11060D: check_parameters (game.c:29)
+==2929==    by 0x112F78: game_nb_rows (game_ext.c:52)
+==2929==    by 0x110D43: game_get_square (game.c:90)
+==2929==    by 0x1112A8: game_get_next_square (game.c:143)
+==2929==    by 0x11132C: game_get_next_number (game.c:149)
+==2929==    by 0x111658: game_has_error (game.c:194)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a048 is 8 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 4
+==2929==    at 0x112F8F: game_nb_rows (game_ext.c:53)
+==2929==    by 0x110D43: game_get_square (game.c:90)
+==2929==    by 0x1112A8: game_get_next_square (game.c:143)
+==2929==    by 0x11132C: game_get_next_number (game.c:149)
+==2929==    by 0x111658: game_has_error (game.c:194)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a044 is 4 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 4
+==2929==    at 0x1105EF: check_parameters (game.c:29)
+==2929==    by 0x112F25: game_nb_cols (game_ext.c:47)
+==2929==    by 0x110D97: game_get_square (game.c:91)
+==2929==    by 0x1112A8: game_get_next_square (game.c:143)
+==2929==    by 0x11132C: game_get_next_number (game.c:149)
+==2929==    by 0x111658: game_has_error (game.c:194)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a044 is 4 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 4
+==2929==    at 0x11060D: check_parameters (game.c:29)
+==2929==    by 0x112F25: game_nb_cols (game_ext.c:47)
+==2929==    by 0x110D97: game_get_square (game.c:91)
+==2929==    by 0x1112A8: game_get_next_square (game.c:143)
+==2929==    by 0x11132C: game_get_next_number (game.c:149)
+==2929==    by 0x111658: game_has_error (game.c:194)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a048 is 8 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 4
+==2929==    at 0x112F3C: game_nb_cols (game_ext.c:48)
+==2929==    by 0x110D97: game_get_square (game.c:91)
+==2929==    by 0x1112A8: game_get_next_square (game.c:143)
+==2929==    by 0x11132C: game_get_next_number (game.c:149)
+==2929==    by 0x111658: game_has_error (game.c:194)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a048 is 8 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 8
+==2929==    at 0x110DE4: game_get_square (game.c:92)
+==2929==    by 0x1112A8: game_get_next_square (game.c:143)
+==2929==    by 0x11132C: game_get_next_number (game.c:149)
+==2929==    by 0x111658: game_has_error (game.c:194)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a050 is 16 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 4
+==2929==    at 0x1105EF: check_parameters (game.c:29)
+==2929==    by 0x112F25: game_nb_cols (game_ext.c:47)
+==2929==    by 0x110DF3: game_get_square (game.c:92)
+==2929==    by 0x1112A8: game_get_next_square (game.c:143)
+==2929==    by 0x11132C: game_get_next_number (game.c:149)
+==2929==    by 0x111658: game_has_error (game.c:194)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a044 is 4 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 4
+==2929==    at 0x11060D: check_parameters (game.c:29)
+==2929==    by 0x112F25: game_nb_cols (game_ext.c:47)
+==2929==    by 0x110DF3: game_get_square (game.c:92)
+==2929==    by 0x1112A8: game_get_next_square (game.c:143)
+==2929==    by 0x11132C: game_get_next_number (game.c:149)
+==2929==    by 0x111658: game_has_error (game.c:194)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a048 is 8 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 4
+==2929==    at 0x112F3C: game_nb_cols (game_ext.c:48)
+==2929==    by 0x110DF3: game_get_square (game.c:92)
+==2929==    by 0x1112A8: game_get_next_square (game.c:143)
+==2929==    by 0x11132C: game_get_next_number (game.c:149)
+==2929==    by 0x111658: game_has_error (game.c:194)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a048 is 8 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 4
+==2929==    at 0x110E1A: game_get_square (game.c:92)
+==2929==    by 0x1112A8: game_get_next_square (game.c:143)
+==2929==    by 0x11132C: game_get_next_number (game.c:149)
+==2929==    by 0x111658: game_has_error (game.c:194)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a0b4 is 4 bytes inside a block of size 144 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B81: game_delete (game.c:76)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x11054A: my_calloc (game.c:20)
+==2929==    by 0x112DDE: game_new_empty_ext (game_ext.c:30)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 4
+==2929==    at 0x1105EF: check_parameters (game.c:29)
+==2929==    by 0x1112FF: game_get_next_number (game.c:148)
+==2929==    by 0x1116A2: game_has_error (game.c:195)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a044 is 4 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 4
+==2929==    at 0x11060D: check_parameters (game.c:29)
+==2929==    by 0x1112FF: game_get_next_number (game.c:148)
+==2929==    by 0x1116A2: game_has_error (game.c:195)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a048 is 8 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 4
+==2929==    at 0x1105EF: check_parameters (game.c:29)
+==2929==    by 0x110F3B: game_get_next_square (game.c:113)
+==2929==    by 0x11132C: game_get_next_number (game.c:149)
+==2929==    by 0x1116A2: game_has_error (game.c:195)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a044 is 4 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 4
+==2929==    at 0x11060D: check_parameters (game.c:29)
+==2929==    by 0x110F3B: game_get_next_square (game.c:113)
+==2929==    by 0x11132C: game_get_next_number (game.c:149)
+==2929==    by 0x1116A2: game_has_error (game.c:195)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a048 is 8 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 4
+==2929==    at 0x112F8F: game_nb_rows (game_ext.c:53)
+==2929==    by 0x110FAD: game_get_next_square (game.c:118)
+==2929==    by 0x11132C: game_get_next_number (game.c:149)
+==2929==    by 0x1116A2: game_has_error (game.c:195)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a044 is 4 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 4
+==2929==    at 0x112F3C: game_nb_cols (game_ext.c:48)
+==2929==    by 0x110FCE: game_get_next_square (game.c:119)
+==2929==    by 0x11132C: game_get_next_number (game.c:149)
+==2929==    by 0x1116A2: game_has_error (game.c:195)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a048 is 8 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 1
+==2929==    at 0x112E95: game_is_wrapping (game_ext.c:38)
+==2929==    by 0x11122E: game_get_next_square (game.c:140)
+==2929==    by 0x11132C: game_get_next_number (game.c:149)
+==2929==    by 0x1116A2: game_has_error (game.c:195)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a041 is 1 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 8
+==2929==    at 0x110DE4: game_get_square (game.c:92)
+==2929==    by 0x1112A8: game_get_next_square (game.c:143)
+==2929==    by 0x11132C: game_get_next_number (game.c:149)
+==2929==    by 0x1116A2: game_has_error (game.c:195)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a050 is 16 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 4
+==2929==    at 0x110E1A: game_get_square (game.c:92)
+==2929==    by 0x1112A8: game_get_next_square (game.c:143)
+==2929==    by 0x11132C: game_get_next_number (game.c:149)
+==2929==    by 0x1116A2: game_has_error (game.c:195)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a0b8 is 8 bytes inside a block of size 144 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B81: game_delete (game.c:76)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x11054A: my_calloc (game.c:20)
+==2929==    by 0x112DDE: game_new_empty_ext (game_ext.c:30)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 4
+==2929==    at 0x1105EF: check_parameters (game.c:29)
+==2929==    by 0x110E5E: game_get_number (game.c:96)
+==2929==    by 0x1117EE: game_has_error (game.c:208)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a044 is 4 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 4
+==2929==    at 0x11060D: check_parameters (game.c:29)
+==2929==    by 0x110E5E: game_get_number (game.c:96)
+==2929==    by 0x1117EE: game_has_error (game.c:208)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a048 is 8 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 4
+==2929==    at 0x1105EF: check_parameters (game.c:29)
+==2929==    by 0x110D25: game_get_square (game.c:89)
+==2929==    by 0x110E84: game_get_number (game.c:97)
+==2929==    by 0x1117EE: game_has_error (game.c:208)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a044 is 4 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 4
+==2929==    at 0x11060D: check_parameters (game.c:29)
+==2929==    by 0x110D25: game_get_square (game.c:89)
+==2929==    by 0x110E84: game_get_number (game.c:97)
+==2929==    by 0x1117EE: game_has_error (game.c:208)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a048 is 8 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 4
+==2929==    at 0x112F8F: game_nb_rows (game_ext.c:53)
+==2929==    by 0x110D43: game_get_square (game.c:90)
+==2929==    by 0x110E84: game_get_number (game.c:97)
+==2929==    by 0x1117EE: game_has_error (game.c:208)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a044 is 4 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 4
+==2929==    at 0x112F3C: game_nb_cols (game_ext.c:48)
+==2929==    by 0x110D97: game_get_square (game.c:91)
+==2929==    by 0x110E84: game_get_number (game.c:97)
+==2929==    by 0x1117EE: game_has_error (game.c:208)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a048 is 8 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 8
+==2929==    at 0x110DE4: game_get_square (game.c:92)
+==2929==    by 0x110E84: game_get_number (game.c:97)
+==2929==    by 0x1117EE: game_has_error (game.c:208)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a050 is 16 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 4
+==2929==    at 0x112F3C: game_nb_cols (game_ext.c:48)
+==2929==    by 0x110DF3: game_get_square (game.c:92)
+==2929==    by 0x110E84: game_get_number (game.c:97)
+==2929==    by 0x1117EE: game_has_error (game.c:208)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a048 is 8 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 4
+==2929==    at 0x110E1A: game_get_square (game.c:92)
+==2929==    by 0x110E84: game_get_number (game.c:97)
+==2929==    by 0x1117EE: game_has_error (game.c:208)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a0b0 is 0 bytes inside a block of size 144 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B81: game_delete (game.c:76)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x11054A: my_calloc (game.c:20)
+==2929==    by 0x112DDE: game_new_empty_ext (game_ext.c:30)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 4
+==2929==    at 0x1105EF: check_parameters (game.c:29)
+==2929==    by 0x110E5E: game_get_number (game.c:96)
+==2929==    by 0x11188A: game_has_error (game.c:217)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a044 is 4 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 4
+==2929==    at 0x11060D: check_parameters (game.c:29)
+==2929==    by 0x110E5E: game_get_number (game.c:96)
+==2929==    by 0x11188A: game_has_error (game.c:217)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a048 is 8 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== Invalid read of size 4
+==2929==    at 0x1105EF: check_parameters (game.c:29)
+==2929==    by 0x110D25: game_get_square (game.c:89)
+==2929==    by 0x110E84: game_get_number (game.c:97)
+==2929==    by 0x11188A: game_has_error (game.c:217)
+==2929==    by 0x10ED26: test_has_error_unique (game_test_ecallet.c:275)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Address 0x4a4a044 is 4 bytes inside a block of size 40 free'd
+==2929==    at 0x483CA3F: free (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x110B8D: game_delete (game.c:77)
+==2929==    by 0x10E9FF: test_has_error_unique (game_test_ecallet.c:257)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929==  Block was alloc'd at
+==2929==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2929==    by 0x1104B2: my_malloc (game.c:11)
+==2929==    by 0x112D89: game_new_empty_ext (game_ext.c:25)
+==2929==    by 0x10E74D: test_has_error_unique (game_test_ecallet.c:243)
+==2929==    by 0x1102C7: main (game_test_ecallet.c:456)
+==2929== 
+==2929== 
+==2929== More than 100 errors detected.  Subsequent errors
+==2929== will still be recorded, but in less detail than before.

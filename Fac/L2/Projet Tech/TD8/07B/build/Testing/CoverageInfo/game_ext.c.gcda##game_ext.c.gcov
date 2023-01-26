@@ -1,0 +1,73 @@
+        -:    0:Source:/mnt/c/Users/thoma/Documents/COURS/Fac/L2/Projet Tech/TD8/07B/game_ext.c
+        -:    0:Graph:/mnt/c/Users/thoma/Documents/COURS/Fac/L2/Projet Tech/TD8/07B/build/CMakeFiles/game.dir/game_ext.c.gcno
+        -:    0:Data:/mnt/c/Users/thoma/Documents/COURS/Fac/L2/Projet Tech/TD8/07B/build/CMakeFiles/game.dir/game_ext.c.gcda
+        -:    0:Runs:238
+        -:    1:#include <assert.h>
+        -:    2:#include <stdbool.h>
+        -:    3:#include <stdio.h>
+        -:    4:#include <stdlib.h>
+        -:    5:#include <string.h>
+        -:    6:
+        -:    7:#include "game.h"
+        -:    8:#include "game_struct.h"
+        -:    9:
+        -:   10:#define TAILLE_MAX 10
+        -:   11:
+       90:   12:game game_new_ext(uint nb_rows, uint nb_cols, square* squares, bool wrapping,
+        -:   13:                  bool unique) {
+       90:   14:  game g = game_new_empty_ext(nb_rows, nb_cols, wrapping, unique);
+      90*:   15:  assert(g);
+       90:   16:  memcpy(g->tab, squares, nb_rows * nb_cols * sizeof(square));
+       90:   17:  return g;
+        -:   18:}
+        -:   19:
+      351:   20:game game_new_empty_ext(uint nb_rows, uint nb_cols, bool wrapping,
+        -:   21:                        bool unique) {
+      351:   22:  if (nb_rows % 2 != 0 || nb_cols % 2 != 0 || nb_cols > TAILLE_MAX  || nb_rows > TAILLE_MAX ) {
+    #####:   23:    return NULL;
+        -:   24:  }
+      351:   25:  game g = my_malloc(sizeof(*g));
+      351:   26:  g->nb_rows = nb_rows;
+      351:   27:  g->nb_cols = nb_cols;
+      351:   28:  g->wrapping = wrapping;
+      351:   29:  g->unique = unique;
+      351:   30:  g->tab = my_calloc(nb_cols * nb_rows, sizeof(square));
+      351:   31:  g->q_undo = queue_new();
+      351:   32:  g->q_redo = queue_new();
+      351:   33:  return g;
+        -:   34:}
+        -:   35:
+     3898:   36:bool game_is_wrapping(cgame g) {
+     3898:   37:  check_parameters(g, 0, 0);
+     3898:   38:  return g->wrapping;
+        -:   39:}
+        -:   40:
+      506:   41:bool game_is_unique(cgame g) {
+      506:   42:  check_parameters(g, 0, 0);
+      506:   43:  return g->unique;
+        -:   44:}
+        -:   45:
+    60762:   46:uint game_nb_cols(cgame g) {
+    60762:   47:  check_parameters(g, 0, 0);
+    60762:   48:  return g->nb_cols;
+        -:   49:}
+        -:   50:
+    32880:   51:uint game_nb_rows(cgame g) {
+    32880:   52:  check_parameters(g, 0, 0);
+    32880:   53:  return g->nb_rows;
+        -:   54:}
+        -:   55:
+       47:   56:void game_undo(game g) {
+       47:   57:  if (!queue_is_empty(g->q_undo)) {
+       41:   58:    struct move* m = queue_pop_head(g->q_undo);
+       41:   59:    game_play_move(g, m->row, m->col, m->square_prev);
+       41:   60:    queue_push_head(g->q_redo, queue_pop_head(g->q_undo));
+        -:   61:  }
+       47:   62:}
+        -:   63:
+       19:   64:void game_redo(game g) {
+       19:   65:  if (!queue_is_empty(g->q_redo)) {
+       19:   66:    struct move* m = queue_pop_head(g->q_redo);
+       19:   67:    game_play_move(g, m->row, m->col, m->square_prev);
+        -:   68:  }
+       19:   69:}

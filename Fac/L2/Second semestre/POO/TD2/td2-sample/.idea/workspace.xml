@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="0c28ff78-b173-42c7-9ce5-e2ea2ae6d074" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../../../Projet Tech/TD8/queue" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Projet Tech/TD8/queue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Projet Tech/takuzu-02e" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Projet Tech/takuzu-02e" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Architech/COURS.odt" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Architech/COURS.odt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TM 1/Position/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TM 1/Position/Position.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TM 1/Position/Position.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TM 1/Position/TestPosition.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TM 1/Prise en main/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TM 1/Prise en main/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TM 1/Robot/Position.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TM 1/Robot/Robot.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TM 1/Robot/TestRobot.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../../../.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2Kov9Dw3jbSjRrua3ylGQdFekXO" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/thoma/Documents/COURS/Fac/L2/Second semestre/POO/TD2/td2-student"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="td2-sample [run]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="run" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.td2-sample [run]" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0c28ff78-b173-42c7-9ce5-e2ea2ae6d074" name="Changes" comment="" />
+      <created>1674653600071</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1674653600071</updated>
+    </task>
+    <servers />
+  </component>
+</project>

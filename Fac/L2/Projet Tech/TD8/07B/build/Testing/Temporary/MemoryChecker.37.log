@@ -1,0 +1,36 @@
+==2954== 24 bytes in 1 blocks are indirectly lost in loss record 1 of 4
+==2954==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2954==    by 0x1101A4: queue_new (queue.c:30)
+==2954==    by 0x10FE00: game_new_empty_ext (game_ext.c:31)
+==2954==    by 0x10F527: game_default (game_aux.c:41)
+==2954==    by 0x10F70B: game_default_solution (game_aux.c:56)
+==2954==    by 0x10C454: test_game_restart (game_test_ninteyineza.c:171)
+==2954==    by 0x10D362: main (game_test_ninteyineza.c:308)
+==2954== 
+==2954== 24 bytes in 1 blocks are indirectly lost in loss record 2 of 4
+==2954==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2954==    by 0x1101A4: queue_new (queue.c:30)
+==2954==    by 0x10FE24: game_new_empty_ext (game_ext.c:32)
+==2954==    by 0x10F527: game_default (game_aux.c:41)
+==2954==    by 0x10F70B: game_default_solution (game_aux.c:56)
+==2954==    by 0x10C454: test_game_restart (game_test_ninteyineza.c:171)
+==2954==    by 0x10D362: main (game_test_ninteyineza.c:308)
+==2954== 
+==2954== 144 bytes in 1 blocks are indirectly lost in loss record 3 of 4
+==2954==    at 0x483DD99: calloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2954==    by 0x10D548: my_calloc (game.c:20)
+==2954==    by 0x10FDDC: game_new_empty_ext (game_ext.c:30)
+==2954==    by 0x10F527: game_default (game_aux.c:41)
+==2954==    by 0x10F70B: game_default_solution (game_aux.c:56)
+==2954==    by 0x10C454: test_game_restart (game_test_ninteyineza.c:171)
+==2954==    by 0x10D362: main (game_test_ninteyineza.c:308)
+==2954== 
+==2954== 232 (40 direct, 192 indirect) bytes in 1 blocks are definitely lost in loss record 4 of 4
+==2954==    at 0x483B7F3: malloc (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2954==    by 0x10D4B0: my_malloc (game.c:11)
+==2954==    by 0x10FD87: game_new_empty_ext (game_ext.c:25)
+==2954==    by 0x10F527: game_default (game_aux.c:41)
+==2954==    by 0x10F70B: game_default_solution (game_aux.c:56)
+==2954==    by 0x10C454: test_game_restart (game_test_ninteyineza.c:171)
+==2954==    by 0x10D362: main (game_test_ninteyineza.c:308)
+==2954== 
