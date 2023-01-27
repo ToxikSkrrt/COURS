@@ -5,18 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0c28ff78-b173-42c7-9ce5-e2ea2ae6d074" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../../../Projet Tech/TD8/07B/build/CMakeFiles/game.dir/game.c.gcda" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Projet Tech/TD8/07B/build/CMakeFiles/game.dir/game.c.gcda" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Projet Tech/TD8/07B/build/CMakeFiles/game.dir/game_aux.c.gcda" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Projet Tech/TD8/07B/build/CMakeFiles/game.dir/game_aux.c.gcda" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Projet Tech/TD8/07B/build/CMakeFiles/game.dir/game_ext.c.gcda" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Projet Tech/TD8/07B/build/CMakeFiles/game.dir/game_ext.c.gcda" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Projet Tech/TD8/07B/build/CMakeFiles/game.dir/queue.c.gcda" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Projet Tech/TD8/07B/build/CMakeFiles/game.dir/queue.c.gcda" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Projet Tech/TD8/07B/build/CMakeFiles/game_test_ecallet.dir/game_test_ecallet.c.gcda" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Projet Tech/TD8/07B/build/CMakeFiles/game_test_ecallet.dir/game_test_ecallet.c.gcda" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Projet Tech/TD8/07B/build/CMakeFiles/game_text.dir/game_text.c.gcno" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Projet Tech/TD8/07B/build/CMakeFiles/game_text.dir/game_text.c.gcno" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Projet Tech/TD8/07B/build/CMakeFiles/game_text.dir/game_text.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Projet Tech/TD8/07B/build/CMakeFiles/game_text.dir/game_text.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Projet Tech/TD8/07B/build/game_test_ecallet" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Projet Tech/TD8/07B/build/game_test_ecallet" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Projet Tech/TD8/07B/build/game_test_ninteyineza" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Projet Tech/TD8/07B/build/game_test_ninteyineza" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Projet Tech/TD8/07B/build/game_test_pdinghin" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Projet Tech/TD8/07B/build/game_test_pdinghin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Projet Tech/TD8/07B/build/game_text" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Projet Tech/TD8/07B/build/game_text" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Projet Tech/TD8/07B/build/libgame.a" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Projet Tech/TD8/07B/build/libgame.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Projet Tech/TD8/07B/game_ext.c" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Projet Tech/TD8/07B/game_ext.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Projet Tech/TD8/questionnaire.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Projet Tech/TD8/questionnaire.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../Projet Tech/TD8/queue" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Projet Tech/TD8/queue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Projet Tech/takuzu-02e" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Projet Tech/takuzu-02e" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Architech/COURS.odt" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Architech/COURS.odt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../TM 1/Position/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../TM 1/Position/Position.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../TM 1/Position/Position.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../TM 1/Position/TestPosition.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../TM 1/Prise en main/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../TM 1/Prise en main/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../TM 1/Robot/Position.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../TM 1/Robot/Robot.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../TM 1/Robot/TestRobot.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Algo struct arbo/TD.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Algo struct arbo/TD.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Algo struct arbo/test.ml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Architech/TM.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Architech/TM.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,15 +45,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/thoma/Documents/COURS/Fac/L2/Second semestre/POO/TD2/td2-student"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/thoma/Documents/COURS/Fac/L2/Second semestre/POO/TD2/td2-student&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="td2-sample [run]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>

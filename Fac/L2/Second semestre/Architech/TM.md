@@ -115,3 +115,97 @@ init:   irmovl 1, %eax
         halt
 
 ```
+
+# TD 2
+
+## Exercice 1
+```y86
+        irmovl 0, %eax  # sum
+        irmovl 1, %ecx  # i <- 1
+bcl:    rrmovl %ecx, %edx  # copie de i dans %edx
+        isubl 10, %edx
+        jg suite  # jg -> ZF = SF = 0 | jl -> SF = 1 | je -> ZF 1 | jne -> ZF = 0
+        addl %ecx, %eax
+        iadd 1, %ecx
+        jmp bcl
+suite:
+```
+
+## Exercice 2
+
+### Question 1
+???
+
+### Question 2
+???
+
+### Question 3
+```y86
+        mrmovl n, %edx
+        irmovl 1, %eax  # bit balayage
+        xorl %ecx, %ecx  # compteur de bits
+bcl:    rrovl %edx, %ebx
+        andl %eax, %ebx
+        je pasun
+        iaddl 1, %ecx
+pasun:  addl %eax, %eax  # décalage bit vers la gauche (2x)
+        jne bcl
+        rmovl %ecx, c
+```
+
+## Exercice 3
+```y86
+        irmovl x, %esi  # p = &x
+        mrmovl (%esi), %ebx  # a = *p
+        rmmovl %ebx, a  # a = 
+        mrmovl b, %ebx  # *p = b
+        mrmovl %ebx, (%esi)  # *p = 
+        irmovl b, %esi  # p = &b
+        mrmovl (%esi), %ebx  # (*p)++
+        iaddl 1, %ebx  # ++
+        rmmovl %ebx, (%esi)  # 
+```
+
+## Exercice 4
+```y86
+        irmovl t, %esi
+        mrmovl n, %ecx  # décompteur
+bcl:    isubl 1, %ecx
+        jl fin
+        mrmovl (%esi), %ebx
+        addl 1, %ebx
+        rmmovl %ebx, (%esi)
+        iaddl 4, %esi  # p++
+        jmp bcl
+fin:    halt
+```
+
+# TM 2
+
+## Exercice 1
+
+### Question 1
+```y86
+        .pos 0
+init:   irmovl t, %esi
+        mrmovl n, %ecx
+        isubl 2, %ecx
+bcl:    isubl 1, %ecx
+        jl fin
+        mrmovl (%esi), %eax
+        iaddl 4, %esi
+        mrmovl (%esi), %ebx
+        addl %eax, %ebx
+        iaddl 4, %esi
+        rmmovl %ebx, (%esi)
+        isubl 4, %esi
+        jmp bcl
+fin:    halt
+
+        .pos 0x100
+n :     .long 16
+t:      .long 1
+        .long 1
+
+
+```

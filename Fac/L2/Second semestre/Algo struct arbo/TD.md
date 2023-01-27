@@ -267,16 +267,61 @@ n(t) = 2 * l(t) - 1
 (* P est vraie *)
 ```
 
+## 1.15
+
+### a)
+P1 : h(t) + 1 <= n(t)
+P2 : h(t) <= 2^(h(t) + 1) - 1
+
+P1 :
+
+1. Cas de base : si t est l'arbre nul
+
+h(t) + 1 = -1 + 1 = 0
+n(t) = 0
+0 <= 0 donc P1 est vraie
+
+2. Cas récursif
+
+t = (x, g, d)
+-> sur g, P1 vraie [ h(g + 1) + 1 <= n(g) ]
+   sur d, ...
+
+h(t) + 1 = 1 + max(h(g), h(d)) + 1
+On suppose h(g) <= h(d)
+h(t) + 1 = 1 + h(g) + 1
+Avec P1: h(t + 1) <= 1 + n(g) < 1 + n(d) + n(g) = n(t)
+on sait que h(0) =/= 0, n(0) > 0
+-> P1 est vraie sur t
+
+P2 :
+
+1. Cas de base
+
+n(t = O) = 0
+2^(h(O) + 1) - 1 = 2^(-1 + 1) - 1 = 0
+-> P2 est vraie pour t = O
+
+2. Cas récursif
+
+t = (x, g, d), g et d =/= O
+P2 est vraie pour g et d
+n(t) = 1 + n(g) + n(d) <= 1 + 2^(h(g) + 1) - 1 + 2^(h(d) + 1) - 1
+On suppose h(g) >= h(d)
+= 1 + 2^(h(g) + 1) - 1 + 2^(h(g) + 1) - 1 = 2 * 2^(h(g) + 1) - 1
+h(t) = 1 + h(g)
+n(t) <= 2 * 2^(h(t) - 1) = 2^(h(t) + 1) - 1
+Donc P2 est vraie pour t
+
+
 # TD 2
 
 ## 2.1
-
 ```ocaml
 (2n n) == "n parmi 2n"
 ```
 
 ### 1.
-
 ```ocaml
 1/(1 + 1) * (2 1) = 1
 
@@ -286,24 +331,61 @@ n(t) = 2 * l(t) - 1
 ```
 
 ### 2.
-
 ???
 
 ### 3.
-
 ???
 
 ## 2.2
 
 ### 2.
-
 hauteur min d'un arbre de taille 7 = 3 ?
 
 ### 3.
-
 hauteur max d'un arbre de taille 7 = 4 ?
 
 ### 4.
-
 ???
+
+## 2.6
+```ocaml
+let rec btree_mem x t =
+    match t with
+    | Empty -> false
+    | Node (v, g, d) -> if v = x 
+                        then true 
+                        else (btree_mem x g) || (btree x d)
+```
+
+## 2.6 bis
+```ocaml
+let rec list_mem x l =
+    match l with
+    | [] -> false
+    | head::tail -> if x = head
+                    then true
+                    else list_mem x tail
+```
+
+## 2.8
+```ocaml
+let rec btree_is_full t =
+    match t with
+    | Empty -> true
+    | Node (_, Empty, Empty) -> true
+    | Node (_, Empty, _) -> false
+    | Node (_, _ , Empty) -> false
+    | Node (_, l, r) -> (btree_is_full l) && (btree_is_full r)
+```
+
+## 2.9
+```ocaml
+let rec btree_is_perfect t =
+    match t with
+    | Empty -> true
+    | Node (_, l, r) -> (btree_height l) = (btree_height r) && (btree_is_perfect l) && (btree_is_perfect r)
+```
+
+
+# TD 3
 

@@ -19,7 +19,8 @@ game game_new_ext(uint nb_rows, uint nb_cols, square* squares, bool wrapping,
 
 game game_new_empty_ext(uint nb_rows, uint nb_cols, bool wrapping,
                         bool unique) {
-  if (nb_rows % 2 != 0 || nb_cols % 2 != 0 || nb_cols > TAILLE_MAX  || nb_rows > TAILLE_MAX ) {
+  if (nb_rows % 2 != 0 || nb_cols % 2 != 0 || nb_cols > TAILLE_MAX ||
+      nb_rows > TAILLE_MAX) {
     return NULL;
   }
   game g = my_malloc(sizeof(*g));
