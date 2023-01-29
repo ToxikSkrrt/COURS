@@ -73,19 +73,83 @@ Justifiez quelle fonction ou ligne de code est responsable.
 **Question 07** - La bibliothèque fournie peut-elle remplacer votre propre
 bibliothèque sans générer de problèmes ? Vérifiez avec `game_text`.
 
-`Partiellement : Il y a une erreur pour undo et redo, mais cela vient de notre code.`
+`Oui : Cela fonctionne parfaitement avec game_text. (mais seulement en désactivant la génération des tests, explication à la question suivante).`
 
 **Question 08** - Est-ce que la bibliothèque fournie arrive à passer vos tests ?
 Pouvez-vous ainsi detécter de nouveaux bugs ou fuites mémoire dans cette
 bibliothèque ? Justifiez quelle fonction ou ligne de code est responsable.
 
-`Partiellement : Tous les tests passent sauf undo et redo. Le problème reste le même.`
+`Partiellement : il y a des erreurs de compatibilité pour un fichier :`
+```
+/mnt/c/Users/thoma/Documents/COURS/Fac/L2/Projet Tech/TD8/Copie takuzu/game_test_tcohen.c: In function ‘test_game_new_ext’:
+/mnt/c/Users/thoma/Documents/COURS/Fac/L2/Projet Tech/TD8/Copie takuzu/game_test_tcohen.c:244:12: error: ‘struct game_s’ has no member named ‘rows’; did you mean ‘nb_rows’?
+  244 |     if (g->rows != row || g->columns != col) test = false;
+      |            ^~~~
+      |            nb_rows
+/mnt/c/Users/thoma/Documents/COURS/Fac/L2/Projet Tech/TD8/Copie takuzu/game_test_tcohen.c:244:28: error: ‘struct game_s’ has no member named ‘columns’
+  244 |     if (g->rows != row || g->columns != col) test = false;
+      |                            ^~
+make[2]: *** [CMakeFiles/game_test_tcohen.dir/build.make:63: CMakeFiles/game_test_tcohen.dir/game_test_tcohen.c.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:166: CMakeFiles/game_test_tcohen.dir/all] Error 2
+make: *** [Makefile:95: all] Error 2
+```
+`Cependant pour les deux autres fichiers, tous les tests passent. Deux tests contiennent des fuites mémoires : test_thmoreau_game_undo et test_thmoreau_game_redo.`
 
 **Question 09** - A l'inverse, est-ce que les différents exécutables fournis
 (`game_text` et tests) fonctionnent avec votre propre bibliothèque ? Justifiez
 tout problème découvert, y compris dans votre propre projet.
 
-`A FAIRE (potentiellement modif les questions précédentes pour la biblio.`
+`Non : game_text ne se génère pas à cause d'erreurs de compatibilité :`
+```
+Scanning dependencies of target game_text
+[ 92%] Building C object CMakeFiles/game_text.dir/game_text.c.o
+/mnt/c/Users/thoma/Documents/COURS/Fac/L2/Projet Tech/TD8/Copie 07B/game_text.c: In function ‘main’:
+/mnt/c/Users/thoma/Documents/COURS/Fac/L2/Projet Tech/TD8/Copie 07B/game_text.c:39:31: error: ‘struct game_s’ has no member named ‘q_undo’; did you mean ‘undo’?
+   39 |         if (queue_is_empty(g->q_undo)) /*verif juste pour afficher le texte*/ {
+      |                               ^~~~~~
+      |                               undo
+/mnt/c/Users/thoma/Documents/COURS/Fac/L2/Projet Tech/TD8/Copie 07B/game_text.c:47:31: error: ‘struct game_s’ has no member named ‘q_redo’; did you mean ‘redo’?
+   47 |         if (queue_is_empty(g->q_redo)) /*verif juste pour afficher le texte*/ {
+      |                               ^~~~~~
+      |                               redo
+/mnt/c/Users/thoma/Documents/COURS/Fac/L2/Projet Tech/TD8/Copie 07B/game_text.c:85:31: error: ‘struct game_s’ has no member named ‘q_redo’; did you mean ‘redo’?
+   85 |           queue_clear_full(g->q_redo, free);
+      |                               ^~~~~~
+      |                               redo
+make[2]: *** [CMakeFiles/game_text.dir/build.make:63: CMakeFiles/game_text.dir/game_text.c.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:976: CMakeFiles/game_text.dir/all] Error 2
+make: *** [Makefile:95: all] Error 2
+```
+`Les tests se génèrent mais comportent beaucoup d'erreurs :`
+```
+49% tests passed, 20 tests failed out of 39
+
+Total Test time (real) =   3.80 sec
+
+The following tests FAILED:
+          3 - test_ecallet_get_next_square (SEGFAULT)
+          4 - test_ecallet_get_next_square_wrapping (SEGFAULT)
+          6 - test_ecallet_get_next_number (SEGFAULT)
+          7 - test_ecallet_get_next_number_wrapping (SEGFAULT)
+         10 - test_ecallet_has_error (SEGFAULT)
+         11 - test_ecallet_has_error_wrapping (SEGFAULT)
+         12 - test_ecallet_has_error_unique (SEGFAULT)
+         13 - test_ecallet_undo (SEGFAULT)
+         14 - test_ecallet_game_new_ext_moodle (SEGFAULT)
+         15 - test_ecallet_is_over_unique (SEGFAULT)
+         18 - test_pdinghin_game_delete (SEGFAULT)
+         20 - test_pdinghin_game_copy (SEGFAULT)
+         24 - test_pdinghin_game_new_ext (SEGFAULT)
+         25 - test_pdinghin_game_new_empty_ext (SEGFAULT)
+         26 - test_pdinghin_game_is_wrapping (SEGFAULT)
+         27 - test_pdinghin_game_is_unique (SEGFAULT)
+         28 - test_pdinghin_game_nb_rows (SEGFAULT)
+         29 - test_pdinghin_game_nb_cols (SEGFAULT)
+         30 - test_pdinghin_game_redo (SEGFAULT)
+         37 - test_ninteyineza_game_restart (Failed)
+Errors while running CTest
+make: *** [Makefile:73: test] Error 8
+```
 
 **Question 10** - Est-ce que le code est propre et facilement lisible ?
 (Indentation cohérente, nommage cohérent des variables et des fonctions, pas de
@@ -102,7 +166,7 @@ duplication inutile, ...)
 est correctement implémentée et lister les extensions de la V2 qui sont
 correctement implémentées.
 
-`???`
+`Oui : Les fonctions de la V1 sont correctement implémentées, de même pour les fonctions de la V2 comme undo et redo ou les extensions unique et wrapping. `
 
 **Question 13** - Donnez un appréciation générale. Voyez-vous d'autres pistes
 d'amélioration ?

@@ -1,1 +1,0 @@
-/usr/bin/cc -std=c99 -g -Wall --coverage  -rdynamic CMakeFiles/game_test_ninteyineza.dir/game_test_ninteyineza.c.o  -o game_test_ninteyineza   -L"/mnt/c/Users/thoma/Documents/COURS/Fac/L2/Projet Tech/TD8/07B"  -Wl,-rpath,"/mnt/c/Users/thoma/Documents/COURS/Fac/L2/Projet Tech/TD8/07B" libgame.a 

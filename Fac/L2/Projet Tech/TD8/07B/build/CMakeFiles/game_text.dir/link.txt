@@ -1,1 +1,0 @@
-/usr/bin/cc -std=c99 -g -Wall --coverage  -rdynamic CMakeFiles/game_text.dir/game_text.c.o  -o game_text   -L"/mnt/c/Users/thoma/Documents/COURS/Fac/L2/Projet Tech/TD8/07B"  -Wl,-rpath,"/mnt/c/Users/thoma/Documents/COURS/Fac/L2/Projet Tech/TD8/07B" libgame.a 
