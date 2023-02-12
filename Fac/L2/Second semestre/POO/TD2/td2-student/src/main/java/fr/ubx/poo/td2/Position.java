@@ -1,28 +1,23 @@
 package fr.ubx.poo.td2;
 
-public class Position {
-    private int x;
-    private int y;
+public record Position(int x, int y) {
+    /*
+     -- NOT REQUIRED --
+     public Position(int x, int y) {
+         this.x = x;
+         this.y = y;
+     }
+    */
 
-    public Position(int x, int y) {
-        this.x = x;
-        this.y = y;
+    public Position(Position position) {
+        this(position.x, position.y);
     }
 
-    public int getX() {
-        return x;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Position position)) return false;
+        return x == position.x && y == position.y;
     }
 
-    public int getY() {
-        return y;
-    }
-
-    public void translate(int dx, int dy) {
-        this.x += dx;
-        this.y += dy;
-    }
-
-    public void translate(int delta) {
-        translate(delta, delta);
-    }
 }

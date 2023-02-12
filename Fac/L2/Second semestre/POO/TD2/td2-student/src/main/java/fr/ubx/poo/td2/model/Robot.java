@@ -1,4 +1,4 @@
-package fr.ubx.poo.td2.mode1;
+package fr.ubx.poo.td2.model;
 
 import fr.ubx.poo.td2.Position;
 
@@ -10,20 +10,20 @@ public class Robot extends Vehicule {
 
     @Override
     public int distance(Position target) {
-        return (int) Math.abs(target.getX() - this.getPosition().getX()) + Math.abs(target.getY() - this.getPosition().getY());
+        return Math.abs(target.x() - this.getPosition().x()) + Math.abs(target.y() - this.getPosition().y());
     }
 
     @Override
     public Position[] getPathTo(Position target) {
-        int deltaX = target.getX() - this.getPosition().getX();
-        int deltaY = target.getY() - this.getPosition().getY();;
+        int deltaX = target.x() - this.getPosition().x();
+        int deltaY = target.y() - this.getPosition().y();
         Position pos[] = new Position[6];
-        pos[0] = new Position(this.getPosition().getX() + deltaX / 3, this.getPosition().getY());
-        pos[1] = new Position(this.getPosition().getX() + deltaX / 3, this.getPosition().getY() + deltaY / 3);
-        pos[2] = new Position(this.getPosition().getX() + (deltaX / 3) * 2, this.getPosition().getY() + deltaY / 3);
-        pos[3] = new Position(this.getPosition().getX() + (deltaX / 3) * 2, this.getPosition().getY() + (deltaY / 3) * 2);
-        pos[4] = new Position(target.getX(), this.getPosition().getY() + (deltaY / 3) * 2);
-        pos[5] = new Position(target.getX(), target.getY());
+        pos[0] = new Position(this.getPosition().x() + deltaX / 3, this.getPosition().y());
+        pos[1] = new Position(this.getPosition().x() + deltaX / 3, this.getPosition().y() + deltaY / 3);
+        pos[2] = new Position(this.getPosition().x() + (deltaX / 3) * 2, this.getPosition().y() + deltaY / 3);
+        pos[3] = new Position(this.getPosition().x() + (deltaX / 3) * 2, this.getPosition().y() + (deltaY / 3) * 2);
+        pos[4] = new Position(target.x(), this.getPosition().y() + (deltaY / 3) * 2);
+        pos[5] = new Position(target.x(), target.y());
         return pos;
     }
 

@@ -313,6 +313,7 @@ h(t) = 1 + h(g)
 n(t) <= 2 * 2^(h(t) - 1) = 2^(h(t) + 1) - 1
 Donc P2 est vraie pour t
 
+---
 
 # TD 2
 
@@ -386,6 +387,170 @@ let rec btree_is_perfect t =
     | Node (_, l, r) -> (btree_height l) = (btree_height r) && (btree_is_perfect l) && (btree_is_perfect r)
 ```
 
+---
 
 # TD 3
 
+## Exercice 4
+
+### 2.
+```ocaml
+let rec recherche t x = 
+    match x with
+    | Empty -> false
+    | Node (v, l, r) -> if v = x
+                        then true
+                        else if v < x
+                             then recherche r x
+                             else recherche l x
+
+let rec bst_search t x =
+    match t with
+    | Empty -> 0
+    | Node ((v, m), l, r) -> if v = x
+                             then m
+                             else if v < x
+                                  then bst_search r x
+                                  else bst_search l x
+```
+
+## Exercice 5
+
+### 2.
+```ocaml
+let rec insert t x =
+    match t with
+    | Empty -> Node (x, Empty, Empty)
+    | Node (v, l, r) -> if x = v
+                        then t
+                        else if x > v
+                             then Node (v, l, insert r x)
+                             else Node (v, insert l x, r)
+
+let rec bst_insert t x =
+    match t with
+    | Empty -> Node ((x, l), Empty, Empty)
+    | Node ((k, m), l, r) -> if k = x
+                             then Node ((k, m + 1), l, r)
+                             else if k < x
+                                  then Node ((k, m), l, bst_insert r x)
+                                  else Node ((k, m), bst_insert l x, r)
+```
+
+---
+
+# TD 4
+
+## Exercice 1
+
+### 1.
+
+### 2.
+```ocaml
+let rec bst_max t =
+    match t with
+    | Empty -> failwith "Empty tree"
+    | Node (v, l, r) -> if r = Empty
+                        then v
+                        else bst_max r
+
+let rec bst_min t =
+    match t with
+    | Empty -> failwith "Empty tree"
+    | Node (v, l, r) -> if l = Empty
+                        then v
+                        else bst_min l
+```
+
+## Exercice 2
+
+### 3.
+```ocaml
+let rec bst_pop_max t =
+    match t with
+    | Empty -> failwith "Empty tree"
+    | Node((c, m), l, Empty) -> l, (c, m)
+    | Node((c, m), l, r) -> let bstr, maxr = bst_pop_max r in Node((c, m), l, bstr), maxr;;
+```
+
+### 4.
+```ocaml
+let rec bst_remove t x =
+    match t with
+    | Empty -> t
+    | Node((c, m), l, r) -> if x = c
+                            then (* x = c *) if m > 1
+                                             then Node((c, m - 1), l, r)
+                                             else if l = Empty
+                                                  then r
+                                                  else let l_without_max, max = bst_pop_max l
+                                                  in Node(max, l_without_max, r)
+                            else (* x != c *) if x < c
+                                              then Node((c, l), ???)
+```
+
+`Parcours infixe = ordre croissant` 
+
+`préfixe = r + fg + fd`  
+`infixe = fg + r + fd`  
+`postfixe = fg + fd + r`
+
+```ocaml
+let rec prefixe t =
+    match t with
+    | Empty -> []
+    | Node(v, l, r) -> [v] @ (prefixe l) @ (prefixe r)
+```
+
+```ocaml
+let rec infixe t =
+    match t with
+    | Empty -> []
+    | Node(v, l, r) -> (prefixe l) @ [v] @ (prefixe r)
+```
+
+```ocaml
+let rec postfixe t =
+    match t with
+    | Empty -> []
+    | Node(v, l, r) -> (prefixe l) @ (prefixe r) @ [v]
+```
+
+```ocaml
+let rec nbNoeuds t =
+    match t with
+    | Empty -> 0
+    | Node(v, l, r) -> 1 + nbNoeuds l + nbNoeuds r
+```
+
+---
+
+# TD 5
+
+`Equilibre d'un noeud : eq(t) = h(l) - h(r)`
+
+## Exercice 1
+
+### 1.
+
+## Exercice 5
+
+### 1.
+```ocaml
+let rec get_height t = 
+  match t with
+  | Empty -> -1
+  | Node((v, h), l, r) -> h
+;;
+```
+
+### 2.
+```ocaml
+let rec tag_node c l r =
+  let hl = get_height l in 
+  let hr = get_height r in
+  if (hl < hr) 
+  then Node((c, hr + 1), l, r)
+  else Node((c, hl + 1), l, r)
+;;
+```

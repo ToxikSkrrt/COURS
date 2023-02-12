@@ -1,0 +1,4 @@
+timeout 2
+title monprog
+kernel (cd)/monprog
+boot

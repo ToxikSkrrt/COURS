@@ -154,3 +154,14 @@ for (Figure fig: figures) {
     fig.draw();
 }
 ```
+
+# Classes abstraites   
+```java
+abstract class Figure {
+    abstract void draw();
+}
+```
+
+Si une classe hérite d'une méthode abstraite, la classe devient abstraite même sans 'abstract'. Pour éviter cela il faut redéfinir la méthode.
+
+Imposer un cadre -> Forcer la definition de classes filles avec une classe mere abstraite, etc... (FACTORISATION)

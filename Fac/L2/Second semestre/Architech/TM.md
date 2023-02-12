@@ -180,6 +180,8 @@ bcl:    isubl 1, %ecx
 fin:    halt
 ```
 
+---
+
 # TM 2
 
 ## Exercice 1
@@ -207,5 +209,65 @@ n :     .long 16
 t:      .long 1
         .long 1
 
+
+```
+
+---
+
+# TM 3
+
+## Exercice 1
+
+### Question 1
+`(a - b) + ((b - c) & (c - d)) -> a b - b c - c d - & +`
+
+### Question 2
+`(5 - 19) + ((19 - 10) & (10 - 1)) = -5`
+
+`(V1)`
+```y86
+        .pos 0
+init:   irmovl stack, %esp
+        mrmovl a, %eax
+        mrmovl b, %ecx
+        subl %ecx, %eax
+        pushl %eax
+        mrmovl b, %eax
+        mrmovl c, %ecx
+        subl %ecx, %eax
+        pushl %eax
+        mrmovl c, %eax
+        mrmovl d, %ecx
+        subl %ecx, %eax
+        popl %ecx
+        andl %ecx, %eax
+        popl %ecx
+        addl %ecx, %eax
+        halt
+
+        .pos 0x200
+stack:  
+a:      .long 5
+b:      .long 19
+c:      .long 10
+d:      .long 1
+
+```
+
+## Exercice 2
+```y86
+
+```
+
+---
+
+# TM 4
+
+`Impossible en dehors du CREMI (:`
+
+## Exercice 1
+
+### Question 1
+```y86
 
 ```
