@@ -1,5 +1,6 @@
 package fr.ubx.poo.td2;
 
+import fr.ubx.poo.td2.view.ImageResource;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
