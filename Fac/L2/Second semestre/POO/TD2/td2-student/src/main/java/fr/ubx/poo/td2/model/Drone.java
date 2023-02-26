@@ -17,7 +17,7 @@ public class Drone extends Vehicule {
     @Override
     public Position[] getPathTo(Position target) {
         Position pos[] = new Position[1];
-        pos[0] = new Position(target.x(), target.y());
+        pos[0] = new Position(target);
         return pos;
     }
 

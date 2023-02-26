@@ -233,3 +233,71 @@ fin:    popl %ebx
 stack:  
 
 ```
+
+---
+
+# TD 5
+
+## Exercice 1 (' = NOT)
+`f0(x, y) = O  ->  FALSE`  
+`f1(x, y) = 'x.'y = '(x + y)`  
+`f2(x, y) = 'x.y`  
+`f3(x, y) = 'x.'y + 'x.y = 'x.('y + y) = 'x`  
+`f4(x, y) = x.'y`  
+`f5(x, y) = 'x.'y + x.'y = ('x + x).'y = 'y`  
+`f6(x, y) = 'x.y + x.'y = x XOR y`  
+`f7(x, y) = 'x.'y + x.'y + 'x.y = '(x.y) = x NAND y`  
+`f8(x, y) = x.y = x AND y`  
+`f9(x, y) = 'x.'y + x.y = x EQUIV y = '(x XOR y)`  
+`f10(x, y) = 'x.y + x.y = y`  
+`f11(x, y) = 'x.'y + 'x.y + x.y = 'f4 = '(x.'y) = 'x + y`  
+`f12(x, y) = x.'y + x.y = x`  
+`f13(x, y) = 'x.'y + x.'y + x.y = '('x.y) = x + 'y`  
+`f14(x, y) = 'x.y + x.'y + x.y = x + y`  
+`f15(x, y) = 1  ->  TRUE`
+
+## Exercice 2
+```
+f1 = 'a.b.c
+f2 = a.'b + 'a.b.'c
+f3 = '(a + 'b + 'c) = 'a.b.c
+f4 = '('a.'b).'(b.c).'(a.b.'c) = (a + b).('b + 'c).('a + 'b + c) = a.'b.c + a.'b.'c
+
+a  b  c  f1  f2  f3  f4
+0  0  0   0   0   0   0
+0  0  1   0   0   0   0
+0  1  0   0   1   0   1
+0  1  1   1   0   1   0
+1  0  0   0   1   0   1
+1  0  1   0   1   0   1
+1  1  0   0   0   0   0
+1  1  1   0   0   0   0
+
+=> f2 = f4
+=> f1 = f3
+```
+
+## Exercice 3
+
+### Question 1
+`f1 = 'x.'y.'z + 'x.y.z + x.'y.'z + x.'y.'z + x.y.z`
+
+### Question 2
+`f2 = 'x.'y.z + 'x.y.'z + x.y.'z = 'x.(y XOR z)`
+
+## Exercice 4
+
+### Question 1
+`'a XOR b = a XOR 'b = '(a XOR b)`
+
+### Question 2
+
+`Montrer associativité de XOR dans un ensemble E : V(a, b, c) € E, (a XOR b) XOR c = a XOR (b XOR c)`  
+`(a XOR b) XOR c = (a XOR b).'c + '(a XOR b).c = (a XOR b).'c + (a XOR 'b).c = (a.'b + 'a.b).'c + (a.b + 'a.'b).c = a.'b.'c + 'a.b.'c + a.b.c + 'a.'b.c`  
+`En developpant a XOR (b XOR c), on retrouve la meme chose`
+
+# Exercice 5
+`C7 et C4 incomplets`  
+`C0 -> complet`  
+`C1 -> x.y = '('x + 'y) = x.y -> complet`
+`le reste = complet sauf C4`
