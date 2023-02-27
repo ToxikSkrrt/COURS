@@ -165,3 +165,65 @@ abstract class Figure {
 Si une classe hérite d'une méthode abstraite, la classe devient abstraite même sans 'abstract'. Pour éviter cela il faut redéfinir la méthode.
 
 Imposer un cadre -> Forcer la definition de classes filles avec une classe mere abstraite, etc... (FACTORISATION)
+
+# Interface
+
+Une interface ne comporte que des méthodes.  
+On définit que des prototypes de méthode.  
+Les interfaces peuvent être héritées et également hériter d'autres interfaces.  
+Surcharge = changement de signature (paramètres...) sans modifier le type de retour.
+
+```java
+interface Foo {
+    void foo();
+    void foo(int i);
+    boolean toto();
+}
+
+class Triangle extends Figure implements Foo {
+    ...
+}
+
+class Fleur extends Decor implements Foo, Bar {
+    ...
+}
+```
+
+Depuis Java 8, interfaces avec méthodes par défaut -> si la méthode n'est pas définie dans la classe, alors le code de la méthode par défaut sera exécuté.
+
+```java
+interface Foo {
+    void foo();
+    default boolean toto() {
+        return true;
+    }
+}
+```
+
+```java
+interface Bar {
+    void bar();
+    default boolean toto() {
+        return false;
+    }
+}
+```
+
+Vu que Foo et Bar contiennent une définition par défaut de toto(), il faut obligatoirement redéfinir toto() dans la classe.
+
+```java
+class Decor {
+    ...
+
+    boolean toto() {
+        if (...) {
+            return Foo.super.toto();
+        } else {
+            return Bar.super.toto();
+        }
+    }
+}
+```
+
+# Exceptions
+
