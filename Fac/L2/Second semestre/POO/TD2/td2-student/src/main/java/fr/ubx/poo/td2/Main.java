@@ -13,7 +13,7 @@ public class Main extends Application {
     public void start(Stage stage)  {
         int width = 20;
         int height = 20;
-        World world = new World(width, height, 0.3, 0.3);
+        World world = new World(width, height, 0.15, 0.20);
         // Creation du robot et du drone
         Vehicule[] vehicules = new Vehicule[3];
         vehicules[0] = new Robot("Curiosity", new Position(4,4), 200, 2);
@@ -38,17 +38,21 @@ public class Main extends Application {
                 }
             }
         });
+
         for (int i = 0; i < width; i++) {
             for (int j = 0; j < height; j++) {
-                if (world.get(new Position(i, j)) != World.EMPTY) {
-                    view.getPane().getChildren().addAll(world.map[i][j].getImg());
+                if (world.get(new Position(i, j)) == World.ROCK) {
+                    view.getPane().getChildren().addAll((DecorFactory.create(new Position(i, j), World.ROCK).getImg()));
+                }
+                else if (world.get(new Position(i, j)) == World.DUST) {
+                    view.getPane().getChildren().addAll((DecorFactory.create(new Position(i, j), World.DUST).getImg()));
                 }
             }
         }
+
         view.getPane().getChildren().addAll(spritesVehicule[0].getImg());
         view.getPane().getChildren().addAll(spritesVehicule[1].getImg());
         view.getPane().getChildren().addAll(spritesVehicule[2].getImg());
-
     }
 
     public static void main(String[] args) { launch(); }

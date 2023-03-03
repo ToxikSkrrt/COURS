@@ -22,7 +22,7 @@ public class World {
             while (nbDust > 0) {
                 Position position = Position.random(width, height);
                 if (this.get(position) == EMPTY) {
-                    this.set(position, ROCK);
+                    this.set(position, DUST);
                     nbDust--;
                 }
             }
@@ -34,6 +34,5 @@ public class World {
     }
     public void set(Position position, int kind) {
         this.map[position.x()][position.y()] = kind;
-        DecorFactory.create(position, kind);
     }
 }

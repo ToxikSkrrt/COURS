@@ -355,7 +355,7 @@ let rec btree_mem x t =
     | Empty -> false
     | Node (v, g, d) -> if v = x 
                         then true 
-                        else (btree_mem x g) || (btree x d)
+                        else (btree_mem x g) || (btree_mem x d)
 ```
 
 ## 2.6 bis
@@ -506,14 +506,14 @@ let rec prefixe t =
 let rec infixe t =
     match t with
     | Empty -> []
-    | Node(v, l, r) -> (prefixe l) @ [v] @ (prefixe r)
+    | Node(v, l, r) -> (infixe l) @ [v] @ (infixe r)
 ```
 
 ```ocaml
 let rec postfixe t =
     match t with
     | Empty -> []
-    | Node(v, l, r) -> (prefixe l) @ (prefixe r) @ [v]
+    | Node(v, l, r) -> (postfixe l) @ (postfixe r) @ [v]
 ```
 
 ```ocaml
@@ -554,3 +554,25 @@ let rec tag_node c l r =
   else Node((c, hl + 1), l, r)
 ;;
 ```
+
+## Exercice 8
+Voir photo sur tel
+
+---
+
+# TD 6
+
+## Exercice 1
+Arbres quasi parfaits de taile 2 :  
+(voir image (soon))
+
+t1 -> (r1, left1, right1)  
+1. h(left1) = h(right1) + 1
+2. left1 -> qp  
+   right1 -> p
+
+t3 ->
+1. h(left3) = h(right3)
+2. left3 -> p
+   right3 -> qp
+

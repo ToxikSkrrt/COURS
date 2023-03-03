@@ -9,5 +9,6 @@ public class SpriteDecor extends Sprite {
     public SpriteDecor(ImageView img, Position position) {
         super(img);
         this.position = position;
+        this.updateLocation(this.position);
     }
 }

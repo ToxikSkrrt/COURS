@@ -1,6 +1,7 @@
 package fr.ubx.poo.td2.model;
 
 import fr.ubx.poo.td2.Position;
+import fr.ubx.poo.td2.World;
 
 public class Robot extends Vehicule {
 
@@ -19,6 +20,7 @@ public class Robot extends Vehicule {
         int deltaY = target.y() - this.getPosition().y();
         Position pos[] = new Position[6];
         pos[0] = new Position(this.getPosition().x() + deltaX / 3, this.getPosition().y());
+        if (pos[0] == World.map......
         pos[1] = new Position(this.getPosition().x() + deltaX / 3, this.getPosition().y() + deltaY / 3);
         pos[2] = new Position(this.getPosition().x() + (deltaX / 3) * 2, this.getPosition().y() + deltaY / 3);
         pos[3] = new Position(this.getPosition().x() + (deltaX / 3) * 2, this.getPosition().y() + (deltaY / 3) * 2);

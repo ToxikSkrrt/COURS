@@ -18,10 +18,6 @@ public class SpriteVehicule extends Sprite {
         updateLocation(vehicule.getPosition());
     }
 
-    private void updateLocation(Position position) {
-        getImg().setX(position.x() * ImageResource.size);
-        getImg().setY(position.y() * ImageResource.size);
-    }
     public void animateMove(Position target) {
         // Make the path movement
         Position[] positionPath = vehicule.getPathTo(target);

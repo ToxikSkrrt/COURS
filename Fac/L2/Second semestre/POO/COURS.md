@@ -66,7 +66,7 @@ Rectangle(double largeur, double hauteur) {
 }
 ```
 
-Nombre d'instance = nombre de fois où "new" est présent
+Nombre d'instance = nombre de fois où "new" est présent (IMPORTANT)
 
 ### For sur un tableau de rectangles :
 ```java
@@ -226,4 +226,109 @@ class Decor {
 ```
 
 # Exceptions
+Exemple :
 
+```java
+class B {
+    private int w;
+    private int h
+
+    int getValue() {
+        if (w < 0 || h < 0) {
+            throw new Exception(), main();
+            /* throw new MonException(h, w), main(); */
+        }
+        return w * h;
+    }
+}
+
+main() {
+    B b = new B();
+    try {   /* Si pas d'erreurs, continue d'être exécuté */
+        int v = b.getValue();
+        ...
+    }
+    catch (Exception e) {   /* Si erreur, alors catch exécuté */
+        System.out.println("ZUT!!!");
+    }
+    finally {   /* dans les deux cas, quand même exécuté */
+        System.out.println("Plop");
+    }
+}
+```
+
+## Hiérarchie des exceptions
+```
+Object -> Throwable  
+            -> Error        *unchecked*
+            -> Exception    *checked*  
+                    -> RuntimeException     *unchecked*
+```
+
+Pour dire qu'une méthode peut renvoyer une exception :
+
+```java
+void foo() throws Exception {
+    B b = new B();
+    int v = b.getValue();
+    System.out.println(v);
+}
+```
+
+```java
+class MonException extends Exception {
+    private int h, w;
+
+    MonException(int h, int w) {
+        ...
+    }
+    ...
+}
+```
+
+Pour exception *unchecked* :
+```java
+class ... extends ExceptionRuntime {
+    ...
+}
+```
+
+# Lambdas
+
+```java
+public interface Operation {
+    public int calculer(int x, int y)
+}
+
+public class Somme implements Operation {
+    @Override
+    public int calculer(int x, int y) {
+        return x + y;
+    }
+}
+
+int binOp(int x, int y, Operation op) {
+    return op.calculer(x, y);
+}
+
+System.out.println(binOp(2, 3, new Somme()))
+
+/* Pour eviter de créer une classe juste pour ça : */
+
+System.out.println(binOp(2, 3, new Operation() {
+    public int calculer(int x, int y) {
+        return x + y;
+    }
+}));
+```
+
+```java
+@FunctionnalInterface  /* POUR LES INTERFACES AVEC UNE SEULE METHODE */
+public interface Operation {
+    public int calculer(int x, int y)
+}
+
+...
+
+System.out.println(binOp(2, 3, (x, y) -> x + y))    /* Lambda */
+```
