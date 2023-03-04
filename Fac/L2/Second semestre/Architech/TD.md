@@ -301,3 +301,61 @@ a  b  c  f1  f2  f3  f4
 `C0 -> complet`  
 `C1 -> x.y = '('x + 'y) = x.y -> complet`
 `le reste = complet sauf C4`
+
+---
+
+# TD 6
+
+## Exercice 1
+
+### Question 1
+NAND :  
+'(x.x) = 'x  
+'(x.1) = 'x  
+
+NOR :  
+'(x + x) = 'x
+'(x + O) = 'x
+
+### Question 2
+f = (x XOR y) + (x.'z) = ''(x.'y + 'x.y + x.'z) = '('(x.'y).'('x.y).'(x.'z))    NAND
+                                                = ''('('x + y) + '(x + 'y) + '('x + z)) NOR
+
+x + y = ''(x + y) = '('x + 'y) = '('(x.x).'(y.y))
+
+### Question 3
+https://dept-info.labri.fr/ENSEIGNEMENT/archi/circuits/blank.html#wpVWw5HCjsKaQBR9w59kw7/DgcOwwqwbZkBAw5M0wrFqE8KTLjbCu8KmacOSw7RBYVRSZCwOXcOtZsO/wr04YGDDoMOAw5I3PcO3wpzDg8Kde8OvXHjCvcK/w6vDtcK0wpfDgBd7bUzCqMKuw7clwrBnw4FuL8K0wrFzA057w77CssOiPMOcw7DCszYWccOCMljDnMKgH8OXwr/CvcOewqsmLkfCpsKNwrXDmVR7w6tXwrDDpTMAwr/DjGd1w7BrcsOaL8K3w5vChkBUw4dXfMK3C1kdd8KXwqs6OHHDgSNdwoguwp/CkCcAwr9DEFLCj0EUw4vDqsKiSMOIwrYgw7ApOS3DgMKpU3jCmQDCusO5w5EEw6AHBG4CYcKfw5gudcKqB8KfwrhYw4fCl3nDpHHCn8OFwpBBBTdnTMOGW8KDUMO8wpjCnCFIIcOaZMKRw6JAMGMHw6QuYcOow7Q5CcODwokPw4/DoXIBJcKTw4hvw4EJGCZcwofDucOvZB1iJx8/YRF5EE/Cqw1xwrfCocOBw4/DiQbDuwBoMAcDw5I0OBJHwoppJAYuwoTDk8OcYcOkwpg0Dlgac8OZWSzCjjB0TWIdw73DgjF+eExCGMKawoQJw4TCpyHDt8KwGcOqD2g+wrrCqMOfwoJYwqTDjR8gw4EtJsKFw5fDmMOPbMOlw7rDrE/DoMKxE1zCuX0tw7DDk18pRU9/wqdreWTDtcK1wos2wqbClsOZw5fDgsO1wobChQ3CqznDn8KfwoXCnmR6Sk1pQCzCpzAAF8KrwqbCp8Kqwp7DmsK0w5BfOsOowo1cT8KyAxjCtlXDqMO/w6I9X8KIw41MbBBaTx7CvhFUw7lQwpUrwrl3wpBbwqpcSR3Dim9rwr/CsMKwcwvCqmcZw5BSw7vCusOoHVVvUMKnTS9ffcKFeMKUwonDjcK8w7Rqw7XCmsOfwp3CpcOZw5FVB8K1woDCnRzCiMOqwqDDlsKwwpNDPsKAw4PDq8ORwqslw6jDpmDDnBzDsibCkMO/w44hwp9Dw4vDlMK7w5bDocO6NVQyw4gnw5E2w4EtwpIfTsKlwr3DoMOxKGLCnsOgcXk1bGN+w4jCvR7CgsOow5oXw4HDswXDscOAE8KhwpcyKMKowrQ7w5XDqE41K1TDkkwdVsKowrTCmWpVwqhGM8OVw67CnsKAw5M9woFRwoVqwrdTScKJOmzCphLCvWJrwr7Dgy3Duzotw5zDqhjCtMKkK8K5ZV/Cq8KFW8KdGcOSMgnCklw2Ji3CrSDDlREbwr3DgyVdwrPCqA1kw4vDrEjCssOiw5wyEsKkOsK/w6TDlj15XcOvw6/DnsO+AQ==
+
+### Question 4
+???
+
+### Question 5
+???
+
+## Exercice 2
+
+### Question 1
+x       y       Cin     
+b2      b1      b0      p1      p0      Cout    s
+0       0       0       0       0       0       0
+0       0       1       0       1       0       1
+0       1       0       0       1     
+0       1       1       1       0       1       0
+1       0       0       0       1
+1       0       1       1       0       1       0
+1       1       0       1       0
+1       1       1       1       1       1       1
+
+p0 = 'b2.'b1.b0 + 'b2.b1.'b0 + b2.'b1.'b0 + b2.b1.b0  
+   = 'b2.(b1 XOR b0) + b2.('b1.'b0 + b1.b0)
+   = 'b2.(b1 XOR b0) + b2.'(b1 XOR b0)
+
+p1 = 'b2.b1.b0 + b2.'b1.b0 + b2.b1.'b0 + b2.b1.b0
+   = 'b2.b1.b0 + b2.('b1.b0 + b1.'b0 + b1.b0)
+   = 'b2.b1.b0 = b2.(b1.b0)
+
+### Question 2
+voir tab plus haut  
+
+### Question 3
+https://dept-info.labri.fr/ENSEIGNEMENT/archi/circuits/blank.html#wpXClVtvw5pAEMKFw58jw6U/wqB9DcKJw6zDtcKFwovCqkoUwqjChMOUwpgoQVXCpcKqD2AvYHXDsVLCs8ObwoDCosO8w7fCrMKNEWt8w6zDkjfDu8OMwpnDj8Ojw5nDscO4w63DtsKmw5Uiwq9xJMOXwqRvU8OLasOnw4LCmsOFwqvCtSTDvcOuScOYwq3DhcOrTAjCvhB7w5LCl8KpYkdZwp7CpMKfw5ltwqvDtUbDpGHDi0jCn8KMwobDpMK9fcKhTV/CgMO4bTzCqsKKT2rCt8KeLsKXNcKBwqTCqsOPw4Rqw4VZVQ/CpsKzwqo4CMOAIwPCqE7CnxETwog/wqAIwq3DmzhJw7PDrsKiCGdLEMO4wqJ2E8Oww5Zawp4qYHc/wrtAw7zChMOERSw7O8K2w5LCpGrDsFnDiHl6GCfCocKIWAodVAp3w4TDsnhjECY/wqo9FClUw6sQWgcJI8K2QcO0XMKGwqTCr8KKw7NBBMOfIxASwqYMwpLCqEHCt8OBMMOhPsKMw7/CqDnDh8KkCD9hwpLChFDDl8OdwoZ6UHPDgC9qwoE5QMK6H8KDAcKpG8KcXEcZw4NEw54HUMOWwrXDg8OIVsOVDsKYwo4FbC8nWxjDisKKwpgnwr9xTGweFcKHwqEBV1AfchFiGDofcMO4w6hDw70ewqdSH8O+PUo4w4XDssOELMO2w6vCuHIjw7Y3DsOZDsKuw5w2wokjfcKlLcKWwr7DlmvCucOnwrfDicKBw7TCqcOvwrYJwp8vGMKvWcONw4XDvjzDp8Obw4d8w6rDkBzDoFrDp8O8woV/RT4tw6fDqz/CiwHDsMKuADhlQMO2ZzoDw4AmwqsAw5wCQMOdHMOgw7hdA8OgXAHDsMOKAMK3w5QDwrBzKgDCvwzDsGxqAMOAfsKoADplwoBfw6rCgcOVwrTDhMOOwozDrsKRw6HDuFbDtSDChk/DlzF6J0bDt8OYCcKHw74/w4MuJsOSc8KLdlJjJMOvwq5kFFPDqXnDhVTCmR3CvSt9JcKhSBIWSsKRwpofw4oyFcKbwqIrD3HCkhUkRUF+EErCmh0tW23Dg0rCm8Ktw5TCsDrDtcOWw55FAW7Cs8OVLMOAa8K2wpoFw7jDtVbDm8K6wqjCoMOzD8KvWUI3w7PDmsO1XsKzwoZewoPDl0Zcwqs4w4jDm8Kbw7cP
