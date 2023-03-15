@@ -91,11 +91,9 @@ let rec pgcd n p =
 
 ```ocaml
 let rec fib n =
-    if n = 0
+    if n = 0 || n = 1
     then 1
-    else if n = 1
-         then 1
-         else fib (n - 1) + fib (n - 2)
+    else fib (n - 1) + fib (n - 2)
 
 # fib 4;;
 - : int = 5
@@ -533,7 +531,7 @@ let rec nbNoeuds t =
 
 ### 1.
 
-## Exercice 5
+## Exercice 3
 
 ### 1.
 ```ocaml

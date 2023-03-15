@@ -1,0 +1,5 @@
+- init() : permet d'initialiser les textures du jeu
+- render() : permet d'afficher ces textures
+- process() : permet de gérer les events (clic souris, touches clavier etc)
+- clean() : permet de vider la mémoire en supprimant les textures
+- Env : stocke les textures du jeu avec leurs positions
