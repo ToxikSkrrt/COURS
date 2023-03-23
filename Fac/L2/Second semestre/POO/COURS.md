@@ -330,5 +330,5 @@ public interface Operation {
 
 ...
 
-System.out.println(binOp(2, 3, (x, y) -> x + y))    /* Lambda */
+System.out.println(binOp(2, 3, (x, y) -> x + y))    /* Lambda  */
 ```
