@@ -294,3 +294,33 @@ https://dept-info.labri.fr/ENSEIGNEMENT/archi/circuits/blank.html#wpVWXWvDmzAUfR
 
 # Exercice 1
 [link](https://dept-info.labri.fr/ENSEIGNEMENT/archi/circuits/blank.html#wqVWXWvDmzAUfS/DtD8EP8Knw4XCusKWPxLDhiBrUsOIWMKdw5LCljEYe0hjJzFzwq3DjMKxwrvClsOSw78+f8OIwossXSnCgcK+JUfDpx5fw517dMKlwrfDs8Kzw4HDgMO6wptEw4XDlhoTwrDDrWEDbMOjZMKzLcKsccOQAcO7LcO7w7vDgFjDusOIXsKsccKRwpdxCxcdw7TCs8O+OxjCvFnDhcOrLsK2w4bDlsO0w4p6H0rDmMOiHgHCv8ONwqYqeFvDrsK3wovDtVrCs8KQwqnDuAPDm2zDkljDhcODw4XCgwpOQsOkwpMhwoouw64wTQTDvMKBwoIodcKXZHlTXWwlwo3Dl8OIw4LCl3I/R3Zdw4HCixLCocOTw48UAT9hw6BjUsO4w7t4UynCqcKLd8KsWMOmwq/Cs2zDhcKiOEcZUDA6wo3Cm3XDoyIafFPCvsKgIMKgwqhOwqLDgsKRwoBpw7zChMKpNzDCqnRdwqbDqSRCw7cRwrICDcKZZMKRASfCiMKZw7A6w4zDvsKUw4sUV8KKw7Avw4zCsxXCilfDlUbDsVDDk8Ogw7vDshHDl0HCoMKLGWIQwp1xGhzCi8K4w4rCisKLEMKFwqvDnMORwpVdwqk1WMK1FsOGL8OFfMKHLsOVSSzCs8Ofw7gae8K6KVN0acKSwpYofsKVwrIVLsKGw7UHaT52UMK/J3lRNcO/AgvDqMOWwprDgHrDrVc7csKjw7g5WcOFe3TDpA7CrSTCqn5VFMK7w7pdwo1lwo8Owq1Xa8OsEBhaw6nDsjFONcKjWTnDqgclw5IqAcKXwqLDlcKNw7Bfw6p5wokUUcKcKQcZaGUcCBoZw6IdVMKMQwhXcyTCtRF8SMKOw7bDpcKow78xOcK3wpPCsxs5wq8uw50Hw6Q8w55Lw5drwpt5anLChsKmw7rDvcKmwo7ChG7DjG/CtQPDpxAfw7AdesK8w77CosK/dMOTwqnCvcOEDhrCo1bCgwZcw4MWwqpkwr7DsARzcsKfwrvClMKiIsOowqnCkxMhw5zDosKOw69xwosHRzPCqS52QcKAwpvCm3ZnRGwRw7YEw6hHO8O9w6gmDVN0w5gPw6fDpnXCucObesOZwqMPwpDDusOJJcOEc8K3wrrDtRnCksOjw5HDl1nDvVISw6LCuT1dXsK9JsKPLh59VEnDn8O3wrtRFcKow7HDqMO3TcODwoobE8O4WXEDw4EPX8KvwpF7TRzCmsKkwrMkw6UHV8KcA8OYw5hUw7wIwp0fbcKqKsKcw6pHwpDDvMOoesO2UT/DtnsCwpIhXS84w5ITw77DghIkwrgrfW4Lw4cVdnLDrD0mw4jDkH53PcOxw7rDkD7DnzRXCHfDqsKIO8OdEcOrMsK/RcKqYnAKeMO9EQjCgSDCtsKMwqLCvHfDqcKuWMKWw4XCq8KCw6XDosK9wrvDjsOZEzfDjmXCksOVwp0vGMK/fS9ZWcOYQj4HKkhUX091JCp4ei7ClcK4RE91ZWrCoMOnejLDl8KwM8O/w7QiBMKnF2EkUQ3DiVbDicO1wrnCoyNcInPCicKeCzIXcMKubAVDI8KIw6wFQgzDgiAlw5zCkh3CnCxbwofCmMOScFBlTS0UwqM5BmUqK8KDwoHCrMO4wpIaw4jCijHCj8KRw4U0w4DClMKGbGNiOHVENsKyw6nDoMOLwo4jBnvCgmIjwoPDr0HDthEYwroNwrLCj8OAw5BtUEbCkMKhw4wgw7vDiHDCqhsuwpw4WBrCsnPDoiBsw4jDtFRlw4XDjSZlw4XDjcKmwp5QacKDYEpDwrY+GA4Vw4jDlsOvwoTCm8Orw6rDvMOsw70f)
+
+---
+
+# TM 10
+
+## Exercice 1
+```y86
+        .pos 0
+init:   irmovl stack,%esp
+        mrmovl a, %eax
+        mrmovl b, %ebx
+        addl %eax, %ebx
+        halt
+
+        .align 4
+a:      .long 2
+b:      .long 4
+
+        .pos 0x200
+stack:
+
+```
+Tranquille j'ai vu
+
+## Exercice 2
+Palu
+
+## Exercice 3
+
+### Question 1

@@ -332,3 +332,75 @@ public interface Operation {
 
 System.out.println(binOp(2, 3, (x, y) -> x + y))    /* Lambda  */
 ```
+
+## Design patterns
+3 catégories de patrons:
+- patrons de construction (comment on instancie les objets)
+- patrons de structuration (relation entre les classes)
+- patrons de comportement (relation entre les objets)
+
+### Patrons de création
+- Factory (permet d'utiliser une méthode 'create' pour ne plus dépendre de l'arbre d'héritage lors de la création d'un objet)
+```java
+abstract public class Image {
+    ...
+}
+
+public class ImagePng {
+    ...
+}
+
+public class ImageJpg {
+    ...
+}
+
+public interface ImageFactory {
+    Image create(String filename);
+}
+
+public class ImageFactoryImpl implements ImageFactory {
+    ...
+}
+```
+
+- Singleton (vérifier qu'il n'existe qu'une seule et unique instance d'un objet)
+```java
+// PAS OUF
+public class Singleton {
+    public static final Singleton INSTANCE = new Singleton();
+
+    private Singleton() {}
+}
+
+// PAS THREAD SAFE
+public class Singleton {
+    private static Singleton INSTANCE = null;
+
+    private Singleton() {}
+
+    public static Singleton getInstance() {
+        if (INSTANCE == null) {
+            INSTANCE = new Singleton();
+        }
+        return INSTANCE;
+    }
+}
+
+// THREAD SAFE
+public class Singleton {
+    private static class LoadSingleton {
+        static final Singleton INSTANCE = new Singleton();
+    }
+
+    private Singleton() {}
+
+    public static Singleton getInstance() {
+        return LoadSingleton.INSTANCE;
+    }
+}
+
+// ENUM
+public enum Singleton {
+    INSTANCE;
+}
+```

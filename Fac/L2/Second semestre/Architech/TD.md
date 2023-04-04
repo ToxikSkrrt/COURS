@@ -359,3 +359,51 @@ voir tab plus haut
 
 ### Question 3
 https://dept-info.labri.fr/ENSEIGNEMENT/archi/circuits/blank.html#wpXClVtvw5pAEMKFw58jw6U/wqB9DcKJw6zDtcKFwovCqkoUwqjChMOUwpgoQVXCpcKqD2AvYHXDsVLCs8ObwoDCosO8w7fCrMKNEWt8w6zDkjfDu8OMwpnDj8Ojw5nDscO4w63DtsKmw5Uiwq9xJMOXwqRvU8OLasOnw4LCmsOFwqvCtSTDvcOuScOYwq3DhcOrTAjCvhB7w5LCl8KpYkdZwp7CpMKfw5ltwqvDtUbDpGHDi0jCn8KMwobDpMK9fcKhTV/CgMO4bTzCqsKKT2rCt8KeLsKXNcKBwqTCqsOPw4Rqw4VZVQ/CpsKzwqo4CMOAIwPCqE7CnxETwog/wqAIwq3DmzhJw7PDrsKiCGdLEMO4wqJ2E8Oww5Zawp4qYHc/wrtAw7zChMOERSw7O8K2w5LCpGrDsFnDiHl6GCfCocKIWAodVAp3w4TDsnhjECY/wqo9FClUw6sQWgcJI8K2QcO0XMKGwqTCr8KKw7NBBMOfIxASwqYMwpLCqEHCt8OBMMOhPsKMw7/CqDnDh8KkCD9hwpLChFDDl8OdwoZ6UHPDgC9qwoE5QMK6H8KDAcKpG8KcXEcZw4NEw54HUMOWwrXDg8OIVsOVDsKYwo4FbC8nWxjDisKKwpgnwr9xTGweFcKHwqEBV1AfchFiGDofcMO4w6hDw70ewqdSH8O+PUo4w4XDssOELMO2w6vCuHIjw7Y3DsOZDsKuw5w2wokjfcKlLcKWwr7DlmvCucOnwrfDicKBw7TCqcOvwrYJwp8vGMKvWcONw4XDvjzDp8Obw4d8w6rDkBzDoFrDp8O8woV/RT4tw6fDqz/CiwHDsMKuADhlQMO2ZzoDw4AmwqsAw5wCQMOdHMOgw7hdA8OgXAHDsMOKAMK3w5QDwrBzKgDCvwzDsGxqAMOAfsKoADplwoBfw6rCgcOVwrTDhMOOwozDrsKRw6HDuFbDtSDChk/DlzF6J0bDt8OYCcKHw74/w4MuJsOSc8KLdlJjJMOvwq5kFFPDqXnDhVTCmR3CvSt9JcKhSBIWSsKRwpofw4oyFcKbwqIrD3HCkhUkRUF+EErCmh0tW23Dg0rCm8Ktw5TCsDrDtcOWw55FAW7Cs8OVLMOAa8K2wpoFw7jDtVbDm8K6wqjCoMOzD8KvWUI3w7PDmsO1XsKzwoZewoPDl0Zcwqs4w4jDm8Kbw7cP
+
+---
+
+# TD 10
+
+## Exercice 1
+
+###  Question 1
+30f30b
+
+30f10c  
+3 -> 
+
+6031
+6 -> opl  
+0 -> addl  
+3 -> rA = ebx  
+1 -> rB = ecx
+
+2010  
+20 -> rrmovl  
+1 -> rA = ecx  
+0 -> rB = eax
+
+## Exercice 2
+
+### Question 1
+OUI (pakompri)
+
+### Question 2
+MDR
+
+## Exercice 3
+
+### Question 1
+iaddl 14, %eax  
+6..rB
+
+### Question 3
+need_regids -> rajouter IOPL  
+need_valC -> rajouter IOPL  
+instr_valid -> > rajouter IOPL  
+srcB : rB -> rajouter IOPL  
+dstE : rB -> rajouter IOPL
+aluA : valC -> rajouter IOPL
+aluB : valB -> rajouter IOPL
+alufun -> rajouter IOPL  
+set_cc -> rajouter IOPL
