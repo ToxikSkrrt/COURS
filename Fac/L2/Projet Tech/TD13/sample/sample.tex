@@ -1,0 +1,80 @@
+\documentclass{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage{graphicx}
+\usepackage{listings}
+
+
+\title{Mon article}
+\author{Mr X.}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+    Ceci est le résumé de l'article.
+\end{abstract}
+
+\tableofcontents
+
+\section{Première section}
+
+Les résultats sont présentés dans la section~\ref{resultats}.
+
+\subsection{Sous-section 1}
+
+Ouais ouais ouais \cite{diday-1982}
+
+\begin{lstlisting}[language=C, numbers=left, frame=single]
+    void uwu(char *bebou) {
+        if(bebou == "aime") {
+            return "gnogni";
+        }
+        return "pas gnogni";
+    }
+\end{lstlisting}
+
+\subsubsection{sous-sous section}
+
+\subsubsection{sous-sous section}
+
+\begin{description}
+    \item[BE] item 1
+    \item[B] item 2
+    \item[OU] item 3
+\end{description}
+
+
+\subsection{Sous-section 2}
+
+L’équation de la droite est $3x - 2y + 4 = 0$.
+
+\includegraphics[height=1.5cm]{gnu.png}
+\scalebox{-1}[1]{\includegraphics[height=1.5cm]{gnu.png}}
+
+\begin{tabular}{|l|c|r|}
+    \hline
+    Ceci       & est un     & tableau.   \\
+    \hline
+    \hline
+    alignement & alignement & alignement \\
+    \hline
+    à          & au         & à          \\
+    \hline
+    gauche     & centre     & droite     \\
+    \hline
+\end{tabular}
+
+\section{Deuxième section}
+
+
+\section{Résultats}
+\label{resultats}
+
+\bibliographystyle{plain}
+\bibliography{biblio}
+\end{document}
+

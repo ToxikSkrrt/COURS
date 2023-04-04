@@ -1,0 +1,25 @@
+\documentclass[a4paper]{article}
+
+\usepackage[french]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage{listings}
+
+\begin{document}
+
+Ceci est un exemple de {\em listing}.\\
+
+% 1) inclure le code directement
+\begin{lstlisting}[language=Python, numbers=left, frame=single]
+def fib(n):
+if n in {0, 1}:
+    return n
+return fib(n-1) + fib(n-2)
+\end{lstlisting}
+
+% 2) ou bien à partir d'un fichier externe
+% \lstinputlisting[language=Python, numbers=left, frame=single]{fib.py}
+
+
+\end{document}
