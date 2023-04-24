@@ -574,3 +574,102 @@ t3 ->
 2. left3 -> p
    right3 -> qp
 
+---
+
+# TD 10
+
+## Exercice 1
+
+### Question 1
+MOODLE  
+M -> 1  
+O -> 2  
+D -> 1  
+L -> 1  
+E -> 1
+
+```ocaml
+let rec insert_sorted x l key_fun =
+  match l with
+  | [] -> [x]
+  | h::t -> if key_fun x <= key_fun h
+            then x::l
+            else h::insert_sorted x t key_fun 
+;;
+```
+
+### Question 2
+```ocaml
+let rec insertion_sort l key_fun =
+  let rec aux l acc =
+    match l with
+      | [] -> acc
+      | h::t -> aux t key_fun (insert_sorted h acc key_fun)
+    in aux l []
+;;
+
+OR
+
+let rec insertion_sort l key_fun =
+  match l with
+  | [] -> []
+  | h::t -> insert_sorted h (insertion_sort t key_fun) key_fun
+;;
+```
+
+## Exercice 2
+
+pas fait ptdr
+
+## Exercice 3
+
+### Question 1
+```ocaml
+let rec add_char c occlist =
+  match occlist with
+  | [] -> [(c, 1)]
+  | (cchar, cocc)::t -> if c < cchar
+                        then (c, 1)::occlist
+                        else 
+                          if c = cchar
+                          then (c, cocc + 1)::t
+                          else (cchar, cocc)::add_char c t
+;;
+```
+
+### Question 2
+???
+
+### Question 3
+```ocaml
+let rec charlist_to_treelist charlist =
+  match charlist with
+  | [] -> []
+  | (c, occ)::t -> (Leaf(c), occ)::charlist_to_treelist t
+;;
+```
+
+### Question 4
+```ocaml
+let rec treelist_to_hufftree treelist =
+  match treelist with
+  | [] -> failwith "error"
+  | (t, _)::[] -> t
+  | (t1, occ1)::(t2, occ2)::tail -> treelist_to_hufftree (insert_sorted (Node(t1, t2), occ1 + occ2) tail snd)
+;;
+```
+## Exercice 4
+
+### Question 1
+```ocaml
+let codelist hufftree =
+  let rec aux hufftree path acc =
+    match hufftree with
+    | Leaf(c) -> (c, List.rev path)::acc
+    | Node(left, right) -> let lacc = aux left (0::path) acc 
+  in aux right (1::path) lacc in List.rev (aux hufftree [] [])
+;;
+```
+
+### Question 2
+```ocaml

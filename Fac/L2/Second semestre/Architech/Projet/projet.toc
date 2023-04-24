@@ -1,0 +1,17 @@
+\babel@toc {french}{}\relax 
+\contentsline {section}{Exercice 1}{2}{}%
+\contentsline {section}{Exercice 2}{2}{}%
+\contentsline {subsection}{Question 1}{2}{}%
+\contentsline {subsection}{Question 2}{2}{}%
+\contentsline {section}{Exercice 3}{2}{}%
+\contentsline {subsection}{Question 1}{2}{}%
+\contentsline {subsection}{Question 2}{2}{}%
+\contentsline {subsection}{Question 3}{2}{}%
+\contentsline {subsection}{Question 4}{2}{}%
+\contentsline {section}{Exercice 4}{2}{}%
+\contentsline {subsection}{Question 1}{2}{}%
+\contentsline {subsection}{Question 2}{2}{}%
+\contentsline {section}{Exercice 5}{2}{}%
+\contentsline {subsection}{Question 1}{2}{}%
+\contentsline {subsection}{Question 2}{2}{}%
+\contentsline {subsection}{Question 3}{2}{}%

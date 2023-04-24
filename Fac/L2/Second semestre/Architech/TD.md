@@ -407,3 +407,94 @@ aluA : valC -> rajouter IOPL
 aluB : valB -> rajouter IOPL
 alufun -> rajouter IOPL  
 set_cc -> rajouter IOPL
+
+---
+
+# TD 11
+
+## Exercice 1
+
+### Question 1
+Durée minimal du cycle d'horloge CLK = 120 ps (pico-secondes)  
+f = 1/P = 1/120x10⁻¹² = 8.33x10⁹ (B = 8.33 Gops (Giga operations))
+Delai de propagation D = 3 * 120 = 360 ps  
+Profondeur du pileline : 3
+
+### Question 2
+CLK = 170 ps  
+B = 1/510x10⁻¹² = 5.88 Gops  
+D = 3 * 170 = 510 ps
+
+## Exercice 2
+
+### Question 1
+A : 80  
+B : 60  
+(L)   
+C : 30  
+D : 50  
+E : 70  
+F : 10  
+
+On met le latch juste après B pour avoir 160 ps en haut et 180 ps en bas  
+
+CLK = 180 ps  
+D = 2x180 = 360 ps
+B = 1/180x10⁻¹² = 5.88 Gops
+
+### Question 2
+A : 80  
+(L)  
+B : 60   
+C : 30  
+(L)
+D : 50  
+E : 70  
+F : 10  
+
+CLK = 150 ps  
+D = 3x150 = 450 ps  
+B = 1/150x10⁻¹² = 6.66 Gops
+
+### Question 3
+
+A : 80  
+(L)  
+B : 60  
+(L)   
+C : 30  
+D : 50  
+(L)   
+E : 70  
+F : 10  
+
+CLK = 100 ps  
+D = 400 ps  
+B = 10 Gops
+
+### Question 4
+
+A : 80  
+(L)  
+B : 30  
+(L)   
+C : 60  
+(L)  
+D : 50  
+(L)   
+E : 70  
+F : 10  
+
+CLK = 100 ps  
+D = 500 ps  
+B = 10 Gops
+
+## Exercice 3
+
+### Question 1
+![image](TD%2011.png)
+
+### Question 2
+CLK = 120 ps  
+D = 480 ps  
+B + 8.33 Gops

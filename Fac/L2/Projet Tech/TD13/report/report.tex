@@ -3,14 +3,34 @@
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage[french]{babel}
-\usepackage{graphicx, times, listings}
+\usepackage[table]{xcolor}
+\usepackage{graphicx, times, listings, hyperref, biblatex, multirow}
+\addbibresource{biblio.bib}
 
 \title{\Huge World of Warcraft}
 \author{Thomas-Alexandre Moreau aka \textit{Tøxik}}
+\hypersetup{
+    pdftitle={World of Warcraft},
+    pdfauthor={Tøxik},
+    pdfpagemode=FullScreen,
+}
 
 \begin{document}
 
 \maketitle
+
+\begin{center}
+    \includegraphics*[height=4.5cm]{WOW logo.png}
+\end{center}
+
+
+\pagebreak
+
+\begin{abstract}
+    Je vais vous présenter ici un jeu-vidéo unique qui m'a marqué tout au long de ma vie,
+    et qui continue encore de le faire, un jeu dont je vais vous raconter mon histoire :
+    \textbf{World of Warcraft}.
+\end{abstract}
 
 \pagebreak
 
@@ -20,32 +40,259 @@
 
 \section{Un MMORPG ? C'est quoi ?}
 
-\subsection{Signification}
+\subsection{Signification et concept}
 
-\subsection{Concept}
+<< MMORPG >> signifie << Massively Multiplayer Online Role-Play Game >>, c'est à dire un jeu qui à
+pour but de nous faire voyager dans un monde avec une infinité d'autres joueurs en ligne, et
+de vaincre les dangers avec eux.\newline
+De plus, le but d'un MMORPG est de nous faire incarner notre propre personnage. Les
+possibilités d'identification à notre personnage dépendent de la personnalisation
+possible de notre personnage dans les différents jeux.
 
 \subsection{Exemples}
+
+Il existe un nombre incalculable de MMORPGs, mais seulement un nombre très réduit ont réussi
+à conserver leur popularité. En voici quelques uns : \bigskip
+
+\begin{itemize}
+    \item \href{https://fr.finalfantasyxiv.com/}{\textbf{FINAL FANTASY XIV}}\medskip
+
+          \includegraphics*[height=6cm]{FFXIV logo.png}
+
+          Le concurrent direct de World of Warcraft. La licence
+          Final Fantasy est une licence très populaire éditée par Square Enix, un studio
+          japonais connu dans le monde entier pour ses jeux très appréciés. \pagebreak
+
+    \item \href{https://www.playlostark.com/fr-fr/}{\textbf{LOST ARK}}\medskip
+
+          \includegraphics*[height=6cm]{LA logo.jpg}
+
+          Un jeu beaucoup plus récent qui a énormément fait parler de lui à sa sortie.
+          Initialement sorti en Asie il y a plusieurs années, il a fait son apparition
+          assez recemment en Occident. Il se démarque par son style assez hardcore et
+          élitiste demandant une maitrise parfaite de sa classe à un certain niveau.\medskip
+
+    \item \href{https://www.guildwars2.com/fr/}{\textbf{GUILD WARS 2}}\medskip
+
+          \includegraphics*[height=7cm]{GW2 logo.png}
+
+          Guild Wars 2, successeur du très prometteur Guild Wars 1 à son époque, s'est
+          démarqué par son style de jeu assez unique pour un MMORPG, ainsi qu'à son mode
+          PvP (Player vs Player ou Joueur contre Joueur (JcJ)) très développé. Bien
+          maîtrisé, le jeu prend un tout autre sens en terme de mécaniques, comme pour
+          Lost Ark.
+\end{itemize}
 
 \pagebreak
 
 \section{World of Warcraft, un MMORPG unique}
 
+Passons à présent au sujet principal, World of Warcraft (ou WoW), le MMORPG qui les
+    {\large \textbf{domine}} tous...
+
 \subsection{Un studio mondialement connu}
+
+World of Warcraft est édité par Blizzard Activision, deux très grosses entreprises ayant
+fusionnées. Je parlerai ici uniquement de Blizzard Entertainment, car c'est
+l'entreprise à l'origine de World of Warcraft.
+
+Initialement \textbf{Silicon \& Synapses, Inc}, puis ensuite \textbf{Chaos Studios, Inc}
+et enfin \textbf{Blizzard Entertainment}, ce studio a marqué de multiples générations grâce
+à ses licences toutes plus célèbres les unes que les autres : Warcraft, StarCraft, Diablo...
+
+Mais si Blizzard a eu autant de succès, c'est notamment grâce à un jeu, sur la base de
+l'univers des jeux Warcraft : \textbf{World of Warcraft}.
 
 \subsection{L'univers}
 
+L'univers de World of Warcraft, développé depuis bien avant sa sortie en 2005, reprend
+certaines bases classiques des RPGs (souvent inspirés de Dungeons and Dragons),
+des factions en guerre, différentes races telles que les humains et les orcs, etc.
+
+Cependant celui-ci s'est démarqué de tous les autres, c'est un univers extrêmement vaste et
+développé par plusieurs sources différentes, car en effet, Warcraft n'est pas à l'origine de
+toute l'histoire.
+
+Comme beaucoup d'oeuvres telles que des jeux ou des films, World of Warcraft prend la
+majeure partie de son histoire dans les livres, certains étant des romans assez classiques
+très bien écrits (généralement par la romancière
+\href{https://fr.wikipedia.org/wiki/Christie_Golden}{Christie Golden}), des bandes-dessinées
+ou bien de colossales oeuvres dont la source même de l'histoire de Warcraft y est écrite :
+les Chronicles. \cite{chronicles-v1}\cite{chronicles-v2}\cite{chronicles-v3}
+
+\subsection{Les classes et races jouables}
+
+Comme tout MMORPG, sur World of Warcraft on a la possibilité de créer son propre
+personnage, et ainsi lui donner l'identité que l'on souhaite.\newline
+Chaque race a accès à un certain nombre de classes jouables, par exemple : un Mort-vivant
+peut jouer Guerrier, mais pas Paladin.\newline\newline
+Voici un tableau des classes jouables par chaque race :
+
+\begin{tabular}{|m{2cm}||m{1cm}|m{1cm}|m{1cm}|m{1cm}|m{1cm}|m{1cm}|}
+    \hline
+    \multicolumn{7}{|c|}{Alliance}                                                    \\
+    \hline
+    \hline
+    Races / Classes      & Humain & Nain & Elfe de la nuit & Gnome & Draeneï & Worgen \\
+    \hline
+    \hline
+    Guerrier             & X      & X    & X               & X     & X       & X      \\
+    \hline
+    Paladin              & X      & X    &                 &       & X       &        \\
+    \hline
+    Chasseur             & X      & X    & X               & X     & X       & X      \\
+    \hline
+    Voleur               & X      & X    & X               & X     & X       & X      \\
+    \hline
+    Prêtre               & X      & X    & X               & X     & X       & X      \\
+    \hline
+    Chaman               &        & X    &                 &       & X       &        \\
+    \hline
+    Mage                 & X      & X    & X               & X     & X       & X      \\
+    \hline
+    Démoniste            & X      & X    &                 & X     &         & X      \\
+    \hline
+    Moine                & X      & X    & X               & X     & X       & X      \\
+    \hline
+    Druide               &        &      & X               &       &         & X      \\
+    \hline
+    Chasseur de démons   &        &      & X               &       &         &        \\
+    \hline
+    Chevalier de la mort & X      & X    & X               & X     & X       & X      \\
+    \hline
+\end{tabular}\bigskip
+
+\begin{tabular}{|m{2cm}||m{1cm}|m{1cm}|m{1cm}|m{1cm}|m{1cm}|m{1cm}|}
+    \hline
+    \multicolumn{7}{|c|}{Horde}                                                        \\
+    \hline
+    \hline
+    Races / Classes      & Orc & Mort-vivant & Tauren & Troll & Elfe de sang & Gobelin \\
+    \hline
+    \hline
+    Guerrier             & X   & X           & X      & X     & X            & X       \\
+    \hline
+    Paladin              &     &             & X      &       & X            &         \\
+    \hline
+    Chasseur             & X   & X           & X      & X     & X            & X       \\
+    \hline
+    Voleur               & X   & X           & X      & X     & X            & X       \\
+    \hline
+    Prêtre               & X   & X           & X      & X     & X            & X       \\
+    \hline
+    Chaman               & X   &             & X      & X     &              & X       \\
+    \hline
+    Mage                 & X   & X           & X      & X     & X            & X       \\
+    \hline
+    Démoniste            & X   & X           &        & X     & X            & X       \\
+    \hline
+    Moine                & X   & X           & X      & X     & X            & X       \\
+    \hline
+    Druide               &     &             & X      & X     &              &         \\
+    \hline
+    Chasseur de démons   &     &             &        &       & X            &         \\
+    \hline
+    Chevalier de la mort & X   & X           & X      & X     & X            & X       \\
+    \hline
+\end{tabular}\bigskip
+
+Il existe également deux races neutres, c'est à dire qui sont accessibles dans les deux
+factions du jeu (l'Alliance et la Horde) : les Pandarens et les Dracthyrs.\newline
+Les dracthyrs ont une classe unique disponible pour eux uniquement : l'Evocateur.
+
+\subsection{Les extensions}
+
+Il y a eu un bon nombre d'extensions depuis le début du jeu. On en compte aujourd'hui un
+total de 9 :
+
+\begin{description}
+    \item[Burning Crusade] La première extension du jeu, celle qui nous a fait découvrir
+        un territoire totalement nouveau, en dehors de notre planète d'origine Azeroth. Nous
+        Devions vaincre des armées de démons en Outreterre et mettre fin aux agissements
+        d'Illidan, le premier chasseur de démons.
+    \item[Wrath of the Lich King] Ici retour en Azeroth, mais sur un nouveau continent :
+        le Norfendre. Cette zone glacière infestée de morts-vivants et d'aberrations de tout
+        genre menaçait de détruire nos royaumes, et ce à cause de l'impitoyable Roi-Liche, un
+        ancien paladin ayant succombé aux murmures de son épée Deuillegivre.
+    \item[Cataclysm] Les royaumes menacent de s'effondrer à cause d'une nouvelle
+        menace. Un dragon titanesque répand feu et sang région après région. Cependant,
+        nous avions des alliés de taille pour l'anéantir : les Aspects draconiques.
+    \item[Mists of Pandaria] Dans cette extension à l'ambiance paisible se déroulant sur
+        un nouveau continent nommée la Pandarie, on y découvre une race bien étrange
+        ressemblant à des pandas humanoïdes. Mais en propageant la guerre entre l'Alliance
+        et la Horde sur leur territoire, nous avions réveillé un mal ancien, qui semait
+        alors le chaos et le désespoir parmis ces populations locales.
+    \item[Warlords of Draenor] Nous voici dans un nouveau monde, précisément une réalité
+        alternative de l'Outreterre avant les événements menant à l'invasion des démons. On y
+        retrouve les peuples féroces étant les ancêtres des orcs que l'ont connait bien.
+        Et nous n'y sommes pas le bienvenue.
+    \item[Legion] La Legion ardente de démons menée par le Titan corrompu Sargeras fait
+        son grand retour sur un nouveau continent, les Iles brisées. On y retrouve
+        beaucoup de nouvelles races inconnues qui nous aideront (ou non) à terasser la
+        Legion.
+    \item[Battle for Azeroth] La guerre entre la Horde et l'Alliance n'a jamais été
+        aussi présente. Un minerai inconnu ayant surgit après la défaite de Sargeras force
+        les deux factions à une course à la richesse. Cependant, ce mystérieux minerai
+        provoque des dégats colossaux à Azeroth, et celle-ci devient alors vulnérable
+        à un mal très ancien trop bien connu, les Dieux très anciens, incarnations mêmes de
+        l'Ombre et du Vide.
+    \item[Shadowlands] Direction le royaume de la Mort dans cette extension, après qu'une
+        brèche ait été créée dans le ciel. On devait alors mettre fin aux agissements
+        d'un nouvel ennemi qui tire les ficelles dans tout ce royaume. On y découvre plusieurs
+        peuples bien mystérieux tels que les Venthyrs ou les Kyrians.
+    \item[Dragonflight] La dernière et actuelle extension. Ici il n'est pas question de
+        démons ou de Dieux très anciens. Nous retraçons le passé d'un peuple disparu descendant
+        du dragon déchu Aile de Mort, autrefois Neltharion, que nous avions vaincu lors de
+        l'extension Cataclysm. Mais des menaces élémentaires viennent compromettre leur
+        survie.
+\end{description}
+
 \subsection{Contenus}
+
+Parlons maintenant des différents types de contenus présents dans le jeu :
 
 \subsubsection{PvE (Player vs Environment)}
 
+Le mode de jeu le plus classique, présent dans tout MMORPG. Il consiste à vaincre le script
+du jeu, c'est à dire affronter de nombreux ennemis à travers des raids ou même des
+donjons. Mais pour cela il faut acquérir de l'équipement grâce à l'exploration, ou divers
+contenus en monde ouvert permettant de récupérer des pièces d'équipement.\newline
+Il existe plusieurs modes de difficulté. Pour les raids, nous avons les difficultés
+croissantes suivantes : Recherche de Raid / Normale / Héroique / Mythique. Pour les donjons,
+c'est plus compliqué : il existe les difficultés Normale / Héroique / Mythique / Mythique +.
+Cette dernière est un peu particulière. Elle reprend la base des donjons Mythiques mais
+en rajoutant un chronomètre pour finir le donjon et des affixes ayant pour but de
+rajouter des mécaniques dans le donjon. Plus le niveau du donjon est haut, plus il sera
+difficile et plus il aura d'affixes. Chaque semaine, la rotation des affixes change.\newline
+Tout ceci en fait donc le mode le plus célèbre pour les joueurs de haut niveau.
+
 \subsubsection{PvP (Player vs Player)}
 
-\subsubsection{Exploration et contenus secondaires}
+Passons maintenant à la catégorie totalement opposée. Ici on ne cherche pas à s'unir entre
+groupes de joueurs pour vaincre des boss de raid, mais à mener une équipe de quelques joueurs
+pour vaincre d'autres joueurs. Il y a plusieurs formats disponibles : les arènes 2v2 ou 3v3,
+les champs de bataille et le PvP en monde ouvert, sans limite de joueurs.\medskip
+
+Que ce soit pour le PvE ou le PvP, nous avons besoin d'optimiser nos dégats pour vaincre nos
+ennemis. Cela passe par l'optimisation de nos statistiques (Hâte, Coup critique, Polyvalence
+et Maîtrise) ou bien de nos sorts et notre façon de jouer.\newline
+Voici une formule représentant les dégats par seconde (DPS) :\newline
+\indent$ ((MinWeaponDamage + MaxWeaponDamage) / 2) / WeapondSpeed $\bigskip
+
+Chaque arme possède des dégats minimums et maximums, donc chaque coup infligé sera d'une
+valeur aléatoire comprise entre MinWeaponDamage et MaxWeaponDamage. De plus, nous avons une
+vitesse qui dépend du type d'arme. Par exemple, une dague infligera plus de coups par seconde
+qu'une hache à deux mains.\medskip
+Nous pouvons également transformer cette formule en fonction :
+\begin{lstlisting}[language=C, numbers=left, frame=single]
+    double damagePerSecond(double minDmg, double maxDmg, 
+        double speed) {
+        return ((minDmg + maxDmg) / 2) / speed;
+    }
+\end{lstlisting}
 
 \pagebreak
 
-\section{Expérience personnelle}
-
-\subsection{De l'enfance à l'âge adulte}
+\printbibliography[heading=bibintoc,title={Bibliographie}]
 
 \end{document}

@@ -1,0 +1,8 @@
+\babel@toc {french}{}\relax 
+\contentsline {section}{\numberline {1}Première section}{1}{}%
+\contentsline {subsection}{\numberline {1.1}Sous-section 1}{1}{}%
+\contentsline {subsubsection}{\numberline {1.1.1}sous-sous section}{2}{}%
+\contentsline {subsubsection}{\numberline {1.1.2}sous-sous section}{2}{}%
+\contentsline {subsection}{\numberline {1.2}Sous-section 2}{2}{}%
+\contentsline {section}{\numberline {2}Deuxième section}{2}{}%
+\contentsline {section}{\numberline {3}Résultats}{2}{}%
