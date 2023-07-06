@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="demo.css">
+</head>
+
+<body>
+
+    <!-- ********************* html ********************* -->
+
+    <h1>Demo Canvas</h1>
+
+    <p>This demo shows the basics of HTML <em>canvas</em> element for 2d
+        drawing.</p>
+
+    <p>n: <input type="number" id="n" value="0" /> </p>
+
+    <br>
+    <input type="button" value="Click to get result of fibo(n)" onclick="callFibo()" />
+
+    <br>
+    <div id="result"></div>
+
+    <br>
+    <canvas id='mycanvas' width="400px" height="400px"></canvas>
+
+    <p>It also shows how to interact with this canvas, left & right click.</p>
+
+    <hr>
+    <p><em>aurelien.esnard@u-bordeaux.fr, 2022.</em></p>
+
+    <!-- ********************* script ********************* -->
+
+    <script src="demo.js"> </script>
+    <script src="fibo.js"> </script>
+
+</body>
+
+</html>

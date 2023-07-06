@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+</head>
+
+<body>
+
+    <p>x: <input type="number" id="x" value="0" /> </p>
+    <p>y: <input type="number" id="y" value="0" /> </p>
+
+    <br>
+    <input type="button" value="add" onclick="callAdd()" />
+    <input type="button" value="mul" onclick="callMul()" />
+
+    <br>
+    <div id="result"></div>
+
+    <script>
+
+        function callAdd() {
+            var x = parseInt(document.getElementById('x').value);
+            var y = parseInt(document.getElementById('y').value);
+            const result = Module._int_add(x, y);
+            var elm = document.getElementById('result');
+            elm.innerHTML = `<p> Result: ${result} </p>`;
+        }
+
+        function callMul() {
+            var x = parseInt(document.getElementById('x').value);
+            var y = parseInt(document.getElementById('y').value);
+            const result = Module._int_mul(x, y);
+            var elm = document.getElementById('result');
+            elm.innerHTML = `<p> Result: ${result} </p>`;
+        }
+    </script>
+
+    <script src="math.js"></script>
+</body>
+
+</html>
