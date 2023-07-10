@@ -130,3 +130,29 @@ let encode charlist =
 let rec nextchar_and_tail hufftree l =
   true
 ;;
+
+let rec mystery btree =
+  match btree with
+  |Empty -> 0
+  |Node(_, l, r) -> let ml, mr = mystery l, mystery r in
+                    if ml = mr then ml + 1 else max ml mr
+;;
+
+let btree_1 = Node(2, 
+                Node(3, 
+                  Node(1, 
+                    Empty, 
+                    Empty), 
+                  Node(9, 
+                    Empty, 
+                    Empty)), 
+                Node(1, 
+                  Node(2, 
+                    Empty, 
+                    Empty), 
+                  Node(8, 
+                    Empty, 
+                    Empty)))
+;;
+
+mystery btree_1;;
