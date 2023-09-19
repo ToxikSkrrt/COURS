@@ -64,7 +64,8 @@ v = v1v2, v1 € L(a*), v2 € L(b*)
 w = (av1)v2     av1 € L(a*)     av1 = a^(k + 1)
 
 2.
-(b*ab*ab*)b* ou (b*ab*a)*b*
+(b*ab*ab*)b* ou (b*ab*a)*b*  
+si |w|a mod 2 = 0, alors `w € L((b*ab*a)*b*)`
 
 3.
 (aplupluplouwu)

@@ -19,7 +19,7 @@ int main(int argc, char **argv)
   check(fd1 != -1, "Cannot open file %s", argv[1]);
 
   int fd2 = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0666);
-  check(fd2 != -1, "Cannot open file %s", argv[1]);
+  check(fd2 != -1, "Cannot open file %s", argv[2]);
 
   do
   {
