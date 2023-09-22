@@ -20,7 +20,7 @@ int main(int argc, char **argv)
   {
 
     int rcount = read(STDIN_FILENO, &c, sizeof(c)); // STDIN_FILENO -> == 0 -> entrée standard
-    printf("%c", c);
+    printf("%c UwU", c);
     int wcount = write(fd, &c, sizeof(c));
   }
 

@@ -113,4 +113,100 @@ Dans G, comme u et v sont dans la même composante annexe, il existe une chaîne
 Soit x et y deux sommets de V(G). On va montrer que x et y sont reliés par une chaine dans G ssi ils sont une chaîne dans G'.  
 a) si u et v sont reliés par une chaine dans G , ils le sont par la meme chaie dans G'.
 b)  si u et v sont chaine dans G' :
-    b1) 
+    b1) ?
+
+3. 
+a.
+Soit Cu et Cv les composantes connexes contenant respectivement u et v. On va montrer que dans G' = G + e (e = uv), Cu et Cv sont unifiés et les autres composantes connexes restent les mêmes.  
+Soit C un composante connexe de G =/ Cu et Cv. C est connexe. Il reste à montrer que C est maximal dans G'.  
+Soit s € G\C. Supposons qu'il existe une chaine reliant s à un sommet t de C. La chaine passe par l'arête uv, sinon s serait déjà dans C dans G. Donc il existe une chaîne reliant t à u ou v dans G et G'. Donc t aurait dû appartenir à Cu ou à Cv. Donc C aurait dû être unifiée dans G à Cu et Cv. Donc s et t n'existent pas et donc C reste maximale dans G'.
+
+b.
+Soit Cu U Cv. Montrons que Cu U Cv est connexe dans G.  
+Soit x et y deux sommets de Cu U Cv. Si x et y € Cu et x et y € Cv, ils étaient reliés par une chaine dans G et (?). Supposons x € Cu et y € Cv. Il existe dans G (et G') une chaine Pxu reliant x à u. Il existe dans G (et G') une chaine Pvy reliant v à y. Donc dans G', si on (?) Pxu, w, Pvy, on obtient une (?) x à y. Donc Cu U Cv est connexe et est une composante connexe de G'. (?)
+
+4. (?)
+
+---
+
+# TD 2
+
+## Exercice 1
+
+Soit G un graphe simple à n >= 2 sommets. On veut montrer qu'il existe deux sommets de G ayant le même degré.  
+Pour tout x € V(G), 0 <= degG(x) <= n - 1  
+Mais les valeurs 0 et n - 1 sont incompatibles : s'il existe un sommet de degré n - 1, il est relié à tous les autres et donc la valeur 0 est impossible.  
+Donc pour tout x € V(G) -> Soit 1 <= degG(x) <= n - 1  
+                        -> Soit 0 <= defF(x) <= n - 2  
+Donc dans les deux cas, on a n - 1 valeurs possibles pour n sommets. Donc au moins 2 d'entre eux ont le même degré.
+
+## Exercice 2
+
+G = (V, E) et G' = (V', E')  
+ssi il existe une bijection S  
+S : V -> V' telle que e = uv € E(G) <=> e' = S(u)S(v) € E(G')  
+S: a -> a | b -> b | c -> d | d -> c
+
+1. 
+(imageTD2.2)
+
+2. 
+Le degré max dans un arbre à n sommets est n - 1.  
+Un sommet dans un arbre ne peut etre relié à plus de n - 1 voisons (sinon il y a un cycle).  
+L'étoile à n sommets atteint cette valeur.  
+Un arbre possède n - 1 arêtes. Donc la somme de n degrés est 2(n - 1). Si on a 1 sommet de degré n - 1, les autres sommets sont forcément de degré 1. Donc la liste des degrés est n - 1, 1 ... 1 est le seul graphe  possible et l'étoile à n sommets.
+
+3. 
+Soit T un arbre, u et v 2 sommets de T tels que la chaine Puv reliant u et v soit de longueur max.  
+u n'a pas de voison en dehors de la chaine Puv, sinon on pourrait ralonger Puv. Il n'y a pas d'autre voisin que son seul voisin dans la chaine, sinon on aurait un cycle.  
+idem pour v, donc u et v sont de degré 1.  
+S'il existe exactement 2 sommets de degré 1, T est une chaine et c'est la seule possibilité car on ne peut pas avoir de sommet de degré > 2.
+
+4. 
+Soit s un sommet de degré Delta. s et Delta voisin : v1 ... vDelta. SI on construit une chaine élémentaire ayant une extrémité en s et contenant vi, les successeurs de vi dans la chaine vont aller jusqu'a aboutir a un sommet de degré 1.  
+Comme chacune de ces chaines ne peut contenir qu'un seul vi (sinon on aurait un cycle), on a donc au moins Delta sommets de degré 1.  
+Pour avoir un nombre min de sommets de degré 1, il faut que le sommet s de degré Delta soit relié uniquement à des chaines (ex : Delta = 4)  
+Donc T doit avoir une "structure" en étoile.  
+Donc la solution n'est pas unique car les chaines peuvent avoir une longueur quelconque.
+
+## Exercice 3
+
+```
+f(n) = O(g(n)) <=> il existe c > O, il existe n0 € R⁺, pour tout n >= n0, 0 <= f(n) <= cg(n)  
+f(n) = (1/3)n(n + 1/2)(n + 1)  
+f(n) = O(n³) ?  
+f(n) = (1/3)n³ + (1/2)n² + (1/6)n  
+Si on prend c = 1 et n0 = 1, on a pour tout n >= n0, 0 <= f(n) <= cn³  
+n³ - f(n) = (2/3)n³ + (1/2)n² + (1/6)n 
+```
+
+1. 
+f(n) = O(n¹⁰)  ->  VRAIE  
+Pour tout n >= 1, (1/3)n³ + (1/2)n² + (1/6)n <= n³ <= n¹⁰
+
+2. 
+f(n) = (1/3)n³ + O(n²)  ->  (?)  
+<=> (1/2)n² + (1/6)n = O(n²)
+
+3. 
+O(n²) = O(n³)  ->  VRAIE  
+car pour tout n >= 0, cn² <= cn³
+
+4. 
+O(n³) = O(n²)  ->  FAUSSE  
+n³ = O(n³) et n³ =/ O(n²)
+
+5. 
+(1/3)n³ + O(n²) = O(n³)  ->  VRAIE  
+(?)
+
+## Exercice 4
+
+   s1 s2 s3 s4 s5 s6 s7  
+s1 0  0  0  1  0  1  1  
+s2 1  0  1  0  0  0  0  
+s3 0  0  0  0  1  0  0  
+s4
+s5
+s6
+s7
