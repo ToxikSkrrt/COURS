@@ -28,16 +28,16 @@ int main(int argc, char *argv[])
   int fd1 = open(argv[1], O_RDONLY);
   check(fd1 != -1, "Cannot open file %s", argv[1]);
 
-  int fd2 = open(argv[1], O_CREAT | O_WRONLY | O_TRUNC, 0640);
-  check(fd2 != -1, "Cannot open file %s", argv[1]);
+  int fd2 = open(idx_filename, O_CREAT | O_WRONLY | O_TRUNC, 0640);
+  check(fd2 != -1, "Cannot open file %s", idx_filename);
 
-  int rcount;
-  int index = 0;
-  while (rcount = read(fd1, &c, sizeof(c)))
+  off_t index = 0;
+  while (read(fd1, &c, sizeof(c)))
   {
     if (c == '\n')
     {
       int wcount = write(fd2, &index, sizeof(index));
+      check(wcount == sizeof(index), "Writing error");
     }
     index++;
   }
