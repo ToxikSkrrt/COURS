@@ -72,3 +72,8 @@ si |w|a mod 2 = 0, alors `w € L((b*ab*a)*b*)`
 
 4.
 (a + b)*ba
+
+---
+
+# TD 2
+

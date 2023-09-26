@@ -129,7 +129,7 @@ Soit x et y deux sommets de Cu U Cv. Si x et y € Cu et x et y € Cv, ils éta
 
 ---
 
-# TD 2
+# TD 2 (les exos sont pas dans l'ordre de la feuille "papier")
 
 ## Exercice 1
 
@@ -169,7 +169,7 @@ Pour avoir un nombre min de sommets de degré 1, il faut que le sommet s de degr
 Donc T doit avoir une "structure" en étoile.  
 Donc la solution n'est pas unique car les chaines peuvent avoir une longueur quelconque.
 
-## Exercice 3
+## Exercice 8
 
 ```
 f(n) = O(g(n)) <=> il existe c > O, il existe n0 € R⁺, pour tout n >= n0, 0 <= f(n) <= cg(n)  
@@ -200,13 +200,223 @@ n³ = O(n³) et n³ =/ O(n²)
 (1/3)n³ + O(n²) = O(n³)  ->  VRAIE  
 (?)
 
-## Exercice 4
+## Exercice 3
 
+Liste d'adjacence :  
+s1 = s4, s6  
+s2 = s1, s3  
+s3 = s5  
+s4 = s2, s6  
+s5 = s4  
+s6 = s7  
+s7 = s5
+
+```
+Matrice d'adjacence
    s1 s2 s3 s4 s5 s6 s7  
 s1 0  0  0  1  0  1  1  
 s2 1  0  1  0  0  0  0  
 s3 0  0  0  0  1  0  0  
-s4
-s5
-s6
-s7
+s4 0  1  0  0  0  1  0
+s5 0  0  0  1  0  0  0
+s6 0  0  0  0  0  0  1
+s7 0  0  0  0  1  0  0
+```
+
+```
+Matrice d'incidence
+    s1s4 s1s6 s2s1 s2s3 s3s5 s4s2 s4s6 s5s4 s6s7 s7s5
+s1   -1   -1    1    0    0    0    0    0    0    0
+s2    0    0   -1   -1    0    1    0    0    0    0
+s3    0    0    0    1   -1    0    0    0    0    0
+s4    1    0    0    0    0   -1   -1    1    0    0
+s5    0    0    0    0    1    0    0   -1    0    1
+s6    0    1    0    0    0    0    1    0   -1    0
+s7    0    0    0    0    0    0    0    0    1   -1
+```
+
+## Exercice 5
+
+1. 
+```c
+// Ma version
+
+bool isIsolated(int **mat, int n) {
+   bool zerocount = 0;
+   for (int i = 0; i < n; i++) {
+      for (int j = 0; j < n; j++) {
+         if (mat[i][j] == 0)
+            zerocount++;
+      }
+      if (zerocount == n)
+         return true;
+   }
+   return false;
+}
+
+// Version corrigée
+
+bool isIsolated(int **mat, int n) {
+   for (int i = 0; i < n; i++) {
+      bool doSuccExists = false;
+      for (int j = 0; j < n; j++) {
+         if (mat[i][j] == 1) {
+            doSuccExists = true;
+            break;
+         }
+      }
+      if (!doSuccExists)
+         return true;
+   }
+   return false;
+}
+// O(n²)
+```
+
+2. 
+```c
+int degMax(int **mat, int n) {
+   int max = 0;
+   int current = 0;
+   for (int i = 0; i < n; i++) {
+      for (int j = 0; j < n; j++) {
+         if (mat[i][j] == 1)
+            current++;
+      }
+      if (current > max)
+         max = current;
+      current = 0;
+   }
+   return max;
+}
+// O(n²)
+```
+
+3. 
+```c
+int degMin(int **mat, int n) {
+   int min = -1;
+   int current = 0
+   for (int i = 0; i < n; i++) {
+      for (int j = 0; j < n; j++) {
+         if (mat[i][j] == 1)
+            current++;
+      }
+      if (current < min || min == -1)
+         min = current;
+      current = 0;
+   }
+   return min;
+}
+// O(n²)
+```
+
+## Exercice 6
+
+1. 
+```c
+int degMax(int **mat, int n, int m) {
+   int max = 0;
+   int current = 0;
+   for (int i = 0; i < n; i++) {
+      for (int j = 0; j < m; j++) {
+         current += mat[i][j];
+      }
+      if (current > max)
+         max = current;
+      current = 0;
+   }
+   return max;
+}
+// O(n x m)
+```
+
+2. 
+```c
+bool isIsolated(int **mat, int n, int m) {
+   for (int i = 0; i < n; i++) {
+      bool doSuccExists = false;
+      for (int j = 0; j < m; j++) {
+         if (mat[i][j] == 1) {
+            doSuccExists = true;
+            break;
+         }
+      }
+      if (!doSuccExists)
+         return true;
+   }
+   return false;
+}
+```
+
+3. 
+```c
+int degMin(int **mat, int n, int m) {
+   int min = -1;
+   int current = 0
+   for (int i = 0; i < n; i++) {
+      for (int j = 0; j < m; j++) {
+         current += mat[i][j];
+      }
+      if (current < min || min == -1)
+         min = current;
+      current = 0;
+   }
+   return min;
+}
+// O(n x m)
+```
+
+## Exercice 7
+
+Besoin d'une structure pour faire en C donc photos sur tel.
+
+1. 
+```c
+// A FAIRE
+```
+
+2. 
+```c
+// A FAIRE
+```
+
+3. 
+```c
+// A FAIRE
+```
+
+## Exercice 10
+
+1. 
+???
+
+---
+
+# TD 3
+
+## Exercice 1
+
+1. 
+```
+file : s1, s2, s3, s5, s6
+
+    s1  s2  s3  s4  s5  s6
+d  inf  0   1   1   2  inf
+p  nil nil  s1  s1  s2 nil
+```
+
+2. 
+```
+file : s2, s1, s3, s4, s6, s5, s7
+
+    s1  s2  s3  s4  s5  s6  s7
+d   1   0   1   2   2   2   3
+p   s2 nil  s2  s1  s3  s1  s6
+```
+
+## Exercice 2
+
+```
+
+```

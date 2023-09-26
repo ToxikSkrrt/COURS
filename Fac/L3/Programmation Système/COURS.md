@@ -93,3 +93,6 @@ for(off_t pos = taille - 1; pos >= 0; pos--) {
   
 }
 ```
+
+## 
+
