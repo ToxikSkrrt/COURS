@@ -1,0 +1,1 @@
+lire-entier: lire-entier.c:20: main: Assertion `argc == 3' failed.

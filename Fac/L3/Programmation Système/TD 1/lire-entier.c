@@ -9,6 +9,14 @@
 
 int main(int argc, char **argv)
 {
+    int fderror = open("ERREURS-LIRE.log", O_WRONLY | O_CREAT, 0640);
+    check(fderror != -1, "Cannot open file %s", "ERREUR-LIRE.log");
+
+    int backup = dup(STDERR_FILENO);
+
+    dup2(fderror, STDERR_FILENO);
+    close(fderror);
+
     assert(argc == 3);
 
     off_t pos = atol(argv[2]);
@@ -22,6 +30,8 @@ int main(int argc, char **argv)
 
     int rcount = read(fd, &val, sizeof(val));
     check(rcount == sizeof(val), "Reading error");
+
+    dup2(backup, STDERR_FILENO);
 
     printf("%ld\n", val);
 

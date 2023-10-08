@@ -418,5 +418,139 @@ p   s2 nil  s2  s1  s3  s1  s6
 ## Exercice 2
 
 ```
+8'  visites <- 1
+16     Enfiler(F, v)
+16'    visite <- visites + 1
+18' retourner visites == n(G)
+```
 
+## Exercice 4
+
+1. 
+pour tout u, v, w € V(G)  
+dist(u, v) <= dist(u, w) + dist(w, v)  
+G connexe => soit Cuw un plus court chemin de longueur dist(u, w) de u à w  
+             soit Cwv un plus court chemin de longueur dist(w, v) de w à v  
+Si on concatene Cuw et Cuv, on obtient un chemin de u à v de longueur dist(u, w) + dist(w, v). Remarque : ce chemin n'est pas forcément simple (il peut utiliser plusieurs fois une meme arete ou un même sommet). Donc tout plus court chemin de u à v sera de longueur <= dist(u, w) + dist(w, v). Donc dist(u, v) <= dist(u,w) + dist(w, v).
+
+2. 
+Soient u, v1, v2 € V(G) avec v1v2 € E(G)  
+alors (dist(u, v1) - dist(u, v2)) <= 1  
+dist(u, v1) <= dist(u, v2) + dist(v2, v1)    } => dist(u, v1) - dist(u, v2) <= 1
+            <= dist(u, v2) + 1               }
+
+dist(u, v2) <= dist(u, v1) + dist(v1, v2)    } => dist(u, v2) - dist(u, v1) <= 1
+            <= dist(u, v1) + 1               }
+
+=> |dist(u, v1) - dist(u, v2)| <= 1
+
+3. 
+Soit G un graphe connexe. G contient un cycle impair ssi pour tout sommmet u, il existe deux sommets v1, v2 tels que v1, v2 € E(G) et dist(u, v1) >= dist(u, v2) 
+
+a.
+On va d'abord montrer que si G possède un cycle impair, alors pour tout sommet u, il existe une arete v1v2 telle que dist(u, v1) = dist(u, v2)
+
+Preuve par contradiction :  
+Supposons qu'il existe un sommet u et pour tout arête v1v2, on a dist(u, v1) =/ dist(u, v2)  
+D'après l'exo 2, |dist(u, v1) - dist(u, v2)| = 1  
+Donc dist(u, v1) est pair <=> dist(u, v2) est impair.  
+Soit C un cycle impair. C = w1w2 ... w(2n+1)w1. Si dist(u, w1) est pair, pour tout i impair, dist(u, wi) sera pair et pour tout i pair, dist(u, wi) sera impair.  
+Mais comme w(2n+1) et w1 sont reliés, on a deux sommets voisins à une distance paire de u => impossible
+
+b.
+Soit u € V(G), v1v2 € E(G) tels que dist(u, v1) = dist(u, v2). Montrons que G possède un cycle impair. Soit l'arborescence obtenue par un parcours en largeur depuis u. Soit x le sommet en commun sur les chemins dans l'arborescence de v1 à u et v2 à u, le plus proche de v1 et v2. dist(x, v1) = dist(x, v2). Donc les chaines reliant x à v1 et x à v2 ont la meme longueur dist(x, v1). Si on complete par l'arete v1v2 ces 2 chaines, on obtient un cycle de longueur 2 x dist(x, v1) + 1 donc impair.
+
+## Exercice 5
+
+1. 
+Soit G = (A U B, E) un graphe biparti.  
+Soit C = v1v2...vkv1 un cycle de G.  
+Supposons v1 € A alors v2 € B, v3 € A...  
+pour tout i, vi € A ssi i est impair  
+             v1 € B ssi i est pair  
+Comme vkv1 est une arete de G, k et 1 sont de parite differente. Donc k est pair et donc C est de longueur paire.  
+
+2. 
+Soit u et v deux sommets reliés par un chemin Cuv : v1 = uv2...v(k-1)v = vk  
+Si v1 est dans A alors pour tout i, vi est dans A ssi i est impair  
+                                    v1 est dans B ssi i est pair  
+Donc vk sera dans A ssi k est impair et donc le nombre d'arete de Cuv sera pair.  
+Donc 2 sommets reliés par un chemin sont dans la meme partie ssi leur distance est paire.
+
+3. 
+```
+R <- V(G)
+tant que R =/ 0 faire
+   choisir s € R
+   PL(G[R], s)
+   Pour tout x € R faire
+      si d[x] =/ +inf alors
+         R <- R - {x}
+         d'[x] <- d[x]
+      fin si
+   fin pour
+fin tant que
+reponse <- OUI
+pour tout sommet u € V(G) faire
+   pour tout sommet v € Adj[u] faire
+      si d'[u] % 2 == d'[u] % 2 alors
+         reponse <- NON
+      fin si
+   fin pour
+fin pour
+retourner reponse
+```
+
+G connexe -> renvoie Vrai si G biparti, Faux sinon
+
+Biparti(G)
+```
+soit s € V(G)
+couleur(s) <- GRIS
+d(s) <- O
+pere(s) <- NIL
+F <- {s}
+pour tout v € V(G) \ {s} faire
+   couleur(v) <- BLANC
+   d(v) <- +inf
+   pere(v) <- NIL
+fin pour
+tant que F non vide faire
+   v <- tete(F)
+   pour tout w € Adj(v) faire
+      si couleur(w) = BLANC alors
+         couleur(w) <- GRIS
+         d(w) <- d(w) + 1
+         pere(w) <- s
+         enfiler(F, w)
+      sinon si couleur(w) = GRB alors
+         si d(w) = d(v) alors
+            retourner FAUX
+         fin si
+      fin si
+   fin pour
+fin tant que
+retourner VRAI
+```
+
+---
+
+# TD 4
+
+## Exercice 1
+
+exemple : voir photo tel
+```
+v        a  b  c  d  e  f  g  h
+d[u]     1  2  3  4  5  7 13 14
+f[u]    12 11 10  9  6  8 16 15
+pere[u]  N  a  b  c  d  d  N  g
+```
+
+G1 :
+```
+v        s0 s1 s2 s3 s4 s5 s6 s7 s8 s9
+d[u]     1  
+f[u]     
+pere[u]  
 ```
