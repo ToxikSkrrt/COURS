@@ -554,3 +554,78 @@ d[u]     1
 f[u]     
 pere[u]  
 ```
+
+## Exercice 3
+
+1. 
+Liaison (père -> fils) : s0s1, s1s2, s2s3, s3s4, s4s5, s5s6, s3s7, s7s8, s8s9
+
+Retour (fils -> ancêtre) : s2s4, s3s1, s6s3, s9s7
+
+2. 
+voir feuille
+
+## Exercice 4
+
+voir feuille
+
+## Exercice 5
+
+1. 
+PA(G) = {4}
+
+2. 
+```
+NB_CC(G) // PP(G) modifiée
+
+4' nbcc <- 0
+5  pour chaque sommet u de V faire
+6     si couleur[u] = BLANC alors
+6'       nbcc <- nbcc + 1
+7        Visiter_PP(u)
+8  retourner nbcc
+```
+
+NB_CC(G) -> O(n + m)
+
+```
+PA(G)
+
+pa <- Ø
+nbcc_G <- NB_CC(G)
+pour tout sommet u de V faire
+   G' <- G \ u
+   si NB_CC(G') > nbcc_G alors
+      pa <- pa U {u}
+   fin si
+fin pour
+
+retourner pa
+```
+=> O(n(n + m)) = O(n² + nm)
+
+3. 
+voir feuille
+
+4. 
+```
+Visiter_PP(G)
+
+1  couleur[u] <- GRIS
+2  l[u] <- d[u] <- temps <- temps + 1
+3  pour chaque v de Adj[u] faire
+4     si couleur[v] = BLANC alors
+5        pere[v] <- u
+6        Visiter_PP(v)
+7        si l[v] < l[u] alors
+8           l[u] <- l[v]
+9     sinon si v =/ pere[u] et d[v] < l[u] alors
+10       l[u] <- d[u]
+11 couleur[u] <- NOIR
+12 f[u] <- temps <- temps + 1
+```
+
+5. 
+- v = r et v possède au moins 2 fils => v est un PA  
+si v possède 2 fils f1 et f2, il ne peut y avoir d'arete entre de descendants de f1 et ceux de f2. Donc si on enleve v, f1 et f2 seront dans 2 composantes connexes distincts
+- si v est un PA, soit u1 et u2 2 voisins de v qui sont dans 2 composantes connexes différentes de G \ v. Comme il n'y a aucune chaine entre u1 et u2 dans G \ v, u1 et u2 seront das 2 sous arbres distincts. Donc v aura au moins 2 fils.
