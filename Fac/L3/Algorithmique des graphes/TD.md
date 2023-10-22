@@ -626,6 +626,29 @@ Visiter_PP(G)
 ```
 
 5. 
+a.
 - v = r et v possède au moins 2 fils => v est un PA  
 si v possède 2 fils f1 et f2, il ne peut y avoir d'arete entre de descendants de f1 et ceux de f2. Donc si on enleve v, f1 et f2 seront dans 2 composantes connexes distincts
 - si v est un PA, soit u1 et u2 2 voisins de v qui sont dans 2 composantes connexes différentes de G \ v. Comme il n'y a aucune chaine entre u1 et u2 dans G \ v, u1 et u2 seront das 2 sous arbres distincts. Donc v aura au moins 2 fils.
+
+b.
+?
+
+6. 
+```
+Visiter_PP(G)
+
+1  couleur[u] <- GRIS
+2  l[u] <- d[u] <- temps <- temps + 1
+   pa[u] <- faux
+3  pour chaque v de Adj[u] faire
+4     si couleur[v] = BLANC alors
+5        pere[v] <- u
+6        Visiter_PP(v)
+7        si l[v] < l[u] alors
+8           l[u] <- l[v]
+9     sinon si v =/ pere[u] et d[v] < l[u] alors
+10       l[u] <- d[u]
+11 couleur[u] <- NOIR
+12 f[u] <- temps <- temps + 1
+```
