@@ -3,8 +3,8 @@ type complex = { real : float; imag : float; }
 let make_complex (real : float) (imag : float) : complex = {real = real; imag = imag}
 
 (* accesseurs *)
-let realpart (c : complex) : float = match c with {real; imag} -> real
-let imagpart (c : complex) : float = match c with {real; imag} -> imag
+let realpart (c : complex) : float = c.real
+let imagpart (c : complex) : float = c.imag
 
 let c_origin : complex = make_complex 0.0 0.0
 let c_i : complex = make_complex 0. 1.
@@ -43,11 +43,11 @@ type date = {day : int; month : int; year : int}
 
 let make_date (day : int) (month : int) (year : int) : date = {day = day; month = month; year = year}
 
-let get_day (d : date) : int = match d with {day; month; year} -> day
+let get_day (d : date) : int = d.day
 
-let get_month (d : date) : int = match d with {day; month; year} -> month
+let get_month (d : date) : int = d.month
 
-let get_year (d : date) : int = match d with {day; month; year} -> year
+let get_year (d : date) : int = d.year
 
 let today : date = make_date 12 10 2023
 
