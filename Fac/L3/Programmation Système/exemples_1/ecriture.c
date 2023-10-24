@@ -9,24 +9,24 @@
 
 char *filename = "file.txt";
 
-void ecrire (int fd)
+void ecrire(int fd)
 {
   // TODO: write a few bytes into file
-  int n = write (fd, "Bonjour", 7);
-  check_syscall (n, "write");
+  int n = write(fd, "Bonjour", 7);
+  check_syscall(n, "write");
 }
 
-int main (int argc, char *argv[])
+int main(int argc, char *argv[])
 {
   if (argc > 1)
     filename = argv[1];
 
-  int fd = open (filename, O_RDWR);
-  check_syscall (fd, "Cannot open %s file", filename);
+  int fd = open(filename, O_RDWR);
+  check_syscall(fd, "Cannot open %s file", filename);
 
-  ecrire (fd);
+  ecrire(fd);
 
-  close (fd);
+  close(fd);
 
   return 0;
 }

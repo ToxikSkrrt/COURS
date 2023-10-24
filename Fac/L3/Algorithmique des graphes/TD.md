@@ -652,3 +652,124 @@ Visiter_PP(G)
 11 couleur[u] <- NOIR
 12 f[u] <- temps <- temps + 1
 ```
+
+---
+
+# TD 5
+
+## Exercice 2
+
+1. 
+Soit C un chemin de longueur maximum C = v1 ... vk.  
+Montrons que deg⁻(v1) = 0. Supposons que v1 possède un prédécesseur w.  
+- si w €/ C, alors wv1 ... vk est un chemin de longueur strictement plus grande que C => contradiction
+- si w € C, disons w = vi alors v1 ... viv1 est un circuit => contradiction
+
+Donc deg⁻(v1) = 0
+
+2. 
+L'algorithme effectue un tri topologique car quand on affiche un sommet, tous ses prédécesseurs ont déjà été affichés
+
+3. 
+Si le graphe est sans circuit, quand on élimine un sommet, il y a forcément au moins un sommet de degré entrant 0 dans le reste du graphe car celui-ci est également sans circuit.  
+Donc si le graphe est sans circuit, tous les sommets sont affichés et finissent avec deg_entrant = -1.  
+Inversement, si G possède un circuit C, alors les sommets de C sont de degré entrant > 0. De plus le sommet de degré entrant U est hors de tout circuit, donc sa suppression n'élimine aucun circuit. Idem pour les sommets suivants donc la procédure n'élimine que des sommets qui sont hors de tout circuit. Donc si on a un circuit, à la fin, on aura des sommets de degré entrant > 0. Sinon ils seront tous à -1
+
+```
+contient_un_circuit(G)
+
+pour chaque sommet u de V[G] faire
+   degre_entrant[u] <- calculer_degre_entrant(u)
+tant qu'il existe un sommet u avec deg_entrant[u] = 0 faire
+   deg_entrant[u] <- deg_entrant[u] - 1
+   pour chaque v € Adj[u] faire
+      deg_entrant[v] <- deg_entrant[v] - 1
+pour tout sommet u de V[G] faire
+   si deg_entrant[u] != -1 alors
+      retourner FAUX
+retourner VRAI
+```
+
+4. 
+1+2 :  
+si matrice d'adjacence = O(n²)  
+si liste d'adjacence =
+algo ->
+```
+pour tout u de V(G) faire
+   deg_entrant[u] <- 0
+pour tout u de V(G) faire
+   pour tout v de Adj[u] faire
+      deg_entrant[v] <- deg_entrant[v] + 1
+```
+O(n + m)
+
+3+5 :  
+=> liste => O(n + m)
+
+3+5 :
+=> matrice => O(n²)
+
+7 :  
+O(n)
+
+Donc liste ou matrice => O(n²)
+
+Amelioration pour la liste d'adjacence :  
+on utilise une liste L dans laquelle on rajoute un sommet quand son deg_entrant passe à 0
+
+```
+0     L <- liste_vide()
+1     ---
+2     ---
+2'    ---   si deg_entrant[u] = 0 alors
+2''   ---      enfiler(L, u)
+3           tant que L non vide faire
+3'             u <- defiler(L)
+4     ---
+5     ---
+6     ---
+6'          si deg_entrant[u] = 0 alors
+6''            enfiler(L, v)
+```
+
+## Exercice 3
+```
+longueur_max(G)
+
+1  pour chaque sommet u de V faire
+2     ---
+3     ---
+3'    L[u] <- 0
+4     ---
+4'    longueur_max <- 0
+5     pour chaque sommet u de V faire
+6        si couleur[u] = BLANC alors
+7           visiterPP(u)
+7'          longueur_max <- max(longueur_max, L[u])
+8  retourner longueur_max
+```
+
+```
+visiterPP'(u)
+
+1  ---
+2  ---
+3  pour chaque sommet v de Adj[u] faire
+4     si couleurs[v] = BLANC alors
+5        ---
+6        ---
+6'    L[u] <- max(L[u], 1 + L[v])
+7     ---
+8     ---
+```
+
+---
+
+# TD 6
+
+## Exercice 1
+
+Exemple :  
+CFC = {{A, B, C}, {D, E, F}, {G}}
+
