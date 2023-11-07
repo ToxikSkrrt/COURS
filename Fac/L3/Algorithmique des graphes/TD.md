@@ -773,3 +773,6 @@ visiterPP'(u)
 Exemple :  
 CFC = {{A, B, C}, {D, E, F}, {G}}
 
+voir feuilles
+
+## Exercice 2
