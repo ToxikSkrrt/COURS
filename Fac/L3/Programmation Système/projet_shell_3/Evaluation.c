@@ -1,3 +1,5 @@
+#define _GNU_SOURCE
+
 #include "Evaluation.h"
 #include "Shell.h"
 
@@ -6,6 +8,9 @@
 #include <stdio.h>
 #include <sys/wait.h>
 #include <unistd.h>
+#include <sys/types.h>
+#include <sys/time.h>
+#include <errno.h>
 
 enum
 {
@@ -15,13 +20,13 @@ enum
 
 int cmd_simple(Expression *expr)
 {
+  errno = 0;
   int status;
   pid_t pid = fork();
   if (!pid)
   {
     execvp(expr->argv[0], expr->argv);
-    perror("execvp");
-    exit(EXIT_FAILURE);
+    exit(errno);
   }
   else
   {
@@ -113,12 +118,40 @@ int pipe_shell(Expression *expr)
   }
 }
 
+void bg(Expression *expr)
+{
+  errno = 0;
+  pid_t pid = fork();
+  if (!pid)
+  {
+    evaluateExpr(expr->left);
+    exit(errno);
+  }
+}
+
+void traitant(int s)
+{
+  pid_t pid;
+  while ((pid = waitpid(-1, 0, WNOHANG)) > 0)
+    ;
+}
+
 int evaluateExpr(Expression *expr)
 {
   static int first = 1;
+  sigset_t m;
+  sigfillset(&m);
+  sigprocmask(SIG_BLOCK, &m, NULL);
+
   if (first)
   {
     // code d'initialisation
+    struct sigaction sa;
+    sa.sa_flags = 0;
+    sigemptyset(&sa.sa_mask);
+    sa.sa_handler = traitant;
+    sigaction(SIGCHLD, &sa, NULL);
+
     first = 0;
   }
 
@@ -144,12 +177,17 @@ int evaluateExpr(Expression *expr)
   case ET_PIPE:
     shellStatus = pipe_shell(expr);
     break;
+  case ET_BG:
+    bg(expr);
+    break;
 
   default:
     fprintf(stderr, "sorry, this shell is not yet implemented\n");
     shellStatus = 1;
     break;
   }
+
+  sigprocmask(SIG_UNBLOCK, &m, NULL);
 
   return shellStatus;
 }

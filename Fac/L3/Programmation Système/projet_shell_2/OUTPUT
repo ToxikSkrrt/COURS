@@ -54,33 +54,5 @@ y.output
 y.tab.c
 y.tab.h
 y.tab.o
-CmdParsing.l
-CmdParsing.y
-Display.c
-Display.h
-Display.o
-Evaluation.c
-Evaluation.h
-Evaluation.o
-Expression.c
-Expression.h
-Expression.o
-INPUT
-InternalCommands.c
-InternalCommands.h
-InternalCommands.o
-lex.yy.c
-lex.yy.o
-Makefile
-OUTPUT
-Shell
-Shell.c
-Shell.h
-Shell.o
-sujet.pdf
-y.output
-y.tab.c
-y.tab.h
-y.tab.o
 ls: cannot access 'truc': No such file or directory
 ls: cannot access 'truc': No such file or directory

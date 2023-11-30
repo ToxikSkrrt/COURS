@@ -74,7 +74,7 @@ graphe simple : (image4)
 
 ## Exercice 4
 
-Preuve 1 : Si on considère la matrice I(G) d'un graphe G, la somme des degrés de G est égale à la somme des valeurs de I(G). Chaque colonne de I(G) contient soit deux 1, soit un 2 (si l'arête est une boucle). Donc la somme des degrés sera 2x le nombre de colonne de I(G), soit 2x le nombre d'arrêtes et donc sera paire.
+Preuve 1 : Si on considère la matrice I(G) d'un graphe G, la somme des degrés de G est égale à la somme des valeurs de I(G). Chaque colo   nne de I(G) contient soit deux 1, soit un 2 (si l'arête est une boucle). Donc la somme des degrés sera 2x le nombre de colonne de I(G), soit 2x le nombre d'arrêtes et donc sera paire.
 
 Preuve 2 : Par récurrence sur le nombre d'arêtes. Soit G un graphe à n sommets (n >= 1) et m arêtes.  
 Soit P(n) la propriété : La somme des degrés de G avec m arêtes est paire.  
@@ -93,7 +93,7 @@ Comme la somme des degrés est paire, le nombre de sommets de degré impair est 
 Preuve par contradiction : 
 Soit G un graphe possédant un isthme uv.  
 Supposons que G ne possède que des sommets de degré pair.  
-G' = G \ uv. Soit Cu la composanteconnexe de u dans G \ uv. Comme les degrés des sommets de Cu sont les mêmes dans G et dans G' sont sont pour u, Cu a tous les sommets de degré pair.  
+G' = G \ uv. Soit Cu la composante connexe de u dans G \ uv. Comme les degrés des sommets de Cu sont les mêmes dans G et dans G' sont sont pour u, Cu a tous les sommets de degré pair.  
 Soit u qui est degré impair dans G'. Comme Cu est un graphe, c'est impossible. Donc G n'existe pas.
 
 ## Exercice 6
@@ -111,7 +111,7 @@ Dans G, comme u et v sont dans la même composante annexe, il existe une chaîne
 
 2. 
 Soit x et y deux sommets de V(G). On va montrer que x et y sont reliés par une chaine dans G ssi ils sont une chaîne dans G'.  
-a) si u et v sont reliés par une chaine dans G , ils le sont par la meme chaie dans G'.
+a) si u et v sont reliés par une chaine dans G , ils le sont par la meme chaine dans G'.
 b)  si u et v sont chaine dans G' :
     b1) ?
 
@@ -158,7 +158,7 @@ Un arbre possède n - 1 arêtes. Donc la somme de n degrés est 2(n - 1). Si on 
 
 3. 
 Soit T un arbre, u et v 2 sommets de T tels que la chaine Puv reliant u et v soit de longueur max.  
-u n'a pas de voison en dehors de la chaine Puv, sinon on pourrait ralonger Puv. Il n'y a pas d'autre voisin que son seul voisin dans la chaine, sinon on aurait un cycle.  
+u n'a pas de voisin en dehors de la chaine Puv, sinon on pourrait ralonger Puv. Il n'y a pas d'autre voisin que son seul voisin dans la chaine, sinon on aurait un cycle.  
 idem pour v, donc u et v sont de degré 1.  
 S'il existe exactement 2 sommets de degré 1, T est une chaine et c'est la seule possibilité car on ne peut pas avoir de sommet de degré > 2.
 
@@ -776,3 +776,6 @@ CFC = {{A, B, C}, {D, E, F}, {G}}
 voir feuilles
 
 ## Exercice 2
+
+---
+

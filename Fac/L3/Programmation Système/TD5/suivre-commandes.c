@@ -9,7 +9,7 @@
 #include <signal.h>
 #include <sys/time.h>
 
-#define NCOMMANDES 10
+#define NCOMMANDES 4
 
 // Returns duration in secs
 #define TIME_DIFF(t1, t2) \
@@ -26,16 +26,10 @@ struct etat
 } etat_tableau[NCOMMANDES];
 
 char *commandes[NCOMMANDES][10] = {
-    {"sleep", "1", NULL},
-    {"sleep", "1", NULL},
-    {"sleep", "1", NULL},
-    {"sleep", "1", NULL},
-    {"sleep", "1", NULL},
-    {"sleep", "1", NULL},
-    {"sleep", "1", NULL},
-    {"sleep", "1", NULL},
-    {"sleep", "1", NULL},
-    {"sleep", "1", NULL}};
+    {"sleep", "0", NULL},
+    {"sleep", "3", NULL},
+    {"sleep", "4", NULL},
+    {"sleep", "5", NULL}};
 
 void modifier_etat(pid_t pid)
 {
@@ -84,10 +78,6 @@ void lancer_commandes()
   /* Lancement */
   for (i = 0; i < NCOMMANDES; i++)
   {
-    sigset_t m;
-    sigfillset(&m);
-    sigprocmask(SIG_BLOCK, &m, NULL);
-
     cpid = fork();
 
     if (cpid == -1)
@@ -98,43 +88,22 @@ void lancer_commandes()
 
     if (cpid == 0)
     {
-      sigprocmask(SIG_UNBLOCK, &m, NULL);
-      exit(0);
       execvp(commandes[i][0], commandes[i]);
       perror(commandes[i][0]);
       abort();
     }
-
-    usleep(1000);
 
     etat_tableau[i].pid = cpid;
     strcpy(etat_tableau[i].commande, commandes[i][0]);
     strcpy(etat_tableau[i].arg, commandes[i][1]);
     etat_tableau[i].en_cours = 1;
     gettimeofday(&etat_tableau[i].debut, NULL);
-    sigprocmask(SIG_UNBLOCK, &m, NULL);
-  }
-}
-
-void traitant(int s)
-{
-  pid_t pid;
-  while ((pid = waitpid(-1, 0, WNOHANG)) > 0)
-  {
-    if (pid > 0)
-      modifier_etat(pid);
   }
 }
 
 int main(int argc, char *argv[])
 {
-  struct sigaction sa;
 
-  sa.sa_handler = traitant;
-  sigemptyset(&sa.sa_mask);
-  sa.sa_flags = SA_RESTART;
-
-  sigaction(SIGCHLD, &sa, NULL);
   lancer_commandes();
 
   for (int cpt = 1; reste_commande(); cpt++)
@@ -143,10 +112,10 @@ int main(int argc, char *argv[])
     char buf[1024];
 
     printf("iteration %d\n", cpt);
-    // w = waitpid(0, NULL, WNOHANG);
-    // printf("pid = %d\n", w);
-    // if (w > 0)
-    // modifier_etat(w);
+    w = waitpid(0, NULL, WNOHANG);
+    printf("pid = %d\n", w);
+    if (w > 0)
+      modifier_etat(w);
 
     int r = read(0, buf, 1024);
     if (r == -1)

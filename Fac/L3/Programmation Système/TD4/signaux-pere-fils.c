@@ -1,17 +1,20 @@
 #define XOPEN_SOURCE 600
+#define _GNU_SOURCE
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <signal.h>
-#include <unistd.h>
-#include <sys/types.h>
 #include <sys/wait.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <stdio.h>
+#include <sys/types.h>
 #include <string.h>
+#include <signal.h>
+#include <sys/time.h>
 
 #define NSIGNORT 32
 
-struct sigaction old;
 int acc = 1;
+
+sigset_t tout;
 
 void handler(int sig)
 {
@@ -21,6 +24,7 @@ void handler(int sig)
 
 int emetteur(int pere, int argc, char *argv[])
 {
+  struct sigaction usr1;
   int k = atoi(argv[1]);
 
   sleep(1);
@@ -29,7 +33,7 @@ int emetteur(int pere, int argc, char *argv[])
     for (int j = 2; j < argc; j++)
     {
       kill(pere, atoi(argv[j]));
-      sleep(1);
+      pause();
     }
 
   sleep(1);
@@ -51,16 +55,30 @@ int recepteur(int fils)
   for (int sig = 0; sig < NSIGNORT; sig++)
   {
     sigaction(sig, &sa, NULL);
+    sigprocmask(SIG_UNBLOCK, &tout, NULL);
   }
 
   while (1)
-    pause();
+  {
+    sigsuspend(&tout);
+    kill(fils, SIGUSR1);
+  }
 
   return 0;
 }
 
+void traitant(int s)
+{
+  static int occ[32];
+  print("%d fois %d\n", ++occ[s], s);
+}
+
+void traitant_usr1(int s) {}
+
 int main(int argc, char *argv[])
 {
+  sigfillset(&tout);
+  sigprocmask(SIG_BLOCK, &tout, NULL);
   pid_t pid = fork();
   if (pid == 0)
     emetteur(getppid(), argc, argv);
