@@ -1,0 +1,24 @@
+
+** Conflict (shift/reduce) in state 0.
+** Token involved: EOF
+** This state is reached from main after reading:
+
+
+
+** The derivations that appear below have the following common factor:
+** (The question mark symbol (?) represents the spot where the derivations begin to differ.)
+
+main 
+(?)
+
+** In state 0, looking ahead at EOF, shifting is permitted
+** because of the following sub-derivation:
+
+. EOF 
+
+** In state 0, looking ahead at EOF, reducing production
+** s ->
+** is permitted because of the following sub-derivation:
+
+s EOF // lookahead token appears
+. 

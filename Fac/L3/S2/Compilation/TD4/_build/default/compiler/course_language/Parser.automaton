@@ -1,0 +1,2156 @@
+State 0:
+## Known stack suffix:
+##
+## LR(1) items:
+main' -> . main [ # ]
+## Transitions:
+-- On WHILE shift to state 1
+-- On VAR shift to state 2
+-- On SUB shift to state 11
+-- On SEMICOLON shift to state 60
+-- On RETURN shift to state 61
+-- On PRINT shift to state 63
+-- On NULL_TYP shift to state 66
+-- On NOT shift to state 12
+-- On L_PAR shift to state 13
+-- On INT_TYP shift to state 71
+-- On INT shift to state 14
+-- On IF shift to state 76
+-- On ID shift to state 108
+-- On FLOAT_TYP shift to state 90
+-- On FLOAT shift to state 17
+-- On BOOL_TYP shift to state 95
+-- On BOOL shift to state 18
+-- On main shift to state 112
+-- On instruction shift to state 113
+-- On function_list shift to state 115
+-- On expression shift to state 117
+## Reductions:
+-- On EOF
+--   reduce production function_list ->
+
+State 1:
+## Known stack suffix:
+## WHILE
+## LR(1) items:
+instruction -> WHILE . expression L_CUR_BRK instruction R_CUR_BRK [ R_CUR_BRK EOF ]
+## Transitions:
+-- On VAR shift to state 2
+-- On SUB shift to state 11
+-- On NOT shift to state 12
+-- On L_PAR shift to state 13
+-- On INT shift to state 14
+-- On ID shift to state 15
+-- On FLOAT shift to state 17
+-- On BOOL shift to state 18
+-- On expression shift to state 58
+## Reductions:
+
+State 2:
+## Known stack suffix:
+## VAR
+## LR(1) items:
+expression -> VAR . INT_TYP ID [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> VAR . BOOL_TYP ID [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> VAR . NULL_TYP ID [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> VAR . FLOAT_TYP ID [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+## Transitions:
+-- On NULL_TYP shift to state 3
+-- On INT_TYP shift to state 5
+-- On FLOAT_TYP shift to state 7
+-- On BOOL_TYP shift to state 9
+## Reductions:
+
+State 3:
+## Known stack suffix:
+## VAR NULL_TYP
+## LR(1) items:
+expression -> VAR NULL_TYP . ID [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+## Transitions:
+-- On ID shift to state 4
+## Reductions:
+
+State 4:
+## Known stack suffix:
+## VAR NULL_TYP ID
+## LR(1) items:
+expression -> VAR NULL_TYP ID . [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+## Transitions:
+## Reductions:
+-- On SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD
+--   reduce production expression -> VAR NULL_TYP ID
+
+State 5:
+## Known stack suffix:
+## VAR INT_TYP
+## LR(1) items:
+expression -> VAR INT_TYP . ID [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+## Transitions:
+-- On ID shift to state 6
+## Reductions:
+
+State 6:
+## Known stack suffix:
+## VAR INT_TYP ID
+## LR(1) items:
+expression -> VAR INT_TYP ID . [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+## Transitions:
+## Reductions:
+-- On SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD
+--   reduce production expression -> VAR INT_TYP ID
+
+State 7:
+## Known stack suffix:
+## VAR FLOAT_TYP
+## LR(1) items:
+expression -> VAR FLOAT_TYP . ID [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+## Transitions:
+-- On ID shift to state 8
+## Reductions:
+
+State 8:
+## Known stack suffix:
+## VAR FLOAT_TYP ID
+## LR(1) items:
+expression -> VAR FLOAT_TYP ID . [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+## Transitions:
+## Reductions:
+-- On SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD
+--   reduce production expression -> VAR FLOAT_TYP ID
+
+State 9:
+## Known stack suffix:
+## VAR BOOL_TYP
+## LR(1) items:
+expression -> VAR BOOL_TYP . ID [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+## Transitions:
+-- On ID shift to state 10
+## Reductions:
+
+State 10:
+## Known stack suffix:
+## VAR BOOL_TYP ID
+## LR(1) items:
+expression -> VAR BOOL_TYP ID . [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+## Transitions:
+## Reductions:
+-- On SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD
+--   reduce production expression -> VAR BOOL_TYP ID
+
+State 11:
+## Known stack suffix:
+## SUB
+## LR(1) items:
+expression -> SUB . expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+## Transitions:
+-- On VAR shift to state 2
+-- On SUB shift to state 11
+-- On NOT shift to state 12
+-- On L_PAR shift to state 13
+-- On INT shift to state 14
+-- On ID shift to state 15
+-- On FLOAT shift to state 17
+-- On BOOL shift to state 18
+-- On expression shift to state 57
+## Reductions:
+
+State 12:
+## Known stack suffix:
+## NOT
+## LR(1) items:
+expression -> NOT . expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+## Transitions:
+-- On VAR shift to state 2
+-- On SUB shift to state 11
+-- On NOT shift to state 12
+-- On L_PAR shift to state 13
+-- On INT shift to state 14
+-- On ID shift to state 15
+-- On FLOAT shift to state 17
+-- On BOOL shift to state 18
+-- On expression shift to state 56
+## Reductions:
+
+State 13:
+## Known stack suffix:
+## L_PAR
+## LR(1) items:
+expression -> L_PAR . expression R_PAR [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+## Transitions:
+-- On VAR shift to state 2
+-- On SUB shift to state 11
+-- On NOT shift to state 12
+-- On L_PAR shift to state 13
+-- On INT shift to state 14
+-- On ID shift to state 15
+-- On FLOAT shift to state 17
+-- On BOOL shift to state 18
+-- On expression shift to state 54
+## Reductions:
+
+State 14:
+## Known stack suffix:
+## INT
+## LR(1) items:
+expression -> INT . [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+## Transitions:
+## Reductions:
+-- On SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD
+--   reduce production expression -> INT
+
+State 15:
+## Known stack suffix:
+## ID
+## LR(1) items:
+expression -> ID . L_SQ_BRK expression R_SQ_BRK [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> ID . DOT SIZE [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> ID . L_PAR expression COMMA expression R_PAR [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+## Transitions:
+-- On L_SQ_BRK shift to state 16
+-- On L_PAR shift to state 47
+-- On DOT shift to state 52
+## Reductions:
+
+State 16:
+## Known stack suffix:
+## ID L_SQ_BRK
+## LR(1) items:
+expression -> ID L_SQ_BRK . expression R_SQ_BRK [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+## Transitions:
+-- On VAR shift to state 2
+-- On SUB shift to state 11
+-- On NOT shift to state 12
+-- On L_PAR shift to state 13
+-- On INT shift to state 14
+-- On ID shift to state 15
+-- On FLOAT shift to state 17
+-- On BOOL shift to state 18
+-- On expression shift to state 19
+## Reductions:
+
+State 17:
+## Known stack suffix:
+## FLOAT
+## LR(1) items:
+expression -> FLOAT . [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+## Transitions:
+## Reductions:
+-- On SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD
+--   reduce production expression -> FLOAT
+
+State 18:
+## Known stack suffix:
+## BOOL
+## LR(1) items:
+expression -> BOOL . [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+## Transitions:
+## Reductions:
+-- On SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD
+--   reduce production expression -> BOOL
+
+State 19:
+## Known stack suffix:
+## ID L_SQ_BRK expression
+## LR(1) items:
+expression -> expression . ADD expression [ SUB R_SQ_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . SUB expression [ SUB R_SQ_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . MUL expression [ SUB R_SQ_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . DIV expression [ SUB R_SQ_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . MOD expression [ SUB R_SQ_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . AND expression [ SUB R_SQ_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . OR expression [ SUB R_SQ_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . EQ expression [ SUB R_SQ_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . NEQ expression [ SUB R_SQ_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . LT expression [ SUB R_SQ_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . GT expression [ SUB R_SQ_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . LEQ expression [ SUB R_SQ_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . GEQ expression [ SUB R_SQ_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> ID L_SQ_BRK expression . R_SQ_BRK [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+## Transitions:
+-- On SUB shift to state 20
+-- On R_SQ_BRK shift to state 42
+-- On OR shift to state 43
+-- On NEQ shift to state 22
+-- On MUL shift to state 24
+-- On MOD shift to state 26
+-- On LT shift to state 32
+-- On LEQ shift to state 34
+-- On GT shift to state 36
+-- On GEQ shift to state 38
+-- On EQ shift to state 40
+-- On DIV shift to state 28
+-- On AND shift to state 30
+-- On ADD shift to state 45
+## Reductions:
+
+State 20:
+## Known stack suffix:
+## expression SUB
+## LR(1) items:
+expression -> expression SUB . expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+## Transitions:
+-- On VAR shift to state 2
+-- On SUB shift to state 11
+-- On NOT shift to state 12
+-- On L_PAR shift to state 13
+-- On INT shift to state 14
+-- On ID shift to state 15
+-- On FLOAT shift to state 17
+-- On BOOL shift to state 18
+-- On expression shift to state 21
+## Reductions:
+
+State 21:
+## Known stack suffix:
+## expression SUB expression
+## LR(1) items:
+expression -> expression . ADD expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . SUB expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression SUB expression . [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . MUL expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . DIV expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . MOD expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . AND expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . OR expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . EQ expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . NEQ expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . LT expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . GT expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . LEQ expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . GEQ expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+## Transitions:
+-- On NEQ shift to state 22
+-- On MUL shift to state 24
+-- On MOD shift to state 26
+-- On LT shift to state 32
+-- On LEQ shift to state 34
+-- On GT shift to state 36
+-- On GEQ shift to state 38
+-- On EQ shift to state 40
+-- On DIV shift to state 28
+-- On AND shift to state 30
+## Reductions:
+-- On SUB R_SQ_BRK R_PAR R_CUR_BRK OR L_CUR_BRK EOF COMMA ADD
+--   reduce production expression -> expression SUB expression
+
+State 22:
+## Known stack suffix:
+## expression NEQ
+## LR(1) items:
+expression -> expression NEQ . expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+## Transitions:
+-- On VAR shift to state 2
+-- On SUB shift to state 11
+-- On NOT shift to state 12
+-- On L_PAR shift to state 13
+-- On INT shift to state 14
+-- On ID shift to state 15
+-- On FLOAT shift to state 17
+-- On BOOL shift to state 18
+-- On expression shift to state 23
+## Reductions:
+
+State 23:
+## Known stack suffix:
+## expression NEQ expression
+## LR(1) items:
+expression -> expression . ADD expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . SUB expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . MUL expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . DIV expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . MOD expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . AND expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . OR expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . EQ expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . NEQ expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression NEQ expression . [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . LT expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . GT expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . LEQ expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . GEQ expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+## Transitions:
+-- On MUL shift to state 24
+-- On MOD shift to state 26
+-- On DIV shift to state 28
+-- On AND shift to state 30
+## Reductions:
+-- On SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ L_CUR_BRK LT LEQ GT GEQ EQ EOF COMMA ADD
+--   reduce production expression -> expression NEQ expression
+
+State 24:
+## Known stack suffix:
+## expression MUL
+## LR(1) items:
+expression -> expression MUL . expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+## Transitions:
+-- On VAR shift to state 2
+-- On SUB shift to state 11
+-- On NOT shift to state 12
+-- On L_PAR shift to state 13
+-- On INT shift to state 14
+-- On ID shift to state 15
+-- On FLOAT shift to state 17
+-- On BOOL shift to state 18
+-- On expression shift to state 25
+## Reductions:
+
+State 25:
+## Known stack suffix:
+## expression MUL expression
+## LR(1) items:
+expression -> expression . ADD expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . SUB expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . MUL expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression MUL expression . [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . DIV expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . MOD expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . AND expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . OR expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . EQ expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . NEQ expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . LT expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . GT expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . LEQ expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . GEQ expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+## Transitions:
+## Reductions:
+-- On SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD
+--   reduce production expression -> expression MUL expression
+
+State 26:
+## Known stack suffix:
+## expression MOD
+## LR(1) items:
+expression -> expression MOD . expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+## Transitions:
+-- On VAR shift to state 2
+-- On SUB shift to state 11
+-- On NOT shift to state 12
+-- On L_PAR shift to state 13
+-- On INT shift to state 14
+-- On ID shift to state 15
+-- On FLOAT shift to state 17
+-- On BOOL shift to state 18
+-- On expression shift to state 27
+## Reductions:
+
+State 27:
+## Known stack suffix:
+## expression MOD expression
+## LR(1) items:
+expression -> expression . ADD expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . SUB expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . MUL expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . DIV expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . MOD expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression MOD expression . [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . AND expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . OR expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . EQ expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . NEQ expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . LT expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . GT expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . LEQ expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . GEQ expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+## Transitions:
+## Reductions:
+-- On SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD
+--   reduce production expression -> expression MOD expression
+
+State 28:
+## Known stack suffix:
+## expression DIV
+## LR(1) items:
+expression -> expression DIV . expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+## Transitions:
+-- On VAR shift to state 2
+-- On SUB shift to state 11
+-- On NOT shift to state 12
+-- On L_PAR shift to state 13
+-- On INT shift to state 14
+-- On ID shift to state 15
+-- On FLOAT shift to state 17
+-- On BOOL shift to state 18
+-- On expression shift to state 29
+## Reductions:
+
+State 29:
+## Known stack suffix:
+## expression DIV expression
+## LR(1) items:
+expression -> expression . ADD expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . SUB expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . MUL expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . DIV expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression DIV expression . [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . MOD expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . AND expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . OR expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . EQ expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . NEQ expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . LT expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . GT expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . LEQ expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . GEQ expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+## Transitions:
+## Reductions:
+-- On SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD
+--   reduce production expression -> expression DIV expression
+
+State 30:
+## Known stack suffix:
+## expression AND
+## LR(1) items:
+expression -> expression AND . expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+## Transitions:
+-- On VAR shift to state 2
+-- On SUB shift to state 11
+-- On NOT shift to state 12
+-- On L_PAR shift to state 13
+-- On INT shift to state 14
+-- On ID shift to state 15
+-- On FLOAT shift to state 17
+-- On BOOL shift to state 18
+-- On expression shift to state 31
+## Reductions:
+
+State 31:
+## Known stack suffix:
+## expression AND expression
+## LR(1) items:
+expression -> expression . ADD expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . SUB expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . MUL expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . DIV expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . MOD expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . AND expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression AND expression . [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . OR expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . EQ expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . NEQ expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . LT expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . GT expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . LEQ expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . GEQ expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+## Transitions:
+## Reductions:
+-- On SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD
+--   reduce production expression -> expression AND expression
+
+State 32:
+## Known stack suffix:
+## expression LT
+## LR(1) items:
+expression -> expression LT . expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+## Transitions:
+-- On VAR shift to state 2
+-- On SUB shift to state 11
+-- On NOT shift to state 12
+-- On L_PAR shift to state 13
+-- On INT shift to state 14
+-- On ID shift to state 15
+-- On FLOAT shift to state 17
+-- On BOOL shift to state 18
+-- On expression shift to state 33
+## Reductions:
+
+State 33:
+## Known stack suffix:
+## expression LT expression
+## LR(1) items:
+expression -> expression . ADD expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . SUB expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . MUL expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . DIV expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . MOD expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . AND expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . OR expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . EQ expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . NEQ expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . LT expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression LT expression . [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . GT expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . LEQ expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . GEQ expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+## Transitions:
+-- On MUL shift to state 24
+-- On MOD shift to state 26
+-- On DIV shift to state 28
+-- On AND shift to state 30
+## Reductions:
+-- On SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ L_CUR_BRK LT LEQ GT GEQ EQ EOF COMMA ADD
+--   reduce production expression -> expression LT expression
+
+State 34:
+## Known stack suffix:
+## expression LEQ
+## LR(1) items:
+expression -> expression LEQ . expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+## Transitions:
+-- On VAR shift to state 2
+-- On SUB shift to state 11
+-- On NOT shift to state 12
+-- On L_PAR shift to state 13
+-- On INT shift to state 14
+-- On ID shift to state 15
+-- On FLOAT shift to state 17
+-- On BOOL shift to state 18
+-- On expression shift to state 35
+## Reductions:
+
+State 35:
+## Known stack suffix:
+## expression LEQ expression
+## LR(1) items:
+expression -> expression . ADD expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . SUB expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . MUL expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . DIV expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . MOD expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . AND expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . OR expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . EQ expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . NEQ expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . LT expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . GT expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . LEQ expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression LEQ expression . [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . GEQ expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+## Transitions:
+-- On MUL shift to state 24
+-- On MOD shift to state 26
+-- On DIV shift to state 28
+-- On AND shift to state 30
+## Reductions:
+-- On SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ L_CUR_BRK LT LEQ GT GEQ EQ EOF COMMA ADD
+--   reduce production expression -> expression LEQ expression
+
+State 36:
+## Known stack suffix:
+## expression GT
+## LR(1) items:
+expression -> expression GT . expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+## Transitions:
+-- On VAR shift to state 2
+-- On SUB shift to state 11
+-- On NOT shift to state 12
+-- On L_PAR shift to state 13
+-- On INT shift to state 14
+-- On ID shift to state 15
+-- On FLOAT shift to state 17
+-- On BOOL shift to state 18
+-- On expression shift to state 37
+## Reductions:
+
+State 37:
+## Known stack suffix:
+## expression GT expression
+## LR(1) items:
+expression -> expression . ADD expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . SUB expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . MUL expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . DIV expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . MOD expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . AND expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . OR expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . EQ expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . NEQ expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . LT expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . GT expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression GT expression . [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . LEQ expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . GEQ expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+## Transitions:
+-- On MUL shift to state 24
+-- On MOD shift to state 26
+-- On DIV shift to state 28
+-- On AND shift to state 30
+## Reductions:
+-- On SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ L_CUR_BRK LT LEQ GT GEQ EQ EOF COMMA ADD
+--   reduce production expression -> expression GT expression
+
+State 38:
+## Known stack suffix:
+## expression GEQ
+## LR(1) items:
+expression -> expression GEQ . expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+## Transitions:
+-- On VAR shift to state 2
+-- On SUB shift to state 11
+-- On NOT shift to state 12
+-- On L_PAR shift to state 13
+-- On INT shift to state 14
+-- On ID shift to state 15
+-- On FLOAT shift to state 17
+-- On BOOL shift to state 18
+-- On expression shift to state 39
+## Reductions:
+
+State 39:
+## Known stack suffix:
+## expression GEQ expression
+## LR(1) items:
+expression -> expression . ADD expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . SUB expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . MUL expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . DIV expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . MOD expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . AND expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . OR expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . EQ expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . NEQ expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . LT expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . GT expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . LEQ expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . GEQ expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression GEQ expression . [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+## Transitions:
+-- On MUL shift to state 24
+-- On MOD shift to state 26
+-- On DIV shift to state 28
+-- On AND shift to state 30
+## Reductions:
+-- On SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ L_CUR_BRK LT LEQ GT GEQ EQ EOF COMMA ADD
+--   reduce production expression -> expression GEQ expression
+
+State 40:
+## Known stack suffix:
+## expression EQ
+## LR(1) items:
+expression -> expression EQ . expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+## Transitions:
+-- On VAR shift to state 2
+-- On SUB shift to state 11
+-- On NOT shift to state 12
+-- On L_PAR shift to state 13
+-- On INT shift to state 14
+-- On ID shift to state 15
+-- On FLOAT shift to state 17
+-- On BOOL shift to state 18
+-- On expression shift to state 41
+## Reductions:
+
+State 41:
+## Known stack suffix:
+## expression EQ expression
+## LR(1) items:
+expression -> expression . ADD expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . SUB expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . MUL expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . DIV expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . MOD expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . AND expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . OR expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . EQ expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression EQ expression . [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . NEQ expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . LT expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . GT expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . LEQ expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . GEQ expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+## Transitions:
+-- On MUL shift to state 24
+-- On MOD shift to state 26
+-- On DIV shift to state 28
+-- On AND shift to state 30
+## Reductions:
+-- On SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ L_CUR_BRK LT LEQ GT GEQ EQ EOF COMMA ADD
+--   reduce production expression -> expression EQ expression
+
+State 42:
+## Known stack suffix:
+## ID L_SQ_BRK expression R_SQ_BRK
+## LR(1) items:
+expression -> ID L_SQ_BRK expression R_SQ_BRK . [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+## Transitions:
+## Reductions:
+-- On SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD
+--   reduce production expression -> ID L_SQ_BRK expression R_SQ_BRK
+
+State 43:
+## Known stack suffix:
+## expression OR
+## LR(1) items:
+expression -> expression OR . expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+## Transitions:
+-- On VAR shift to state 2
+-- On SUB shift to state 11
+-- On NOT shift to state 12
+-- On L_PAR shift to state 13
+-- On INT shift to state 14
+-- On ID shift to state 15
+-- On FLOAT shift to state 17
+-- On BOOL shift to state 18
+-- On expression shift to state 44
+## Reductions:
+
+State 44:
+## Known stack suffix:
+## expression OR expression
+## LR(1) items:
+expression -> expression . ADD expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . SUB expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . MUL expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . DIV expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . MOD expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . AND expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . OR expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression OR expression . [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . EQ expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . NEQ expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . LT expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . GT expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . LEQ expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . GEQ expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+## Transitions:
+-- On NEQ shift to state 22
+-- On MUL shift to state 24
+-- On MOD shift to state 26
+-- On LT shift to state 32
+-- On LEQ shift to state 34
+-- On GT shift to state 36
+-- On GEQ shift to state 38
+-- On EQ shift to state 40
+-- On DIV shift to state 28
+-- On AND shift to state 30
+## Reductions:
+-- On SUB R_SQ_BRK R_PAR R_CUR_BRK OR L_CUR_BRK EOF COMMA ADD
+--   reduce production expression -> expression OR expression
+
+State 45:
+## Known stack suffix:
+## expression ADD
+## LR(1) items:
+expression -> expression ADD . expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+## Transitions:
+-- On VAR shift to state 2
+-- On SUB shift to state 11
+-- On NOT shift to state 12
+-- On L_PAR shift to state 13
+-- On INT shift to state 14
+-- On ID shift to state 15
+-- On FLOAT shift to state 17
+-- On BOOL shift to state 18
+-- On expression shift to state 46
+## Reductions:
+
+State 46:
+## Known stack suffix:
+## expression ADD expression
+## LR(1) items:
+expression -> expression . ADD expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression ADD expression . [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . SUB expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . MUL expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . DIV expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . MOD expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . AND expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . OR expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . EQ expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . NEQ expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . LT expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . GT expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . LEQ expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . GEQ expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+## Transitions:
+-- On NEQ shift to state 22
+-- On MUL shift to state 24
+-- On MOD shift to state 26
+-- On LT shift to state 32
+-- On LEQ shift to state 34
+-- On GT shift to state 36
+-- On GEQ shift to state 38
+-- On EQ shift to state 40
+-- On DIV shift to state 28
+-- On AND shift to state 30
+## Reductions:
+-- On SUB R_SQ_BRK R_PAR R_CUR_BRK OR L_CUR_BRK EOF COMMA ADD
+--   reduce production expression -> expression ADD expression
+
+State 47:
+## Known stack suffix:
+## ID L_PAR
+## LR(1) items:
+expression -> ID L_PAR . expression COMMA expression R_PAR [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+## Transitions:
+-- On VAR shift to state 2
+-- On SUB shift to state 11
+-- On NOT shift to state 12
+-- On L_PAR shift to state 13
+-- On INT shift to state 14
+-- On ID shift to state 15
+-- On FLOAT shift to state 17
+-- On BOOL shift to state 18
+-- On expression shift to state 48
+## Reductions:
+
+State 48:
+## Known stack suffix:
+## ID L_PAR expression
+## LR(1) items:
+expression -> expression . ADD expression [ SUB OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV COMMA AND ADD ]
+expression -> expression . SUB expression [ SUB OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV COMMA AND ADD ]
+expression -> expression . MUL expression [ SUB OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV COMMA AND ADD ]
+expression -> expression . DIV expression [ SUB OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV COMMA AND ADD ]
+expression -> expression . MOD expression [ SUB OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV COMMA AND ADD ]
+expression -> expression . AND expression [ SUB OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV COMMA AND ADD ]
+expression -> expression . OR expression [ SUB OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV COMMA AND ADD ]
+expression -> expression . EQ expression [ SUB OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV COMMA AND ADD ]
+expression -> expression . NEQ expression [ SUB OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV COMMA AND ADD ]
+expression -> expression . LT expression [ SUB OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV COMMA AND ADD ]
+expression -> expression . GT expression [ SUB OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV COMMA AND ADD ]
+expression -> expression . LEQ expression [ SUB OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV COMMA AND ADD ]
+expression -> expression . GEQ expression [ SUB OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV COMMA AND ADD ]
+expression -> ID L_PAR expression . COMMA expression R_PAR [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+## Transitions:
+-- On SUB shift to state 20
+-- On OR shift to state 43
+-- On NEQ shift to state 22
+-- On MUL shift to state 24
+-- On MOD shift to state 26
+-- On LT shift to state 32
+-- On LEQ shift to state 34
+-- On GT shift to state 36
+-- On GEQ shift to state 38
+-- On EQ shift to state 40
+-- On DIV shift to state 28
+-- On COMMA shift to state 49
+-- On AND shift to state 30
+-- On ADD shift to state 45
+## Reductions:
+
+State 49:
+## Known stack suffix:
+## ID L_PAR expression COMMA
+## LR(1) items:
+expression -> ID L_PAR expression COMMA . expression R_PAR [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+## Transitions:
+-- On VAR shift to state 2
+-- On SUB shift to state 11
+-- On NOT shift to state 12
+-- On L_PAR shift to state 13
+-- On INT shift to state 14
+-- On ID shift to state 15
+-- On FLOAT shift to state 17
+-- On BOOL shift to state 18
+-- On expression shift to state 50
+## Reductions:
+
+State 50:
+## Known stack suffix:
+## ID L_PAR expression COMMA expression
+## LR(1) items:
+expression -> expression . ADD expression [ SUB R_PAR OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . SUB expression [ SUB R_PAR OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . MUL expression [ SUB R_PAR OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . DIV expression [ SUB R_PAR OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . MOD expression [ SUB R_PAR OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . AND expression [ SUB R_PAR OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . OR expression [ SUB R_PAR OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . EQ expression [ SUB R_PAR OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . NEQ expression [ SUB R_PAR OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . LT expression [ SUB R_PAR OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . GT expression [ SUB R_PAR OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . LEQ expression [ SUB R_PAR OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . GEQ expression [ SUB R_PAR OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> ID L_PAR expression COMMA expression . R_PAR [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+## Transitions:
+-- On SUB shift to state 20
+-- On R_PAR shift to state 51
+-- On OR shift to state 43
+-- On NEQ shift to state 22
+-- On MUL shift to state 24
+-- On MOD shift to state 26
+-- On LT shift to state 32
+-- On LEQ shift to state 34
+-- On GT shift to state 36
+-- On GEQ shift to state 38
+-- On EQ shift to state 40
+-- On DIV shift to state 28
+-- On AND shift to state 30
+-- On ADD shift to state 45
+## Reductions:
+
+State 51:
+## Known stack suffix:
+## ID L_PAR expression COMMA expression R_PAR
+## LR(1) items:
+expression -> ID L_PAR expression COMMA expression R_PAR . [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+## Transitions:
+## Reductions:
+-- On SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD
+--   reduce production expression -> ID L_PAR expression COMMA expression R_PAR
+
+State 52:
+## Known stack suffix:
+## ID DOT
+## LR(1) items:
+expression -> ID DOT . SIZE [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+## Transitions:
+-- On SIZE shift to state 53
+## Reductions:
+
+State 53:
+## Known stack suffix:
+## ID DOT SIZE
+## LR(1) items:
+expression -> ID DOT SIZE . [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+## Transitions:
+## Reductions:
+-- On SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD
+--   reduce production expression -> ID DOT SIZE
+
+State 54:
+## Known stack suffix:
+## L_PAR expression
+## LR(1) items:
+expression -> L_PAR expression . R_PAR [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . ADD expression [ SUB R_PAR OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . SUB expression [ SUB R_PAR OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . MUL expression [ SUB R_PAR OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . DIV expression [ SUB R_PAR OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . MOD expression [ SUB R_PAR OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . AND expression [ SUB R_PAR OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . OR expression [ SUB R_PAR OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . EQ expression [ SUB R_PAR OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . NEQ expression [ SUB R_PAR OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . LT expression [ SUB R_PAR OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . GT expression [ SUB R_PAR OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . LEQ expression [ SUB R_PAR OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . GEQ expression [ SUB R_PAR OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+## Transitions:
+-- On SUB shift to state 20
+-- On R_PAR shift to state 55
+-- On OR shift to state 43
+-- On NEQ shift to state 22
+-- On MUL shift to state 24
+-- On MOD shift to state 26
+-- On LT shift to state 32
+-- On LEQ shift to state 34
+-- On GT shift to state 36
+-- On GEQ shift to state 38
+-- On EQ shift to state 40
+-- On DIV shift to state 28
+-- On AND shift to state 30
+-- On ADD shift to state 45
+## Reductions:
+
+State 55:
+## Known stack suffix:
+## L_PAR expression R_PAR
+## LR(1) items:
+expression -> L_PAR expression R_PAR . [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+## Transitions:
+## Reductions:
+-- On SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD
+--   reduce production expression -> L_PAR expression R_PAR
+
+State 56:
+## Known stack suffix:
+## NOT expression
+## LR(1) items:
+expression -> expression . ADD expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . SUB expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . MUL expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . DIV expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . MOD expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . AND expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . OR expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . EQ expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . NEQ expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . LT expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . GT expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . LEQ expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . GEQ expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> NOT expression . [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+## Transitions:
+## Reductions:
+-- On SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD
+--   reduce production expression -> NOT expression
+
+State 57:
+## Known stack suffix:
+## SUB expression
+## LR(1) items:
+expression -> expression . ADD expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . SUB expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . MUL expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . DIV expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . MOD expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . AND expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . OR expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . EQ expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . NEQ expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . LT expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . GT expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . LEQ expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> expression . GEQ expression [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+expression -> SUB expression . [ SUB R_SQ_BRK R_PAR R_CUR_BRK OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ EOF DIV COMMA AND ADD ]
+## Transitions:
+-- On NEQ shift to state 22
+-- On MUL shift to state 24
+-- On MOD shift to state 26
+-- On LT shift to state 32
+-- On LEQ shift to state 34
+-- On GT shift to state 36
+-- On GEQ shift to state 38
+-- On EQ shift to state 40
+-- On DIV shift to state 28
+-- On AND shift to state 30
+## Reductions:
+-- On SUB R_SQ_BRK R_PAR R_CUR_BRK OR L_CUR_BRK EOF COMMA ADD
+--   reduce production expression -> SUB expression
+
+State 58:
+## Known stack suffix:
+## WHILE expression
+## LR(1) items:
+expression -> expression . ADD expression [ SUB OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . SUB expression [ SUB OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . MUL expression [ SUB OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . DIV expression [ SUB OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . MOD expression [ SUB OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . AND expression [ SUB OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . OR expression [ SUB OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . EQ expression [ SUB OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . NEQ expression [ SUB OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . LT expression [ SUB OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . GT expression [ SUB OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . LEQ expression [ SUB OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . GEQ expression [ SUB OR NEQ MUL MOD L_CUR_BRK LT LEQ GT GEQ EQ DIV AND ADD ]
+instruction -> WHILE expression . L_CUR_BRK instruction R_CUR_BRK [ R_CUR_BRK EOF ]
+## Transitions:
+-- On SUB shift to state 20
+-- On OR shift to state 43
+-- On NEQ shift to state 22
+-- On MUL shift to state 24
+-- On MOD shift to state 26
+-- On L_CUR_BRK shift to state 59
+-- On LT shift to state 32
+-- On LEQ shift to state 34
+-- On GT shift to state 36
+-- On GEQ shift to state 38
+-- On EQ shift to state 40
+-- On DIV shift to state 28
+-- On AND shift to state 30
+-- On ADD shift to state 45
+## Reductions:
+
+State 59:
+## Known stack suffix:
+## WHILE expression L_CUR_BRK
+## LR(1) items:
+instruction -> WHILE expression L_CUR_BRK . instruction R_CUR_BRK [ R_CUR_BRK EOF ]
+## Transitions:
+-- On WHILE shift to state 1
+-- On SEMICOLON shift to state 60
+-- On RETURN shift to state 61
+-- On PRINT shift to state 63
+-- On NULL_TYP shift to state 66
+-- On INT_TYP shift to state 71
+-- On IF shift to state 76
+-- On ID shift to state 82
+-- On FLOAT_TYP shift to state 90
+-- On BOOL_TYP shift to state 95
+-- On instruction shift to state 106
+## Reductions:
+
+State 60:
+## Known stack suffix:
+## SEMICOLON
+## LR(1) items:
+instruction -> SEMICOLON . [ R_CUR_BRK EOF ]
+## Transitions:
+## Reductions:
+-- On R_CUR_BRK EOF
+--   reduce production instruction -> SEMICOLON
+
+State 61:
+## Known stack suffix:
+## RETURN
+## LR(1) items:
+instruction -> RETURN . expression [ R_CUR_BRK EOF ]
+## Transitions:
+-- On VAR shift to state 2
+-- On SUB shift to state 11
+-- On NOT shift to state 12
+-- On L_PAR shift to state 13
+-- On INT shift to state 14
+-- On ID shift to state 15
+-- On FLOAT shift to state 17
+-- On BOOL shift to state 18
+-- On expression shift to state 62
+## Reductions:
+
+State 62:
+## Known stack suffix:
+## RETURN expression
+## LR(1) items:
+expression -> expression . ADD expression [ SUB R_CUR_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ EOF DIV AND ADD ]
+expression -> expression . SUB expression [ SUB R_CUR_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ EOF DIV AND ADD ]
+expression -> expression . MUL expression [ SUB R_CUR_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ EOF DIV AND ADD ]
+expression -> expression . DIV expression [ SUB R_CUR_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ EOF DIV AND ADD ]
+expression -> expression . MOD expression [ SUB R_CUR_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ EOF DIV AND ADD ]
+expression -> expression . AND expression [ SUB R_CUR_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ EOF DIV AND ADD ]
+expression -> expression . OR expression [ SUB R_CUR_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ EOF DIV AND ADD ]
+expression -> expression . EQ expression [ SUB R_CUR_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ EOF DIV AND ADD ]
+expression -> expression . NEQ expression [ SUB R_CUR_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ EOF DIV AND ADD ]
+expression -> expression . LT expression [ SUB R_CUR_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ EOF DIV AND ADD ]
+expression -> expression . GT expression [ SUB R_CUR_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ EOF DIV AND ADD ]
+expression -> expression . LEQ expression [ SUB R_CUR_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ EOF DIV AND ADD ]
+expression -> expression . GEQ expression [ SUB R_CUR_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ EOF DIV AND ADD ]
+instruction -> RETURN expression . [ R_CUR_BRK EOF ]
+## Transitions:
+-- On SUB shift to state 20
+-- On OR shift to state 43
+-- On NEQ shift to state 22
+-- On MUL shift to state 24
+-- On MOD shift to state 26
+-- On LT shift to state 32
+-- On LEQ shift to state 34
+-- On GT shift to state 36
+-- On GEQ shift to state 38
+-- On EQ shift to state 40
+-- On DIV shift to state 28
+-- On AND shift to state 30
+-- On ADD shift to state 45
+## Reductions:
+-- On R_CUR_BRK EOF
+--   reduce production instruction -> RETURN expression
+
+State 63:
+## Known stack suffix:
+## PRINT
+## LR(1) items:
+instruction -> PRINT . STRING [ R_CUR_BRK EOF ]
+instruction -> PRINT . expression [ R_CUR_BRK EOF ]
+## Transitions:
+-- On VAR shift to state 2
+-- On SUB shift to state 11
+-- On STRING shift to state 64
+-- On NOT shift to state 12
+-- On L_PAR shift to state 13
+-- On INT shift to state 14
+-- On ID shift to state 15
+-- On FLOAT shift to state 17
+-- On BOOL shift to state 18
+-- On expression shift to state 65
+## Reductions:
+
+State 64:
+## Known stack suffix:
+## PRINT STRING
+## LR(1) items:
+instruction -> PRINT STRING . [ R_CUR_BRK EOF ]
+## Transitions:
+## Reductions:
+-- On R_CUR_BRK EOF
+--   reduce production instruction -> PRINT STRING
+
+State 65:
+## Known stack suffix:
+## PRINT expression
+## LR(1) items:
+expression -> expression . ADD expression [ SUB R_CUR_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ EOF DIV AND ADD ]
+expression -> expression . SUB expression [ SUB R_CUR_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ EOF DIV AND ADD ]
+expression -> expression . MUL expression [ SUB R_CUR_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ EOF DIV AND ADD ]
+expression -> expression . DIV expression [ SUB R_CUR_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ EOF DIV AND ADD ]
+expression -> expression . MOD expression [ SUB R_CUR_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ EOF DIV AND ADD ]
+expression -> expression . AND expression [ SUB R_CUR_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ EOF DIV AND ADD ]
+expression -> expression . OR expression [ SUB R_CUR_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ EOF DIV AND ADD ]
+expression -> expression . EQ expression [ SUB R_CUR_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ EOF DIV AND ADD ]
+expression -> expression . NEQ expression [ SUB R_CUR_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ EOF DIV AND ADD ]
+expression -> expression . LT expression [ SUB R_CUR_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ EOF DIV AND ADD ]
+expression -> expression . GT expression [ SUB R_CUR_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ EOF DIV AND ADD ]
+expression -> expression . LEQ expression [ SUB R_CUR_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ EOF DIV AND ADD ]
+expression -> expression . GEQ expression [ SUB R_CUR_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ EOF DIV AND ADD ]
+instruction -> PRINT expression . [ R_CUR_BRK EOF ]
+## Transitions:
+-- On SUB shift to state 20
+-- On OR shift to state 43
+-- On NEQ shift to state 22
+-- On MUL shift to state 24
+-- On MOD shift to state 26
+-- On LT shift to state 32
+-- On LEQ shift to state 34
+-- On GT shift to state 36
+-- On GEQ shift to state 38
+-- On EQ shift to state 40
+-- On DIV shift to state 28
+-- On AND shift to state 30
+-- On ADD shift to state 45
+## Reductions:
+-- On R_CUR_BRK EOF
+--   reduce production instruction -> PRINT expression
+
+State 66:
+## Known stack suffix:
+## NULL_TYP
+## LR(1) items:
+instruction -> NULL_TYP . ID L_SQ_BRK expression R_SQ_BRK [ R_CUR_BRK EOF ]
+instruction -> NULL_TYP . ID [ R_CUR_BRK EOF ]
+## Transitions:
+-- On ID shift to state 67
+## Reductions:
+
+State 67:
+## Known stack suffix:
+## NULL_TYP ID
+## LR(1) items:
+instruction -> NULL_TYP ID . L_SQ_BRK expression R_SQ_BRK [ R_CUR_BRK EOF ]
+instruction -> NULL_TYP ID . [ R_CUR_BRK EOF ]
+## Transitions:
+-- On L_SQ_BRK shift to state 68
+## Reductions:
+-- On R_CUR_BRK EOF
+--   reduce production instruction -> NULL_TYP ID
+
+State 68:
+## Known stack suffix:
+## NULL_TYP ID L_SQ_BRK
+## LR(1) items:
+instruction -> NULL_TYP ID L_SQ_BRK . expression R_SQ_BRK [ R_CUR_BRK EOF ]
+## Transitions:
+-- On VAR shift to state 2
+-- On SUB shift to state 11
+-- On NOT shift to state 12
+-- On L_PAR shift to state 13
+-- On INT shift to state 14
+-- On ID shift to state 15
+-- On FLOAT shift to state 17
+-- On BOOL shift to state 18
+-- On expression shift to state 69
+## Reductions:
+
+State 69:
+## Known stack suffix:
+## NULL_TYP ID L_SQ_BRK expression
+## LR(1) items:
+expression -> expression . ADD expression [ SUB R_SQ_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . SUB expression [ SUB R_SQ_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . MUL expression [ SUB R_SQ_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . DIV expression [ SUB R_SQ_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . MOD expression [ SUB R_SQ_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . AND expression [ SUB R_SQ_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . OR expression [ SUB R_SQ_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . EQ expression [ SUB R_SQ_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . NEQ expression [ SUB R_SQ_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . LT expression [ SUB R_SQ_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . GT expression [ SUB R_SQ_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . LEQ expression [ SUB R_SQ_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . GEQ expression [ SUB R_SQ_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+instruction -> NULL_TYP ID L_SQ_BRK expression . R_SQ_BRK [ R_CUR_BRK EOF ]
+## Transitions:
+-- On SUB shift to state 20
+-- On R_SQ_BRK shift to state 70
+-- On OR shift to state 43
+-- On NEQ shift to state 22
+-- On MUL shift to state 24
+-- On MOD shift to state 26
+-- On LT shift to state 32
+-- On LEQ shift to state 34
+-- On GT shift to state 36
+-- On GEQ shift to state 38
+-- On EQ shift to state 40
+-- On DIV shift to state 28
+-- On AND shift to state 30
+-- On ADD shift to state 45
+## Reductions:
+
+State 70:
+## Known stack suffix:
+## NULL_TYP ID L_SQ_BRK expression R_SQ_BRK
+## LR(1) items:
+instruction -> NULL_TYP ID L_SQ_BRK expression R_SQ_BRK . [ R_CUR_BRK EOF ]
+## Transitions:
+## Reductions:
+-- On R_CUR_BRK EOF
+--   reduce production instruction -> NULL_TYP ID L_SQ_BRK expression R_SQ_BRK
+
+State 71:
+## Known stack suffix:
+## INT_TYP
+## LR(1) items:
+instruction -> INT_TYP . ID L_SQ_BRK expression R_SQ_BRK [ R_CUR_BRK EOF ]
+instruction -> INT_TYP . ID [ R_CUR_BRK EOF ]
+## Transitions:
+-- On ID shift to state 72
+## Reductions:
+
+State 72:
+## Known stack suffix:
+## INT_TYP ID
+## LR(1) items:
+instruction -> INT_TYP ID . L_SQ_BRK expression R_SQ_BRK [ R_CUR_BRK EOF ]
+instruction -> INT_TYP ID . [ R_CUR_BRK EOF ]
+## Transitions:
+-- On L_SQ_BRK shift to state 73
+## Reductions:
+-- On R_CUR_BRK EOF
+--   reduce production instruction -> INT_TYP ID
+
+State 73:
+## Known stack suffix:
+## INT_TYP ID L_SQ_BRK
+## LR(1) items:
+instruction -> INT_TYP ID L_SQ_BRK . expression R_SQ_BRK [ R_CUR_BRK EOF ]
+## Transitions:
+-- On VAR shift to state 2
+-- On SUB shift to state 11
+-- On NOT shift to state 12
+-- On L_PAR shift to state 13
+-- On INT shift to state 14
+-- On ID shift to state 15
+-- On FLOAT shift to state 17
+-- On BOOL shift to state 18
+-- On expression shift to state 74
+## Reductions:
+
+State 74:
+## Known stack suffix:
+## INT_TYP ID L_SQ_BRK expression
+## LR(1) items:
+expression -> expression . ADD expression [ SUB R_SQ_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . SUB expression [ SUB R_SQ_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . MUL expression [ SUB R_SQ_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . DIV expression [ SUB R_SQ_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . MOD expression [ SUB R_SQ_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . AND expression [ SUB R_SQ_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . OR expression [ SUB R_SQ_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . EQ expression [ SUB R_SQ_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . NEQ expression [ SUB R_SQ_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . LT expression [ SUB R_SQ_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . GT expression [ SUB R_SQ_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . LEQ expression [ SUB R_SQ_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . GEQ expression [ SUB R_SQ_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+instruction -> INT_TYP ID L_SQ_BRK expression . R_SQ_BRK [ R_CUR_BRK EOF ]
+## Transitions:
+-- On SUB shift to state 20
+-- On R_SQ_BRK shift to state 75
+-- On OR shift to state 43
+-- On NEQ shift to state 22
+-- On MUL shift to state 24
+-- On MOD shift to state 26
+-- On LT shift to state 32
+-- On LEQ shift to state 34
+-- On GT shift to state 36
+-- On GEQ shift to state 38
+-- On EQ shift to state 40
+-- On DIV shift to state 28
+-- On AND shift to state 30
+-- On ADD shift to state 45
+## Reductions:
+
+State 75:
+## Known stack suffix:
+## INT_TYP ID L_SQ_BRK expression R_SQ_BRK
+## LR(1) items:
+instruction -> INT_TYP ID L_SQ_BRK expression R_SQ_BRK . [ R_CUR_BRK EOF ]
+## Transitions:
+## Reductions:
+-- On R_CUR_BRK EOF
+--   reduce production instruction -> INT_TYP ID L_SQ_BRK expression R_SQ_BRK
+
+State 76:
+## Known stack suffix:
+## IF
+## LR(1) items:
+instruction -> IF . L_PAR expression R_PAR THEN L_CUR_BRK instruction R_CUR_BRK ELSE L_CUR_BRK instruction R_CUR_BRK [ R_CUR_BRK EOF ]
+## Transitions:
+-- On L_PAR shift to state 77
+## Reductions:
+
+State 77:
+## Known stack suffix:
+## IF L_PAR
+## LR(1) items:
+instruction -> IF L_PAR . expression R_PAR THEN L_CUR_BRK instruction R_CUR_BRK ELSE L_CUR_BRK instruction R_CUR_BRK [ R_CUR_BRK EOF ]
+## Transitions:
+-- On VAR shift to state 2
+-- On SUB shift to state 11
+-- On NOT shift to state 12
+-- On L_PAR shift to state 13
+-- On INT shift to state 14
+-- On ID shift to state 15
+-- On FLOAT shift to state 17
+-- On BOOL shift to state 18
+-- On expression shift to state 78
+## Reductions:
+
+State 78:
+## Known stack suffix:
+## IF L_PAR expression
+## LR(1) items:
+expression -> expression . ADD expression [ SUB R_PAR OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . SUB expression [ SUB R_PAR OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . MUL expression [ SUB R_PAR OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . DIV expression [ SUB R_PAR OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . MOD expression [ SUB R_PAR OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . AND expression [ SUB R_PAR OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . OR expression [ SUB R_PAR OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . EQ expression [ SUB R_PAR OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . NEQ expression [ SUB R_PAR OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . LT expression [ SUB R_PAR OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . GT expression [ SUB R_PAR OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . LEQ expression [ SUB R_PAR OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . GEQ expression [ SUB R_PAR OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+instruction -> IF L_PAR expression . R_PAR THEN L_CUR_BRK instruction R_CUR_BRK ELSE L_CUR_BRK instruction R_CUR_BRK [ R_CUR_BRK EOF ]
+## Transitions:
+-- On SUB shift to state 20
+-- On R_PAR shift to state 79
+-- On OR shift to state 43
+-- On NEQ shift to state 22
+-- On MUL shift to state 24
+-- On MOD shift to state 26
+-- On LT shift to state 32
+-- On LEQ shift to state 34
+-- On GT shift to state 36
+-- On GEQ shift to state 38
+-- On EQ shift to state 40
+-- On DIV shift to state 28
+-- On AND shift to state 30
+-- On ADD shift to state 45
+## Reductions:
+
+State 79:
+## Known stack suffix:
+## IF L_PAR expression R_PAR
+## LR(1) items:
+instruction -> IF L_PAR expression R_PAR . THEN L_CUR_BRK instruction R_CUR_BRK ELSE L_CUR_BRK instruction R_CUR_BRK [ R_CUR_BRK EOF ]
+## Transitions:
+-- On THEN shift to state 80
+## Reductions:
+
+State 80:
+## Known stack suffix:
+## IF L_PAR expression R_PAR THEN
+## LR(1) items:
+instruction -> IF L_PAR expression R_PAR THEN . L_CUR_BRK instruction R_CUR_BRK ELSE L_CUR_BRK instruction R_CUR_BRK [ R_CUR_BRK EOF ]
+## Transitions:
+-- On L_CUR_BRK shift to state 81
+## Reductions:
+
+State 81:
+## Known stack suffix:
+## IF L_PAR expression R_PAR THEN L_CUR_BRK
+## LR(1) items:
+instruction -> IF L_PAR expression R_PAR THEN L_CUR_BRK . instruction R_CUR_BRK ELSE L_CUR_BRK instruction R_CUR_BRK [ R_CUR_BRK EOF ]
+## Transitions:
+-- On WHILE shift to state 1
+-- On SEMICOLON shift to state 60
+-- On RETURN shift to state 61
+-- On PRINT shift to state 63
+-- On NULL_TYP shift to state 66
+-- On INT_TYP shift to state 71
+-- On IF shift to state 76
+-- On ID shift to state 82
+-- On FLOAT_TYP shift to state 90
+-- On BOOL_TYP shift to state 95
+-- On instruction shift to state 100
+## Reductions:
+
+State 82:
+## Known stack suffix:
+## ID
+## LR(1) items:
+instruction -> ID . ASSIGN expression [ R_CUR_BRK ]
+instruction -> ID . L_SQ_BRK expression R_SQ_BRK ASSIGN expression [ R_CUR_BRK ]
+## Transitions:
+-- On L_SQ_BRK shift to state 83
+-- On ASSIGN shift to state 88
+## Reductions:
+
+State 83:
+## Known stack suffix:
+## ID L_SQ_BRK
+## LR(1) items:
+instruction -> ID L_SQ_BRK . expression R_SQ_BRK ASSIGN expression [ R_CUR_BRK ]
+## Transitions:
+-- On VAR shift to state 2
+-- On SUB shift to state 11
+-- On NOT shift to state 12
+-- On L_PAR shift to state 13
+-- On INT shift to state 14
+-- On ID shift to state 15
+-- On FLOAT shift to state 17
+-- On BOOL shift to state 18
+-- On expression shift to state 84
+## Reductions:
+
+State 84:
+## Known stack suffix:
+## ID L_SQ_BRK expression
+## LR(1) items:
+expression -> expression . ADD expression [ SUB R_SQ_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . SUB expression [ SUB R_SQ_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . MUL expression [ SUB R_SQ_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . DIV expression [ SUB R_SQ_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . MOD expression [ SUB R_SQ_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . AND expression [ SUB R_SQ_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . OR expression [ SUB R_SQ_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . EQ expression [ SUB R_SQ_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . NEQ expression [ SUB R_SQ_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . LT expression [ SUB R_SQ_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . GT expression [ SUB R_SQ_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . LEQ expression [ SUB R_SQ_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . GEQ expression [ SUB R_SQ_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+instruction -> ID L_SQ_BRK expression . R_SQ_BRK ASSIGN expression [ R_CUR_BRK ]
+## Transitions:
+-- On SUB shift to state 20
+-- On R_SQ_BRK shift to state 85
+-- On OR shift to state 43
+-- On NEQ shift to state 22
+-- On MUL shift to state 24
+-- On MOD shift to state 26
+-- On LT shift to state 32
+-- On LEQ shift to state 34
+-- On GT shift to state 36
+-- On GEQ shift to state 38
+-- On EQ shift to state 40
+-- On DIV shift to state 28
+-- On AND shift to state 30
+-- On ADD shift to state 45
+## Reductions:
+
+State 85:
+## Known stack suffix:
+## ID L_SQ_BRK expression R_SQ_BRK
+## LR(1) items:
+instruction -> ID L_SQ_BRK expression R_SQ_BRK . ASSIGN expression [ R_CUR_BRK ]
+## Transitions:
+-- On ASSIGN shift to state 86
+## Reductions:
+
+State 86:
+## Known stack suffix:
+## ID L_SQ_BRK expression R_SQ_BRK ASSIGN
+## LR(1) items:
+instruction -> ID L_SQ_BRK expression R_SQ_BRK ASSIGN . expression [ R_CUR_BRK EOF ]
+## Transitions:
+-- On VAR shift to state 2
+-- On SUB shift to state 11
+-- On NOT shift to state 12
+-- On L_PAR shift to state 13
+-- On INT shift to state 14
+-- On ID shift to state 15
+-- On FLOAT shift to state 17
+-- On BOOL shift to state 18
+-- On expression shift to state 87
+## Reductions:
+
+State 87:
+## Known stack suffix:
+## ID L_SQ_BRK expression R_SQ_BRK ASSIGN expression
+## LR(1) items:
+expression -> expression . ADD expression [ SUB R_CUR_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ EOF DIV AND ADD ]
+expression -> expression . SUB expression [ SUB R_CUR_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ EOF DIV AND ADD ]
+expression -> expression . MUL expression [ SUB R_CUR_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ EOF DIV AND ADD ]
+expression -> expression . DIV expression [ SUB R_CUR_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ EOF DIV AND ADD ]
+expression -> expression . MOD expression [ SUB R_CUR_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ EOF DIV AND ADD ]
+expression -> expression . AND expression [ SUB R_CUR_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ EOF DIV AND ADD ]
+expression -> expression . OR expression [ SUB R_CUR_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ EOF DIV AND ADD ]
+expression -> expression . EQ expression [ SUB R_CUR_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ EOF DIV AND ADD ]
+expression -> expression . NEQ expression [ SUB R_CUR_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ EOF DIV AND ADD ]
+expression -> expression . LT expression [ SUB R_CUR_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ EOF DIV AND ADD ]
+expression -> expression . GT expression [ SUB R_CUR_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ EOF DIV AND ADD ]
+expression -> expression . LEQ expression [ SUB R_CUR_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ EOF DIV AND ADD ]
+expression -> expression . GEQ expression [ SUB R_CUR_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ EOF DIV AND ADD ]
+instruction -> ID L_SQ_BRK expression R_SQ_BRK ASSIGN expression . [ R_CUR_BRK EOF ]
+## Transitions:
+-- On SUB shift to state 20
+-- On OR shift to state 43
+-- On NEQ shift to state 22
+-- On MUL shift to state 24
+-- On MOD shift to state 26
+-- On LT shift to state 32
+-- On LEQ shift to state 34
+-- On GT shift to state 36
+-- On GEQ shift to state 38
+-- On EQ shift to state 40
+-- On DIV shift to state 28
+-- On AND shift to state 30
+-- On ADD shift to state 45
+## Reductions:
+-- On R_CUR_BRK EOF
+--   reduce production instruction -> ID L_SQ_BRK expression R_SQ_BRK ASSIGN expression
+
+State 88:
+## Known stack suffix:
+## ID ASSIGN
+## LR(1) items:
+instruction -> ID ASSIGN . expression [ R_CUR_BRK EOF ]
+## Transitions:
+-- On VAR shift to state 2
+-- On SUB shift to state 11
+-- On NOT shift to state 12
+-- On L_PAR shift to state 13
+-- On INT shift to state 14
+-- On ID shift to state 15
+-- On FLOAT shift to state 17
+-- On BOOL shift to state 18
+-- On expression shift to state 89
+## Reductions:
+
+State 89:
+## Known stack suffix:
+## ID ASSIGN expression
+## LR(1) items:
+expression -> expression . ADD expression [ SUB R_CUR_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ EOF DIV AND ADD ]
+expression -> expression . SUB expression [ SUB R_CUR_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ EOF DIV AND ADD ]
+expression -> expression . MUL expression [ SUB R_CUR_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ EOF DIV AND ADD ]
+expression -> expression . DIV expression [ SUB R_CUR_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ EOF DIV AND ADD ]
+expression -> expression . MOD expression [ SUB R_CUR_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ EOF DIV AND ADD ]
+expression -> expression . AND expression [ SUB R_CUR_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ EOF DIV AND ADD ]
+expression -> expression . OR expression [ SUB R_CUR_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ EOF DIV AND ADD ]
+expression -> expression . EQ expression [ SUB R_CUR_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ EOF DIV AND ADD ]
+expression -> expression . NEQ expression [ SUB R_CUR_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ EOF DIV AND ADD ]
+expression -> expression . LT expression [ SUB R_CUR_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ EOF DIV AND ADD ]
+expression -> expression . GT expression [ SUB R_CUR_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ EOF DIV AND ADD ]
+expression -> expression . LEQ expression [ SUB R_CUR_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ EOF DIV AND ADD ]
+expression -> expression . GEQ expression [ SUB R_CUR_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ EOF DIV AND ADD ]
+instruction -> ID ASSIGN expression . [ R_CUR_BRK EOF ]
+## Transitions:
+-- On SUB shift to state 20
+-- On OR shift to state 43
+-- On NEQ shift to state 22
+-- On MUL shift to state 24
+-- On MOD shift to state 26
+-- On LT shift to state 32
+-- On LEQ shift to state 34
+-- On GT shift to state 36
+-- On GEQ shift to state 38
+-- On EQ shift to state 40
+-- On DIV shift to state 28
+-- On AND shift to state 30
+-- On ADD shift to state 45
+## Reductions:
+-- On R_CUR_BRK EOF
+--   reduce production instruction -> ID ASSIGN expression
+
+State 90:
+## Known stack suffix:
+## FLOAT_TYP
+## LR(1) items:
+instruction -> FLOAT_TYP . ID L_SQ_BRK expression R_SQ_BRK [ R_CUR_BRK EOF ]
+instruction -> FLOAT_TYP . ID [ R_CUR_BRK EOF ]
+## Transitions:
+-- On ID shift to state 91
+## Reductions:
+
+State 91:
+## Known stack suffix:
+## FLOAT_TYP ID
+## LR(1) items:
+instruction -> FLOAT_TYP ID . L_SQ_BRK expression R_SQ_BRK [ R_CUR_BRK EOF ]
+instruction -> FLOAT_TYP ID . [ R_CUR_BRK EOF ]
+## Transitions:
+-- On L_SQ_BRK shift to state 92
+## Reductions:
+-- On R_CUR_BRK EOF
+--   reduce production instruction -> FLOAT_TYP ID
+
+State 92:
+## Known stack suffix:
+## FLOAT_TYP ID L_SQ_BRK
+## LR(1) items:
+instruction -> FLOAT_TYP ID L_SQ_BRK . expression R_SQ_BRK [ R_CUR_BRK EOF ]
+## Transitions:
+-- On VAR shift to state 2
+-- On SUB shift to state 11
+-- On NOT shift to state 12
+-- On L_PAR shift to state 13
+-- On INT shift to state 14
+-- On ID shift to state 15
+-- On FLOAT shift to state 17
+-- On BOOL shift to state 18
+-- On expression shift to state 93
+## Reductions:
+
+State 93:
+## Known stack suffix:
+## FLOAT_TYP ID L_SQ_BRK expression
+## LR(1) items:
+expression -> expression . ADD expression [ SUB R_SQ_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . SUB expression [ SUB R_SQ_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . MUL expression [ SUB R_SQ_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . DIV expression [ SUB R_SQ_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . MOD expression [ SUB R_SQ_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . AND expression [ SUB R_SQ_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . OR expression [ SUB R_SQ_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . EQ expression [ SUB R_SQ_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . NEQ expression [ SUB R_SQ_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . LT expression [ SUB R_SQ_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . GT expression [ SUB R_SQ_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . LEQ expression [ SUB R_SQ_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . GEQ expression [ SUB R_SQ_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+instruction -> FLOAT_TYP ID L_SQ_BRK expression . R_SQ_BRK [ R_CUR_BRK EOF ]
+## Transitions:
+-- On SUB shift to state 20
+-- On R_SQ_BRK shift to state 94
+-- On OR shift to state 43
+-- On NEQ shift to state 22
+-- On MUL shift to state 24
+-- On MOD shift to state 26
+-- On LT shift to state 32
+-- On LEQ shift to state 34
+-- On GT shift to state 36
+-- On GEQ shift to state 38
+-- On EQ shift to state 40
+-- On DIV shift to state 28
+-- On AND shift to state 30
+-- On ADD shift to state 45
+## Reductions:
+
+State 94:
+## Known stack suffix:
+## FLOAT_TYP ID L_SQ_BRK expression R_SQ_BRK
+## LR(1) items:
+instruction -> FLOAT_TYP ID L_SQ_BRK expression R_SQ_BRK . [ R_CUR_BRK EOF ]
+## Transitions:
+## Reductions:
+-- On R_CUR_BRK EOF
+--   reduce production instruction -> FLOAT_TYP ID L_SQ_BRK expression R_SQ_BRK
+
+State 95:
+## Known stack suffix:
+## BOOL_TYP
+## LR(1) items:
+instruction -> BOOL_TYP . ID L_SQ_BRK expression R_SQ_BRK [ R_CUR_BRK EOF ]
+instruction -> BOOL_TYP . ID [ R_CUR_BRK EOF ]
+## Transitions:
+-- On ID shift to state 96
+## Reductions:
+
+State 96:
+## Known stack suffix:
+## BOOL_TYP ID
+## LR(1) items:
+instruction -> BOOL_TYP ID . L_SQ_BRK expression R_SQ_BRK [ R_CUR_BRK EOF ]
+instruction -> BOOL_TYP ID . [ R_CUR_BRK EOF ]
+## Transitions:
+-- On L_SQ_BRK shift to state 97
+## Reductions:
+-- On R_CUR_BRK EOF
+--   reduce production instruction -> BOOL_TYP ID
+
+State 97:
+## Known stack suffix:
+## BOOL_TYP ID L_SQ_BRK
+## LR(1) items:
+instruction -> BOOL_TYP ID L_SQ_BRK . expression R_SQ_BRK [ R_CUR_BRK EOF ]
+## Transitions:
+-- On VAR shift to state 2
+-- On SUB shift to state 11
+-- On NOT shift to state 12
+-- On L_PAR shift to state 13
+-- On INT shift to state 14
+-- On ID shift to state 15
+-- On FLOAT shift to state 17
+-- On BOOL shift to state 18
+-- On expression shift to state 98
+## Reductions:
+
+State 98:
+## Known stack suffix:
+## BOOL_TYP ID L_SQ_BRK expression
+## LR(1) items:
+expression -> expression . ADD expression [ SUB R_SQ_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . SUB expression [ SUB R_SQ_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . MUL expression [ SUB R_SQ_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . DIV expression [ SUB R_SQ_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . MOD expression [ SUB R_SQ_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . AND expression [ SUB R_SQ_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . OR expression [ SUB R_SQ_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . EQ expression [ SUB R_SQ_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . NEQ expression [ SUB R_SQ_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . LT expression [ SUB R_SQ_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . GT expression [ SUB R_SQ_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . LEQ expression [ SUB R_SQ_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . GEQ expression [ SUB R_SQ_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+instruction -> BOOL_TYP ID L_SQ_BRK expression . R_SQ_BRK [ R_CUR_BRK EOF ]
+## Transitions:
+-- On SUB shift to state 20
+-- On R_SQ_BRK shift to state 99
+-- On OR shift to state 43
+-- On NEQ shift to state 22
+-- On MUL shift to state 24
+-- On MOD shift to state 26
+-- On LT shift to state 32
+-- On LEQ shift to state 34
+-- On GT shift to state 36
+-- On GEQ shift to state 38
+-- On EQ shift to state 40
+-- On DIV shift to state 28
+-- On AND shift to state 30
+-- On ADD shift to state 45
+## Reductions:
+
+State 99:
+## Known stack suffix:
+## BOOL_TYP ID L_SQ_BRK expression R_SQ_BRK
+## LR(1) items:
+instruction -> BOOL_TYP ID L_SQ_BRK expression R_SQ_BRK . [ R_CUR_BRK EOF ]
+## Transitions:
+## Reductions:
+-- On R_CUR_BRK EOF
+--   reduce production instruction -> BOOL_TYP ID L_SQ_BRK expression R_SQ_BRK
+
+State 100:
+## Known stack suffix:
+## IF L_PAR expression R_PAR THEN L_CUR_BRK instruction
+## LR(1) items:
+instruction -> IF L_PAR expression R_PAR THEN L_CUR_BRK instruction . R_CUR_BRK ELSE L_CUR_BRK instruction R_CUR_BRK [ R_CUR_BRK EOF ]
+## Transitions:
+-- On R_CUR_BRK shift to state 101
+## Reductions:
+
+State 101:
+## Known stack suffix:
+## IF L_PAR expression R_PAR THEN L_CUR_BRK instruction R_CUR_BRK
+## LR(1) items:
+instruction -> IF L_PAR expression R_PAR THEN L_CUR_BRK instruction R_CUR_BRK . ELSE L_CUR_BRK instruction R_CUR_BRK [ R_CUR_BRK EOF ]
+## Transitions:
+-- On ELSE shift to state 102
+## Reductions:
+
+State 102:
+## Known stack suffix:
+## IF L_PAR expression R_PAR THEN L_CUR_BRK instruction R_CUR_BRK ELSE
+## LR(1) items:
+instruction -> IF L_PAR expression R_PAR THEN L_CUR_BRK instruction R_CUR_BRK ELSE . L_CUR_BRK instruction R_CUR_BRK [ R_CUR_BRK EOF ]
+## Transitions:
+-- On L_CUR_BRK shift to state 103
+## Reductions:
+
+State 103:
+## Known stack suffix:
+## IF L_PAR expression R_PAR THEN L_CUR_BRK instruction R_CUR_BRK ELSE L_CUR_BRK
+## LR(1) items:
+instruction -> IF L_PAR expression R_PAR THEN L_CUR_BRK instruction R_CUR_BRK ELSE L_CUR_BRK . instruction R_CUR_BRK [ R_CUR_BRK EOF ]
+## Transitions:
+-- On WHILE shift to state 1
+-- On SEMICOLON shift to state 60
+-- On RETURN shift to state 61
+-- On PRINT shift to state 63
+-- On NULL_TYP shift to state 66
+-- On INT_TYP shift to state 71
+-- On IF shift to state 76
+-- On ID shift to state 82
+-- On FLOAT_TYP shift to state 90
+-- On BOOL_TYP shift to state 95
+-- On instruction shift to state 104
+## Reductions:
+
+State 104:
+## Known stack suffix:
+## IF L_PAR expression R_PAR THEN L_CUR_BRK instruction R_CUR_BRK ELSE L_CUR_BRK instruction
+## LR(1) items:
+instruction -> IF L_PAR expression R_PAR THEN L_CUR_BRK instruction R_CUR_BRK ELSE L_CUR_BRK instruction . R_CUR_BRK [ R_CUR_BRK EOF ]
+## Transitions:
+-- On R_CUR_BRK shift to state 105
+## Reductions:
+
+State 105:
+## Known stack suffix:
+## IF L_PAR expression R_PAR THEN L_CUR_BRK instruction R_CUR_BRK ELSE L_CUR_BRK instruction R_CUR_BRK
+## LR(1) items:
+instruction -> IF L_PAR expression R_PAR THEN L_CUR_BRK instruction R_CUR_BRK ELSE L_CUR_BRK instruction R_CUR_BRK . [ R_CUR_BRK EOF ]
+## Transitions:
+## Reductions:
+-- On R_CUR_BRK EOF
+--   reduce production instruction -> IF L_PAR expression R_PAR THEN L_CUR_BRK instruction R_CUR_BRK ELSE L_CUR_BRK instruction R_CUR_BRK
+
+State 106:
+## Known stack suffix:
+## WHILE expression L_CUR_BRK instruction
+## LR(1) items:
+instruction -> WHILE expression L_CUR_BRK instruction . R_CUR_BRK [ R_CUR_BRK EOF ]
+## Transitions:
+-- On R_CUR_BRK shift to state 107
+## Reductions:
+
+State 107:
+## Known stack suffix:
+## WHILE expression L_CUR_BRK instruction R_CUR_BRK
+## LR(1) items:
+instruction -> WHILE expression L_CUR_BRK instruction R_CUR_BRK . [ R_CUR_BRK EOF ]
+## Transitions:
+## Reductions:
+-- On R_CUR_BRK EOF
+--   reduce production instruction -> WHILE expression L_CUR_BRK instruction R_CUR_BRK
+
+State 108:
+## Known stack suffix:
+## ID
+## LR(1) items:
+expression -> ID . L_SQ_BRK expression R_SQ_BRK [ SUB OR NEQ MUL MOD LT LEQ GT GEQ EQ EOF DIV AND ADD ]
+expression -> ID . DOT SIZE [ SUB OR NEQ MUL MOD LT LEQ GT GEQ EQ EOF DIV AND ADD ]
+expression -> ID . L_PAR expression COMMA expression R_PAR [ SUB OR NEQ MUL MOD LT LEQ GT GEQ EQ EOF DIV AND ADD ]
+instruction -> ID . ASSIGN expression [ EOF ]
+instruction -> ID . L_SQ_BRK expression R_SQ_BRK ASSIGN expression [ EOF ]
+## Transitions:
+-- On L_SQ_BRK shift to state 109
+-- On L_PAR shift to state 47
+-- On DOT shift to state 52
+-- On ASSIGN shift to state 88
+## Reductions:
+
+State 109:
+## Known stack suffix:
+## ID L_SQ_BRK
+## LR(1) items:
+expression -> ID L_SQ_BRK . expression R_SQ_BRK [ SUB OR NEQ MUL MOD LT LEQ GT GEQ EQ EOF DIV AND ADD ]
+instruction -> ID L_SQ_BRK . expression R_SQ_BRK ASSIGN expression [ EOF ]
+## Transitions:
+-- On VAR shift to state 2
+-- On SUB shift to state 11
+-- On NOT shift to state 12
+-- On L_PAR shift to state 13
+-- On INT shift to state 14
+-- On ID shift to state 15
+-- On FLOAT shift to state 17
+-- On BOOL shift to state 18
+-- On expression shift to state 110
+## Reductions:
+
+State 110:
+## Known stack suffix:
+## ID L_SQ_BRK expression
+## LR(1) items:
+expression -> expression . ADD expression [ SUB R_SQ_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . SUB expression [ SUB R_SQ_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . MUL expression [ SUB R_SQ_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . DIV expression [ SUB R_SQ_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . MOD expression [ SUB R_SQ_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . AND expression [ SUB R_SQ_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . OR expression [ SUB R_SQ_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . EQ expression [ SUB R_SQ_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . NEQ expression [ SUB R_SQ_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . LT expression [ SUB R_SQ_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . GT expression [ SUB R_SQ_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . LEQ expression [ SUB R_SQ_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> expression . GEQ expression [ SUB R_SQ_BRK OR NEQ MUL MOD LT LEQ GT GEQ EQ DIV AND ADD ]
+expression -> ID L_SQ_BRK expression . R_SQ_BRK [ SUB OR NEQ MUL MOD LT LEQ GT GEQ EQ EOF DIV AND ADD ]
+instruction -> ID L_SQ_BRK expression . R_SQ_BRK ASSIGN expression [ EOF ]
+## Transitions:
+-- On SUB shift to state 20
+-- On R_SQ_BRK shift to state 111
+-- On OR shift to state 43
+-- On NEQ shift to state 22
+-- On MUL shift to state 24
+-- On MOD shift to state 26
+-- On LT shift to state 32
+-- On LEQ shift to state 34
+-- On GT shift to state 36
+-- On GEQ shift to state 38
+-- On EQ shift to state 40
+-- On DIV shift to state 28
+-- On AND shift to state 30
+-- On ADD shift to state 45
+## Reductions:
+
+State 111:
+## Known stack suffix:
+## ID L_SQ_BRK expression R_SQ_BRK
+## LR(1) items:
+expression -> ID L_SQ_BRK expression R_SQ_BRK . [ SUB OR NEQ MUL MOD LT LEQ GT GEQ EQ EOF DIV AND ADD ]
+instruction -> ID L_SQ_BRK expression R_SQ_BRK . ASSIGN expression [ EOF ]
+## Transitions:
+-- On ASSIGN shift to state 86
+## Reductions:
+-- On SUB OR NEQ MUL MOD LT LEQ GT GEQ EQ EOF DIV AND ADD
+--   reduce production expression -> ID L_SQ_BRK expression R_SQ_BRK
+
+State 112:
+## Known stack suffix:
+## main
+## LR(1) items:
+main' -> main . [ # ]
+## Transitions:
+## Reductions:
+-- On #
+--   accept main
+
+State 113:
+## Known stack suffix:
+## instruction
+## LR(1) items:
+main -> instruction . EOF [ # ]
+## Transitions:
+-- On EOF shift to state 114
+## Reductions:
+
+State 114:
+## Known stack suffix:
+## instruction EOF
+## LR(1) items:
+main -> instruction EOF . [ # ]
+## Transitions:
+## Reductions:
+-- On #
+--   reduce production main -> instruction EOF
+
+State 115:
+## Known stack suffix:
+## function_list
+## LR(1) items:
+main -> function_list . EOF [ # ]
+## Transitions:
+-- On EOF shift to state 116
+## Reductions:
+
+State 116:
+## Known stack suffix:
+## function_list EOF
+## LR(1) items:
+main -> function_list EOF . [ # ]
+## Transitions:
+## Reductions:
+-- On #
+--   reduce production main -> function_list EOF
+
+State 117:
+## Known stack suffix:
+## expression
+## LR(1) items:
+expression -> expression . ADD expression [ SUB OR NEQ MUL MOD LT LEQ GT GEQ EQ EOF DIV AND ADD ]
+expression -> expression . SUB expression [ SUB OR NEQ MUL MOD LT LEQ GT GEQ EQ EOF DIV AND ADD ]
+expression -> expression . MUL expression [ SUB OR NEQ MUL MOD LT LEQ GT GEQ EQ EOF DIV AND ADD ]
+expression -> expression . DIV expression [ SUB OR NEQ MUL MOD LT LEQ GT GEQ EQ EOF DIV AND ADD ]
+expression -> expression . MOD expression [ SUB OR NEQ MUL MOD LT LEQ GT GEQ EQ EOF DIV AND ADD ]
+expression -> expression . AND expression [ SUB OR NEQ MUL MOD LT LEQ GT GEQ EQ EOF DIV AND ADD ]
+expression -> expression . OR expression [ SUB OR NEQ MUL MOD LT LEQ GT GEQ EQ EOF DIV AND ADD ]
+expression -> expression . EQ expression [ SUB OR NEQ MUL MOD LT LEQ GT GEQ EQ EOF DIV AND ADD ]
+expression -> expression . NEQ expression [ SUB OR NEQ MUL MOD LT LEQ GT GEQ EQ EOF DIV AND ADD ]
+expression -> expression . LT expression [ SUB OR NEQ MUL MOD LT LEQ GT GEQ EQ EOF DIV AND ADD ]
+expression -> expression . GT expression [ SUB OR NEQ MUL MOD LT LEQ GT GEQ EQ EOF DIV AND ADD ]
+expression -> expression . LEQ expression [ SUB OR NEQ MUL MOD LT LEQ GT GEQ EQ EOF DIV AND ADD ]
+expression -> expression . GEQ expression [ SUB OR NEQ MUL MOD LT LEQ GT GEQ EQ EOF DIV AND ADD ]
+main -> expression . EOF [ # ]
+## Transitions:
+-- On SUB shift to state 20
+-- On OR shift to state 43
+-- On NEQ shift to state 22
+-- On MUL shift to state 24
+-- On MOD shift to state 26
+-- On LT shift to state 32
+-- On LEQ shift to state 34
+-- On GT shift to state 36
+-- On GEQ shift to state 38
+-- On EQ shift to state 40
+-- On EOF shift to state 118
+-- On DIV shift to state 28
+-- On AND shift to state 30
+-- On ADD shift to state 45
+## Reductions:
+
+State 118:
+## Known stack suffix:
+## expression EOF
+## LR(1) items:
+main -> expression EOF . [ # ]
+## Transitions:
+## Reductions:
+-- On #
+--   reduce production main -> expression EOF
+

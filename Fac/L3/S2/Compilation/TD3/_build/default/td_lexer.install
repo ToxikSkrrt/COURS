@@ -1,0 +1,11 @@
+lib: [
+  "_build/install/default/lib/td_lexer/META"
+  "_build/install/default/lib/td_lexer/dune-package"
+  "_build/install/default/lib/td_lexer/opam"
+]
+bin: [
+  "_build/install/default/bin/calculette_lexer"
+  "_build/install/default/bin/hand_lexer"
+  "_build/install/default/bin/serialiser"
+  "_build/install/default/bin/simple_lexer"
+]

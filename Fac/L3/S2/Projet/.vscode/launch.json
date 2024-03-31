@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-BackendApplication<pdl-backend>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "pdl.backend.BackendApplication",
+            "projectName": "pdl-backend",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

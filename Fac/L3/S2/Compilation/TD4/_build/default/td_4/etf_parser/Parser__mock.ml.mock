@@ -1,0 +1,190 @@
+
+type token = 
+  | SUB
+  | RPAR
+  | REC
+  | MUL
+  | LPAR
+  | INT of (
+# 4 "td_4/etf_parser/Parser.mly"
+       (int)
+# 12 "td_4/etf_parser/Parser__mock.ml.mock"
+)
+  | EOF
+  | DIV
+  | ADD
+
+let menhir_begin_marker =
+  0
+
+and (xv_term, xv_main, xv_factor, xv_expr) =
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 25 "td_4/etf_parser/Parser.mly"
+ _1
+# 25 "td_4/etf_parser/Parser__mock.ml.mock"
+   : 'tv_factor) (_startpos__1_ : Lexing.position) (_endpos__1_ : Lexing.position) (_startofs__1_ : int) (_endofs__1_ : int) (_loc__1_ : Lexing.position * Lexing.position) : 'tv_term ->
+    
+# 25 "td_4/etf_parser/Parser.mly"
+         ()
+# 30 "td_4/etf_parser/Parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 24 "td_4/etf_parser/Parser.mly"
+      _2
+# 35 "td_4/etf_parser/Parser__mock.ml.mock"
+   : unit) (_startpos__2_ : Lexing.position) (_endpos__2_ : Lexing.position) (_startofs__2_ : int) (_endofs__2_ : int) (_loc__2_ : Lexing.position * Lexing.position) (
+# 24 "td_4/etf_parser/Parser.mly"
+ _1
+# 39 "td_4/etf_parser/Parser__mock.ml.mock"
+   : 'tv_term) (_startpos__1_ : Lexing.position) (_endpos__1_ : Lexing.position) (_startofs__1_ : int) (_endofs__1_ : int) (_loc__1_ : Lexing.position * Lexing.position) : 'tv_term ->
+    
+# 24 "td_4/etf_parser/Parser.mly"
+           ()
+# 44 "td_4/etf_parser/Parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 23 "td_4/etf_parser/Parser.mly"
+          _3
+# 49 "td_4/etf_parser/Parser__mock.ml.mock"
+   : 'tv_factor) (_startpos__3_ : Lexing.position) (_endpos__3_ : Lexing.position) (_startofs__3_ : int) (_endofs__3_ : int) (_loc__3_ : Lexing.position * Lexing.position) (
+# 23 "td_4/etf_parser/Parser.mly"
+      _2
+# 53 "td_4/etf_parser/Parser__mock.ml.mock"
+   : unit) (_startpos__2_ : Lexing.position) (_endpos__2_ : Lexing.position) (_startofs__2_ : int) (_endofs__2_ : int) (_loc__2_ : Lexing.position * Lexing.position) (
+# 23 "td_4/etf_parser/Parser.mly"
+ _1
+# 57 "td_4/etf_parser/Parser__mock.ml.mock"
+   : 'tv_term) (_startpos__1_ : Lexing.position) (_endpos__1_ : Lexing.position) (_startofs__1_ : int) (_endofs__1_ : int) (_loc__1_ : Lexing.position * Lexing.position) : 'tv_term ->
+    
+# 23 "td_4/etf_parser/Parser.mly"
+                  ()
+# 62 "td_4/etf_parser/Parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 22 "td_4/etf_parser/Parser.mly"
+          _3
+# 67 "td_4/etf_parser/Parser__mock.ml.mock"
+   : 'tv_factor) (_startpos__3_ : Lexing.position) (_endpos__3_ : Lexing.position) (_startofs__3_ : int) (_endofs__3_ : int) (_loc__3_ : Lexing.position * Lexing.position) (
+# 22 "td_4/etf_parser/Parser.mly"
+      _2
+# 71 "td_4/etf_parser/Parser__mock.ml.mock"
+   : unit) (_startpos__2_ : Lexing.position) (_endpos__2_ : Lexing.position) (_startofs__2_ : int) (_endofs__2_ : int) (_loc__2_ : Lexing.position * Lexing.position) (
+# 22 "td_4/etf_parser/Parser.mly"
+ _1
+# 75 "td_4/etf_parser/Parser__mock.ml.mock"
+   : 'tv_term) (_startpos__1_ : Lexing.position) (_endpos__1_ : Lexing.position) (_startofs__1_ : int) (_endofs__1_ : int) (_loc__1_ : Lexing.position * Lexing.position) : 'tv_term ->
+    
+# 22 "td_4/etf_parser/Parser.mly"
+                  ()
+# 80 "td_4/etf_parser/Parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 14 "td_4/etf_parser/Parser.mly"
+      _2
+# 85 "td_4/etf_parser/Parser__mock.ml.mock"
+   : unit) (_startpos__2_ : Lexing.position) (_endpos__2_ : Lexing.position) (_startofs__2_ : int) (_endofs__2_ : int) (_loc__2_ : Lexing.position * Lexing.position) (
+# 14 "td_4/etf_parser/Parser.mly"
+ _1
+# 89 "td_4/etf_parser/Parser__mock.ml.mock"
+   : 'tv_expr) (_startpos__1_ : Lexing.position) (_endpos__1_ : Lexing.position) (_startofs__1_ : int) (_endofs__1_ : int) (_loc__1_ : Lexing.position * Lexing.position) : (
+# 7 "td_4/etf_parser/Parser.mly"
+       (unit)
+# 93 "td_4/etf_parser/Parser__mock.ml.mock"
+  ) ->
+    (
+# 14 "td_4/etf_parser/Parser.mly"
+           ()
+# 98 "td_4/etf_parser/Parser__mock.ml.mock"
+     : 'tv_main) in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 12 "td_4/etf_parser/Parser.mly"
+ _1
+# 103 "td_4/etf_parser/Parser__mock.ml.mock"
+   : unit) (_startpos__1_ : Lexing.position) (_endpos__1_ : Lexing.position) (_startofs__1_ : int) (_endofs__1_ : int) (_loc__1_ : Lexing.position * Lexing.position) : (
+# 7 "td_4/etf_parser/Parser.mly"
+       (unit)
+# 107 "td_4/etf_parser/Parser__mock.ml.mock"
+  ) ->
+    (
+# 12 "td_4/etf_parser/Parser.mly"
+              ()
+# 112 "td_4/etf_parser/Parser__mock.ml.mock"
+     : 'tv_main) in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 29 "td_4/etf_parser/Parser.mly"
+ _1
+# 117 "td_4/etf_parser/Parser__mock.ml.mock"
+   : (
+# 4 "td_4/etf_parser/Parser.mly"
+       (int)
+# 121 "td_4/etf_parser/Parser__mock.ml.mock"
+  )) (_startpos__1_ : Lexing.position) (_endpos__1_ : Lexing.position) (_startofs__1_ : int) (_endofs__1_ : int) (_loc__1_ : Lexing.position * Lexing.position) : 'tv_factor ->
+    
+# 29 "td_4/etf_parser/Parser.mly"
+      ()
+# 126 "td_4/etf_parser/Parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 28 "td_4/etf_parser/Parser.mly"
+           _3
+# 131 "td_4/etf_parser/Parser__mock.ml.mock"
+   : unit) (_startpos__3_ : Lexing.position) (_endpos__3_ : Lexing.position) (_startofs__3_ : int) (_endofs__3_ : int) (_loc__3_ : Lexing.position * Lexing.position) (
+# 28 "td_4/etf_parser/Parser.mly"
+      _2
+# 135 "td_4/etf_parser/Parser__mock.ml.mock"
+   : 'tv_expr) (_startpos__2_ : Lexing.position) (_endpos__2_ : Lexing.position) (_startofs__2_ : int) (_endofs__2_ : int) (_loc__2_ : Lexing.position * Lexing.position) (
+# 28 "td_4/etf_parser/Parser.mly"
+ _1
+# 139 "td_4/etf_parser/Parser__mock.ml.mock"
+   : unit) (_startpos__1_ : Lexing.position) (_endpos__1_ : Lexing.position) (_startofs__1_ : int) (_endofs__1_ : int) (_loc__1_ : Lexing.position * Lexing.position) : 'tv_factor ->
+    
+# 28 "td_4/etf_parser/Parser.mly"
+                 ()
+# 144 "td_4/etf_parser/Parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 19 "td_4/etf_parser/Parser.mly"
+ _1
+# 149 "td_4/etf_parser/Parser__mock.ml.mock"
+   : 'tv_term) (_startpos__1_ : Lexing.position) (_endpos__1_ : Lexing.position) (_startofs__1_ : int) (_endofs__1_ : int) (_loc__1_ : Lexing.position * Lexing.position) : 'tv_expr ->
+    
+# 19 "td_4/etf_parser/Parser.mly"
+       ()
+# 154 "td_4/etf_parser/Parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 18 "td_4/etf_parser/Parser.mly"
+     _2
+# 159 "td_4/etf_parser/Parser__mock.ml.mock"
+   : 'tv_term) (_startpos__2_ : Lexing.position) (_endpos__2_ : Lexing.position) (_startofs__2_ : int) (_endofs__2_ : int) (_loc__2_ : Lexing.position * Lexing.position) (
+# 18 "td_4/etf_parser/Parser.mly"
+ _1
+# 163 "td_4/etf_parser/Parser__mock.ml.mock"
+   : unit) (_startpos__1_ : Lexing.position) (_endpos__1_ : Lexing.position) (_startofs__1_ : int) (_endofs__1_ : int) (_loc__1_ : Lexing.position * Lexing.position) : 'tv_expr ->
+    
+# 18 "td_4/etf_parser/Parser.mly"
+           ()
+# 168 "td_4/etf_parser/Parser__mock.ml.mock"
+     in
+  let _ = fun (_startpos : Lexing.position) (_endpos : Lexing.position) (_endpos__0_ : Lexing.position) (_symbolstartpos : Lexing.position) (_startofs : int) (_endofs : int) (_endofs__0_ : int) (_symbolstartofs : int) (_sloc : Lexing.position * Lexing.position) (_loc : Lexing.position * Lexing.position) (
+# 17 "td_4/etf_parser/Parser.mly"
+          _3
+# 173 "td_4/etf_parser/Parser__mock.ml.mock"
+   : 'tv_term) (_startpos__3_ : Lexing.position) (_endpos__3_ : Lexing.position) (_startofs__3_ : int) (_endofs__3_ : int) (_loc__3_ : Lexing.position * Lexing.position) (
+# 17 "td_4/etf_parser/Parser.mly"
+      _2
+# 177 "td_4/etf_parser/Parser__mock.ml.mock"
+   : unit) (_startpos__2_ : Lexing.position) (_endpos__2_ : Lexing.position) (_startofs__2_ : int) (_endofs__2_ : int) (_loc__2_ : Lexing.position * Lexing.position) (
+# 17 "td_4/etf_parser/Parser.mly"
+ _1
+# 181 "td_4/etf_parser/Parser__mock.ml.mock"
+   : 'tv_expr) (_startpos__1_ : Lexing.position) (_endpos__1_ : Lexing.position) (_startofs__1_ : int) (_endofs__1_ : int) (_loc__1_ : Lexing.position * Lexing.position) : 'tv_expr ->
+    
+# 17 "td_4/etf_parser/Parser.mly"
+                ()
+# 186 "td_4/etf_parser/Parser__mock.ml.mock"
+     in
+  ((let rec diverge() = diverge() in diverge()) : 'tv_term * 'tv_main * 'tv_factor * 'tv_expr)
+
+and menhir_end_marker =
+  0

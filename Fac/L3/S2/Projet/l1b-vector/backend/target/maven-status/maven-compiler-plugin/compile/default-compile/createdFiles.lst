@@ -1,0 +1,10 @@
+pdl/backend/Histogram.class
+pdl/backend/Image.class
+pdl/backend/RedirectConfiguration.class
+pdl/backend/Dao.class
+pdl/backend/ImageDao.class
+pdl/backend/ImageController.class
+pdl/backend/ColorImageProcessing.class
+pdl/backend/BackendApplication.class
+pdl/backend/ImageRepository.class
+pdl/backend/RedirectConfiguration$1.class

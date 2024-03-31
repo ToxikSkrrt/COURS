@@ -1,0 +1,96 @@
+State 0:
+## Known stack suffix:
+##
+## LR(1) items:
+main' -> . main [ # ]
+## Transitions:
+-- On EOF shift to state 1
+-- On B shift to state 2
+-- On A shift to state 3
+-- On s shift to state 4
+-- On main shift to state 8
+## Reductions:
+
+State 1:
+## Known stack suffix:
+## EOF
+## LR(1) items:
+main -> EOF . [ # ]
+## Transitions:
+## Reductions:
+-- On #
+--   reduce production main -> EOF
+
+State 2:
+## Known stack suffix:
+## B
+## LR(1) items:
+s -> B . [ EOF B A ]
+## Transitions:
+## Reductions:
+-- On EOF B A
+--   reduce production s -> B
+
+State 3:
+## Known stack suffix:
+## A
+## LR(1) items:
+s -> A . [ EOF B A ]
+## Transitions:
+## Reductions:
+-- On EOF B A
+--   reduce production s -> A
+
+State 4:
+## Known stack suffix:
+## s
+## LR(1) items:
+main -> s . EOF [ # ]
+s -> s . A [ EOF B A ]
+s -> s . B [ EOF B A ]
+## Transitions:
+-- On EOF shift to state 5
+-- On B shift to state 6
+-- On A shift to state 7
+## Reductions:
+
+State 5:
+## Known stack suffix:
+## s EOF
+## LR(1) items:
+main -> s EOF . [ # ]
+## Transitions:
+## Reductions:
+-- On #
+--   reduce production main -> s EOF
+
+State 6:
+## Known stack suffix:
+## s B
+## LR(1) items:
+s -> s B . [ EOF B A ]
+## Transitions:
+## Reductions:
+-- On EOF B A
+--   reduce production s -> s B
+
+State 7:
+## Known stack suffix:
+## s A
+## LR(1) items:
+s -> s A . [ EOF B A ]
+## Transitions:
+## Reductions:
+-- On EOF B A
+--   reduce production s -> s A
+
+State 8:
+## Known stack suffix:
+## main
+## LR(1) items:
+main' -> main . [ # ]
+## Transitions:
+## Reductions:
+-- On #
+--   accept main
+

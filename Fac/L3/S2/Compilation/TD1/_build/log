@@ -1,0 +1,32 @@
+# dune build
+# OCAMLPARAM: unset
+# Shared cache: disabled
+# Shared cache location: /home/thomas-alexandre/.cache/dune/db
+# Workspace root:
+# /home/thomas-alexandre/Documents/COURS/Fac/L3/S2/compilation/td1/TD1
+# Auto-detected concurrency: 8
+# Dune context:
+#  { name = "default"
+#  ; kind = "default"
+#  ; profile = Dev
+#  ; merlin = true
+#  ; fdo_target_exe = None
+#  ; build_dir = In_build_dir "default"
+#  ; installed_env =
+#      map
+#        { "INSIDE_DUNE" :
+#            "/home/thomas-alexandre/Documents/COURS/Fac/L3/S2/compilation/td1/TD1/_build/default"
+#        ; "OCAML_COLOR" : "always"
+#        ; "OPAMCOLOR" : "always"
+#        }
+#  ; instrument_with = []
+#  }
+$ /usr/bin/ocamlc.opt -config > /tmp/dune_4e8dee_output
+$ (cd _build/default && /usr/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -warn-error -A -g -bin-annot -I td_1/term/.term.objs/byte -no-alias-deps -opaque -o td_1/term/.term.objs/byte/term.cmi -c -intf td_1/term/term.mli)
+$ (cd _build/default && /usr/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -warn-error -A -g -bin-annot -I td_1/bin/.main.eobjs/byte -I td_1/term/.term.objs/byte -no-alias-deps -opaque -o td_1/bin/.main.eobjs/byte/dune__exe__Main.cmo -c -impl td_1/bin/main.ml)
+$ (cd _build/default && /usr/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -warn-error -A -g -bin-annot -I td_1/term/.term.objs/byte -intf-suffix .ml -no-alias-deps -opaque -o td_1/term/.term.objs/byte/term.cmo -c -impl td_1/term/term.ml)
+$ (cd _build/default && /usr/bin/ocamlc.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -warn-error -A -g -a -o td_1/term/term.cma td_1/term/.term.objs/byte/term.cmo)
+$ (cd _build/default && /usr/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -warn-error -A -g -I td_1/term/.term.objs/byte -I td_1/term/.term.objs/native -intf-suffix .ml -no-alias-deps -opaque -o td_1/term/.term.objs/native/term.cmx -c -impl td_1/term/term.ml)
+$ (cd _build/default && /usr/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -warn-error -A -g -a -o td_1/term/term.cmxa td_1/term/.term.objs/native/term.cmx)
+$ (cd _build/default && /usr/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -warn-error -A -g -shared -linkall -I td_1/term -o td_1/term/term.cmxs td_1/term/term.cmxa)
+$ (cd _build/default && /usr/bin/ocamlopt.opt -w @1..3@5..28@30..39@43@46..47@49..57@61..62-40 -strict-sequence -strict-formats -short-paths -keep-locs -warn-error -A -g -o td_1/bin/main.exe td_1/term/term.cmxa td_1/bin/.main.eobjs/native/dune__exe__Main.cmx)

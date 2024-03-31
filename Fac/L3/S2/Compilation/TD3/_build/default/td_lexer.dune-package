@@ -1,0 +1,6 @@
+(lang dune 3.12)
+(name td_lexer)
+(sections (lib .) (bin ../../bin))
+(files
+ (lib (META dune-package opam))
+ (bin (calculette_lexer hand_lexer serialiser simple_lexer)))
