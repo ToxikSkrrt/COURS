@@ -1,14 +1,17 @@
 #include "heap.h"
 #include <stdlib.h>
-#include <stdio.h>
 
-heap heap_create(int k, int (*f)(const void*, const void*)) {
+#define IS_ROOT(i) ((i) == 1)
+#define PARENT(i) ((i) / 2)
+#define LEFT(i) ((i)*2)
+#define RIGHT(i) ((i)*2 + 1)
+
+heap heap_create(int k, int (*f)(const void *, const void *)) {
   heap h = malloc(sizeof(*h));
-  h->n = 0;
-  h->nmax = k;
   h->f = f;
-  h->array = malloc((h->nmax + 1) * sizeof(void*));
-
+  h->nmax = k;
+  h->n = 0;
+  h->array = malloc((k + 1) * (sizeof(void *)));
   return h;
 }
 
@@ -17,89 +20,54 @@ void heap_destroy(heap h) {
   free(h);
 }
 
-bool heap_empty(heap h) {
-  return h->n == 0;
-}
+bool heap_empty(heap h) { return (h->n == 0); }
 
-bool heap_add(heap h, void* object) {
-  bool test = false;
-
+bool heap_add(heap h, void *object) {
   if (h->n == h->nmax) {
-    test = true;
-    h->nmax = 2 ^ h->nmax;
-    h->array = realloc(h->array, h->nmax * sizeof(void*));
+    return true;
   }
-
   h->n++;
   h->array[h->n] = object;
-  int current = h->n;
-  bool swap = true;
-
-  while (swap) {
-    int parent = current / 2 == 0 ? 1 : current / 2;
-
-    if (h->f(h->array[current], h->array[parent]) < 0) {
-      void* tmp = h->array[current];
-      h->array[current] = h->array[parent];
-      h->array[parent] = tmp;
-
-      current /= 2;
-    }
-    else
-      swap = false;
+  int i = h->n;
+  while (1 < i && (0 < h->f(h->array[PARENT(i)], h->array[i]))) {
+    h->array[i] = h->array[PARENT(i)];
+    h->array[PARENT(i)] = object;
+    i = PARENT(i);
   }
-
-  return test;
+  return false;
 }
 
-void* heap_top(heap h) {
-  if (!heap_empty(h))
+void *heap_top(heap h) {
+  if (!heap_empty(h)) {
     return h->array[1];
-
+  }
   return NULL;
 }
 
-void* heap_pop(heap h) {
-  if (heap_empty(h)) {
-    return NULL;
-  }
-
-  void* tmp = h->array[1];
-  void* result = h->array[1];
-  h->array[1] = h->array[h->n];
-  h->array[h->n] = tmp;
-
-
-  int current = 1;
-  bool swap = true;
-
-  h->n--;
-
-  while (swap) {
-    bool existsLeft = current * 2 <= h->n;
-    bool existsRight = current * 2 + 1 <= h->n;
-    int compLeft, compRight;
-    if (existsLeft) compLeft = h->f(h->array[current], h->array[current * 2]);
-    if (existsRight) compRight = h->f(h->array[current], h->array[current * 2 + 1]);
-
-    if ((existsLeft && compLeft > 0 && compLeft > compRight) || (existsLeft && compLeft > 0 && !existsRight)) {
-      tmp = h->array[current];
-      h->array[current] = h->array[current * 2];
-      h->array[current * 2] = tmp;
-
-      current *= 2;
+void *heap_pop(heap h) {
+  if (!heap_empty(h)) {
+    void *top = h->array[1];
+    h->array[1] = h->array[h->n];
+    h->n--;
+    int i = 1;
+    int next = 1;
+    while (RIGHT(i) <= h->n && (0 < h->f(h->array[i], h->array[LEFT(i)]) ||
+                                0 < h->f(h->array[i], h->array[RIGHT(i)]))) {
+      next = LEFT(i);
+      if (0 < h->f(h->array[LEFT(i)], h->array[RIGHT(i)])) {
+        next = RIGHT(i);
+      }
+      void *tmp = h->array[i];
+      h->array[i] = h->array[next];
+      h->array[next] = tmp;
+      i = next;
     }
-    else if ((existsRight && compRight > 0) || (existsRight && compRight > 0 && !existsLeft)) {
-      tmp = h->array[current];
-      h->array[current] = h->array[current * 2 + 1];
-      h->array[current * 2 + 1] = tmp;
-
-      current *= 2;
-      current++;
+    if (LEFT(i) <= h->n && 0 < (h->f(h->array[i], h->array[LEFT(i)]))) {
+      void *tmp = h->array[i];
+      h->array[i] = h->array[LEFT(i)];
+      h->array[LEFT(i)] = tmp;
     }
-    else
-      swap = false;
+    return top;
   }
-
-  return result;
+  return NULL;
 }

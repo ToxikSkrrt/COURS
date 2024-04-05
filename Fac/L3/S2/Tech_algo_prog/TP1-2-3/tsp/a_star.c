@@ -1,4 +1,5 @@
 #include "tools.h"
+#include <stdio.h>
 #include "heap.h" // il faut aussi votre code pour heap.c
 
 
@@ -186,6 +187,7 @@ double A_star(grid G, heuristic h) {
         node v = createNode(vp, c, u, h, G);
 
         heap_add(Q, v);
+
         if (G.mark[vp.x][vp.y] == MK_NULL)
           G.mark[vp.x][vp.y] = MK_FRONT;
       }
