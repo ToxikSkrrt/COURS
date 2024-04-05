@@ -1,10 +1,10 @@
 #include "tools.h"
 
-// #include "tsp_brute_force.h"
+#include "tsp_brute_force.h"
 // #include "tsp_prog_dyn.h"
 // #include "tsp_heuristic.h"
 #include "tsp_mst.h"
-// #include "pppp.h"
+#include "pppp.h"
 
 int main(int argc, char* argv[]) {
   int n = (argc >= 2) ? atoi(argv[1]) : 10;
@@ -38,7 +38,8 @@ int main(int argc, char* argv[]) {
   printf("waiting for a key ... [h] for help");                                \
   fflush(stdout);
 
-#ifdef TSP_BRUTE_FORCE_H
+  // #ifdef TSP_BRUTE_FORCE_H
+#if 0
   printf("*** brute-force ***\n");
   running = true; // force l'exécution
   TopChrono(1);   // départ du chrono 1
@@ -128,7 +129,8 @@ int main(int argc, char* argv[]) {
   printf("\n");
 #endif
 
-#ifdef TSP_MST_H
+  // #ifdef TSP_MST_H
+#if 0
   printf("*** mst ***\n");
   running = true;           // force l'exécution
   TopChrono(1);             // départ du chrono 1
@@ -182,7 +184,7 @@ int main(int argc, char* argv[]) {
       bzero(M.deg, M.n * sizeof(*M.deg)); // vide le graphe
       PPPP(naive);
       PPPP(divide);
-      PPPP(random);
+      // PPPP(random);
       printf("\n");
     }
     drawGraph(V, n, NULL, M);          // dessine le graphe (ensemble d'arêtes)

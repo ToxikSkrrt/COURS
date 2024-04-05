@@ -30,38 +30,45 @@
 //   donne 0 que si (x,y) = (x',y'), et pas seulement si x = x'.
 
 
-couple pppp_naive(point* V,int n){
-  couple result = {-1,-1};
-  ;
-  ;
-  ;
+couple pppp_naive(point* V, int n) {
+  couple result = { 0,1 };
+  int dmin = dist(V[0], V[1]);
+
+  for (int i = 0; i < n - 1; i++) {
+    for (int j = i + 1; j < n; j++) {
+      int tmp_dist = dist(V[i], V[j]);
+      if (tmp_dist < dmin) {
+        dmin = tmp_dist;
+        result = (couple){ i, j };
+      }
+    }
+  }
+
   return result;
 }
 
 
 // Fonction de comparaison des ordonnées pour qsort():
 // renvoie -1 si y(A)<y(B), +1 si y(A)>y(B) et 0 sinon.
-int fcmp_y(const void *A, const void *B) {
-  ;
-  ;
-  ;
-  return 0;
+int fcmp_y(const void* A, const void* B) {
+  const point a = *(point*)A;
+  const point b = *(point*)B;
+  return (a.y < b.y) ? -1 : (a.y > b.y) ? +1 : 0;
 }
 
 
 // Fonction de comparaison pour des abscisses qsort():
 // renvoie -1 si x(A)<x(B), +1 si x(A)>x(B) et 0 sinon.
-int fcmp_x(const void *A, const void *B) {
-  ;
-  ;
-  ;
-  return 0;
+int fcmp_x(const void* A, const void* B) {
+  const point a = *(point*)A;
+  const point b = *(point*)B;
+  return (a.x < b.x) ? -1 : (a.x > b.x) ? +1 : 0;
 }
 
 
 // paire de points pour pppp_rec()
-typedef struct{
-  point P1,P2;
+typedef struct {
+  point P1, P2;
 } ppoints;
 
 
@@ -78,38 +85,39 @@ typedef struct{
 // floor((n+1)/2) = (int)(n+1)/2. Les points ayant des indices
 // commençant à 0, il faut donc prendre le bon indice.
 //
-ppoints pppp_rec(point* Vx,point* Vy,int n){
-  ppoints Q = {Vx[0],Vx[0]};
-  ;
-  ;
-  ;
+ppoints pppp_rec(point* Vx, point* Vy, int n) {
+  // ALGO DU COURS !!! PAS CELUI DU TD
+  ppoints Q = { Vx[0],Vx[1] };
+
+  int dmin = dist(Vx[0], Vx[1]);
+
   return Q;
 }
 
 
-couple pppp_divide(point* V,int n){
+couple pppp_divide(point* V, int n) {
 
   // Vx[] = V[] trié selon x
-  point *Vx = malloc(n*sizeof(*Vx));
-  memcpy(Vx,V,n*sizeof(*V));
-  qsort(Vx,n,sizeof(point),fcmp_x);
+  point* Vx = malloc(n * sizeof(*Vx));
+  memcpy(Vx, V, n * sizeof(*V));
+  qsort(Vx, n, sizeof(point), fcmp_x);
 
   // Vy[] = V[] trié selon y
-  point *Vy = malloc(n*sizeof(*Vy));
-  memcpy(Vy,V,n*sizeof(*V));
-  qsort(Vy,n,sizeof(point),fcmp_y);
+  point* Vy = malloc(n * sizeof(*Vy));
+  memcpy(Vy, V, n * sizeof(*V));
+  qsort(Vy, n, sizeof(point), fcmp_y);
 
   // Q = {P1,P2} = paire de points les plus proches
-  ppoints Q = pppp_rec(Vx,Vy,n);
+  ppoints Q = pppp_rec(Vx, Vy, n);
   free(Vx);
   free(Vy);
 
   // cherche dans V[] les indices des deux points de Q
-  couple result = {-1,-1};
-  for(int i=0; i<n; i++){
-    if( Q.P1.x == V[i].x && Q.P1.y == V[i].y ) result.i = i;
-    if( Q.P2.x == V[i].x && Q.P2.y == V[i].y ) result.j = i;
+  couple result = { -1,-1 };
+  for (int i = 0; i < n; i++) {
+    if (Q.P1.x == V[i].x && Q.P1.y == V[i].y) result.i = i;
+    if (Q.P2.x == V[i].x && Q.P2.y == V[i].y) result.j = i;
   }
-  
+
   return result;
 }
