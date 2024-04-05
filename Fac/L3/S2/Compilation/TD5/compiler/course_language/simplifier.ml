@@ -82,44 +82,54 @@ let rec simplify_expr expr =
       (match s with
       | Cst_b (v, _) -> Cst_b (not (v), annotation)
       | _ -> failwith "type error"))
-  | Array_val (_, _,_) -> expr
-  | Func (name, args,annotation) -> expr
-  | Cst_i (_,_) -> expr
-  | Cst_f (_,_) -> expr
-  | Cst_b (_,_) -> expr
-  | Var (_,_) -> expr
-  | Size_tab (_,_) -> expr
-    
-
-  
-(*to modify*)
-(*match expr with
-  | Unop (op, e,annotation) -> expr
-  | Binop (op, e1, e2,annotation) -> expr
-  | Array_val (tab, e,annotation) -> expr
-  | Func (name, args,annotation) -> expr
+  | Array_val (tab, e,annotation) -> Array_val (tab, simplify_expr e, annotation)
+  | Func (name, args,annotation) ->
+    (let rec aux l acc =
+      match l with
+      | [] -> Func (name, List.rev acc, annotation)
+      | h :: t -> aux t ((simplify_expr h) :: acc)
+    in aux args [])
   | Cst_i (i,annotation) -> expr
   | Cst_f (f,annotation) -> expr
   | Cst_b (b,annotation) -> expr
   | Var (s,annotation) -> expr
-  | Size_tab (s,annotation) -> expr*)
-
+  | Size_tab (s,annotation) -> expr)
+    
+  
 let rec simplify_instruction instruction =
-  ignore simplify_instruction;
-  instruction
-(*to modify*)
-(*match instruction with
-  | Affect (name, expr,annotation) -> instruction
-  | Block (l,annotation) -> instruction
-  | IfThenElse (test, i_then, i_else,annotation) -> instruction
-  | While (test, body,annotation) -> instruction
-  | Affect_array (name, pos, value,annotation) -> instruction
-  | Array_decl (typ, name, size,annotation) -> instruction
-  | Proc (name, args,annotation) -> instruction
-  | Return (o,annotation) -> instruction
+  (match instruction with
+  | Affect (name, expr,annotation) -> Affect (name, simplify_expr expr, annotation)
+  | Block (l,annotation) ->
+    (let rec aux l acc =
+      match l with
+      | [] -> Block (List.rev acc, annotation)
+      | h :: t -> aux t ((simplify_instruction h) :: acc)
+    in aux l [])
+  | IfThenElse (test, i_then, i_else,annotation) ->
+    (match test with
+    | Cst_b (true, _) -> i_then
+    | Cst_b (false, _) -> i_else
+    | _ -> instruction)
+  | While (test, body,annotation) ->
+    (match test with
+    | Cst_b (false, _) -> Block ([], annotation)
+    | _ -> instruction) (* uwu *)
+  | Affect_array (name, pos, value,annotation) -> Affect_array (name, simplify_expr pos, simplify_expr value, annotation)
+  | Array_decl (typ, name, size,annotation) -> Array_decl (typ, name, simplify_expr size, annotation)
+  | Proc (name, args,annotation) ->
+    (let rec aux l acc =
+      match l with
+      | [] -> Proc (name, List.rev acc, annotation)
+      | h :: t -> aux t ((simplify_expr h) :: acc)
+    in aux args [])
+  | Return (o,annotation) ->
+    (match o with
+    | Some v -> Return (Some (simplify_expr v), annotation)
+    | None -> Return (None, annotation))
   | Print_str (s,annotation) -> instruction
-  | Print_expr (expr,annotation) -> instruction
-  | Var_decl (typ, name,annotation) -> instruction*)
+  | Print_expr (expr,annotation) -> Print_expr (simplify_expr expr, annotation)
+  | Var_decl (typ, name,annotation) -> instruction)
+
 
 let simplify_func_decl = function
   | Func_decl (typ, name, args, body, annotation) ->
