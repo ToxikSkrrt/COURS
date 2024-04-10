@@ -69,14 +69,33 @@ int number_sign(number* X,
 // Renvoie un nombre représentant la somme X+Y de ceux représentés par X et Y.
 // Le calcul doit être en O(n) où n est la taille du plus grand des deux
 // nombres.
-number* number_addition(number* X __attribute__((unused)),
-  number* Y __attribute__((unused))) {
+number* number_addition(number* X,
+  number* Y) {
   number* Z = number_new(1 + max(number_length(X), number_length(Y)));
-  int length = min(number_length(X), number_length(Y));
-  for (int i = 0; i < length; i++) {
+  bool carry = false;
+  int length = max(number_length(X), number_length(Y));
 
+  for (int i = 0; i < length; i++) {
+    if (number_length(X) < i) {
+      Z->digit[i] = carry ? Y->digit[i] + 1 : Y->digit[i];
+      carry = false;
+    }
+    else if (number_length(Y) < i) {
+      Z->digit[i] = carry ? X->digit[i] + 1 : X->digit[i];
+      carry = false;
+    }
+    else {
+      short sum = carry ? X->digit[i] + Y->digit[i] + 1 : X->digit[i] + Y->digit[i];
+      carry = false;
+      if (sum >= BASE) {
+        carry = true;
+        sum %= BASE;
+      }
+      Z->digit[i] = sum;
+    }
   }
-  return string_to_number("0");
+  if (carry) Z->digit[max(number_length(X), number_length(Y))] = 1;
+  return Z;
 }
 
 // Renvoie un nombre représentant |X-Y|, c'est-à-dire la valeur absolue la
