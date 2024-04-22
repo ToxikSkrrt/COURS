@@ -77,27 +77,89 @@ Section Vehicules.
 
   Lemma Exercice1: ~ ford totoche.
   Proof.
-  Admitted.
+  intro.
+  forall_e Hrn totoche.
+  apply H0.
+  split.
+  - assumption.
+  - forall_e Hford totoche.
+    apply H1.
+    assumption.
+  Qed.
 
   Lemma Exercice2: forall v:vehicule, noir v -> ~(rouge v \/ blanc v).
   Proof.
-  Admitted.
+  intros.
+  intro.
+  destruct H0.
+  - forall_e Hrn v.
+    apply H1.
+    split ; assumption.
+  - forall_e Hnb v.
+    apply H1.
+    split ; assumption.
+  Qed.
 
   Lemma Exercice3: (forall v, velo v-> rouge v) -> (forall w, ford w -> voiture w).
   Proof.
-  Admitted.
+  intros.
+  forall_e Htype w.
+  destruct H1.
+  - assumption.
+  - exfalso.
+    forall_e Hrn w.
+    apply H2.
+    split.
+    + forall_e H w.
+      apply H3.
+      assumption.
+    + forall_e Hford w.
+      apply H3.
+      assumption.
+  Qed.
 
   Lemma Exercice4: ~(totoche=T).
   Proof.
-  Admitted.
+  intro.
+  forall_e Hrn totoche.
+  apply H0.
+  split.
+  - assumption.
+  - rewrite H.
+    forall_e Hford T.
+    apply H1.
+    assumption.
+  Qed.
     
   Lemma Exercice5: (exists v, blanc v /\ voiture v) -> exists v, voiture v /\ ~ford v.
   Proof.
-  Admitted.
+  intro.
+  destruct H.
+  exists x.
+  destruct H.
+  split.
+  - assumption.
+  - intro.
+    forall_e Hnb x.
+    apply H2.
+    split.
+    + forall_e Hford x.
+      apply H3.
+      assumption.
+    + assumption.
+  Qed.
 
   Lemma Exercice6 : forall v,  categorie v essence -> voiture v.
   Proof.
-  Admitted.
+  intros.
+  forall_e Htype v.
+  destruct H0.
+  - assumption.
+  - exfalso.
+    apply Hve.
+    exists v.
+    split ; assumption.
+  Qed.
 
 End Vehicules.
 

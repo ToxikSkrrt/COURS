@@ -63,27 +63,108 @@ Qed.
 
 Lemma Exercice1: connait Alice Diana.
 Proof.
-Admitted.
+specialize Hetud_prof with (c:=Anglais) (x:=Diana) (y:=Alice).
+(* forall_e Hetud_prof Anglais.
+forall_e H Diana.
+forall_e H0 Alice. *)
+apply Hetud_prof.
+- forall_e All_english Diana.
+  assumption.
+- forall_e All_english Alice.
+  apply H ; assumption.
+Qed.
 
 Lemma Exercice2: connait Alice Bob.
 Proof.
-Admitted.
+(* specialize Etud_se_connaissent with (c:=Anglais) (x:=Alice) (y:=Bob). *)
+specialize Etud_se_connaissent with Alice Bob Anglais.
+apply Etud_se_connaissent.
+- forall_e All_english Alice.
+  apply H.
+  assumption.
+- forall_e Huniv Bob.
+  destruct H.
+  + contradiction.
+  + forall_e All_english Bob.
+    apply H0.
+    assumption.
+Qed.
 
 Lemma Exercice3: exists x, professeur x /\ forall y, etudiant y -> connait y x.
 Proof.
-Admitted.
+exists Diana.
+split.
+- specialize enseignant with (c:=Anglais) (x:=Diana).
+  apply enseignant.
+  assumption.
+- intros.
+  specialize Hetud_prof with (c:=Anglais) (x:=Diana) (y:=y).
+  apply Hetud_prof.
+  + assumption.
+  + forall_e All_english y.
+    apply H0.
+    assumption.
+Qed.
 
 Lemma Exercice4: forall x y, professeur x \/ professeur y \/ connait x y.
 Proof.
-Admitted.
+intros.
+forall_e Huniv y.
+forall_e Huniv x.
+forall_e Etud_se_connaissent x.
+forall_e H1 y.
+forall_e H2 Anglais.
+destruct H.
++ right.
+left. assumption.
++ destruct H0.
+left. assumption.
+right. right.
+apply H3.
+-- apply All_english. assumption.
+-- apply All_english. assumption.
+Qed.
 
 Lemma Exercice5: exists x, professeur x /\ etudiant x.
 Proof.
-Admitted.
+exists Alice.
+split.
+- forall_e Hc Alice.
+  apply H.
+  assumption.
+- assumption.
+Qed.
 
 Lemma Exercice6: forall c, ~enseigne Charlie c.
 Proof.
-Admitted.
+intro.
+intro.
+forall_e cours_pas_vide c.
+destruct H0.
+destruct H0 as [e np].
+apply np. 
+forall_e Hc x.
+apply H0.
+forall_e Hetud_prof c.
+specialize H1 with (y:=x)( x:=Charlie).
+apply H1.
+- assumption.
+- assumption.
+(* apply H1; assumption. *)
+Restart.
+intro.
+intro.
+forall_e cours_pas_vide c.
+destruct H0.
+destruct H0.
+apply H1.
+forall_e Hc x.
+apply H2.
+specialize Hetud_prof with c Charlie x.
+apply Hetud_prof.
+- assumption.
+- assumption.
+Qed.
 
 End Universite.
 
